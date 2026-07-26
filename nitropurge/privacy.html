@@ -101,7 +101,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
           <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-unit-lg">
             <div class="max-w-md">
               <h2 class="font-headline-md text-headline-md text-primary mb-unit-xs">Pembersih & optimizer Android tanpa drama.</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant">NitroPurge membersihkan file sampah, memampatkan foto, menghapus duplikat kontak, dan mengunci aplikasi sensitif dengan PIN — semua dari satu dashboard ringan tanpa iklan mengganggu.</p>
+              <p class="font-body-md text-body-md text-on-surface-variant">Nitro Purge ("aplikasi ini") dikembangkan oleh Tri Nofri Andi (A2TH-Dev) ("kami"). Kebijakan Privasi ini menjelaskan bagaimana aplikasi mengakses, menggunakan, dan melindungi data pada perangkat Android kamu.</p>
             </div>
             <div class="flex-shrink-0">
               <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
@@ -112,22 +112,89 @@ tailwind.config={darkMode:"class",theme:{extend:{
         </div>
 
         <div class="space-y-unit-xl leading-[1.625]">
-          <section>
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">01</span> Data yang Dikumpulkan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">GANTI: jelaskan data apa saja yang dikumpulkan aplikasi ini (mis. tidak ada, data lokal saja, izin kamera, dsb).</p>
-          </section>
-          <section>
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">02</span> Bagaimana Data Digunakan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">GANTI: jelaskan tujuan penggunaan data, jika ada.</p>
-          </section>
-          <section>
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">03</span> Berbagi Data ke Pihak Ketiga</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">GANTI: jelaskan apakah data dibagikan ke pihak ketiga (mis. analitik, iklan) dan pihak mana saja.</p>
-          </section>
-          <section>
-            <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">04</span> Izin Aplikasi</h3>
-            <p class="font-body-md text-body-md text-on-surface-variant mb-unit-lg">GANTI: daftar izin Android yang diminta dan alasannya.</p>
-          </section>
+          <h2>Prinsip Utama</h2>
+<p>
+Semua pemrosesan data di Nitro Purge terjadi <strong>secara lokal di perangkat kamu</strong>.
+Kami tidak mengoperasikan server backend, tidak mengunggah file, foto, kontak, atau data
+penggunaan aplikasi kamu ke internet, dan tidak menjual data kamu ke pihak ketiga.
+</p>
+<h2>Izin yang Digunakan &amp; Alasannya</h2>
+<ul>
+  <li>
+    <strong>Akses Semua File (<code>MANAGE_EXTERNAL_STORAGE</code>)</strong> —
+    dipakai untuk memindai dan menghapus file sampah, cache, file besar, file duplikat,
+    foto mirip, video, serta folder sisa aplikasi yang sudah di-uninstall. File hanya
+    diproses di perangkat; tidak ada file yang dikirim keluar perangkat.
+  </li>
+  <li>
+    <strong>Akses Penggunaan Aplikasi (<code>PACKAGE_USAGE_STATS</code>)</strong> —
+    dipakai untuk fitur Screen Time / Usage Insights dan App Manager, agar aplikasi bisa
+    menampilkan durasi pemakaian dan ukuran cache tiap app. Data ini hanya dibaca dan
+    ditampilkan di layar, tidak disimpan di luar perangkat.
+  </li>
+  <li>
+    <strong>Kontak (<code>READ_CONTACTS</code> / <code>WRITE_CONTACTS</code>)</strong> —
+    dipakai khusus untuk fitur Kontak Duplikat, untuk mendeteksi dan (atas persetujuan
+    kamu) menggabungkan entri kontak yang sama. Data kontak tidak pernah meninggalkan
+    perangkat.
+  </li>
+  <li>
+    <strong>Akses Notifikasi (Notification Listener Service)</strong> —
+    dipakai khusus untuk fitur Notification Cleaner, agar kamu bisa membersihkan semua
+    notifikasi aktif dalam satu tap. Aplikasi tidak membaca, menyimpan, atau mengirim isi
+    notifikasi kamu ke pihak manapun.
+  </li>
+  <li>
+    <strong>Biometrik (<code>USE_BIOMETRIC</code>)</strong> —
+    dipakai untuk fitur App Lock / Privacy Guard, agar kamu bisa mengunci aplikasi
+    pilihan dengan sidik jari atau PIN. Data biometrik diproses oleh sistem Android itu
+    sendiri; aplikasi ini tidak pernah menyimpan atau memiliki akses ke data sidik jari
+    kamu.
+  </li>
+  <li>
+    <strong>Notifikasi (<code>POST_NOTIFICATIONS</code>)</strong> —
+    dipakai untuk menampilkan notifikasi terkait pembersihan otomatis terjadwal
+    (Auto Clean).
+  </li>
+</ul>
+<h2>Root Mode (jika tersedia di perangkatmu)</h2>
+<p>
+Fitur Root Mode hanya muncul jika aplikasi mendeteksi perangkat kamu sudah di-root, dan
+sepenuhnya opsional. Fitur ini menjalankan perintah sistem (force-stop, clear cache) atas
+permintaan eksplisit kamu di perangkat kamu sendiri — tidak ada data yang dikirim keluar
+perangkat melalui fitur ini.
+</p>
+<h2>Data yang TIDAK Kami Kumpulkan</h2>
+<ul>
+  <li>Kami tidak mengumpulkan nama, email, atau identitas pribadi kamu.</li>
+  <li>Kami tidak melacak lokasi kamu.</li>
+  <li>Kami tidak membuat profil iklan berdasarkan perilaku kamu di luar aplikasi ini.</li>
+</ul>
+<h2>Iklan</h2>
+<p>
+Versi gratis (Free) Nitro Purge dapat menampilkan iklan melalui
+Google AdMob. SDK iklan pihak
+ketiga ini dapat mengumpulkan pengenal perangkat (advertising ID) sesuai dengan kebijakan
+privasi masing-masing penyedia. Kamu bisa membaca kebijakan privasi penyedia iklan di:
+<a href="https://policies.google.com/technologies/ads">https://policies.google.com/technologies/ads</a>.
+Versi berbayar (Pro) Nitro Purge sama sekali tidak menampilkan iklan dan tidak memiliki
+izin akses internet.
+</p>
+<h2>Keamanan Data</h2>
+<p>
+Karena seluruh pemrosesan dilakukan secara lokal, risiko kebocoran data terbatas pada
+keamanan perangkat Android kamu sendiri. Kami menyarankan mengaktifkan kunci layar dan
+menjaga sistem operasi tetap ter-update.
+</p>
+<h2>Perubahan Kebijakan Ini</h2>
+<p>
+Kebijakan ini dapat diperbarui sewaktu-waktu mengikuti perubahan fitur aplikasi atau
+ketentuan Google Play. Perubahan akan tercermin pada tanggal "Terakhir diperbarui" di atas.
+</p>
+<h2>Kontak</h2>
+<p>
+Pertanyaan seputar privasi bisa dikirim ke: <a href="mailto:a2thdev@gmail.com">a2thdev@gmail.com</a>
+</p>
           <section class="border-t border-outline-variant/10 pt-unit-xl pb-unit-xl text-center">
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-sm">Ada pertanyaan?</h3>
             <p class="font-body-md text-body-md text-on-surface-variant mb-unit-lg max-w-sm mx-auto">Pertanyaan seputar privasi dapat diajukan melalui GitHub Issues repo ini.</p>
