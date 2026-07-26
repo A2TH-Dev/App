@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="id">
+<head>
+{{HEAD}}
+</head>
+<body class="bg-background font-body-md text-on-background">
+{{HEADER}}
+<main class="w-full pt-16 min-h-screen">
+  <div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop py-unit-xl">
+    <div class="flex flex-col w-full">
+
+      <!-- Hero -->
+      <section class="relative w-full py-unit-xl lg:py-32 overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-24 -mt-24 w-96 h-96 bg-primary/5 rounded-full blur-[120px]"></div>
+        <div class="absolute bottom-0 left-0 -ml-24 -mb-24 w-72 h-72 bg-primary/10 rounded-full blur-[100px]"></div>
+        <div class="relative z-10 flex flex-col max-w-3xl fade-in">
+          <div class="flex items-center gap-unit-sm mb-unit-md">
+            <span class="w-12 h-[2px] bg-primary"></span>
+            <span class="font-label-md text-label-md text-primary uppercase tracking-[0.2em]">Open Source Distribution</span>
+          </div>
+          <h1 class="font-headline-xl text-headline-xl text-on-surface mb-unit-lg">
+            {{SITE_HEADLINE_LINE1}}<br/>
+            <span class="text-primary-fixed-dim">{{SITE_HEADLINE_LINE2}}</span>
+          </h1>
+          <p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">{{SITE_TAGLINE}}</p>
+          <div class="flex items-center gap-unit-lg mt-unit-xl">
+            <a href="#library" class="bg-primary text-on-primary font-label-md text-label-md px-unit-xl py-unit-md rounded-lg shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform">Browse Library</a>
+            <div class="flex flex-col">
+              <span class="font-headline-md text-headline-md text-on-surface" id="stat-apps">0</span>
+              <span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant uppercase">Verified APKs</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Grid -->
+      <section class="w-full mt-unit-xl" id="library">
+        <div class="flex items-end justify-between mb-unit-xl">
+          <div class="flex flex-col gap-unit-xs">
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">Recent Releases</h2>
+            <div class="h-1 w-12 bg-surface-container-highest"></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter" data-app-total="{{APP_COUNT}}">
+          {{MODULE_CARDS}}
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="w-full mt-32 mb-16 bg-primary rounded-2xl p-unit-xl relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-on-primary/10 to-transparent"></div>
+        <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-unit-xl">
+          <div class="max-w-xl">
+            <h2 class="font-headline-lg text-headline-lg text-on-primary">Build your own store front.</h2>
+            <p class="font-body-md text-body-md text-on-primary/80 mt-unit-sm">{{SITE_BRAND}} is open-source. Fork the repository, add your APKs, and deploy your own catalog in minutes.</p>
+          </div>
+          <a href="https://github.com/{{GITHUB_USER}}" class="bg-on-primary text-primary font-label-md text-label-md px-unit-xl py-unit-md rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity inline-block text-center">Lihat di GitHub</a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+</main>
+{{FOOTER}}
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const target = {{APP_COUNT}};
+  const display = document.getElementById('stat-apps');
+  let count = 0;
+  const step = Math.max(1, Math.round(target / 20));
+  const interval = setInterval(() => {
+    count = Math.min(target, count + step);
+    display.innerText = count;
+    if (count >= target) clearInterval(interval);
+  }, 60);
+});
+</script>
+</body>
+</html>
