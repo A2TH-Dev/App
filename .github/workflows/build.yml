@@ -1,1 +1,37 @@
+name: Build site
+
+# Jalan otomatis tiap kali apps.json atau template berubah di branch main
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/apps.json"
+      - "templates/**"
+      - "build.js"
+  workflow_dispatch: {}  # tombol "Run workflow" manual di tab Actions
+
+permissions:
+  contents: write  # supaya Action boleh commit balik ke repo
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Jalankan build.js
+        run: node build.js
+
+      - name: Commit hasil generate (jika ada perubahan)
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: auto-build situs dari apps.json [skip ci]"
+          commit_user_name: "apk-bench-bot"
+          commit_user_email: "actions@github.com"
 
