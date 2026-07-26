@@ -1,0 +1,204 @@
+{
+  "site": {
+    "brand": "APK Bench",
+    "headlineLine1": "High-Performance",
+    "headlineLine2": "App Distribution.",
+    "tagline": "Katalog aplikasi Android independen, dibangun untuk kecepatan dan privasi — didistribusikan langsung lewat GitHub Releases.",
+    "githubUser": "username",
+    "footerNote": "Semua aplikasi dibangun dan dirawat langsung oleh satu developer."
+  },
+  "apps": [
+    {
+      "id": "app1",
+      "slug": "nitropurge",
+      "name": "NitroPurge",
+      "tagline": "Pembersih & optimizer Android tanpa drama.",
+      "description": "NitroPurge membersihkan file sampah, memampatkan foto, menghapus duplikat kontak, dan mengunci aplikasi sensitif dengan PIN — semua dari satu dashboard ringan tanpa iklan mengganggu.",
+      "category": "Utilitas & Optimasi",
+      "version": "2.4.0",
+      "minAndroid": "8.0 (Oreo)",
+      "sizeMb": 12,
+      "repo": "username/nitropurge",
+      "releaseTag": "v2.4.0",
+      "apkFile": "NitroPurge-v2.4.0.apk",
+      "accent": "#3DDC97",
+      "features": [
+        "Trash manager & pemampat foto",
+        "Penggabung kontak duplikat",
+        "App lock dengan proteksi brute-force",
+        "Widget & pembersihan otomatis terjadwal"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.nitropurge"
+    },
+    {
+      "id": "app2",
+      "slug": "ember",
+      "name": "Ember",
+      "tagline": "Pemutar musik dengan kehangatan espresso.",
+      "description": "Ember adalah pemutar musik lokal dengan tema amber-terracotta yang hangat, pemutaran latar penuh, playlist, dan library manager — dibangun untuk yang bosan dengan tampilan pemutar musik yang dingin dan generik.",
+      "category": "Musik & Audio",
+      "version": "1.2.0",
+      "minAndroid": "8.0 (Oreo)",
+      "sizeMb": 18,
+      "repo": "username/ember-music",
+      "releaseTag": "v1.2.0",
+      "apkFile": "Ember-v1.2.0.apk",
+      "accent": "#D97757",
+      "features": [
+        "Pemutaran latar via MediaSession",
+        "Mini player & full player screen",
+        "Manajemen playlist & library",
+        "Tema visual Ember yang khas"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.ember"
+    },
+    {
+      "id": "app3",
+      "slug": "petajiwa",
+      "name": "PetaJiwa",
+      "tagline": "Peta kepribadian dan arah hidupmu.",
+      "description": "PetaJiwa membungkus pengalaman web interaktif ke dalam aplikasi ringan, memberi wawasan kepribadian dan refleksi diri langsung dari layar utama tanpa perlu buka browser.",
+      "category": "Gaya Hidup",
+      "version": "1.0.3",
+      "minAndroid": "7.0 (Nougat)",
+      "sizeMb": 8,
+      "repo": "username/petajiwa",
+      "releaseTag": "v1.0.3",
+      "apkFile": "PetaJiwa-v1.0.3.apk",
+      "accent": "#8B6FD9",
+      "features": [
+        "Pengalaman aplikasi penuh dari WebView",
+        "Ringan dan cepat dibuka",
+        "Bekerja offline setelah pemuatan awal"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.petajiwa"
+    },
+    {
+      "id": "app4",
+      "slug": "petajiwa-ultimate",
+      "name": "Peta Jiwa Ultimate",
+      "tagline": "Weton, BaZi, Tarot, dan biorhythm dalam satu genggaman.",
+      "description": "Edisi lengkap PetaJiwa: Weton Jawa, BaZi, Nine Star Ki, Tarot, Tzolkin, natal chart, biorhythm, tes kepribadian OCEAN, jurnal harian, hingga binaural beats — semua jadi satu alat divinasi personal.",
+      "category": "Gaya Hidup",
+      "version": "3.1.0",
+      "minAndroid": "7.0 (Nougat)",
+      "sizeMb": 15,
+      "repo": "username/petajiwa-ultimate",
+      "releaseTag": "v3.1.0",
+      "apkFile": "PetaJiwaUltimate-v3.1.0.apk",
+      "accent": "#C9A227",
+      "features": [
+        "9+ sistem divinasi & numerologi",
+        "Jurnal harian dengan pencatat streak",
+        "Binaural beats bawaan",
+        "Tes kepribadian OCEAN"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.petajiwaultimate"
+    },
+    {
+      "id": "app5",
+      "slug": "app5",
+      "name": "GANTI_NAMA_APP",
+      "tagline": "Ganti dengan tagline singkat satu baris.",
+      "description": "Ganti dengan deskripsi 2-3 kalimat tentang apa yang dilakukan aplikasi ini dan kenapa orang harus memasangnya.",
+      "category": "Kategori",
+      "version": "1.0.0",
+      "minAndroid": "8.0 (Oreo)",
+      "sizeMb": 10,
+      "repo": "username/app5",
+      "releaseTag": "v1.0.0",
+      "apkFile": "app5-v1.0.0.apk",
+      "accent": "#4C8EFF",
+      "features": [
+        "Fitur satu",
+        "Fitur dua",
+        "Fitur tiga"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.app5"
+    },
+    {
+      "id": "app6",
+      "slug": "app6",
+      "name": "GANTI_NAMA_APP",
+      "tagline": "Ganti dengan tagline singkat satu baris.",
+      "description": "Ganti dengan deskripsi 2-3 kalimat tentang apa yang dilakukan aplikasi ini dan kenapa orang harus memasangnya.",
+      "category": "Kategori",
+      "version": "1.0.0",
+      "minAndroid": "8.0 (Oreo)",
+      "sizeMb": 10,
+      "repo": "username/app6",
+      "releaseTag": "v1.0.0",
+      "apkFile": "app6-v1.0.0.apk",
+      "accent": "#FF6B6B",
+      "features": [
+        "Fitur satu",
+        "Fitur dua",
+        "Fitur tiga"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.app6"
+    },
+    {
+      "id": "app7",
+      "slug": "app7",
+      "name": "GANTI_NAMA_APP",
+      "tagline": "Ganti dengan tagline singkat satu baris.",
+      "description": "Ganti dengan deskripsi 2-3 kalimat tentang apa yang dilakukan aplikasi ini dan kenapa orang harus memasangnya.",
+      "category": "Kategori",
+      "version": "1.0.0",
+      "minAndroid": "8.0 (Oreo)",
+      "sizeMb": 10,
+      "repo": "username/app7",
+      "releaseTag": "v1.0.0",
+      "apkFile": "app7-v1.0.0.apk",
+      "accent": "#3DDC97",
+      "features": [
+        "Fitur satu",
+        "Fitur dua",
+        "Fitur tiga"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.app7"
+    },
+    {
+      "id": "app8",
+      "slug": "app8",
+      "name": "GANTI_NAMA_APP",
+      "tagline": "Ganti dengan tagline singkat satu baris.",
+      "description": "Ganti dengan deskripsi 2-3 kalimat tentang apa yang dilakukan aplikasi ini dan kenapa orang harus memasangnya.",
+      "category": "Kategori",
+      "version": "1.0.0",
+      "minAndroid": "8.0 (Oreo)",
+      "sizeMb": 10,
+      "repo": "username/app8",
+      "releaseTag": "v1.0.0",
+      "apkFile": "app8-v1.0.0.apk",
+      "accent": "#D97757",
+      "features": [
+        "Fitur satu",
+        "Fitur dua",
+        "Fitur tiga"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.app8"
+    },
+    {
+      "id": "app9",
+      "slug": "app9",
+      "name": "GANTI_NAMA_APP",
+      "tagline": "Ganti dengan tagline singkat satu baris.",
+      "description": "Ganti dengan deskripsi 2-3 kalimat tentang apa yang dilakukan aplikasi ini dan kenapa orang harus memasangnya.",
+      "category": "Kategori",
+      "version": "1.0.0",
+      "minAndroid": "8.0 (Oreo)",
+      "sizeMb": 10,
+      "repo": "username/app9",
+      "releaseTag": "v1.0.0",
+      "apkFile": "app9-v1.0.0.apk",
+      "accent": "#C9A227",
+      "features": [
+        "Fitur satu",
+        "Fitur dua",
+        "Fitur tiga"
+      ],
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.app9"
+    }
+  ]
+}
