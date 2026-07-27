@@ -55,6 +55,18 @@ set /p commitmsg="Pesan commit: "
 if "%commitmsg%"=="" set commitmsg=Update konten APK Bench
 
 git commit -m "%commitmsg%"
+if errorlevel 1 (
+    echo.
+    echo [ERROR] Commit gagal — lihat pesan error git di atas.
+    echo.
+    echo Penyebab paling umum: Git belum tahu nama/email kamu. Perbaiki dengan:
+    echo   git config --global user.email "email_kamu@gmail.com"
+    echo   git config --global user.name "Nama Kamu"
+    echo Lalu jalankan ulang file ini.
+    echo.
+    pause
+    exit /b 1
+)
 echo.
 
 echo [4/4] Push ke GitHub ...
