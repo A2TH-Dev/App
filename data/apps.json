@@ -99,7 +99,20 @@
         "permissionsNote": "Edisi Pro tidak mendeklarasikan izin internet maupun Advertising ID sama sekali. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app), bukan perintah shell bebas.",
         "contactName": "Tri Nofri Andi (A2TH-Dev)",
         "contactEmail": "a2thdev@gmail.com"
-      }
+      },
+      "icon": "asset/icon.png",
+      "screenshots": [
+        "asset/junk_cleaner.jpg",
+        "asset/file_besar.jpg",
+        "asset/file_duplikat.jpg",
+        "asset/kompress_poto.jpg",
+        "asset/video_besar_&_duplikat.jpg",
+        "asset/storage_analyzer.jpg",
+        "asset/turbo_monitor.jpg",
+        "asset/media_chat_app.jpg",
+        "asset/rapikan_downloads.jpg",
+        "asset/backup_apk.jpg"
+      ]
     },
     {
       "id": "app2",

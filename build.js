@@ -40,14 +40,45 @@ function releaseUrl(app) {
   return `https://github.com/${app.repo}/releases/download/${app.releaseTag}/${app.apkFile}`;
 }
 
-// ---------- privacy policy helpers ----------
-// Field app.privacy di data/apps.json (opsional) dipakai untuk mengisi
-// templates/privacy.template.html. Kalau app belum punya app.privacy,
-// dipakai teks placeholder "GANTI:" supaya jelas belum diisi.
+// ---------- icon & screenshot helpers ----------
+// app.icon / app.screenshots di data/apps.json diisi path RELATIF DARI FOLDER APP,
+// mis. "asset/icon.png" untuk file di App/nitropurge/asset/icon.png.
+// prefix ditambahkan di depan supaya path tetap benar dipakai dari halaman app
+// itu sendiri (prefix '') maupun dari root index.html (prefix '<slug>/').
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
+function iconBlock(app, prefix, sizeClass) {
+  if (!app.icon) return null;
+  return `<img src="${esc(prefix + app.icon)}" alt="${esc(app.name)} icon" class="${sizeClass} rounded-xl object-cover shadow-2xl" />`;
+}
+
+function screenshotGallery(app, prefix) {
+  const shots = app.screenshots;
+  if (!shots || !shots.length) return '';
+  const items = shots
+    .map(
+      (src, i) =>
+        `<img src="${esc(prefix + src)}" alt="${esc(app.name)} screenshot ${i + 1}" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0 snap-center" />`
+    )
+    .join('\n        ');
+  return `<!-- Screenshots -->
+      <div class="mb-32">
+        <div class="flex items-center gap-unit-sm mb-unit-lg">
+          <div class="h-[1px] w-8 bg-primary"></div>
+          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Screenshot</span>
+        </div>
+        <div class="flex gap-unit-md overflow-x-auto pb-unit-md snap-x snap-mandatory" style="scrollbar-width:none;">
+        ${items}
+        </div>
+      </div>`;
+}
+
+// ---------- privacy policy helpers ----------
+// Field app.privacy di data/apps.json (opsional) dipakai untuk mengisi
+// templates/privacy.template.html. Kalau app belum punya app.privacy,
+// dipakai teks placeholder "GANTI:" supaya jelas belum diisi.
 function paragraphs(text) {
   // Terima string biasa (dibungkus <p>) atau array of string (tiap item -> <p>).
   // Boleh mengandung tag inline sederhana seperti <strong>, <em>, <code>, <a>.
@@ -170,6 +201,10 @@ for (const app of data.apps) {
     })
     .join('\n        ');
 
+  const imgPrefix = ''; // gambar app ada di <slug>/asset/..., path di JSON sudah relatif dari situ
+  const initialsDivHero = `<div class="w-24 h-24 rounded-xl flex items-center justify-center text-2xl font-bold shadow-2xl" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
+  const initialsDivPhone = `<div class="w-20 h-20 rounded-3xl flex items-center justify-center text-2xl font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
+
   const commonMap = {
     ...siteMap,
     PAGE_TITLE: `${app.name} — ${data.site.brand}`,
@@ -189,6 +224,9 @@ for (const app of data.apps) {
     APP_DOWNLOAD_ICON: isPlayStore(app) ? 'shop' : 'download',
     FEATURE_CARDS: featureCards,
     BUILD_DATE: buildDate,
+    APP_ICON_HERO: iconBlock(app, imgPrefix, 'w-24 h-24') || initialsDivHero,
+    APP_ICON_PHONE: iconBlock(app, imgPrefix, 'w-full h-full') || initialsDivPhone,
+    SCREENSHOT_GALLERY: screenshotGallery(app, imgPrefix),
     ...buildPrivacySections(app),
   };
 
@@ -211,9 +249,12 @@ for (const app of data.apps) {
 const cards = data.apps
   .map((app) => {
     const initialsStr = app.initials || initials(app.name);
+    const iconHtml =
+      iconBlock(app, `${app.slug}/`, 'w-16 h-16') ||
+      `<div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
     return `<a href="${app.slug}/" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
         <div class="flex justify-between items-start mb-unit-lg">
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>
+          ${iconHtml}
           <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v${app.version}</span>
         </div>
         <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">${app.name}</h3>
