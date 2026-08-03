@@ -57,22 +57,29 @@ function iconBlock(app, prefix, sizeClass) {
 function screenshotGallery(app, prefix) {
   const shots = app.screenshots;
   if (!shots || !shots.length) return '';
-  const items = shots
-    .map(
-      (src, i) =>
-        `<img src="${esc(prefix + src)}" alt="${esc(app.name)} screenshot ${i + 1}" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0 snap-center" />`
-    )
-    .join('\n        ');
+  const renderItem = (src, i) =>
+    `<img src="${esc(prefix + src)}" alt="${esc(app.name)} screenshot ${i + 1}" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />`;
+  // Track digandakan 2x supaya animasi translateX(-50%) loop mulus tanpa jeda.
+  const trackOnce = shots.map(renderItem).join('\n          ');
+  const trackTwice = trackOnce + '\n          ' + trackOnce;
+  const durationSec = Math.max(shots.length * 4, 20);
   return `<!-- Screenshots -->
       <div class="mb-32">
         <div class="flex items-center gap-unit-sm mb-unit-lg">
           <div class="h-[1px] w-8 bg-primary"></div>
           <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Screenshot</span>
         </div>
-        <div class="flex gap-unit-md overflow-x-auto pb-unit-md snap-x snap-mandatory" style="scrollbar-width:none;">
-        ${items}
+        <div class="relative w-full max-w-full overflow-hidden" style="-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);">
+          <div class="flex gap-unit-md screenshot-track" style="width:max-content;animation:screenshot-scroll ${durationSec}s linear infinite;">
+          ${trackTwice}
+          </div>
         </div>
-      </div>`;
+      </div>
+      <style>
+        @keyframes screenshot-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .screenshot-track:hover { animation-play-state: paused; }
+        @media (prefers-reduced-motion: reduce) { .screenshot-track { animation: none !important; } }
+      </style>`;
 }
 
 // Mockup HP di hero: pakai app.heroScreenshot kalau diisi, kalau tidak pakai
