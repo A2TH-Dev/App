@@ -75,6 +75,16 @@ function screenshotGallery(app, prefix) {
       </div>`;
 }
 
+// Mockup HP di hero: pakai app.heroScreenshot kalau diisi, kalau tidak pakai
+// screenshot pertama di app.screenshots, kalau tidak ada sama sekali baru pakai icon.
+function phoneMockupBlock(app, prefix) {
+  const src = app.heroScreenshot || (app.screenshots && app.screenshots[0]);
+  if (src) {
+    return `<img src="${esc(prefix + src)}" alt="${esc(app.name)} preview" class="w-full h-full object-cover" />`;
+  }
+  return iconBlock(app, prefix, 'w-20 h-20');
+}
+
 // ---------- privacy policy helpers ----------
 // Field app.privacy di data/apps.json (opsional) dipakai untuk mengisi
 // templates/privacy.template.html. Kalau app belum punya app.privacy,
@@ -225,7 +235,7 @@ for (const app of data.apps) {
     FEATURE_CARDS: featureCards,
     BUILD_DATE: buildDate,
     APP_ICON_HERO: iconBlock(app, imgPrefix, 'w-24 h-24') || initialsDivHero,
-    APP_ICON_PHONE: iconBlock(app, imgPrefix, 'w-full h-full') || initialsDivPhone,
+    APP_ICON_PHONE: phoneMockupBlock(app, imgPrefix) || initialsDivPhone,
     SCREENSHOT_GALLERY: screenshotGallery(app, imgPrefix),
     ...buildPrivacySections(app),
   };

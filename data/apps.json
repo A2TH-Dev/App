@@ -15,12 +15,12 @@
       "tagline": "Pembersih & optimizer Android tanpa drama.",
       "description": "NitroPurge membersihkan file sampah, mengubah ukuran foto, menghapus duplikat kontak, dan mengunci aplikasi sensitif dengan PIN — semua dari satu dashboard ringan tanpa iklan mengganggu.",
       "category": "Utilitas & Optimasi",
-      "version": "1.0.0",
+      "version": "2.4.0",
       "minAndroid": "8.0 (Oreo)",
       "sizeMb": 12,
       "repo": "A2TH-Dev/nitropurge",
-      "releaseTag": "v1.0.0",
-      "apkFile": "Nitro-Purge_Free_v1.0.0.apk",
+      "releaseTag": "v2.4.0",
+      "apkFile": "NitroPurge-v2.4.0.apk",
       "accent": "#3DDC97",
       "features": [
         "Trash manager & pemampat foto",
@@ -102,6 +102,7 @@
       },
       "icon": "asset/icon.png",
       "screenshots": [
+        "asset/home.jpg",
         "asset/junk_cleaner.jpg",
         "asset/file_besar.jpg",
         "asset/file_duplikat.jpg",
