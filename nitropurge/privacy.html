@@ -93,7 +93,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
           <div class="flex items-center gap-unit-md text-on-surface-variant/60">
             <span class="font-label-sm text-label-sm uppercase tracking-tighter">Nitro Purge</span>
             <span class="w-1 h-1 rounded-full bg-outline"></span>
-            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-07-27</span>
+            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-08-03</span>
           </div>
         </header>
 
@@ -114,19 +114,55 @@ tailwind.config={darkMode:"class",theme:{extend:{
         <div class="space-y-unit-xl leading-[1.625]">
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">01</span> Data yang Dikumpulkan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">GANTI: jelaskan data apa saja yang dikumpulkan aplikasi ini (mis. tidak ada, data lokal saja, izin kamera, dsb).</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Nitro Purge dibangun dengan prinsip <strong>local-first</strong>. Aplikasi ini tidak memiliki server backend, sehingga tidak ada file, foto, kontak, atau data pemakaian yang pernah diunggah ke internet. Data berikut diakses secara lokal di perangkat kamu untuk menjalankan fitur yang kamu pilih:</p>
+            <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
+              <li>File & media (untuk Junk Cleaner, Large File Finder, Duplicate Finder, Photo Compressor, Video Cleaner, App Leftover Finder)</li>
+              <li>Statistik penggunaan aplikasi (untuk Usage Insights / Screen Time dan App Manager)</li>
+              <li>Kontak (khusus fitur Duplicate Contacts)</li>
+              <li>Notifikasi aktif (khusus fitur Notification Cleaner — isi notifikasi tidak dibaca untuk tujuan lain)</li>
+              <li>Data biometrik untuk App Lock ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Nitro Purge sendiri tidak pernah menyimpan data biometrik apapun</li>
+              <li>Advertising ID / Device ID — <strong>khusus edisi Free</strong>, dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan (lihat bagian 03)</li>
+            </ul>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Edisi <strong>Pro</strong> tidak memiliki izin internet sama sekali secara teknis, sehingga tidak ada data yang bisa keluar dari perangkat dalam bentuk apapun — bisa diverifikasi lewat menu "Sertifikat Privasi" di dalam aplikasi.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">02</span> Bagaimana Data Digunakan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">GANTI: jelaskan tujuan penggunaan data, jika ada.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah edisi Free, di mana Advertising ID/Device ID dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan banner, interstitial, dan rewarded — dijelaskan lebih lanjut di bagian 03.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">03</span> Berbagi Data ke Pihak Ketiga</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant">GANTI: jelaskan apakah data dibagikan ke pihak ketiga (mis. analitik, iklan) dan pihak mana saja.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md"><strong>Edisi Pro:</strong> tidak membagikan data apapun ke pihak manapun — aplikasi ini secara teknis tidak memiliki izin internet, sehingga tidak ada koneksi jaringan yang bisa dibuka sama sekali.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md"><strong>Edisi Free:</strong> menggunakan Google Mobile Ads SDK (AdMob) dan Google User Messaging Platform (UMP) untuk menampilkan iklan dan mengelola persetujuan privasi pengguna di Uni Eropa/Inggris (GDPR/UK). Lewat SDK ini, Advertising ID dan Device/other ID dikirim ke Google untuk keperluan penayangan iklan. Kamu bisa meninjau atau mencabut persetujuan ini kapan saja lewat Pengaturan → Preferensi Iklan di dalam aplikasi. Kebijakan privasi Google dapat dibaca di <a class="text-primary hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a> dan kebijakan mitra iklan Google di <a class="text-primary hover:underline" href="https://policies.google.com/technologies/partner-sites">policies.google.com/technologies/partner-sites</a>.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Di luar hal tersebut, tidak ada data lain (file, kontak, statistik pemakaian, dsb.) yang dibagikan ke pihak ketiga manapun oleh Nitro Purge.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">04</span> Izin Aplikasi</h3>
-            <p class="font-body-md text-body-md text-on-surface-variant mb-unit-lg">GANTI: daftar izin Android yang diminta dan alasannya.</p>
+            <div class="overflow-x-auto mb-unit-lg">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-outline-variant/20">
+                    <th class="py-unit-sm pr-unit-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Izin</th>
+                    <th class="py-unit-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Dipakai Untuk</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/10 font-body-sm text-body-sm text-on-surface-variant">
+                  <tr><td class="py-unit-sm pr-unit-md">Semua File / Akses Penyimpanan</td><td class="py-unit-sm">Junk Cleaner, Large File Finder, Duplicate Finder, Similar Photo Finder, Photo Compressor, Video Cleaner, App Leftover Finder</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Akses Penggunaan (Usage Access)</td><td class="py-unit-sm">Usage Insights / Screen Time, App Manager (ukuran cache per app)</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Lihat Semua Aplikasi</td><td class="py-unit-sm">App Manager, App Leftover, App Auto-Start</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Hapus Aplikasi</td><td class="py-unit-sm">Uninstall app langsung dari App Manager</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Kontak</td><td class="py-unit-sm">Fitur Duplicate Contacts (data kontak tidak pernah keluar perangkat)</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Notifikasi</td><td class="py-unit-sm">Notification Cleaner — tidak membaca isi notifikasi untuk tujuan lain</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Abaikan Optimasi Baterai</td><td class="py-unit-sm">Fitur Optimasi Baterai, resmi tanpa root</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Layanan Aksesibilitas (Accessibility Service)</td><td class="py-unit-sm">App Lock / Privacy Guard — hanya mendeteksi <em>app apa</em> yang sedang di depan layar (event pergantian window) untuk memicu layar PIN; <strong>tidak</strong> membaca isi layar app lain (<code>canRetrieveWindowContent</code> dinonaktifkan)</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Biometrik</td><td class="py-unit-sm">App Lock via sidik jari/PIN, lewat <code>BiometricPrompt</code> sistem — data biometrik tidak disimpan aplikasi</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Notification Listener</td><td class="py-unit-sm">Notification Cleaner</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Clipboard</td><td class="py-unit-sm">Clipboard Cleaner — hanya <em>mengosongkan</em> clipboard, tidak pernah membaca atau menyimpan isinya</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Internet & Advertising ID <span class="opacity-60">(khusus edisi Free)</span></td><td class="py-unit-sm">Menampilkan iklan AdMob (banner, interstitial, rewarded)</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Edisi Pro tidak mendeklarasikan izin internet maupun Advertising ID sama sekali. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app), bukan perintah shell bebas.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Kontak: <strong>Tri Nofri Andi (A2TH-Dev)</strong> — <a class="text-primary hover:underline" href="mailto:a2thdev@gmail.com">a2thdev@gmail.com</a></p>
           </section>
           <section class="border-t border-outline-variant/10 pt-unit-xl pb-unit-xl text-center">
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-sm">Ada pertanyaan?</h3>

@@ -40,6 +40,97 @@ function releaseUrl(app) {
   return `https://github.com/${app.repo}/releases/download/${app.releaseTag}/${app.apkFile}`;
 }
 
+// ---------- privacy policy helpers ----------
+// Field app.privacy di data/apps.json (opsional) dipakai untuk mengisi
+// templates/privacy.template.html. Kalau app belum punya app.privacy,
+// dipakai teks placeholder "GANTI:" supaya jelas belum diisi.
+function esc(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function paragraphs(text) {
+  // Terima string biasa (dibungkus <p>) atau array of string (tiap item -> <p>).
+  // Boleh mengandung tag inline sederhana seperti <strong>, <em>, <code>, <a>.
+  const items = Array.isArray(text) ? text : [text];
+  return items
+    .map((t) => `<p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">${t}</p>`)
+    .join('\n            ');
+}
+
+function bulletList(items) {
+  if (!items || !items.length) return '';
+  const lis = items.map((li) => `<li>${li}</li>`).join('\n              ');
+  return `<ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">\n              ${lis}\n            </ul>`;
+}
+
+function permissionsTable(rows) {
+  if (!rows || !rows.length) return '';
+  const trs = rows
+    .map(
+      (r) =>
+        `<tr><td class="py-unit-sm pr-unit-md">${r.name}</td><td class="py-unit-sm">${r.use}</td></tr>`
+    )
+    .join('\n                  ');
+  return `<div class="overflow-x-auto mb-unit-lg">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-outline-variant/20">
+                    <th class="py-unit-sm pr-unit-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Izin</th>
+                    <th class="py-unit-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Dipakai Untuk</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/10 font-body-sm text-body-sm text-on-surface-variant">
+                  ${trs}
+                </tbody>
+              </table>
+            </div>`;
+}
+
+function buildPrivacySections(app) {
+  const p = app.privacy;
+  if (!p) {
+    const fallback = (msg) => paragraphs(msg);
+    return {
+      PRIVACY_DATA_COLLECTED: fallback(
+        'GANTI: jelaskan data apa saja yang dikumpulkan aplikasi ini (mis. tidak ada, data lokal saja, izin kamera, dsb).'
+      ),
+      PRIVACY_DATA_USAGE: fallback('GANTI: jelaskan tujuan penggunaan data, jika ada.'),
+      PRIVACY_DATA_SHARING: fallback(
+        'GANTI: jelaskan apakah data dibagikan ke pihak ketiga (mis. analitik, iklan) dan pihak mana saja.'
+      ),
+      PRIVACY_PERMISSIONS: `<p class="font-body-md text-body-md text-on-surface-variant mb-unit-lg">GANTI: daftar izin Android yang diminta dan alasannya.</p>`,
+      PRIVACY_CONTACT: '',
+    };
+  }
+
+  const dataCollected =
+    paragraphs(p.dataCollectedIntro) +
+    (p.dataCollectedList ? '\n            ' + bulletList(p.dataCollectedList) : '') +
+    (p.dataCollectedNote ? '\n            ' + paragraphs(p.dataCollectedNote) : '');
+
+  const dataSharing = paragraphs(p.dataSharing);
+
+  const permissions =
+    permissionsTable(p.permissions) +
+    (p.permissionsNote
+      ? `\n            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">${p.permissionsNote}</p>`
+      : '');
+
+  const contact = p.contactName
+    ? `<p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Kontak: <strong>${esc(
+        p.contactName
+      )}</strong>${p.contactEmail ? ` — <a class="text-primary hover:underline" href="mailto:${esc(p.contactEmail)}">${esc(p.contactEmail)}</a>` : ''}</p>`
+    : '';
+
+  return {
+    PRIVACY_DATA_COLLECTED: dataCollected,
+    PRIVACY_DATA_USAGE: paragraphs(p.dataUsage),
+    PRIVACY_DATA_SHARING: dataSharing,
+    PRIVACY_PERMISSIONS: permissions,
+    PRIVACY_CONTACT: contact,
+  };
+}
+
 function downloadUrl(app) {
   return app.playStoreUrl ? app.playStoreUrl : releaseUrl(app);
 }
@@ -98,6 +189,7 @@ for (const app of data.apps) {
     APP_DOWNLOAD_ICON: isPlayStore(app) ? 'shop' : 'download',
     FEATURE_CARDS: featureCards,
     BUILD_DATE: buildDate,
+    ...buildPrivacySections(app),
   };
 
   const head = buildHead(commonMap);

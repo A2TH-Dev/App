@@ -28,7 +28,78 @@
         "App lock dengan proteksi brute-force",
         "Widget & pembersihan otomatis terjadwal"
       ],
-      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.nitropurge"
+      "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.nitropurge",
+      "privacy": {
+        "dataCollectedIntro": "Nitro Purge dibangun dengan prinsip <strong>local-first</strong>. Aplikasi ini tidak memiliki server backend, sehingga tidak ada file, foto, kontak, atau data pemakaian yang pernah diunggah ke internet. Data berikut diakses secara lokal di perangkat kamu untuk menjalankan fitur yang kamu pilih:",
+        "dataCollectedList": [
+          "File & media (untuk Junk Cleaner, Large File Finder, Duplicate Finder, Photo Compressor, Video Cleaner, App Leftover Finder)",
+          "Statistik penggunaan aplikasi (untuk Usage Insights / Screen Time dan App Manager)",
+          "Kontak (khusus fitur Duplicate Contacts)",
+          "Notifikasi aktif (khusus fitur Notification Cleaner — isi notifikasi tidak dibaca untuk tujuan lain)",
+          "Data biometrik untuk App Lock ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Nitro Purge sendiri tidak pernah menyimpan data biometrik apapun",
+          "Advertising ID / Device ID — <strong>khusus edisi Free</strong>, dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan (lihat bagian 03)"
+        ],
+        "dataCollectedNote": "Edisi <strong>Pro</strong> tidak memiliki izin internet sama sekali secara teknis, sehingga tidak ada data yang bisa keluar dari perangkat dalam bentuk apapun — bisa diverifikasi lewat menu \"Sertifikat Privasi\" di dalam aplikasi.",
+        "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah edisi Free, di mana Advertising ID/Device ID dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan banner, interstitial, dan rewarded — dijelaskan lebih lanjut di bagian 03.",
+        "dataSharing": [
+          "<strong>Edisi Pro:</strong> tidak membagikan data apapun ke pihak manapun — aplikasi ini secara teknis tidak memiliki izin internet, sehingga tidak ada koneksi jaringan yang bisa dibuka sama sekali.",
+          "<strong>Edisi Free:</strong> menggunakan Google Mobile Ads SDK (AdMob) dan Google User Messaging Platform (UMP) untuk menampilkan iklan dan mengelola persetujuan privasi pengguna di Uni Eropa/Inggris (GDPR/UK). Lewat SDK ini, Advertising ID dan Device/other ID dikirim ke Google untuk keperluan penayangan iklan. Kamu bisa meninjau atau mencabut persetujuan ini kapan saja lewat Pengaturan → Preferensi Iklan di dalam aplikasi. Kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a> dan kebijakan mitra iklan Google di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/technologies/partner-sites\">policies.google.com/technologies/partner-sites</a>.",
+          "Di luar hal tersebut, tidak ada data lain (file, kontak, statistik pemakaian, dsb.) yang dibagikan ke pihak ketiga manapun oleh Nitro Purge."
+        ],
+        "permissions": [
+          {
+            "name": "Semua File / Akses Penyimpanan",
+            "use": "Junk Cleaner, Large File Finder, Duplicate Finder, Similar Photo Finder, Photo Compressor, Video Cleaner, App Leftover Finder"
+          },
+          {
+            "name": "Akses Penggunaan (Usage Access)",
+            "use": "Usage Insights / Screen Time, App Manager (ukuran cache per app)"
+          },
+          {
+            "name": "Lihat Semua Aplikasi",
+            "use": "App Manager, App Leftover, App Auto-Start"
+          },
+          {
+            "name": "Hapus Aplikasi",
+            "use": "Uninstall app langsung dari App Manager"
+          },
+          {
+            "name": "Kontak",
+            "use": "Fitur Duplicate Contacts (data kontak tidak pernah keluar perangkat)"
+          },
+          {
+            "name": "Notifikasi",
+            "use": "Notification Cleaner — tidak membaca isi notifikasi untuk tujuan lain"
+          },
+          {
+            "name": "Abaikan Optimasi Baterai",
+            "use": "Fitur Optimasi Baterai, resmi tanpa root"
+          },
+          {
+            "name": "Layanan Aksesibilitas (Accessibility Service)",
+            "use": "App Lock / Privacy Guard — hanya mendeteksi <em>app apa</em> yang sedang di depan layar (event pergantian window) untuk memicu layar PIN; <strong>tidak</strong> membaca isi layar app lain (<code>canRetrieveWindowContent</code> dinonaktifkan)"
+          },
+          {
+            "name": "Biometrik",
+            "use": "App Lock via sidik jari/PIN, lewat <code>BiometricPrompt</code> sistem — data biometrik tidak disimpan aplikasi"
+          },
+          {
+            "name": "Notification Listener",
+            "use": "Notification Cleaner"
+          },
+          {
+            "name": "Clipboard",
+            "use": "Clipboard Cleaner — hanya <em>mengosongkan</em> clipboard, tidak pernah membaca atau menyimpan isinya"
+          },
+          {
+            "name": "Internet & Advertising ID <span class=\"opacity-60\">(khusus edisi Free)</span>",
+            "use": "Menampilkan iklan AdMob (banner, interstitial, rewarded)"
+          }
+        ],
+        "permissionsNote": "Edisi Pro tidak mendeklarasikan izin internet maupun Advertising ID sama sekali. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app), bukan perintah shell bebas.",
+        "contactName": "Tri Nofri Andi (A2TH-Dev)",
+        "contactEmail": "a2thdev@gmail.com"
+      }
     },
     {
       "id": "app2",
