@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PetaJiwa — APK Bench</title>
+<title>Peta Jiwa — APK Bench</title>
 <meta name="description" content="Peta kepribadian dan arah hidupmu."/>
 <style>
   @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}}
@@ -82,7 +82,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
       <div class="mb-unit-xl">
         <a class="inline-flex items-center gap-unit-sm text-primary hover:text-primary-fixed-dim transition-all duration-300 transform hover:-translate-x-1" href="index.html">
           <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-          <span class="font-label-md text-label-md uppercase tracking-widest">Kembali ke PetaJiwa</span>
+          <span class="font-label-md text-label-md uppercase tracking-widest">Kembali ke Peta Jiwa</span>
         </a>
       </div>
 
@@ -91,7 +91,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
           <div class="absolute -left-8 top-0 w-1 h-12 bg-primary rounded-full hidden md:block"></div>
           <h1 class="font-headline-xl text-headline-xl text-on-surface mb-unit-sm">Kebijakan Privasi</h1>
           <div class="flex items-center gap-unit-md text-on-surface-variant/60">
-            <span class="font-label-sm text-label-sm uppercase tracking-tighter">PetaJiwa</span>
+            <span class="font-label-sm text-label-sm uppercase tracking-tighter">Peta Jiwa</span>
             <span class="w-1 h-1 rounded-full bg-outline"></span>
             <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-08-05</span>
           </div>
@@ -101,7 +101,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
           <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-unit-lg">
             <div class="max-w-md">
               <h2 class="font-headline-md text-headline-md text-primary mb-unit-xs">Peta kepribadian dan arah hidupmu.</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant">PetaJiwa membungkus pengalaman web interaktif ke dalam aplikasi ringan, memberi wawasan kepribadian dan refleksi diri langsung dari layar utama tanpa perlu buka browser.</p>
+              <p class="font-body-md text-body-md text-on-surface-variant">Peta Jiwa adalah alat analisis diri lengkap: natal chart & Human Design dari tanggal-jam-lokasi lahir, tes kepribadian 5 sifat utama, analisis wajah & sidik jari, cek kecocokan dua orang, jurnal harian dengan mood tracker, hingga fokus Pomodoro dengan melodi penenang — semua tersimpan lokal di HP tanpa perlu koneksi internet.</p>
             </div>
             <div class="flex-shrink-0">
               <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
@@ -114,20 +114,45 @@ tailwind.config={darkMode:"class",theme:{extend:{
         <div class="space-y-unit-xl leading-[1.625]">
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">01</span> Data yang Dikumpulkan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">GANTI: jelaskan data apa saja yang dikumpulkan aplikasi ini (mis. tidak ada, data lokal saja, izin kamera, dsb).</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Peta Jiwa dibangun dengan prinsip <strong>local-first</strong>. Aplikasi ini tidak memiliki server backend, sehingga tidak ada data pribadi yang pernah diunggah ke internet. Data berikut diakses untuk menjalankan fitur di dalam aplikasi:</p>
+            <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
+              <li>Data lokasi (perkiraan & presisi) — untuk menghitung <em>natal chart</em> (peta astrologi kelahiran) berdasarkan koordinat tempat lahir atau lokasi kamu saat ini; diproses <strong>hanya di perangkat (on-device)</strong> dan tidak pernah dikirim ke server manapun</li>
+              <li>Nama dan tanggal lahir — untuk fitur analisis numerologi/astrologi, disimpan hanya secara lokal di perangkat</li>
+              <li>Foto wajah (opsional) — untuk fitur analisis tertentu, disimpan hanya secara lokal di perangkat</li>
+              <li>Catatan/entri jurnal pribadi — disimpan hanya secara lokal di perangkat</li>
+              <li>Advertising ID — dipakai oleh Google AdMob untuk menampilkan iklan (interstitial & rewarded video) serta personalisasi dan pengukuran performa iklan</li>
+            </ul>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Kami tidak mengoperasikan server backend untuk aplikasi ini. Nama, tanggal lahir, foto, dan jurnal hanya tersimpan di penyimpanan internal perangkat kamu. Jika aplikasi dihapus atau data aplikasi dibersihkan, data ini hilang secara permanen dan tidak dapat kami pulihkan.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">02</span> Bagaimana Data Digunakan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">GANTI: jelaskan tujuan penggunaan data, jika ada.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data pada bagian 01 digunakan semata-mata untuk menjalankan fitur inti aplikasi (perhitungan natal chart, analisis numerologi/astrologi, jurnal pribadi), menampilkan iklan melalui AdMob, dan meningkatkan stabilitas serta pengalaman pengguna. Kami <strong>tidak menggunakan data pribadi</strong> (nama, tanggal lahir, foto, jurnal) untuk tujuan apapun di luar aplikasi, karena data tersebut tidak pernah meninggalkan perangkat kamu.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">03</span> Berbagi Data ke Pihak Ketiga</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">GANTI: jelaskan apakah data dibagikan ke pihak ketiga (mis. analitik, iklan) dan pihak mana saja.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Kami tidak menjual, menyewakan, atau membagikan data pribadi kepada pihak ketiga di luar keperluan menampilkan iklan.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Aplikasi menggunakan <strong>Google AdMob</strong> dan <strong>Google User Messaging Platform (UMP)</strong> untuk menampilkan iklan dan mengelola persetujuan iklan, termasuk untuk pengguna di wilayah EEA/UK (GDPR/UK). Lewat SDK ini, Advertising ID dapat dikumpulkan oleh Google untuk keperluan personalisasi dan pengukuran performa iklan, tunduk pada <a class="text-primary hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data lokasi, nama, tanggal lahir, foto wajah, dan jurnal tidak pernah dikirim, diunggah, atau disimpan di server kami maupun pihak ketiga manapun.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">04</span> Izin Aplikasi</h3>
-            <p class="font-body-md text-body-md text-on-surface-variant mb-unit-lg">GANTI: daftar izin Android yang diminta dan alasannya.</p>
-            
+            <div class="overflow-x-auto mb-unit-lg">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="border-b border-outline-variant/20">
+                    <th class="py-unit-sm pr-unit-md font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Izin</th>
+                    <th class="py-unit-sm font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Dipakai Untuk</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-outline-variant/10 font-body-sm text-body-sm text-on-surface-variant">
+                  <tr><td class="py-unit-sm pr-unit-md">Lokasi (Perkiraan & Presisi)</td><td class="py-unit-sm">Menghitung natal chart berdasarkan koordinat tempat lahir atau lokasi saat ini — diproses sepenuhnya on-device</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Notifikasi</td><td class="py-unit-sm">Mengirim pengingat terkait fitur di dalam aplikasi — tidak melibatkan pengumpulan data pribadi tambahan</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Internet & Advertising ID</td><td class="py-unit-sm">Menampilkan iklan AdMob (interstitial & rewarded video) via Google Mobile Ads SDK</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Aplikasi tidak memiliki server backend, sehingga tidak ada risiko kebocoran data dari sisi kami. Seluruh data pribadi (nama, tanggal lahir, foto, jurnal) tetap berada di perangkat kamu dan dilindungi oleh mekanisme keamanan sistem operasi Android. Aplikasi ini tidak ditujukan untuk anak-anak di bawah 13 tahun dan tidak dirancang untuk menargetkan audiens anak.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Kontak: <strong>Tri Nofri Andi (A2TH-Dev)</strong> — <a class="text-primary hover:underline" href="mailto:a2thdev@gmail.com">a2thdev@gmail.com</a></p>
           </section>
           <section class="border-t border-outline-variant/10 pt-unit-xl pb-unit-xl text-center">
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-sm">Ada pertanyaan?</h3>

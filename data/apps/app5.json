@@ -1,0 +1,22 @@
+{
+  "id": "app5",
+  "slug": "app5",
+  "name": "GANTI_NAMA_APP",
+  "tagline": "Ganti dengan tagline singkat satu baris.",
+  "description": "Ganti dengan deskripsi 2-3 kalimat tentang apa yang dilakukan aplikasi ini dan kenapa orang harus memasangnya.",
+  "category": "Kategori",
+  "version": "1.0.0",
+  "minAndroid": "8.0 (Oreo)",
+  "sizeMb": 10,
+  "repo": "username/app5",
+  "releaseTag": "v1.0.0",
+  "apkFile": "app5-v1.0.0.apk",
+  "accent": "#4C8EFF",
+  "features": [
+    "Fitur satu",
+    "Fitur dua",
+    "Fitur tiga"
+  ],
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.app5",
+  "order": 5
+}

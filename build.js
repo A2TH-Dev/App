@@ -11,7 +11,17 @@ const path = require('path');
 
 const ROOT = __dirname;
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
-const data = JSON.parse(read('data/apps.json'));
+
+// data/site.json = konfigurasi situs (brand, tagline, dll).
+// data/apps/<slug>.json = satu file per aplikasi, biar tidak numpuk di 1 file besar.
+// Urutan tampil di homepage mengikuti field "order" di tiap file (kalau tidak ada, urut nama file).
+const site = JSON.parse(read('data/site.json'));
+const appsDir = path.join(ROOT, 'data/apps');
+const appFiles = fs.readdirSync(appsDir).filter((f) => f.endsWith('.json'));
+const apps = appFiles
+  .map((f) => JSON.parse(fs.readFileSync(path.join(appsDir, f), 'utf8')))
+  .sort((a, b) => (a.order ?? 999) - (b.order ?? 999) || a.slug.localeCompare(b.slug));
+const data = { site, apps };
 
 const partialHead = read('templates/partials/head.html');
 const partialHeader = read('templates/partials/header.html');

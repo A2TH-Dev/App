@@ -1,0 +1,58 @@
+{
+  "id": "app3",
+  "slug": "petajiwa",
+  "name": "Peta Jiwa",
+  "tagline": "Peta kepribadian dan arah hidupmu.",
+  "description": "Peta Jiwa adalah alat analisis diri lengkap: natal chart & Human Design dari tanggal-jam-lokasi lahir, tes kepribadian 5 sifat utama, analisis wajah & sidik jari, cek kecocokan dua orang, jurnal harian dengan mood tracker, hingga fokus Pomodoro dengan melodi penenang — semua tersimpan lokal di HP tanpa perlu koneksi internet.",
+  "category": "Gaya Hidup",
+  "version": "1.0.0",
+  "minAndroid": "8.0 (Oreo)",
+  "sizeMb": 8,
+  "repo": "username/petajiwa",
+  "releaseTag": "v1.0.0",
+  "apkFile": "PetaJiwa-v1.0.0.apk",
+  "accent": "#8B6FD9",
+  "features": [
+    "Natal chart, Human Design & analisis kepribadian 5 sifat",
+    "Cek kecocokan dua orang + jurnal & mood tracker harian",
+    "Fokus Pomodoro dengan melodi penenang bawaan",
+    "Ekspor/impor data & 100% tersimpan lokal di HP"
+  ],
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2thdev.petajiwa",
+  "icon": "asset/icon.png",
+  "privacy": {
+    "dataCollectedIntro": "Peta Jiwa dibangun dengan prinsip <strong>local-first</strong>. Aplikasi ini tidak memiliki server backend, sehingga tidak ada data pribadi yang pernah diunggah ke internet. Data berikut diakses untuk menjalankan fitur di dalam aplikasi:",
+    "dataCollectedList": [
+      "Data lokasi (perkiraan & presisi) — untuk menghitung <em>natal chart</em> (peta astrologi kelahiran) berdasarkan koordinat tempat lahir atau lokasi kamu saat ini; diproses <strong>hanya di perangkat (on-device)</strong> dan tidak pernah dikirim ke server manapun",
+      "Nama dan tanggal lahir — untuk fitur analisis numerologi/astrologi, disimpan hanya secara lokal di perangkat",
+      "Foto wajah (opsional) — untuk fitur analisis tertentu, disimpan hanya secara lokal di perangkat",
+      "Catatan/entri jurnal pribadi — disimpan hanya secara lokal di perangkat",
+      "Advertising ID — dipakai oleh Google AdMob untuk menampilkan iklan (interstitial & rewarded video) serta personalisasi dan pengukuran performa iklan"
+    ],
+    "dataCollectedNote": "Kami tidak mengoperasikan server backend untuk aplikasi ini. Nama, tanggal lahir, foto, dan jurnal hanya tersimpan di penyimpanan internal perangkat kamu. Jika aplikasi dihapus atau data aplikasi dibersihkan, data ini hilang secara permanen dan tidak dapat kami pulihkan.",
+    "dataUsage": "Data pada bagian 01 digunakan semata-mata untuk menjalankan fitur inti aplikasi (perhitungan natal chart, analisis numerologi/astrologi, jurnal pribadi), menampilkan iklan melalui AdMob, dan meningkatkan stabilitas serta pengalaman pengguna. Kami <strong>tidak menggunakan data pribadi</strong> (nama, tanggal lahir, foto, jurnal) untuk tujuan apapun di luar aplikasi, karena data tersebut tidak pernah meninggalkan perangkat kamu.",
+    "dataSharing": [
+      "Kami tidak menjual, menyewakan, atau membagikan data pribadi kepada pihak ketiga di luar keperluan menampilkan iklan.",
+      "Aplikasi menggunakan <strong>Google AdMob</strong> dan <strong>Google User Messaging Platform (UMP)</strong> untuk menampilkan iklan dan mengelola persetujuan iklan, termasuk untuk pengguna di wilayah EEA/UK (GDPR/UK). Lewat SDK ini, Advertising ID dapat dikumpulkan oleh Google untuk keperluan personalisasi dan pengukuran performa iklan, tunduk pada <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
+      "Data lokasi, nama, tanggal lahir, foto wajah, dan jurnal tidak pernah dikirim, diunggah, atau disimpan di server kami maupun pihak ketiga manapun."
+    ],
+    "permissions": [
+      {
+        "name": "Lokasi (Perkiraan & Presisi)",
+        "use": "Menghitung natal chart berdasarkan koordinat tempat lahir atau lokasi saat ini — diproses sepenuhnya on-device"
+      },
+      {
+        "name": "Notifikasi",
+        "use": "Mengirim pengingat terkait fitur di dalam aplikasi — tidak melibatkan pengumpulan data pribadi tambahan"
+      },
+      {
+        "name": "Internet & Advertising ID",
+        "use": "Menampilkan iklan AdMob (interstitial & rewarded video) via Google Mobile Ads SDK"
+      }
+    ],
+    "permissionsNote": "Aplikasi tidak memiliki server backend, sehingga tidak ada risiko kebocoran data dari sisi kami. Seluruh data pribadi (nama, tanggal lahir, foto, jurnal) tetap berada di perangkat kamu dan dilindungi oleh mekanisme keamanan sistem operasi Android. Aplikasi ini tidak ditujukan untuk anak-anak di bawah 13 tahun dan tidak dirancang untuk menargetkan audiens anak.",
+    "contactName": "Tri Nofri Andi (A2TH-Dev)",
+    "contactEmail": "a2thdev@gmail.com"
+  },
+  "order": 3
+}

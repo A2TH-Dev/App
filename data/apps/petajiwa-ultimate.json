@@ -1,0 +1,23 @@
+{
+  "id": "app4",
+  "slug": "petajiwa-ultimate",
+  "name": "Peta Jiwa Ultimate",
+  "tagline": "Weton, BaZi, Tarot, dan biorhythm dalam satu genggaman.",
+  "description": "Edisi lengkap PetaJiwa: Weton Jawa, BaZi, Nine Star Ki, Tarot, Tzolkin, natal chart, biorhythm, tes kepribadian OCEAN, jurnal harian, hingga binaural beats — semua jadi satu alat divinasi personal.",
+  "category": "Gaya Hidup",
+  "version": "3.1.0",
+  "minAndroid": "7.0 (Nougat)",
+  "sizeMb": 15,
+  "repo": "username/petajiwa-ultimate",
+  "releaseTag": "v3.1.0",
+  "apkFile": "PetaJiwaUltimate-v3.1.0.apk",
+  "accent": "#C9A227",
+  "features": [
+    "9+ sistem divinasi & numerologi",
+    "Jurnal harian dengan pencatat streak",
+    "Binaural beats bawaan",
+    "Tes kepribadian OCEAN"
+  ],
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.petajiwaultimate",
+  "order": 4
+}
