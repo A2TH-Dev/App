@@ -79,7 +79,7 @@ function screenshotGallery(app, prefix) {
           <div class="h-[1px] w-8 bg-primary"></div>
           <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Screenshot</span>
         </div>
-        <div class="w-screen overflow-hidden" style="margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);">
+        <div class="relative left-1/2 overflow-hidden" style="width:min(1400px,94vw);transform:translateX(-50%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);">
           <div class="flex gap-unit-md screenshot-track" style="width:max-content;animation:screenshot-scroll ${durationSec}s linear infinite;">
           ${trackTwice}
           </div>
@@ -87,7 +87,6 @@ function screenshotGallery(app, prefix) {
       </div>
       <style>
         @keyframes screenshot-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-        @media (prefers-reduced-motion: reduce) { .screenshot-track { animation: none !important; } }
       </style>`;
 }
 
