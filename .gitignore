@@ -1,0 +1,48 @@
+# ============================================================
+# .gitignore untuk A2TH-Dev/App repository
+# Exclude asset directories yang besar untuk GitHub Pages
+# ============================================================
+
+# Exclude semua asset/ directories dari semua subfolder
+**/asset/
+
+# Atau more specific (kalau hanya 2 folder yang problematic):
+# nitropurge/asset/
+# petajiwa/asset/
+
+# Optional: exclude seluruh folder app project kalau tidak perlu di-repo
+# (Uncomment kalau ingin exclude folder app source sepenuhnya):
+# nitropurge/
+# petajiwa/
+
+# ============================================================
+# Standar lainnya
+# ============================================================
+
+# Node modules (kalau ada)
+node_modules/
+.npm/
+
+# Build outputs / cache
+dist/
+build/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Temp files
+.temp/
+temp/
