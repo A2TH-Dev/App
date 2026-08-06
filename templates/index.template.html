@@ -34,25 +34,40 @@
       </section>
 
       <!-- Grid -->
-      <section class="w-full mt-unit-xl" id="library">
-        <div class="flex items-end justify-between mb-unit-xl">
+      <section class="relative w-full mt-unit-xl" id="library">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-[140px] pointer-events-none"></div>
+        <div class="relative flex flex-col md:flex-row md:items-end justify-between gap-unit-lg mb-unit-xl reveal">
           <div class="flex flex-col gap-unit-xs">
             <h2 class="font-headline-lg text-headline-lg text-on-surface">Recent Releases</h2>
             <div class="h-1 w-12 bg-surface-container-highest"></div>
           </div>
+          <div class="flex flex-col sm:flex-row gap-unit-sm w-full md:w-auto">
+            <div class="relative flex-1 sm:w-64">
+              <span class="material-symbols-outlined absolute left-unit-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] pointer-events-none">search</span>
+              <input id="app-search" type="text" placeholder="Cari aplikasi..." class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-unit-sm text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
+            </div>
+            <select id="app-category" class="bg-surface-container-low border border-outline-variant/20 rounded-lg px-unit-sm py-unit-sm text-body-sm font-body-sm text-on-surface focus:outline-none focus:border-primary transition-colors">
+              <option value="">Semua Kategori</option>
+              {{CATEGORY_OPTIONS}}
+            </select>
+          </div>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter" data-app-total="{{APP_COUNT}}">
+        <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter" id="app-grid" data-app-total="{{APP_COUNT}}">
           {{MODULE_CARDS}}
+        </div>
+        <div id="app-empty" class="hidden py-unit-xl text-center">
+          <span class="material-symbols-outlined text-on-surface-variant text-[40px]">search_off</span>
+          <p class="font-body-md text-body-md text-on-surface-variant mt-unit-sm">Tidak ada aplikasi yang cocok.</p>
         </div>
       </section>
 
       <!-- CTA -->
-      <section class="w-full mt-32 mb-16 bg-primary rounded-2xl p-unit-xl relative overflow-hidden">
+      <section class="w-full mt-32 mb-16 bg-primary rounded-2xl p-unit-xl relative overflow-hidden reveal">
         <div class="absolute inset-0 bg-gradient-to-r from-on-primary/10 to-transparent"></div>
         <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-unit-xl">
           <div class="max-w-xl">
             <h2 class="font-headline-lg text-headline-lg text-on-primary">Build your own store front.</h2>
-            <p class="font-body-md text-body-md text-on-primary/80 mt-unit-sm">{{SITE_BRAND}} is open-source. Fork the repository, add your APKs, and deploy your own catalog in minutes.</p>
+            <p class="font-body-md text-body-md text-on-primary/90 mt-unit-sm">{{SITE_BRAND}} is open-source. Fork the repository, add your APKs, and deploy your own catalog in minutes.</p>
           </div>
           <a href="https://github.com/{{GITHUB_USER}}" class="bg-on-primary text-primary font-label-md text-label-md px-unit-xl py-unit-md rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity inline-block text-center">Lihat di GitHub</a>
         </div>
@@ -73,6 +88,33 @@ document.addEventListener('DOMContentLoaded', () => {
     display.innerText = count;
     if (count >= target) clearInterval(interval);
   }, 60);
+
+  const searchInput = document.getElementById('app-search');
+  const categorySelect = document.getElementById('app-category');
+  const grid = document.getElementById('app-grid');
+  const empty = document.getElementById('app-empty');
+  const cards = grid ? Array.from(grid.children) : [];
+
+  function applyFilter() {
+    const q = (searchInput.value || '').trim().toLowerCase();
+    const cat = categorySelect.value;
+    let visibleCount = 0;
+    cards.forEach((card) => {
+      const name = card.getAttribute('data-name') || '';
+      const category = card.getAttribute('data-category') || '';
+      const matchesQuery = !q || name.includes(q);
+      const matchesCategory = !cat || category === cat;
+      const show = matchesQuery && matchesCategory;
+      card.style.display = show ? '' : 'none';
+      if (show) visibleCount++;
+    });
+    empty.classList.toggle('hidden', visibleCount !== 0);
+  }
+
+  if (searchInput && categorySelect && grid) {
+    searchInput.addEventListener('input', applyFilter);
+    categorySelect.addEventListener('change', applyFilter);
+  }
 });
 </script>
 </body>

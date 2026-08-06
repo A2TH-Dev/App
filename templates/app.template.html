@@ -51,44 +51,54 @@
       {{SCREENSHOT_GALLERY}}
 
       <!-- About -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-32">
-        <div class="lg:col-span-4">
-          <div class="flex items-center gap-unit-sm mb-unit-md">
-            <div class="h-[1px] w-8 bg-primary"></div>
-            <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Tentang</span>
+      <div class="relative">
+        <div class="absolute -left-20 top-0 w-72 h-72 blur-[100px] rounded-full pointer-events-none" style="background:{{APP_ACCENT}}14"></div>
+        <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-32 reveal">
+          <div class="lg:col-span-4">
+            <div class="flex items-center gap-unit-sm mb-unit-md">
+              <div class="h-[1px] w-8 bg-primary"></div>
+              <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Tentang</span>
+            </div>
+            <h2 class="text-headline-lg font-headline-lg text-on-surface">{{APP_CATEGORY}}</h2>
           </div>
-          <h2 class="text-headline-lg font-headline-lg text-on-surface">{{APP_CATEGORY}}</h2>
-        </div>
-        <div class="lg:col-span-8">
-          <p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">{{APP_DESCRIPTION}}</p>
+          <div class="lg:col-span-8">
+            <p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">{{APP_DESCRIPTION}}</p>
+          </div>
         </div>
       </div>
 
       <!-- Features -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-32">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-32 reveal">
         {{FEATURE_CARDS}}
       </div>
 
       <!-- Specs -->
-      <div class="bg-surface-container-lowest rounded-2xl p-unit-xl overflow-hidden shadow-xl">
-        <div class="flex items-center gap-unit-md mb-unit-xl">
-          <span class="material-symbols-outlined text-primary">terminal</span>
-          <h2 class="text-headline-lg font-headline-lg text-on-surface">Spesifikasi Teknis</h2>
+      <div class="relative">
+        <div class="absolute -right-20 bottom-0 w-72 h-72 blur-[100px] rounded-full pointer-events-none" style="background:{{APP_ACCENT}}14"></div>
+        <div class="relative bg-surface-container-lowest rounded-2xl p-unit-xl overflow-hidden shadow-xl reveal">
+          <div class="flex items-center gap-unit-md mb-unit-xl">
+            <span class="material-symbols-outlined text-primary">terminal</span>
+            <h2 class="text-headline-lg font-headline-lg text-on-surface">Spesifikasi Teknis</h2>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-unit-md">
+            <div class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-unit-md">
+              <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">info</span></div>
+              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Versi</div><div class="text-body-md font-body-md text-on-surface">{{APP_VERSION}}</div></div>
+            </div>
+            <div class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-unit-md">
+              <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">android</span></div>
+              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Minimum Android</div><div class="text-body-md font-body-md text-on-surface">{{APP_MIN_ANDROID}}</div></div>
+            </div>
+            <div class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-unit-md">
+              <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">database</span></div>
+              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Ukuran</div><div class="text-body-md font-body-md text-on-surface">{{APP_SIZE_MB}} MB</div></div>
+            </div>
+            <a href="https://github.com/{{APP_REPO}}" class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-unit-md group">
+              <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">code</span></div>
+              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Kode sumber</div><div class="text-body-md font-body-md text-primary flex items-center gap-unit-xs group-hover:underline">Lihat di GitHub <span class="material-symbols-outlined text-[16px]">open_in_new</span></div></div>
+            </a>
+          </div>
         </div>
-        <table class="w-full text-left border-collapse">
-          <thead>
-            <tr class="border-b border-outline-variant/20">
-              <th class="py-unit-md text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Properti</th>
-              <th class="py-unit-md text-label-md font-label-md text-on-surface-variant uppercase tracking-wider">Nilai</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-outline-variant/10">
-            <tr class="hover:bg-surface-container transition-colors"><td class="py-unit-lg text-body-md font-body-md text-on-surface-variant">Versi</td><td class="py-unit-lg text-body-md font-body-md text-on-surface">{{APP_VERSION}}</td></tr>
-            <tr class="hover:bg-surface-container transition-colors"><td class="py-unit-lg text-body-md font-body-md text-on-surface-variant">Minimum Android</td><td class="py-unit-lg text-body-md font-body-md text-on-surface">{{APP_MIN_ANDROID}}</td></tr>
-            <tr class="hover:bg-surface-container transition-colors"><td class="py-unit-lg text-body-md font-body-md text-on-surface-variant">Ukuran</td><td class="py-unit-lg text-body-md font-body-md text-on-surface">{{APP_SIZE_MB}} MB</td></tr>
-            <tr class="hover:bg-surface-container transition-colors"><td class="py-unit-lg text-body-md font-body-md text-on-surface-variant">Kode sumber</td><td class="py-unit-lg text-body-md font-body-md text-primary"><a class="flex items-center gap-unit-xs hover:underline" href="https://github.com/{{APP_REPO}}">Lihat di GitHub <span class="material-symbols-outlined text-[16px]">open_in_new</span></a></td></tr>
-          </tbody>
-        </table>
       </div>
 
     </div>

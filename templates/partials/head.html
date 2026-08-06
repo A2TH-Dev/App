@@ -2,12 +2,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>{{PAGE_TITLE}}</title>
 <meta name="description" content="{{PAGE_DESCRIPTION}}"/>
+<link rel="canonical" href="{{PAGE_URL}}"/>
+<link rel="icon" type="image/svg+xml" href="{{ROOT_PATH}}favicon.svg"/>
+<meta name="theme-color" content="#131313"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="{{SITE_BRAND}}"/>
+<meta property="og:title" content="{{PAGE_TITLE}}"/>
+<meta property="og:description" content="{{PAGE_DESCRIPTION}}"/>
+<meta property="og:url" content="{{PAGE_URL}}"/>
+<meta property="og:image" content="{{PAGE_IMAGE}}"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="{{PAGE_TITLE}}"/>
+<meta name="twitter:description" content="{{PAGE_DESCRIPTION}}"/>
+<meta name="twitter:image" content="{{PAGE_IMAGE}}"/>
 <style>
   @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}}
   ::-webkit-scrollbar{display:none;}
   .fade-in{animation:fadeIn .6s cubic-bezier(0.22,1,0.36,1) both;}
   @keyframes fadeIn{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
   @media (prefers-reduced-motion: reduce){.fade-in{animation:none;}}
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(0.22,1,0.36,1),transform .7s cubic-bezier(0.22,1,0.36,1);}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
 <script id="tailwind-config">

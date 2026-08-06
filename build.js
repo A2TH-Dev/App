@@ -87,6 +87,7 @@ function screenshotGallery(app, prefix) {
       </div>
       <style>
         @keyframes screenshot-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+        .screenshot-track:hover { animation-play-state: paused; }
       </style>`;
 }
 
@@ -230,10 +231,10 @@ for (const app of data.apps) {
   const initialsDivHero = `<div class="w-24 h-24 rounded-xl flex items-center justify-center text-2xl font-bold shadow-2xl" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
   const initialsDivPhone = `<div class="w-20 h-20 rounded-3xl flex items-center justify-center text-2xl font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
 
+  const appImage = app.icon ? `${data.site.siteUrl}/${app.slug}/${app.icon}` : `${data.site.siteUrl}/favicon.svg`;
+
   const commonMap = {
     ...siteMap,
-    PAGE_TITLE: `${app.name} — ${data.site.brand}`,
-    PAGE_DESCRIPTION: app.tagline,
     APP_NAME: app.name,
     APP_TAGLINE: app.tagline,
     APP_DESCRIPTION: app.description,
@@ -255,17 +256,33 @@ for (const app of data.apps) {
     ...buildPrivacySections(app),
   };
 
-  const head = buildHead(commonMap);
-  const header = buildHeader(commonMap);
-  const footer = buildFooter(commonMap);
+  const appPageMap = {
+    ...commonMap,
+    PAGE_TITLE: `${app.name} — ${data.site.brand}`,
+    PAGE_DESCRIPTION: app.tagline,
+    PAGE_URL: `${data.site.siteUrl}/${app.slug}/`,
+    PAGE_IMAGE: appImage,
+  };
+  const privacyPageMap = {
+    ...commonMap,
+    PAGE_TITLE: `Kebijakan Privasi — ${app.name}`,
+    PAGE_DESCRIPTION: `Kebijakan privasi untuk ${app.name}.`,
+    PAGE_URL: `${data.site.siteUrl}/${app.slug}/privacy.html`,
+    PAGE_IMAGE: appImage,
+  };
+
+  const headApp = buildHead(appPageMap);
+  const headPrivacy = buildHead(privacyPageMap);
+  const header = buildHeader(siteMap);
+  const footer = buildFooter(siteMap);
 
   fs.writeFileSync(
     path.join(dir, 'index.html'),
-    fill(appTpl, { ...commonMap, HEAD: head, HEADER: header, FOOTER: footer })
+    fill(appTpl, { ...appPageMap, HEAD: headApp, HEADER: header, FOOTER: footer })
   );
   fs.writeFileSync(
     path.join(dir, 'privacy.html'),
-    fill(privTpl, { ...commonMap, HEAD: head, HEADER: header, FOOTER: footer })
+    fill(privTpl, { ...privacyPageMap, HEAD: headPrivacy, HEADER: header, FOOTER: footer })
   );
   console.log(`✓ ${app.slug}/index.html + privacy.html`);
 }
@@ -277,7 +294,7 @@ const cards = data.apps
     const iconHtml =
       iconBlock(app, `${app.slug}/`, 'w-16 h-16') ||
       `<div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
-    return `<a href="${app.slug}/" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
+    return `<a href="${app.slug}/" data-name="${esc(app.name.toLowerCase())}" data-category="${esc(app.category)}" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
         <div class="flex justify-between items-start mb-unit-lg">
           ${iconHtml}
           <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v${app.version}</span>
@@ -292,6 +309,11 @@ const cards = data.apps
   })
   .join('\n      ');
 
+const categories = [...new Set(data.apps.map((a) => a.category))].sort();
+const categoryOptions = categories
+  .map((c) => `<option value="${esc(c)}">${esc(c)}</option>`)
+  .join('\n        ');
+
 const rootSiteMap = {
   SITE_BRAND: data.site.brand,
   GITHUB_USER: data.site.githubUser,
@@ -304,11 +326,14 @@ const rootMap = {
   ...rootSiteMap,
   PAGE_TITLE: `${data.site.brand} — ${data.site.tagline}`,
   PAGE_DESCRIPTION: data.site.tagline,
+  PAGE_URL: `${data.site.siteUrl}/`,
+  PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
   SITE_HEADLINE_LINE1: data.site.headlineLine1 || 'Katalog aplikasi',
   SITE_HEADLINE_LINE2: data.site.headlineLine2 || 'Android independen.',
   SITE_TAGLINE: data.site.tagline,
   SITE_FOOTER_NOTE: data.site.footerNote,
   MODULE_CARDS: cards,
+  CATEGORY_OPTIONS: categoryOptions,
 };
 
 const rootHead = buildHead(rootMap);

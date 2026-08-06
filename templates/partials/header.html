@@ -10,9 +10,32 @@
       <a href="{{ROOT_PATH}}" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Apps</a>
       <a href="https://github.com/{{GITHUB_USER}}" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">GitHub</a>
     </nav>
-    <div class="bg-primary/10 border border-primary/20 px-unit-sm py-unit-xs rounded-full flex items-center gap-unit-xs">
-      <span class="material-symbols-outlined text-primary text-[16px]">inventory_2</span>
-      <span class="font-label-sm text-label-sm text-primary">{{APP_COUNT}} Apps</span>
+    <div class="flex items-center gap-unit-sm">
+      <div class="hidden sm:flex bg-primary/10 border border-primary/20 px-unit-sm py-unit-xs rounded-full items-center gap-unit-xs">
+        <span class="material-symbols-outlined text-primary text-[16px]">inventory_2</span>
+        <span class="font-label-sm text-label-sm text-primary">{{APP_COUNT}} Apps</span>
+      </div>
+      <button id="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined" id="menu-toggle-icon">menu</span>
+      </button>
     </div>
   </div>
+  <nav id="mobile-menu" class="hidden md:hidden flex-col px-margin-mobile pb-unit-lg pt-unit-xs border-t border-outline-variant/10 gap-unit-xs">
+    <a href="{{ROOT_PATH}}" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">apps</span> Apps</a>
+    <a href="https://github.com/{{GITHUB_USER}}" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">code</span> GitHub</a>
+  </nav>
 </header>
+<script>
+(function () {
+  var btn = document.getElementById('menu-toggle');
+  var icon = document.getElementById('menu-toggle-icon');
+  var menu = document.getElementById('mobile-menu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function () {
+    var open = menu.classList.toggle('flex');
+    menu.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    icon.textContent = open ? 'close' : 'menu';
+  });
+})();
+</script>
