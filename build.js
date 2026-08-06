@@ -79,7 +79,7 @@ function screenshotGallery(app, prefix) {
           <div class="h-[1px] w-8 bg-primary"></div>
           <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Screenshot</span>
         </div>
-        <div class="relative left-1/2 overflow-hidden" style="width:min(1400px,94vw);transform:translateX(-50%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);">
+        <div class="relative left-1/2 overflow-hidden" style="width:min(1200px,88vw);transform:translateX(-50%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);">
           <div class="flex gap-unit-md screenshot-track" style="width:max-content;animation:screenshot-scroll ${durationSec}s linear infinite;">
           ${trackTwice}
           </div>
