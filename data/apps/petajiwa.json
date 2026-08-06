@@ -6,7 +6,7 @@
   "description": "Peta Jiwa adalah alat analisis diri lengkap: natal chart & Human Design dari tanggal-jam-lokasi lahir, tes kepribadian 5 sifat utama, analisis wajah & sidik jari, cek kecocokan dua orang, jurnal harian dengan mood tracker, hingga fokus Pomodoro dengan melodi penenang — semua tersimpan lokal di HP tanpa perlu koneksi internet.",
   "category": "Gaya Hidup",
   "version": "1.0.0",
-  "minAndroid": "8.0 (Oreo)",
+  "minAndroid": "8.0 (Oreo) test",
   "sizeMb": 8,
   "repo": "A2TH-Dev/petajiwa",
   "releaseTag": "v1.0.0",

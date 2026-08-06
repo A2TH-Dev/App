@@ -1,6 +1,0 @@
-# File hasil generate build.js — JANGAN di-commit dari lokal.
-# GitHub Action (build.yml) yang generate & commit balik file-file ini,
-# supaya lokal & CI tidak sama-sama nulis file yang sama -> konflik terus.
-/index.html
-/*/index.html
-/*/privacy.html
