@@ -23,6 +23,10 @@ const apps = appFiles
   .sort((a, b) => (a.order ?? 999) - (b.order ?? 999) || a.slug.localeCompare(b.slug));
 const data = { site, apps };
 
+const appsIndexJson = JSON.stringify(
+  apps.map((a) => ({ name: a.name, slug: a.slug, category: a.category, accent: a.accent }))
+);
+
 const partialHead = read('templates/partials/head.html');
 const partialHeader = read('templates/partials/header.html');
 const partialFooter = read('templates/partials/footer.html');
@@ -30,6 +34,7 @@ const partialFooter = read('templates/partials/footer.html');
 const idxTpl = read('templates/index.template.html');
 const appTpl = read('templates/app.template.html');
 const privTpl = read('templates/privacy.template.html');
+const notFoundTpl = read('templates/404.template.html');
 
 const buildDate = new Date().toISOString().slice(0, 10);
 const year = new Date().getFullYear();
@@ -196,6 +201,23 @@ function isPlayStore(app) {
   return Boolean(app.playStoreUrl);
 }
 
+function buildJsonLd(app, pageUrl, imageUrl) {
+  const ld = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: app.name,
+    description: app.tagline,
+    applicationCategory: app.category,
+    operatingSystem: `Android ${app.minAndroid}+`,
+    softwareVersion: app.version,
+    fileSize: `${app.sizeMb}MB`,
+    url: pageUrl,
+    image: imageUrl,
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+  };
+  return `<script type="application/ld+json">${JSON.stringify(ld)}</script>`;
+}
+
 function buildHead(map) { return fill(partialHead, map); }
 function buildHeader(map) { return fill(partialHeader, map); }
 function buildFooter(map) { return fill(partialFooter, map); }
@@ -213,6 +235,7 @@ for (const app of data.apps) {
     APP_COUNT: data.apps.length,
     YEAR: year,
     ROOT_PATH: '../',
+    APPS_INDEX_JSON: appsIndexJson,
   };
 
   const featureCards = app.features
@@ -232,6 +255,23 @@ for (const app of data.apps) {
   const initialsDivPhone = `<div class="w-20 h-20 rounded-3xl flex items-center justify-center text-2xl font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
 
   const appImage = app.icon ? `${data.site.siteUrl}/${app.slug}/${app.icon}` : `${data.site.siteUrl}/favicon.svg`;
+
+  const otherApps = data.apps.filter((a) => a.slug !== app.slug).slice(0, 4);
+  const otherAppsCards = otherApps
+    .map((oa) => {
+      const oaInitials = oa.initials || initials(oa.name);
+      const oaIcon =
+        iconBlock(oa, `../${oa.slug}/`, 'w-12 h-12') ||
+        `<div class="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold" style="background:${oa.accent}22;color:${oa.accent}">${oaInitials}</div>`;
+      return `<a href="../${oa.slug}/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid ${oa.accent}">
+          ${oaIcon}
+          <div class="min-w-0">
+            <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">${oa.name}</div>
+            <div class="text-label-sm font-label-sm text-on-surface-variant truncate">${oa.category}</div>
+          </div>
+        </a>`;
+    })
+    .join('\n        ');
 
   const commonMap = {
     ...siteMap,
@@ -253,6 +293,8 @@ for (const app of data.apps) {
     APP_ICON_HERO: iconBlock(app, imgPrefix, 'w-24 h-24') || initialsDivHero,
     APP_ICON_PHONE: phoneMockupBlock(app, imgPrefix) || initialsDivPhone,
     SCREENSHOT_GALLERY: screenshotGallery(app, imgPrefix),
+    OTHER_APPS_CARDS: otherAppsCards,
+    BREADCRUMB_CATEGORY_URL: `../?category=${encodeURIComponent(app.category)}`,
     ...buildPrivacySections(app),
   };
 
@@ -262,6 +304,7 @@ for (const app of data.apps) {
     PAGE_DESCRIPTION: app.tagline,
     PAGE_URL: `${data.site.siteUrl}/${app.slug}/`,
     PAGE_IMAGE: appImage,
+    JSONLD: buildJsonLd(app, `${data.site.siteUrl}/${app.slug}/`, appImage),
   };
   const privacyPageMap = {
     ...commonMap,
@@ -320,7 +363,19 @@ const rootSiteMap = {
   APP_COUNT: data.apps.length,
   YEAR: year,
   ROOT_PATH: './',
+  APPS_INDEX_JSON: appsIndexJson,
 };
+
+const rootJsonLd = `<script type="application/ld+json">${JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: data.apps.map((a, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `${data.site.siteUrl}/${a.slug}/`,
+    name: a.name,
+  })),
+})}</script>`;
 
 const rootMap = {
   ...rootSiteMap,
@@ -328,6 +383,7 @@ const rootMap = {
   PAGE_DESCRIPTION: data.site.tagline,
   PAGE_URL: `${data.site.siteUrl}/`,
   PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
+  JSONLD: rootJsonLd,
   SITE_HEADLINE_LINE1: data.site.headlineLine1 || 'Katalog aplikasi',
   SITE_HEADLINE_LINE2: data.site.headlineLine2 || 'Android independen.',
   SITE_TAGLINE: data.site.tagline,
@@ -345,4 +401,74 @@ fs.writeFileSync(
   fill(idxTpl, { ...rootMap, HEAD: rootHead, HEADER: rootHeader, FOOTER: rootFooter })
 );
 console.log('✓ index.html (root)');
+
+// ---------- sitemap.xml ----------
+const sitemapUrls = [
+  { loc: `${data.site.siteUrl}/`, priority: '1.0' },
+  ...data.apps.flatMap((app) => [
+    { loc: `${data.site.siteUrl}/${app.slug}/`, priority: '0.8' },
+    { loc: `${data.site.siteUrl}/${app.slug}/privacy.html`, priority: '0.3' },
+  ]),
+];
+const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapUrls
+  .map((u) => `  <url><loc>${u.loc}</loc><lastmod>${buildDate}</lastmod><priority>${u.priority}</priority></url>`)
+  .join('\n')}
+</urlset>
+`;
+fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemapXml);
+console.log('✓ sitemap.xml');
+
+// ---------- robots.txt ----------
+const robotsTxt = `User-agent: *
+Allow: /
+
+Sitemap: ${data.site.siteUrl}/sitemap.xml
+`;
+fs.writeFileSync(path.join(ROOT, 'robots.txt'), robotsTxt);
+console.log('✓ robots.txt');
+
+// ---------- manifest.json (PWA) ----------
+const manifest = {
+  name: data.site.brand,
+  short_name: data.site.brand,
+  description: data.site.tagline,
+  start_url: `${data.site.siteUrl}/`,
+  scope: `${data.site.siteUrl}/`,
+  display: 'standalone',
+  background_color: '#131313',
+  theme_color: '#131313',
+  icons: [{ src: `${data.site.siteUrl}/favicon.svg`, sizes: 'any', type: 'image/svg+xml', purpose: 'any' }],
+};
+fs.writeFileSync(path.join(ROOT, 'manifest.json'), JSON.stringify(manifest, null, 2));
+console.log('✓ manifest.json');
+
+// ---------- 404.html ----------
+// Path relatif tidak bisa dipakai di 404 (GitHub Pages bisa nyajikan file ini dari
+// kedalaman URL manapun), jadi header/footer 404 pakai ROOT_PATH absolut.
+const notFoundSiteMap = {
+  SITE_BRAND: data.site.brand,
+  GITHUB_USER: data.site.githubUser,
+  APP_COUNT: data.apps.length,
+  YEAR: year,
+  ROOT_PATH: `${data.site.siteUrl}/`,
+  APPS_INDEX_JSON: appsIndexJson,
+};
+const notFoundMap = {
+  ...notFoundSiteMap,
+  PAGE_TITLE: `Halaman Tidak Ditemukan — ${data.site.brand}`,
+  PAGE_DESCRIPTION: `Halaman yang kamu cari tidak ada di ${data.site.brand}.`,
+  PAGE_URL: `${data.site.siteUrl}/404.html`,
+  PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
+};
+const notFoundHead = buildHead(notFoundMap);
+const notFoundHeader = buildHeader(notFoundSiteMap);
+const notFoundFooter = buildFooter(notFoundSiteMap);
+fs.writeFileSync(
+  path.join(ROOT, '404.html'),
+  fill(notFoundTpl, { ...notFoundMap, HEAD: notFoundHead, HEADER: notFoundHeader, FOOTER: notFoundFooter })
+);
+console.log('✓ 404.html');
+
 console.log(`\nSelesai. ${data.apps.length} aplikasi ter-generate.`);

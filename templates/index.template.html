@@ -4,8 +4,9 @@
 {{HEAD}}
 </head>
 <body class="bg-background font-body-md text-on-background">
+<a href="#main-content" class="skip-link">Langsung ke konten</a>
 {{HEADER}}
-<main class="w-full pt-16 min-h-screen">
+<main id="main-content" class="w-full pt-16 min-h-screen">
   <div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop py-unit-xl">
     <div class="flex flex-col w-full">
 
@@ -112,8 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (searchInput && categorySelect && grid) {
+    const params = new URLSearchParams(window.location.search);
+    const presetCategory = params.get('category');
+    if (presetCategory && Array.from(categorySelect.options).some((o) => o.value === presetCategory)) {
+      categorySelect.value = presetCategory;
+    }
     searchInput.addEventListener('input', applyFilter);
     categorySelect.addEventListener('change', applyFilter);
+    applyFilter();
   }
 });
 </script>

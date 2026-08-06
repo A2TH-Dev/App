@@ -12,6 +12,26 @@
     </div>
   </div>
 </footer>
+<button id="back-to-top" type="button" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary text-on-primary shadow-xl shadow-primary/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:scale-110">
+  <span class="material-symbols-outlined text-[22px]">arrow_upward</span>
+</button>
+<script>
+(function () {
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  function toggle() {
+    var show = window.scrollY > 480;
+    btn.classList.toggle('opacity-0', !show);
+    btn.classList.toggle('pointer-events-none', !show);
+    btn.classList.toggle('translate-y-2', !show);
+  }
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
 <script>
 (function () {
   var els = document.querySelectorAll('.reveal');

@@ -4,6 +4,7 @@
 <meta name="description" content="{{PAGE_DESCRIPTION}}"/>
 <link rel="canonical" href="{{PAGE_URL}}"/>
 <link rel="icon" type="image/svg+xml" href="{{ROOT_PATH}}favicon.svg"/>
+<link rel="manifest" href="{{ROOT_PATH}}manifest.json"/>
 <meta name="theme-color" content="#131313"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="{{SITE_BRAND}}"/>
@@ -15,6 +16,7 @@
 <meta name="twitter:title" content="{{PAGE_TITLE}}"/>
 <meta name="twitter:description" content="{{PAGE_DESCRIPTION}}"/>
 <meta name="twitter:image" content="{{PAGE_IMAGE}}"/>
+{{JSONLD}}
 <style>
   @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}}
   ::-webkit-scrollbar{display:none;}
@@ -24,6 +26,9 @@
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(0.22,1,0.36,1),transform .7s cubic-bezier(0.22,1,0.36,1);}
   .reveal.is-visible{opacity:1;transform:translateY(0);}
   @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+  :focus-visible{outline:2px solid #c0c1ff;outline-offset:2px;border-radius:4px;}
+  .skip-link{position:absolute;left:1rem;top:-3rem;z-index:100;background:#c0c1ff;color:#1000a9;padding:.6rem 1rem;border-radius:.5rem;font-weight:600;font-size:.875rem;transition:top .2s ease;text-decoration:none;}
+  .skip-link:focus{top:1rem;}
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
 <script id="tailwind-config">

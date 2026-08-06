@@ -4,17 +4,25 @@
 {{HEAD}}
 </head>
 <body class="bg-background font-body-md text-on-background">
+<a href="#main-content" class="skip-link">Langsung ke konten</a>
 {{HEADER}}
-<main class="w-full pt-20 bg-background overflow-x-hidden">
+<main id="main-content" class="w-full pt-20 bg-background overflow-x-hidden">
   <div class="flex flex-col w-full">
     <div class="max-w-[1000px] mx-auto px-margin-mobile lg:px-margin-desktop py-unit-xl">
 
-      <div class="mb-unit-xl">
-        <a class="group flex items-center gap-unit-sm text-label-md font-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="../">
-          <span class="material-symbols-outlined text-[18px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
-          Kembali ke {{SITE_BRAND}}
-        </a>
-      </div>
+      <nav aria-label="Breadcrumb" class="mb-unit-xl">
+        <ol class="flex items-center flex-wrap gap-unit-xs text-label-md font-label-md text-on-surface-variant">
+          <li class="flex items-center gap-unit-xs">
+            <a href="../" class="hover:text-primary transition-colors">{{SITE_BRAND}}</a>
+            <span class="material-symbols-outlined text-[16px] opacity-50">chevron_right</span>
+          </li>
+          <li class="flex items-center gap-unit-xs">
+            <a href="{{BREADCRUMB_CATEGORY_URL}}" class="hover:text-primary transition-colors">{{APP_CATEGORY}}</a>
+            <span class="material-symbols-outlined text-[16px] opacity-50">chevron_right</span>
+          </li>
+          <li class="text-on-surface" aria-current="page">{{APP_NAME}}</li>
+        </ol>
+      </nav>
 
       <!-- Hero -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-unit-xl items-center mb-32">
@@ -98,6 +106,17 @@
               <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Kode sumber</div><div class="text-body-md font-body-md text-primary flex items-center gap-unit-xs group-hover:underline">Lihat di GitHub <span class="material-symbols-outlined text-[16px]">open_in_new</span></div></div>
             </a>
           </div>
+        </div>
+      </div>
+
+      <!-- Aplikasi lain -->
+      <div class="mt-32 reveal">
+        <div class="flex items-center gap-unit-sm mb-unit-lg">
+          <div class="h-[1px] w-8 bg-primary"></div>
+          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Aplikasi Lain</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-unit-md">
+          {{OTHER_APPS_CARDS}}
         </div>
       </div>
 

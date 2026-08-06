@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://a2th-dev.github.io/App/sitemap.xml

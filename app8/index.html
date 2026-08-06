@@ -7,6 +7,7 @@
 <meta name="description" content="Ganti dengan tagline singkat satu baris."/>
 <link rel="canonical" href="https://a2th-dev.github.io/App/app8/"/>
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<link rel="manifest" href="../manifest.json"/>
 <meta name="theme-color" content="#131313"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="APK Bench"/>
@@ -18,6 +19,7 @@
 <meta name="twitter:title" content="GANTI_NAMA_APP — APK Bench"/>
 <meta name="twitter:description" content="Ganti dengan tagline singkat satu baris."/>
 <meta name="twitter:image" content="https://a2th-dev.github.io/App/favicon.svg"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"GANTI_NAMA_APP","description":"Ganti dengan tagline singkat satu baris.","applicationCategory":"Kategori","operatingSystem":"Android 8.0 (Oreo)+","softwareVersion":"1.0.0","fileSize":"10MB","url":"https://a2th-dev.github.io/App/app8/","image":"https://a2th-dev.github.io/App/favicon.svg","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 <style>
   @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}}
   ::-webkit-scrollbar{display:none;}
@@ -27,6 +29,9 @@
   .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(0.22,1,0.36,1),transform .7s cubic-bezier(0.22,1,0.36,1);}
   .reveal.is-visible{opacity:1;transform:translateY(0);}
   @media (prefers-reduced-motion: reduce){.reveal{opacity:1;transform:none;transition:none;}}
+  :focus-visible{outline:2px solid #c0c1ff;outline-offset:2px;border-radius:4px;}
+  .skip-link{position:absolute;left:1rem;top:-3rem;z-index:100;background:#c0c1ff;color:#1000a9;padding:.6rem 1rem;border-radius:.5rem;font-weight:600;font-size:.875rem;transition:top .2s ease;text-decoration:none;}
+  .skip-link:focus{top:1rem;}
 </style>
 <script src="https://cdn.tailwindcss.com"></script>
 <script id="tailwind-config">
@@ -72,20 +77,29 @@ tailwind.config={darkMode:"class",theme:{extend:{
 
 </head>
 <body class="bg-background font-body-md text-on-background">
+<a href="#main-content" class="skip-link">Langsung ke konten</a>
 <header class="fixed top-0 w-full z-50 bg-surface-container/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.2)]">
-  <div class="h-16 max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between">
-    <a href="../" class="flex items-center gap-unit-sm">
+  <div class="h-16 max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop flex items-center justify-between gap-unit-md">
+    <a href="../" class="flex items-center gap-unit-sm shrink-0">
       <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
         <span class="material-symbols-outlined text-on-primary text-[18px]">inventory_2</span>
       </div>
       <span class="font-headline-md text-headline-md text-on-surface tracking-tight">APK Bench</span>
     </a>
-    <nav class="hidden md:flex items-center gap-unit-lg">
+    <nav class="hidden md:flex items-center gap-unit-lg shrink-0">
       <a href="../" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Apps</a>
       <a href="https://github.com/A2TH-Dev" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">GitHub</a>
     </nav>
-    <div class="flex items-center gap-unit-sm">
-      <div class="hidden sm:flex bg-primary/10 border border-primary/20 px-unit-sm py-unit-xs rounded-full items-center gap-unit-xs">
+    <div class="flex-1 max-w-xs hidden sm:block relative">
+      <span class="material-symbols-outlined absolute left-unit-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">search</span>
+      <input id="global-search" type="text" autocomplete="off" placeholder="Cari aplikasi..." class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-1.5 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
+      <div id="global-search-results" class="hidden absolute top-full mt-unit-xs left-0 right-0 bg-surface-container rounded-xl shadow-2xl border border-outline-variant/10 overflow-hidden max-h-80 overflow-y-auto"></div>
+    </div>
+    <div class="flex items-center gap-unit-sm shrink-0">
+      <button id="search-toggle" type="button" aria-label="Cari aplikasi" class="sm:hidden w-9 h-9 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
+        <span class="material-symbols-outlined">search</span>
+      </button>
+      <div class="hidden lg:flex bg-primary/10 border border-primary/20 px-unit-sm py-unit-xs rounded-full items-center gap-unit-xs">
         <span class="material-symbols-outlined text-primary text-[16px]">inventory_2</span>
         <span class="font-label-sm text-label-sm text-primary">9 Apps</span>
       </div>
@@ -93,6 +107,11 @@ tailwind.config={darkMode:"class",theme:{extend:{
         <span class="material-symbols-outlined" id="menu-toggle-icon">menu</span>
       </button>
     </div>
+  </div>
+  <div id="mobile-search" class="hidden sm:hidden px-margin-mobile pb-unit-md relative">
+    <span class="material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">search</span>
+    <input id="global-search-mobile" type="text" autocomplete="off" placeholder="Cari aplikasi..." class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-2 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
+    <div id="global-search-results-mobile" class="hidden mt-unit-xs bg-surface-container rounded-xl shadow-2xl border border-outline-variant/10 overflow-hidden max-h-80 overflow-y-auto"></div>
   </div>
   <nav id="mobile-menu" class="hidden md:hidden flex-col px-margin-mobile pb-unit-lg pt-unit-xs border-t border-outline-variant/10 gap-unit-xs">
     <a href="../" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">apps</span> Apps</a>
@@ -104,26 +123,78 @@ tailwind.config={darkMode:"class",theme:{extend:{
   var btn = document.getElementById('menu-toggle');
   var icon = document.getElementById('menu-toggle-icon');
   var menu = document.getElementById('mobile-menu');
-  if (!btn || !menu) return;
-  btn.addEventListener('click', function () {
-    var open = menu.classList.toggle('flex');
-    menu.classList.toggle('hidden');
-    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    icon.textContent = open ? 'close' : 'menu';
-  });
+  if (btn && menu) {
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('flex');
+      menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      icon.textContent = open ? 'close' : 'menu';
+    });
+  }
+
+  var searchToggle = document.getElementById('search-toggle');
+  var mobileSearch = document.getElementById('mobile-search');
+  if (searchToggle && mobileSearch) {
+    searchToggle.addEventListener('click', function () {
+      var open = mobileSearch.classList.toggle('flex');
+      mobileSearch.classList.toggle('hidden');
+      if (open) document.getElementById('global-search-mobile').focus();
+    });
+  }
+
+  var ROOT_PATH = '../';
+  var APPS_INDEX = [{"name":"Nitro Purge","slug":"nitropurge","category":"Utilitas & Optimasi","accent":"#3DDC97"},{"name":"EmberMP","slug":"ember","category":"Musik & Audio","accent":"#D97757"},{"name":"Peta Jiwa","slug":"petajiwa","category":"Gaya Hidup","accent":"#8B6FD9"},{"name":"Peta Jiwa Ultimate","slug":"petajiwa-ultimate","category":"Gaya Hidup","accent":"#C9A227"},{"name":"GANTI_NAMA_APP","slug":"app5","category":"Kategori","accent":"#4C8EFF"},{"name":"GANTI_NAMA_APP","slug":"app6","category":"Kategori","accent":"#FF6B6B"},{"name":"GANTI_NAMA_APP","slug":"app7","category":"Kategori","accent":"#3DDC97"},{"name":"GANTI_NAMA_APP","slug":"app8","category":"Kategori","accent":"#D97757"},{"name":"GANTI_NAMA_APP","slug":"app9","category":"Kategori","accent":"#C9A227"}];
+
+  function renderResults(query, container) {
+    var q = query.trim().toLowerCase();
+    if (!q) { container.classList.add('hidden'); container.innerHTML = ''; return; }
+    var matches = APPS_INDEX.filter(function (a) { return a.name.toLowerCase().indexOf(q) !== -1; }).slice(0, 6);
+    if (!matches.length) {
+      container.innerHTML = '<div class="px-unit-md py-unit-md text-body-sm font-body-sm text-on-surface-variant">Tidak ada hasil.</div>';
+      container.classList.remove('hidden');
+      return;
+    }
+    container.innerHTML = matches.map(function (a) {
+      return '<a href="' + ROOT_PATH + a.slug + '/" class="flex items-center gap-unit-sm px-unit-md py-unit-sm hover:bg-surface-container-high transition-colors">' +
+        '<span class="w-2 h-2 rounded-full shrink-0" style="background:' + a.accent + '"></span>' +
+        '<span class="text-body-sm font-body-sm text-on-surface">' + a.name + '</span>' +
+        '<span class="ml-auto text-label-sm font-label-sm text-on-surface-variant">' + a.category + '</span>' +
+        '</a>';
+    }).join('');
+    container.classList.remove('hidden');
+  }
+
+  function wireSearch(inputId, resultsId) {
+    var input = document.getElementById(inputId);
+    var results = document.getElementById(resultsId);
+    if (!input || !results) return;
+    input.addEventListener('input', function () { renderResults(input.value, results); });
+    document.addEventListener('click', function (e) {
+      if (!input.contains(e.target) && !results.contains(e.target)) results.classList.add('hidden');
+    });
+  }
+  wireSearch('global-search', 'global-search-results');
+  wireSearch('global-search-mobile', 'global-search-results-mobile');
 })();
 </script>
 
-<main class="w-full pt-20 bg-background overflow-x-hidden">
+<main id="main-content" class="w-full pt-20 bg-background overflow-x-hidden">
   <div class="flex flex-col w-full">
     <div class="max-w-[1000px] mx-auto px-margin-mobile lg:px-margin-desktop py-unit-xl">
 
-      <div class="mb-unit-xl">
-        <a class="group flex items-center gap-unit-sm text-label-md font-label-md text-on-surface-variant hover:text-primary transition-all duration-300" href="../">
-          <span class="material-symbols-outlined text-[18px] group-hover:-translate-x-1 transition-transform">arrow_back</span>
-          Kembali ke APK Bench
-        </a>
-      </div>
+      <nav aria-label="Breadcrumb" class="mb-unit-xl">
+        <ol class="flex items-center flex-wrap gap-unit-xs text-label-md font-label-md text-on-surface-variant">
+          <li class="flex items-center gap-unit-xs">
+            <a href="../" class="hover:text-primary transition-colors">APK Bench</a>
+            <span class="material-symbols-outlined text-[16px] opacity-50">chevron_right</span>
+          </li>
+          <li class="flex items-center gap-unit-xs">
+            <a href="../?category=Kategori" class="hover:text-primary transition-colors">Kategori</a>
+            <span class="material-symbols-outlined text-[16px] opacity-50">chevron_right</span>
+          </li>
+          <li class="text-on-surface" aria-current="page">GANTI_NAMA_APP</li>
+        </ol>
+      </nav>
 
       <!-- Hero -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-unit-xl items-center mb-32">
@@ -227,6 +298,44 @@ tailwind.config={darkMode:"class",theme:{extend:{
         </div>
       </div>
 
+      <!-- Aplikasi lain -->
+      <div class="mt-32 reveal">
+        <div class="flex items-center gap-unit-sm mb-unit-lg">
+          <div class="h-[1px] w-8 bg-primary"></div>
+          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Aplikasi Lain</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-unit-md">
+          <a href="../nitropurge/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid #3DDC97">
+          <img src="../nitropurge/asset/icon.png" alt="Nitro Purge icon" class="w-12 h-12 rounded-xl object-cover shadow-2xl" />
+          <div class="min-w-0">
+            <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">Nitro Purge</div>
+            <div class="text-label-sm font-label-sm text-on-surface-variant truncate">Utilitas & Optimasi</div>
+          </div>
+        </a>
+        <a href="../ember/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid #D97757">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold" style="background:#D9775722;color:#D97757">EM</div>
+          <div class="min-w-0">
+            <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">EmberMP</div>
+            <div class="text-label-sm font-label-sm text-on-surface-variant truncate">Musik & Audio</div>
+          </div>
+        </a>
+        <a href="../petajiwa/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid #8B6FD9">
+          <img src="../petajiwa/asset/icon.png" alt="Peta Jiwa icon" class="w-12 h-12 rounded-xl object-cover shadow-2xl" />
+          <div class="min-w-0">
+            <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">Peta Jiwa</div>
+            <div class="text-label-sm font-label-sm text-on-surface-variant truncate">Gaya Hidup</div>
+          </div>
+        </a>
+        <a href="../petajiwa-ultimate/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid #C9A227">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold" style="background:#C9A22722;color:#C9A227">PJ</div>
+          <div class="min-w-0">
+            <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">Peta Jiwa Ultimate</div>
+            <div class="text-label-sm font-label-sm text-on-surface-variant truncate">Gaya Hidup</div>
+          </div>
+        </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </main>
@@ -244,6 +353,26 @@ tailwind.config={darkMode:"class",theme:{extend:{
     </div>
   </div>
 </footer>
+<button id="back-to-top" type="button" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary text-on-primary shadow-xl shadow-primary/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:scale-110">
+  <span class="material-symbols-outlined text-[22px]">arrow_upward</span>
+</button>
+<script>
+(function () {
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  function toggle() {
+    var show = window.scrollY > 480;
+    btn.classList.toggle('opacity-0', !show);
+    btn.classList.toggle('pointer-events-none', !show);
+    btn.classList.toggle('translate-y-2', !show);
+  }
+  window.addEventListener('scroll', toggle, { passive: true });
+  toggle();
+  btn.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+</script>
 <script>
 (function () {
   var els = document.querySelectorAll('.reveal');
