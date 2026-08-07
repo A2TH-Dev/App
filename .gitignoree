@@ -1,12 +1,19 @@
 # ============================================================
 # .gitignore untuk A2TH-Dev/App repository
+# Exclude asset directories yang besar untuk GitHub Pages
 # ============================================================
 
-# CATATAN: dulu ada rule "**/asset/" di sini yang nge-exclude semua icon &
-# screenshot dari git. Dihapus — GitHub Pages cuma bisa nyajiin file yang
-# beneran ada di repo, jadi asset HARUS ikut ke-commit biar gambar muncul
-# di situs live. Kalau ukuran repo jadi masalah, kompres gambar (resize ke
-# ~800-1000px lebar, JPG quality ~75%) sebelum commit, bukan di-exclude.
+# Exclude semua asset/ directories dari semua subfolder
+**/asset/
+
+# Atau more specific (kalau hanya 2 folder yang problematic):
+# nitropurge/asset/
+# petajiwa/asset/
+
+# Optional: exclude seluruh folder app project kalau tidak perlu di-repo
+# (Uncomment kalau ingin exclude folder app source sepenuhnya):
+# nitropurge/
+# petajiwa/
 
 # ============================================================
 # Standar lainnya
