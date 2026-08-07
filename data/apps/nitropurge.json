@@ -11,6 +11,24 @@
   "repo": "A2TH-Dev/nitropurge",
   "releaseTag": "v1.0.3",
   "apkFile": "Nitro-Purge_Free_v1.0.3.apk",
+  "changelog": [
+    {
+      "version": "1.0.3",
+      "date": "2026-07-20",
+      "notes": [
+        "Perbaikan bug crash saat memindai file besar",
+        "Tambah App Lock dengan proteksi brute-force"
+      ]
+    },
+    {
+      "version": "1.0.2",
+      "date": "2026-06-05",
+      "notes": [
+        "Optimasi kecepatan scan Junk Cleaner",
+        "Perbaikan tampilan di Android 14"
+      ]
+    }
+  ],
   "accent": "#3DDC97",
   "features": [
     "Trash manager & pemampat foto",

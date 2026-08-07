@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="preconnect" href="https://cdn.tailwindcss.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <title>Peta Jiwa — APK Bench</title>
 <meta name="description" content="Peta kepribadian dan arah hidupmu."/>
 <link rel="canonical" href="https://a2th-dev.github.io/App/petajiwa/"/>
 <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
 <link rel="manifest" href="../manifest.json"/>
+<link rel="alternate" type="application/rss+xml" title="APK Bench — Rilis Terbaru" href="../feed.xml"/>
 <meta name="theme-color" content="#131313"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="APK Bench"/>
@@ -74,7 +78,6 @@ tailwind.config={darkMode:"class",theme:{extend:{
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet"/>
 <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}</style>
-
 </head>
 <body class="bg-background font-body-md text-on-background">
 <a href="#main-content" class="skip-link">Langsung ke konten</a>
@@ -200,7 +203,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-unit-xl items-center mb-32">
         <div class="lg:col-span-7 flex flex-col gap-unit-lg fade-in">
           <div class="flex items-start gap-unit-lg">
-            <img src="asset/icon.png" alt="Peta Jiwa icon" class="w-24 h-24 rounded-xl object-cover shadow-2xl" />
+            <img src="asset/icon.png" alt="Peta Jiwa icon" width="96" height="96" class="w-24 h-24 rounded-xl object-cover shadow-2xl" />
             <div class="flex flex-col justify-center h-24">
               <h1 class="text-headline-xl font-headline-xl text-on-surface">Peta Jiwa</h1>
               <p class="text-body-lg font-body-lg text-primary/80">Peta kepribadian dan arah hidupmu.</p>
@@ -210,6 +213,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
             <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">info</span> v1.0.0</span>
             <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">android</span> Android 8.0 (Oreo) test+</span>
             <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">database</span> 8 MB</span>
+            
           </div>
           <div class="flex flex-wrap gap-unit-md mt-unit-md">
             <a href="https://play.google.com/store/apps/details?id=id.a2thdev.petajiwa" class="px-unit-lg py-unit-md bg-primary text-on-primary font-label-md rounded-lg shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-unit-sm">
@@ -223,7 +227,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
         <div class="lg:col-span-5 relative">
           <div class="absolute -inset-4 blur-[80px] rounded-full" style="background:#8B6FD922"></div>
           <div class="relative mx-auto w-56 aspect-[9/19] rounded-[2.5rem] border-4 border-surface-container-highest bg-surface-container-low shadow-2xl flex items-center justify-center overflow-hidden">
-            <img src="asset/1.png" alt="Peta Jiwa preview" class="w-full h-full object-cover" />
+            <img src="asset/1.png" alt="Peta Jiwa preview" width="224" height="473" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
@@ -236,28 +240,28 @@ tailwind.config={darkMode:"class",theme:{extend:{
         </div>
         <div class="relative left-1/2 overflow-hidden" style="width:min(1200px,88vw);transform:translateX(-50%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);">
           <div class="flex gap-unit-md screenshot-track" style="width:max-content;animation:screenshot-scroll 44s linear infinite;">
-          <img src="asset/1.png" alt="Peta Jiwa screenshot 1" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/2.jpg" alt="Peta Jiwa screenshot 2" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/3.jpg" alt="Peta Jiwa screenshot 3" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/4.jpg" alt="Peta Jiwa screenshot 4" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/5.jpg" alt="Peta Jiwa screenshot 5" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/6.jpg" alt="Peta Jiwa screenshot 6" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/7.jpg" alt="Peta Jiwa screenshot 7" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/8jpg" alt="Peta Jiwa screenshot 8" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/9.jpg" alt="Peta Jiwa screenshot 9" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/10.jpg" alt="Peta Jiwa screenshot 10" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/11.jpg" alt="Peta Jiwa screenshot 11" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/1.png" alt="Peta Jiwa screenshot 1" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/2.jpg" alt="Peta Jiwa screenshot 2" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/3.jpg" alt="Peta Jiwa screenshot 3" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/4.jpg" alt="Peta Jiwa screenshot 4" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/5.jpg" alt="Peta Jiwa screenshot 5" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/6.jpg" alt="Peta Jiwa screenshot 6" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/7.jpg" alt="Peta Jiwa screenshot 7" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/8jpg" alt="Peta Jiwa screenshot 8" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/9.jpg" alt="Peta Jiwa screenshot 9" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/10.jpg" alt="Peta Jiwa screenshot 10" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
-          <img src="asset/11.jpg" alt="Peta Jiwa screenshot 11" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/1.png" alt="Peta Jiwa screenshot 1" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/2.jpg" alt="Peta Jiwa screenshot 2" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/3.jpg" alt="Peta Jiwa screenshot 3" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/4.jpg" alt="Peta Jiwa screenshot 4" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/5.jpg" alt="Peta Jiwa screenshot 5" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/6.jpg" alt="Peta Jiwa screenshot 6" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/7.jpg" alt="Peta Jiwa screenshot 7" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/8jpg" alt="Peta Jiwa screenshot 8" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/9.jpg" alt="Peta Jiwa screenshot 9" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/10.jpg" alt="Peta Jiwa screenshot 10" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/11.jpg" alt="Peta Jiwa screenshot 11" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/1.png" alt="Peta Jiwa screenshot 1" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/2.jpg" alt="Peta Jiwa screenshot 2" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/3.jpg" alt="Peta Jiwa screenshot 3" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/4.jpg" alt="Peta Jiwa screenshot 4" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/5.jpg" alt="Peta Jiwa screenshot 5" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/6.jpg" alt="Peta Jiwa screenshot 6" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/7.jpg" alt="Peta Jiwa screenshot 7" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/8jpg" alt="Peta Jiwa screenshot 8" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/9.jpg" alt="Peta Jiwa screenshot 9" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/10.jpg" alt="Peta Jiwa screenshot 10" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
+          <img src="asset/11.jpg" alt="Peta Jiwa screenshot 11" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />
           </div>
         </div>
       </div>
@@ -311,6 +315,8 @@ tailwind.config={darkMode:"class",theme:{extend:{
         </div>
       </div>
 
+      
+
       <!-- Specs -->
       <div class="relative">
         <div class="absolute -right-20 bottom-0 w-72 h-72 blur-[100px] rounded-full pointer-events-none" style="background:#8B6FD914"></div>
@@ -348,7 +354,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-unit-md">
           <a href="../nitropurge/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid #3DDC97">
-          <img src="../nitropurge/asset/icon.png" alt="Nitro Purge icon" class="w-12 h-12 rounded-xl object-cover shadow-2xl" />
+          <img src="../nitropurge/asset/icon.png" alt="Nitro Purge icon" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-xl object-cover shadow-2xl" />
           <div class="min-w-0">
             <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">Nitro Purge</div>
             <div class="text-label-sm font-label-sm text-on-surface-variant truncate">Utilitas & Optimasi</div>

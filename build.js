@@ -64,16 +64,20 @@ function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
 
-function iconBlock(app, prefix, sizeClass) {
+// sizePx: {w,h} dalam px buat atribut width/height (cegah layout shift saat gambar
+// belum kebaca), tidak mempengaruhi ukuran tampil karena class Tailwind tetap menang.
+function iconBlock(app, prefix, sizeClass, sizePx, eager) {
   if (!app.icon) return null;
-  return `<img src="${esc(prefix + app.icon)}" alt="${esc(app.name)} icon" class="${sizeClass} rounded-xl object-cover shadow-2xl" />`;
+  const loadingAttr = eager ? '' : ' loading="lazy"';
+  const dims = sizePx ? ` width="${sizePx.w}" height="${sizePx.h}"` : '';
+  return `<img src="${esc(prefix + app.icon)}" alt="${esc(app.name)} icon"${dims}${loadingAttr} class="${sizeClass} rounded-xl object-cover shadow-2xl" />`;
 }
 
 function screenshotGallery(app, prefix) {
   const shots = app.screenshots;
   if (!shots || !shots.length) return '';
   const renderItem = (src, i) =>
-    `<img src="${esc(prefix + src)}" alt="${esc(app.name)} screenshot ${i + 1}" loading="lazy" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />`;
+    `<img src="${esc(prefix + src)}" alt="${esc(app.name)} screenshot ${i + 1}" loading="lazy" width="192" height="405" class="w-40 md:w-48 aspect-[9/19] object-cover rounded-2xl border border-outline-variant/30 shadow-lg flex-shrink-0" />`;
   // Track digandakan 2x supaya animasi translateX(-50%) loop mulus tanpa jeda.
   const trackOnce = shots.map(renderItem).join('\n          ');
   const trackTwice = trackOnce + '\n          ' + trackOnce;
@@ -101,9 +105,9 @@ function screenshotGallery(app, prefix) {
 function phoneMockupBlock(app, prefix) {
   const src = app.heroScreenshot || (app.screenshots && app.screenshots[0]);
   if (src) {
-    return `<img src="${esc(prefix + src)}" alt="${esc(app.name)} preview" class="w-full h-full object-cover" />`;
+    return `<img src="${esc(prefix + src)}" alt="${esc(app.name)} preview" width="224" height="473" class="w-full h-full object-cover" />`;
   }
-  return iconBlock(app, prefix, 'w-20 h-20');
+  return iconBlock(app, prefix, 'w-20 h-20', { w: 80, h: 80 }, true);
 }
 
 // ---------- privacy policy helpers ----------
@@ -201,6 +205,109 @@ function isPlayStore(app) {
   return Boolean(app.playStoreUrl);
 }
 
+// ---------- changelog (opsional, isi field "changelog" di data/apps/<slug>.json) ----------
+// Format: [{ "version": "1.0.3", "date": "2026-07-20", "notes": ["...", "..."] }, ...]
+function buildChangelog(app) {
+  const entries = app.changelog;
+  if (!entries || !entries.length) return '';
+  const items = entries
+    .map((entry, i) => {
+      const notes = (entry.notes || [])
+        .map((n) => `<li class="text-body-sm font-body-sm text-on-surface-variant">${n}</li>`)
+        .join('\n              ');
+      const isLatest = i === 0;
+      return `<div class="relative pl-unit-xl pb-unit-lg last:pb-0">
+            <div class="absolute left-0 top-1 w-3 h-3 rounded-full ${isLatest ? 'bg-primary' : 'bg-surface-container-highest'}"></div>
+            <div class="absolute left-[5px] top-4 bottom-0 w-[2px] bg-surface-container-highest last:hidden"></div>
+            <div class="flex items-center gap-unit-sm mb-unit-xs flex-wrap">
+              <span class="text-body-md font-body-md text-on-surface font-semibold">v${entry.version}</span>
+              ${isLatest ? '<span class="text-label-sm font-label-sm text-primary bg-primary/10 px-unit-sm py-[2px] rounded-full">Terbaru</span>' : ''}
+              <span class="text-label-sm font-label-sm text-on-surface-variant">${entry.date || ''}</span>
+            </div>
+            <ul class="list-disc pl-5 space-y-1">
+              ${notes}
+            </ul>
+          </div>`;
+    })
+    .join('\n          ');
+  return `<!-- Changelog -->
+      <div class="mb-32 reveal">
+        <div class="flex items-center gap-unit-sm mb-unit-lg">
+          <div class="h-[1px] w-8 bg-primary"></div>
+          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Yang Baru</span>
+        </div>
+        <div class="max-w-2xl">
+          ${items}
+        </div>
+      </div>`;
+}
+
+// ---------- jumlah download asli dari GitHub Releases ----------
+// Fetch sekali per repo (bukan per app, App bisa punya 2+ apps di 1 repo kalau mau),
+// di-cache 1 jam ke data/.download-cache.json biar tidak boros API call / kena rate limit
+// pas build berkali-kali dalam waktu singkat. Kalau fetch gagal (offline, rate limit,
+// dsb.) build TETAP jalan normal, badge download cuma tidak muncul untuk app itu.
+const DOWNLOAD_CACHE_PATH = path.join(ROOT, 'data', '.download-cache.json');
+const DOWNLOAD_CACHE_TTL_MS = 60 * 60 * 1000; // 1 jam
+
+function readDownloadCache() {
+  try {
+    const raw = JSON.parse(fs.readFileSync(DOWNLOAD_CACHE_PATH, 'utf8'));
+    if (Date.now() - raw.fetchedAt < DOWNLOAD_CACHE_TTL_MS) return raw.counts || {};
+  } catch (e) {
+    // belum ada cache atau rusak, lanjut fetch fresh
+  }
+  return null;
+}
+
+function writeDownloadCache(counts) {
+  try {
+    fs.writeFileSync(DOWNLOAD_CACHE_PATH, JSON.stringify({ fetchedAt: Date.now(), counts }, null, 2));
+  } catch (e) {
+    // gagal nulis cache bukan masalah fatal, lewati saja
+  }
+}
+
+async function fetchDownloadCount(app) {
+  if (!app.repo || !app.releaseTag) return null;
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 8000);
+    const res = await fetch(`https://api.github.com/repos/${app.repo}/releases/tags/${app.releaseTag}`, {
+      headers: { 'User-Agent': 'apk-bench-build', Accept: 'application/vnd.github+json' },
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+    if (!res.ok) return null;
+    const json = await res.json();
+    const assets = json.assets || [];
+    return assets.reduce((sum, a) => sum + (a.download_count || 0), 0);
+  } catch (e) {
+    return null;
+  }
+}
+
+function formatDownloadCount(n) {
+  if (n >= 1000000) return `${(n / 1000000).toFixed(1).replace(/\.0$/, '')}JT`;
+  if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, '')}RB`;
+  return String(n);
+}
+
+async function getDownloadCounts(apps) {
+  const cached = readDownloadCache();
+  if (cached) {
+    console.log('↺ Pakai cache jumlah download (< 1 jam terakhir)');
+    return cached;
+  }
+  console.log('↻ Mengambil jumlah download dari GitHub Releases...');
+  const results = await Promise.all(
+    apps.map(async (app) => [app.slug, await fetchDownloadCount(app)])
+  );
+  const counts = Object.fromEntries(results);
+  writeDownloadCache(counts);
+  return counts;
+}
+
 function buildJsonLd(app, pageUrl, imageUrl) {
   const ld = {
     '@context': 'https://schema.org',
@@ -223,6 +330,9 @@ function buildHeader(map) { return fill(partialHeader, map); }
 function buildFooter(map) { return fill(partialFooter, map); }
 
 // ---------- generate per-app pages ----------
+async function main() {
+const downloadCounts = await getDownloadCounts(data.apps);
+
 for (const app of data.apps) {
   const dir = path.join(ROOT, app.slug);
   fs.mkdirSync(dir, { recursive: true });
@@ -261,7 +371,7 @@ for (const app of data.apps) {
     .map((oa) => {
       const oaInitials = oa.initials || initials(oa.name);
       const oaIcon =
-        iconBlock(oa, `../${oa.slug}/`, 'w-12 h-12') ||
+        iconBlock(oa, `../${oa.slug}/`, 'w-12 h-12', { w: 48, h: 48 }) ||
         `<div class="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold" style="background:${oa.accent}22;color:${oa.accent}">${oaInitials}</div>`;
       return `<a href="../${oa.slug}/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid ${oa.accent}">
           ${oaIcon}
@@ -290,11 +400,20 @@ for (const app of data.apps) {
     APP_DOWNLOAD_ICON: isPlayStore(app) ? 'shop' : 'download',
     FEATURE_CARDS: featureCards,
     BUILD_DATE: buildDate,
-    APP_ICON_HERO: iconBlock(app, imgPrefix, 'w-24 h-24') || initialsDivHero,
+    APP_ICON_HERO: iconBlock(app, imgPrefix, 'w-24 h-24', { w: 96, h: 96 }, true) || initialsDivHero,
     APP_ICON_PHONE: phoneMockupBlock(app, imgPrefix) || initialsDivPhone,
     SCREENSHOT_GALLERY: screenshotGallery(app, imgPrefix),
     OTHER_APPS_CARDS: otherAppsCards,
     BREADCRUMB_CATEGORY_URL: `../?category=${encodeURIComponent(app.category)}`,
+    CHANGELOG_SECTION: buildChangelog(app),
+    DOWNLOAD_BADGE: (() => {
+      const count = downloadCounts[app.slug];
+      if (count === null || count === undefined) return '';
+      return `<div class="flex items-center gap-unit-xs px-unit-sm py-unit-xs bg-surface-container-high rounded-full">
+              <span class="material-symbols-outlined text-primary text-[16px]">download</span>
+              <span class="font-label-sm text-label-sm text-on-surface">${formatDownloadCount(count)} unduhan</span>
+            </div>`;
+    })(),
     ...buildPrivacySections(app),
   };
 
@@ -335,7 +454,7 @@ const cards = data.apps
   .map((app) => {
     const initialsStr = app.initials || initials(app.name);
     const iconHtml =
-      iconBlock(app, `${app.slug}/`, 'w-16 h-16') ||
+      iconBlock(app, `${app.slug}/`, 'w-16 h-16', { w: 64, h: 64 }) ||
       `<div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
     return `<a href="${app.slug}/" data-name="${esc(app.name.toLowerCase())}" data-category="${esc(app.category)}" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
         <div class="flex justify-between items-start mb-unit-lg">
@@ -471,4 +590,45 @@ fs.writeFileSync(
 );
 console.log('✓ 404.html');
 
+// ---------- feed.xml (RSS) ----------
+// Item diurutkan dari entri changelog terbaru tiap app (kalau ada), fallback ke buildDate.
+function escXml(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+const feedItems = [...data.apps]
+  .map((app) => {
+    const latestChangelog = app.changelog && app.changelog[0];
+    const pubDate = latestChangelog && latestChangelog.date ? new Date(latestChangelog.date) : new Date(buildDate);
+    return { app, pubDate };
+  })
+  .sort((a, b) => b.pubDate - a.pubDate)
+  .map(
+    ({ app, pubDate }) => `  <item>
+    <title>${escXml(app.name)} v${escXml(app.version)}</title>
+    <link>${data.site.siteUrl}/${app.slug}/</link>
+    <guid>${data.site.siteUrl}/${app.slug}/</guid>
+    <description>${escXml(app.tagline)}</description>
+    <pubDate>${pubDate.toUTCString()}</pubDate>
+  </item>`
+  )
+  .join('\n');
+const feedXml = `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>${escXml(data.site.brand)}</title>
+  <link>${data.site.siteUrl}/</link>
+  <description>${escXml(data.site.tagline)}</description>
+${feedItems}
+</channel>
+</rss>
+`;
+fs.writeFileSync(path.join(ROOT, 'feed.xml'), feedXml);
+console.log('✓ feed.xml');
+
 console.log(`\nSelesai. ${data.apps.length} aplikasi ter-generate.`);
+}
+
+main().catch((err) => {
+  console.error('[ERROR] Build gagal:', err.message);
+  process.exit(1);
+});

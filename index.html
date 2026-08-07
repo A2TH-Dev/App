@@ -3,11 +3,15 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="preconnect" href="https://cdn.tailwindcss.com"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <title>APK Bench — Katalog aplikasi Android independen, dibangun untuk kecepatan dan privasi — didistribusikan langsung lewat GitHub Releases.</title>
 <meta name="description" content="Katalog aplikasi Android independen, dibangun untuk kecepatan dan privasi — didistribusikan langsung lewat GitHub Releases."/>
 <link rel="canonical" href="https://a2th-dev.github.io/App/"/>
 <link rel="icon" type="image/svg+xml" href="./favicon.svg"/>
 <link rel="manifest" href="./manifest.json"/>
+<link rel="alternate" type="application/rss+xml" title="APK Bench — Rilis Terbaru" href="./feed.xml"/>
 <meta name="theme-color" content="#131313"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="APK Bench"/>
@@ -74,7 +78,6 @@ tailwind.config={darkMode:"class",theme:{extend:{
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet"/>
 <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}</style>
-
 </head>
 <body class="bg-background font-body-md text-on-background">
 <a href="#main-content" class="skip-link">Langsung ke konten</a>
@@ -231,7 +234,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
         <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter" id="app-grid" data-app-total="9">
           <a href="nitropurge/" data-name="nitro purge" data-category="Utilitas &amp; Optimasi" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #3DDC97">
         <div class="flex justify-between items-start mb-unit-lg">
-          <img src="nitropurge/asset/icon.png" alt="Nitro Purge icon" class="w-16 h-16 rounded-xl object-cover shadow-2xl" />
+          <img src="nitropurge/asset/icon.png" alt="Nitro Purge icon" width="64" height="64" loading="lazy" class="w-16 h-16 rounded-xl object-cover shadow-2xl" />
           <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v1.0.3</span>
         </div>
         <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Nitro Purge</h3>
@@ -255,7 +258,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
       </a>
       <a href="petajiwa/" data-name="peta jiwa" data-category="Gaya Hidup" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #8B6FD9">
         <div class="flex justify-between items-start mb-unit-lg">
-          <img src="petajiwa/asset/icon.png" alt="Peta Jiwa icon" class="w-16 h-16 rounded-xl object-cover shadow-2xl" />
+          <img src="petajiwa/asset/icon.png" alt="Peta Jiwa icon" width="64" height="64" loading="lazy" class="w-16 h-16 rounded-xl object-cover shadow-2xl" />
           <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v1.0.0</span>
         </div>
         <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Peta Jiwa</h3>

@@ -46,3 +46,6 @@ npm-debug.log*
 # Temp files
 .temp/
 temp/
+
+# Cache jumlah download GitHub Releases (build.js), regenerable otomatis
+data/.download-cache.json

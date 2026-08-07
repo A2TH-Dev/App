@@ -38,6 +38,7 @@
             <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">info</span> v{{APP_VERSION}}</span>
             <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">android</span> Android {{APP_MIN_ANDROID}}+</span>
             <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">database</span> {{APP_SIZE_MB}} MB</span>
+            {{DOWNLOAD_BADGE}}
           </div>
           <div class="flex flex-wrap gap-unit-md mt-unit-md">
             <a href="{{APP_DOWNLOAD_URL}}" class="px-unit-lg py-unit-md bg-primary text-on-primary font-label-md rounded-lg shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-unit-sm">
@@ -79,6 +80,8 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter mb-32 reveal">
         {{FEATURE_CARDS}}
       </div>
+
+      {{CHANGELOG_SECTION}}
 
       <!-- Specs -->
       <div class="relative">
