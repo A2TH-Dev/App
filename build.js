@@ -8,6 +8,13 @@
  */
 const fs = require('fs');
 const path = require('path');
+let sharp = null;
+try {
+  sharp = require('sharp');
+} catch (e) {
+  // sharp belum ke-install — build tetap jalan, cuma optimasi gambar dilewati
+  // (lihat pesan peringatan yang dicetak nanti di optimizeImage()).
+}
 
 const ROOT = __dirname;
 const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
@@ -62,6 +69,55 @@ function releaseUrl(app) {
 // itu sendiri (prefix '') maupun dari root index.html (prefix '<slug>/').
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+// ---------- optimasi gambar: resize + convert ke WebP ----------
+// Sumber asli (jpg/png di <slug>/asset/...) TETAP ADA di disk (tidak dihapus/ditimpa),
+// cuma dilewati saat commit (lihat .gitignore). Yang di-generate & di-commit adalah
+// versi .webp di lokasi yang sama. Hasilnya di-cache: kalau file .webp sudah ada dan
+// lebih baru dari sumbernya, tidak diproses ulang (build tetap cepat).
+let sharpWarned = false;
+async function optimizeImage(app, relPath, maxWidth, quality) {
+  if (!relPath) return relPath;
+  const ext = path.extname(relPath).toLowerCase();
+  if (ext === '.webp') return relPath; // sudah webp, tidak perlu diproses
+  const webpRelPath = relPath.slice(0, -ext.length) + '.webp';
+
+  if (!sharp) {
+    if (!sharpWarned) {
+      console.log('⚠ sharp belum ke-install (jalankan "npm install" sekali) — gambar dipakai apa adanya, tanpa kompresi.');
+      sharpWarned = true;
+    }
+    return relPath;
+  }
+
+  const srcPath = path.join(ROOT, app.slug, relPath);
+  const outPath = path.join(ROOT, app.slug, webpRelPath);
+  if (!fs.existsSync(srcPath)) return relPath; // biar tidak error kalau file belum ada
+
+  try {
+    const srcStat = fs.statSync(srcPath);
+    const outExists = fs.existsSync(outPath);
+    if (outExists && fs.statSync(outPath).mtimeMs > srcStat.mtimeMs) {
+      return webpRelPath; // cache masih valid, tidak perlu proses ulang
+    }
+    await sharp(srcPath)
+      .resize({ width: maxWidth, withoutEnlargement: true })
+      .webp({ quality })
+      .toFile(outPath);
+    return webpRelPath;
+  } catch (e) {
+    console.log(`⚠ Gagal optimasi ${app.slug}/${relPath}: ${e.message} — dipakai apa adanya.`);
+    return relPath;
+  }
+}
+
+async function optimizeAppImages(app) {
+  if (app.icon) app.icon = await optimizeImage(app, app.icon, 512, 90);
+  if (app.heroScreenshot) app.heroScreenshot = await optimizeImage(app, app.heroScreenshot, 900, 82);
+  if (app.screenshots && app.screenshots.length) {
+    app.screenshots = await Promise.all(app.screenshots.map((s) => optimizeImage(app, s, 800, 80)));
+  }
 }
 
 // sizePx: {w,h} dalam px buat atribut width/height (cegah layout shift saat gambar
@@ -332,6 +388,9 @@ function buildFooter(map) { return fill(partialFooter, map); }
 // ---------- generate per-app pages ----------
 async function main() {
 const downloadCounts = await getDownloadCounts(data.apps);
+
+console.log('↻ Optimasi gambar (resize + WebP)...');
+await Promise.all(data.apps.map((app) => optimizeAppImages(app)));
 
 for (const app of data.apps) {
   const dir = path.join(ROOT, app.slug);

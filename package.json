@@ -1,0 +1,12 @@
+{
+  "name": "apk-bench",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static site generator untuk katalog APK Bench",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.5"
+  }
+}

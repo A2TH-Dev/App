@@ -38,6 +38,15 @@ if errorlevel 1 (
 )
 
 echo [1/4] Build ulang situs dari data/site.json + data/apps/*.json ...
+if not exist "node_modules\sharp" (
+    where npm >nul 2>nul
+    if errorlevel 1 (
+        echo [PERINGATAN] npm tidak ditemukan, lewati optimasi gambar ^(sharp^).
+    ) else (
+        echo Menginstal dependency ^(sharp, buat kompresi gambar^), sekali saja...
+        call npm install --no-audit --no-fund
+    )
+)
 call node build.js
 if errorlevel 1 (
     echo [ERROR] Build gagal. Cek pesan error di atas, perbaiki dulu file di data/apps/.
