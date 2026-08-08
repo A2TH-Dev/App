@@ -25,6 +25,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
 
       - name: Jalankan build.js
         run: node build.js
@@ -35,4 +39,3 @@ jobs:
           commit_message: "chore: auto-build situs dari data/ [skip ci]"
           commit_user_name: "apk-bench-bot"
           commit_user_email: "actions@github.com"
-

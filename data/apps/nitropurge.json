@@ -3,7 +3,7 @@
   "slug": "nitropurge",
   "name": "Nitro Purge",
   "tagline": "Pembersih & optimizer Android tanpa drama.",
-  "description": "NitroPurge membersihkan file sampah, mengubah ukuran foto, menghapus duplikat kontak, dan mengunci aplikasi sensitif dengan PIN \u2014 semua dari satu dashboard ringan tanpa iklan mengganggu.",
+  "description": "NitroPurge membersihkan file sampah, mengubah ukuran foto, menghapus duplikat kontak, dan mengunci aplikasi sensitif dengan PIN — semua dari satu dashboard ringan tanpa iklan mengganggu.",
   "category": "Utilitas & Optimasi",
   "version": "1.0.3",
   "minAndroid": "8.0 (Oreo)",
@@ -15,9 +15,19 @@
     {
       "version": "1.0.3",
       "date": "2026-07-20",
+      "category": "Maintenance & Security",
       "notes": [
-        "Perbaikan bug crash saat memindai file besar",
-        "Tambah App Lock dengan proteksi brute-force"
+        "🔒 Tambah App Lock dengan proteksi brute-force (salted SHA-256, backoff bertingkat)",
+        "🔧 Fix race condition di AppLockRepository saat PIN dicek bersamaan dari UI + accessibility service",
+        "🐛 Fix crash saat memindai file besar – handle timeout di StorageGrowthPredictor dengan fallback",
+        "🐛 Fix DuplicateContactScanner – perbaiki merge logic agar nomor kontak tidak hilang, skip kontak tanpa nama",
+        "🐛 Fix OneTapCleanQuota – bersihkan threshold aggressiveness yang not-yet-loaded saat app startup",
+        "🐛 Fix parser hasil native – seragamkan delimiter handling di ApkInspector, VideoScanner, LargeFileScanner",
+        "🐛 Fix AppPatternMatcher – pastikan fallback Kotlin konsisten saat native load gagal",
+        "📊 Improve error handling di PhotoCompressor (quality detection + invalid EXIF), NitroPurgeApp (WorkManager init), TurboMonitorViewModel (polling job cancellation)",
+        "⚙️ Ensure StorageWidgetProvider & LeftoverWidgetProvider menggunakan aggressiveness preference konsisten",
+        "🔐 Hardening di NitroPurgeApp init + improve error logging untuk diagnostik lebih mudah",
+        "✅ Verifikasi menyeluruh ~3.400 baris native-lib.cpp (24 fungsi JNI) – walk filesystem, duplicate finder, DCT perceptual hash, APK parser, fuzzy clustering, regresi linear"
       ]
     },
     {
@@ -43,15 +53,15 @@
       "File & media (untuk Junk Cleaner, Large File Finder, Duplicate Finder, Photo Compressor, Video Cleaner, App Leftover Finder)",
       "Statistik penggunaan aplikasi (untuk Usage Insights / Screen Time dan App Manager)",
       "Kontak (khusus fitur Duplicate Contacts)",
-      "Notifikasi aktif (khusus fitur Notification Cleaner \u2014 isi notifikasi tidak dibaca untuk tujuan lain)",
+      "Notifikasi aktif (khusus fitur Notification Cleaner — isi notifikasi tidak dibaca untuk tujuan lain)",
       "Data biometrik untuk App Lock ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Nitro Purge sendiri tidak pernah menyimpan data biometrik apapun",
-      "Advertising ID / Device ID \u2014 <strong>khusus edisi Free</strong>, dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan (lihat bagian 03)"
+      "Advertising ID / Device ID — <strong>khusus edisi Free</strong>, dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan (lihat bagian 03)"
     ],
-    "dataCollectedNote": "Edisi <strong>Pro</strong> tidak memiliki izin internet sama sekali secara teknis, sehingga tidak ada data yang bisa keluar dari perangkat dalam bentuk apapun \u2014 bisa diverifikasi lewat menu \"Sertifikat Privasi\" di dalam aplikasi.",
-    "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah edisi Free, di mana Advertising ID/Device ID dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan banner, interstitial, dan rewarded \u2014 dijelaskan lebih lanjut di bagian 03.",
+    "dataCollectedNote": "Edisi <strong>Pro</strong> tidak memiliki izin internet sama sekali secara teknis, sehingga tidak ada data yang bisa keluar dari perangkat dalam bentuk apapun — bisa diverifikasi lewat menu \"Sertifikat Privasi\" di dalam aplikasi.",
+    "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah edisi Free, di mana Advertising ID/Device ID dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan banner, interstitial, dan rewarded — dijelaskan lebih lanjut di bagian 03.",
     "dataSharing": [
-      "<strong>Edisi Pro:</strong> tidak membagikan data apapun ke pihak manapun \u2014 aplikasi ini secara teknis tidak memiliki izin internet, sehingga tidak ada koneksi jaringan yang bisa dibuka sama sekali.",
-      "<strong>Edisi Free:</strong> menggunakan Google Mobile Ads SDK (AdMob) dan Google User Messaging Platform (UMP) untuk menampilkan iklan dan mengelola persetujuan privasi pengguna di Uni Eropa/Inggris (GDPR/UK). Lewat SDK ini, Advertising ID dan Device/other ID dikirim ke Google untuk keperluan penayangan iklan. Kamu bisa meninjau atau mencabut persetujuan ini kapan saja lewat Pengaturan \u2192 Preferensi Iklan di dalam aplikasi. Kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a> dan kebijakan mitra iklan Google di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/technologies/partner-sites\">policies.google.com/technologies/partner-sites</a>.",
+      "<strong>Edisi Pro:</strong> tidak membagikan data apapun ke pihak manapun — aplikasi ini secara teknis tidak memiliki izin internet, sehingga tidak ada koneksi jaringan yang bisa dibuka sama sekali.",
+      "<strong>Edisi Free:</strong> menggunakan Google Mobile Ads SDK (AdMob) dan Google User Messaging Platform (UMP) untuk menampilkan iklan dan mengelola persetujuan privasi pengguna di Uni Eropa/Inggris (GDPR/UK). Lewat SDK ini, Advertising ID dan Device/other ID dikirim ke Google untuk keperluan penayangan iklan. Kamu bisa meninjau atau mencabut persetujuan ini kapan saja lewat Pengaturan → Preferensi Iklan di dalam aplikasi. Kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a> dan kebijakan mitra iklan Google di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/technologies/partner-sites\">policies.google.com/technologies/partner-sites</a>.",
       "Di luar hal tersebut, tidak ada data lain (file, kontak, statistik pemakaian, dsb.) yang dibagikan ke pihak ketiga manapun oleh Nitro Purge."
     ],
     "permissions": [
@@ -77,7 +87,7 @@
       },
       {
         "name": "Notifikasi",
-        "use": "Notification Cleaner \u2014 tidak membaca isi notifikasi untuk tujuan lain"
+        "use": "Notification Cleaner — tidak membaca isi notifikasi untuk tujuan lain"
       },
       {
         "name": "Abaikan Optimasi Baterai",
@@ -85,11 +95,11 @@
       },
       {
         "name": "Layanan Aksesibilitas (Accessibility Service)",
-        "use": "App Lock / Privacy Guard \u2014 hanya mendeteksi <em>app apa</em> yang sedang di depan layar (event pergantian window) untuk memicu layar PIN; <strong>tidak</strong> membaca isi layar app lain (<code>canRetrieveWindowContent</code> dinonaktifkan)"
+        "use": "App Lock / Privacy Guard — hanya mendeteksi <em>app apa</em> yang sedang di depan layar (event pergantian window) untuk memicu layar PIN; <strong>tidak</strong> membaca isi layar app lain (<code>canRetrieveWindowContent</code> dinonaktifkan)"
       },
       {
         "name": "Biometrik",
-        "use": "App Lock via sidik jari/PIN, lewat <code>BiometricPrompt</code> sistem \u2014 data biometrik tidak disimpan aplikasi"
+        "use": "App Lock via sidik jari/PIN, lewat <code>BiometricPrompt</code> sistem — data biometrik tidak disimpan aplikasi"
       },
       {
         "name": "Notification Listener",
@@ -97,14 +107,14 @@
       },
       {
         "name": "Clipboard",
-        "use": "Clipboard Cleaner \u2014 hanya <em>mengosongkan</em> clipboard, tidak pernah membaca atau menyimpan isinya"
+        "use": "Clipboard Cleaner — hanya <em>mengosongkan</em> clipboard, tidak pernah membaca atau menyimpan isinya"
       },
       {
         "name": "Internet & Advertising ID <span class=\"opacity-60\">(khusus edisi Free)</span>",
         "use": "Menampilkan iklan AdMob (banner, interstitial, rewarded)"
       }
     ],
-    "permissionsNote": "Edisi Pro tidak mendeklarasikan izin internet maupun Advertising ID sama sekali. Root Mode tidak membutuhkan izin Android apapun \u2014 fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app), bukan perintah shell bebas.",
+    "permissionsNote": "Edisi Pro tidak mendeklarasikan izin internet maupun Advertising ID sama sekali. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app), bukan perintah shell bebas.",
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
   },
