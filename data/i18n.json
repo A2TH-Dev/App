@@ -42,7 +42,8 @@
     "contactHeading": "Lapor Masalah / Kontak",
     "contactBody": "Nemu bug, APK rusak, atau link download tidak jalan? Laporkan lewat salah satu ini:",
     "contactReportBug": "Lapor Bug",
-    "contactEmailLabel": "Email"
+    "contactEmailLabel": "Email",
+    "specUpdated": "Terakhir Diperbarui"
   },
   "en": {
     "navApps": "Apps",
@@ -87,6 +88,7 @@
     "contactHeading": "Report an Issue / Contact",
     "contactBody": "Found a bug, a broken APK, or a dead download link? Report it through one of these:",
     "contactReportBug": "Report a Bug",
-    "contactEmailLabel": "Email"
+    "contactEmailLabel": "Email",
+    "specUpdated": "Last Updated"
   }
 }

@@ -564,8 +564,7 @@ function generateAppPage(app, lang, ctx) {
     I18N_SPEC_VERSION: t.specVersion,
     I18N_SPEC_MIN_ANDROID: t.specMinAndroid,
     I18N_SPEC_SIZE: t.specSize,
-    I18N_SPEC_SOURCE: t.specSource,
-    I18N_SPEC_SOURCE_LINK: t.specSourceLink,
+    I18N_SPEC_UPDATED: t.specUpdated,
     I18N_SECTION_OTHER_APPS: t.sectionOtherApps,
     LANG_ATTR: lang,
     DOWNLOAD_BADGE: (() => {
