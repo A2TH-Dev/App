@@ -49,8 +49,16 @@ const year = new Date().getFullYear();
 
 const FEATURE_ICONS = ['bolt', 'shield', 'memory', 'speed', 'verified', 'tune', 'rocket_launch', 'security'];
 
+const missingKeysWarned = new Set();
 function fill(tpl, map) {
-  return tpl.replace(/{{(\w+)}}/g, (_, key) => (key in map ? String(map[key]) : ''));
+  return tpl.replace(/{{(\w+)}}/g, (_, key) => {
+    if (key in map) return String(map[key]);
+    if (!missingKeysWarned.has(key)) {
+      console.log(`⚠ Placeholder {{${key}}} dipakai di template tapi tidak ada di data yang dikirim — jadi kosong diam-diam. Cek build.js.`);
+      missingKeysWarned.add(key);
+    }
+    return '';
+  });
 }
 
 function initials(name) {
@@ -445,7 +453,7 @@ function buildFooter(map) { return fill(partialFooter, map); }
 
 // ---------- generate satu app (index.html + privacy.html) untuk 1 bahasa ----------
 function generateAppPage(app, lang, ctx) {
-  const { t, outRoot, siteUrlLang, downloadCounts, appsIndexJsonLang } = ctx;
+  const { t, outRoot, siteUrlLang, downloadCounts, appsIndexJsonLang, siteFooterNote } = ctx;
   const dir = path.join(outRoot, app.slug);
   fs.mkdirSync(dir, { recursive: true });
 
@@ -480,6 +488,7 @@ function generateAppPage(app, lang, ctx) {
     I18N_BACK_TO_TOP_ARIA: t.backToTopAria,
     I18N_LANG_SWITCH: t.langSwitch,
     I18N_LANG_SWITCH_ARIA: t.langSwitchAria,
+    SITE_FOOTER_NOTE: siteFooterNote,
   };
 
   const featureCards = appFeatures
@@ -596,6 +605,7 @@ function generateAppPage(app, lang, ctx) {
       PAGE_DESCRIPTION: `Kebijakan privasi untuk ${app.name}.`,
       PAGE_URL: `${siteUrlLang}/${app.slug}/privacy.html`,
       PAGE_IMAGE: appImage,
+      JSONLD: '', // halaman kebijakan privasi tidak butuh structured data SoftwareApplication
     };
     const headPrivacy = buildHead(privacyPageMap);
     fs.writeFileSync(
@@ -612,6 +622,8 @@ function generateSite(lang, downloadCounts) {
   const t = i18n[lang];
   const outRoot = lang === 'id' ? ROOT : path.join(ROOT, 'en');
   const siteUrlLang = lang === 'id' ? data.site.siteUrl : `${data.site.siteUrl}/en`;
+  const siteTagline = (lang === 'en' && data.site.taglineEn) || data.site.tagline;
+  const siteFooterNote = (lang === 'en' && data.site.footerNoteEn) || data.site.footerNote;
   fs.mkdirSync(outRoot, { recursive: true });
 
   const appsIndexJsonLang = JSON.stringify(
@@ -623,7 +635,7 @@ function generateSite(lang, downloadCounts) {
     }))
   );
 
-  const ctx = { t, outRoot, siteUrlLang, downloadCounts, appsIndexJsonLang };
+  const ctx = { t, outRoot, siteUrlLang, downloadCounts, appsIndexJsonLang, siteFooterNote };
   for (const app of data.apps) {
     generateAppPage(app, lang, ctx);
   }
@@ -680,6 +692,7 @@ function generateSite(lang, downloadCounts) {
     I18N_BACK_TO_TOP_ARIA: t.backToTopAria,
     I18N_LANG_SWITCH: t.langSwitch,
     I18N_LANG_SWITCH_ARIA: t.langSwitchAria,
+    SITE_FOOTER_NOTE: siteFooterNote,
   };
 
   const rootJsonLd = `<script type="application/ld+json">${JSON.stringify({
@@ -695,15 +708,15 @@ function generateSite(lang, downloadCounts) {
 
   const rootMap = {
     ...rootSiteMap,
-    PAGE_TITLE: `${data.site.brand} — ${data.site.tagline}`,
-    PAGE_DESCRIPTION: data.site.tagline,
+    PAGE_TITLE: `${data.site.brand} — ${siteTagline}`,
+    PAGE_DESCRIPTION: siteTagline,
     PAGE_URL: `${siteUrlLang}/`,
     PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
     JSONLD: rootJsonLd,
     SITE_HEADLINE_LINE1: data.site.headlineLine1 || 'Katalog aplikasi',
     SITE_HEADLINE_LINE2: data.site.headlineLine2 || 'Android independen.',
-    SITE_TAGLINE: data.site.tagline,
-    SITE_FOOTER_NOTE: data.site.footerNote,
+    SITE_TAGLINE: siteTagline,
+    SITE_FOOTER_NOTE: siteFooterNote,
     MODULE_CARDS: cards,
     CATEGORY_OPTIONS: categoryOptions,
     I18N_SKIP_LINK: t.skipLink,
@@ -736,6 +749,7 @@ function generateSite(lang, downloadCounts) {
     PAGE_DESCRIPTION: t.notFoundBody,
     PAGE_URL: `${siteUrlLang}/404.html`,
     PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
+    JSONLD: '',
     I18N_SKIP_LINK: t.skipLink,
     I18N_404_TITLE: t.notFoundTitle,
     I18N_404_BODY: t.notFoundBody,
@@ -762,9 +776,10 @@ function generateSite(lang, downloadCounts) {
   const aboutMap = {
     ...rootSiteMap,
     PAGE_TITLE: `${t.aboutHeading} — ${data.site.brand}`,
-    PAGE_DESCRIPTION: data.site.tagline,
+    PAGE_DESCRIPTION: siteTagline,
     PAGE_URL: `${siteUrlLang}/about.html`,
     PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
+    JSONLD: '',
     ABOUT_PARAGRAPHS: aboutParagraphsHtml,
     CONTACT_EMAIL_BLOCK: contactEmailBlock,
     I18N_SKIP_LINK: t.skipLink,
@@ -785,9 +800,10 @@ function generateSite(lang, downloadCounts) {
   const installMap = {
     ...rootSiteMap,
     PAGE_TITLE: `${t.navInstall} — ${data.site.brand}`,
-    PAGE_DESCRIPTION: data.site.tagline,
+    PAGE_DESCRIPTION: siteTagline,
     PAGE_URL: `${siteUrlLang}/install.html`,
     PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
+    JSONLD: '',
   };
   const installTemplateForLang = lang === 'en' ? installEnTpl : installTpl;
   fs.writeFileSync(

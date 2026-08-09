@@ -4,8 +4,10 @@
   "headlineLine1": "High-Performance",
   "headlineLine2": "App Distribution.",
   "tagline": "Katalog aplikasi Android independen, dibangun untuk kecepatan dan privasi — didistribusikan langsung lewat GitHub Releases.",
+  "taglineEn": "An independent Android app catalog, built for speed and privacy — distributed directly via GitHub Releases.",
   "githubUser": "A2TH-Dev",
   "footerNote": "Semua aplikasi dibangun dan dirawat langsung oleh satu developer.",
+  "footerNoteEn": "Every app here is built and maintained directly by a single developer.",
   "supportEmail": "",
   "aboutParagraphs": [
     "APK Bench adalah katalog aplikasi Android independen. Semua aplikasi di sini dibangun, diuji, dan dirawat langsung — tanpa perantara, tanpa app store pihak ketiga yang membatasi.",
