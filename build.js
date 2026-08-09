@@ -264,8 +264,7 @@ function isPlayStore(app) {
 
 // ---------- changelog (opsional, isi field "changelog" di data/apps/<slug>.json) ----------
 // Format: [{ "version": "1.0.3", "date": "2026-07-20", "notes": ["...", "..."] }, ...]
-function buildChangelog(app, t) {
-  const entries = app.changelog;
+function buildChangelog(entries, t) {
   if (!entries || !entries.length) return '';
   const items = entries
     .map((entry, i) => {
@@ -422,18 +421,19 @@ async function getDownloadCounts(apps) {
   return counts;
 }
 
-function buildJsonLd(app, pageUrl, imageUrl) {
+function buildJsonLd(app, pageUrl, imageUrl, lang) {
   const ld = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: app.name,
-    description: app.tagline,
-    applicationCategory: app.category,
+    name: (lang === 'en' && app.name_en) || app.name,
+    description: (lang === 'en' && app.tagline_en) || app.tagline,
+    applicationCategory: (lang === 'en' && app.category_en) || app.category,
     operatingSystem: `Android ${app.minAndroid}+`,
     softwareVersion: app.version,
     fileSize: `${app.sizeMb}MB`,
     url: pageUrl,
     image: imageUrl,
+    inLanguage: lang,
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
   };
   return `<script type="application/ld+json">${JSON.stringify(ld)}</script>`;
@@ -455,6 +455,8 @@ function generateAppPage(app, lang, ctx) {
   const appTagline = (lang === 'en' && app.tagline_en) || app.tagline;
   const appDescription = (lang === 'en' && app.description_en) || app.description;
   const appFeatures = (lang === 'en' && app.features_en) || app.features;
+  const appCategory = (lang === 'en' && app.category_en) || app.category;
+  const appChangelog = (lang === 'en' && app.changelog_en) || app.changelog;
 
   const langSwitchUrl = lang === 'id' ? `../en/${app.slug}/` : `../../${app.slug}/`;
 
@@ -502,6 +504,7 @@ function generateAppPage(app, lang, ctx) {
   const otherAppsCards = otherApps
     .map((oa) => {
       const oaName = (lang === 'en' && oa.name_en) || oa.name;
+      const oaCategory = (lang === 'en' && oa.category_en) || oa.category;
       const oaInitials = oa.initials || initials(oa.name);
       const oaIcon =
         iconBlock(oa, `../${oa.slug}/`, 'w-12 h-12', { w: 48, h: 48 }) ||
@@ -510,7 +513,7 @@ function generateAppPage(app, lang, ctx) {
           ${oaIcon}
           <div class="min-w-0">
             <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">${oaName}</div>
-            <div class="text-label-sm font-label-sm text-on-surface-variant truncate">${oa.category}</div>
+            <div class="text-label-sm font-label-sm text-on-surface-variant truncate">${oaCategory}</div>
           </div>
         </a>`;
     })
@@ -525,7 +528,7 @@ function generateAppPage(app, lang, ctx) {
     APP_NAME: appName,
     APP_TAGLINE: appTagline,
     APP_DESCRIPTION: appDescription,
-    APP_CATEGORY: app.category,
+    APP_CATEGORY: appCategory,
     APP_VERSION: app.version,
     APP_MIN_ANDROID: app.minAndroid,
     APP_SIZE_MB: app.sizeMb,
@@ -542,8 +545,8 @@ function generateAppPage(app, lang, ctx) {
     APP_ICON_PHONE: phoneMockupBlock(app, imgPrefix) || initialsDivPhone,
     SCREENSHOT_GALLERY: screenshotGallery(app, imgPrefix, t),
     OTHER_APPS_CARDS: otherAppsCards,
-    BREADCRUMB_CATEGORY_URL: `../?category=${encodeURIComponent(app.category)}`,
-    CHANGELOG_SECTION: buildChangelog(app, t),
+    BREADCRUMB_CATEGORY_URL: `../?category=${encodeURIComponent(appCategory)}`,
+    CHANGELOG_SECTION: buildChangelog(appChangelog, t),
     I18N_SKIP_LINK: t.skipLink,
     I18N_PRIVACY_LABEL: t.privacyPolicyLabel,
     I18N_INSTALL_HELP_LINK: t.installHelpLink,
@@ -573,7 +576,7 @@ function generateAppPage(app, lang, ctx) {
     PAGE_DESCRIPTION: appTagline,
     PAGE_URL: `${siteUrlLang}/${app.slug}/`,
     PAGE_IMAGE: appImage,
-    JSONLD: buildJsonLd(app, `${siteUrlLang}/${app.slug}/`, appImage),
+    JSONLD: buildJsonLd(app, `${siteUrlLang}/${app.slug}/`, appImage, lang),
   };
 
   const header = buildHeader(siteMap);
@@ -615,7 +618,7 @@ function generateSite(lang, downloadCounts) {
     data.apps.map((a) => ({
       name: (lang === 'en' && a.name_en) || a.name,
       slug: a.slug,
-      category: a.category,
+      category: (lang === 'en' && a.category_en) || a.category,
       accent: a.accent,
     }))
   );
@@ -630,11 +633,12 @@ function generateSite(lang, downloadCounts) {
     .map((app) => {
       const appName = (lang === 'en' && app.name_en) || app.name;
       const appTagline = (lang === 'en' && app.tagline_en) || app.tagline;
+      const appCategory = (lang === 'en' && app.category_en) || app.category;
       const initialsStr = app.initials || initials(app.name);
       const iconHtml =
         iconBlock(app, `${app.slug}/`, 'w-16 h-16', { w: 64, h: 64 }) ||
         `<div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
-      return `<a href="${app.slug}/" data-name="${esc(appName.toLowerCase())}" data-category="${esc(app.category)}" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
+      return `<a href="${app.slug}/" data-name="${esc(appName.toLowerCase())}" data-category="${esc(appCategory)}" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
         <div class="flex justify-between items-start mb-unit-lg">
           ${iconHtml}
           <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v${app.version}</span>
@@ -642,14 +646,14 @@ function generateSite(lang, downloadCounts) {
         <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">${appName}</h3>
         <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">${appTagline}</p>
         <div class="mt-unit-xl flex items-center justify-between">
-          <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:${app.accent}1a;color:${app.accent}">${app.category}</span>
+          <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:${app.accent}1a;color:${app.accent}">${appCategory}</span>
           <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">${app.sizeMb} MB</span>
         </div>
       </a>`;
     })
     .join('\n      ');
 
-  const categories = [...new Set(data.apps.map((a) => a.category))].sort();
+  const categories = [...new Set(data.apps.map((a) => (lang === 'en' && a.category_en) || a.category))].sort();
   const categoryOptions = categories
     .map((c) => `<option value="${esc(c)}">${esc(c)}</option>`)
     .join('\n        ');

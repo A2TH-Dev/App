@@ -3,8 +3,11 @@
   "slug": "nitropurge",
   "name": "Nitro Purge",
   "tagline": "Pembersih & optimizer Android tanpa drama.",
+  "tagline_en": "Android cleaner & optimizer without the fuss.",
   "description": "NitroPurge membersihkan file sampah, mengubah ukuran foto, menghapus duplikat kontak, dan mengunci aplikasi sensitif dengan PIN — semua dari satu dashboard ringan tanpa iklan mengganggu.",
+  "description_en": "NitroPurge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
+  "category_en": "Utilities & Optimization",
   "version": "1.0.3",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 13,
@@ -39,12 +42,46 @@
       ]
     }
   ],
+  "changelog_en": [
+    {
+      "version": "1.0.3",
+      "date": "2026-07-20",
+      "category": "Maintenance & Security",
+      "notes": [
+        "🔒 Added App Lock with brute-force protection (salted SHA-256, tiered backoff)",
+        "🔧 Fixed a race condition in AppLockRepository when the PIN is checked simultaneously from the UI + accessibility service",
+        "🐛 Fixed a crash when scanning large files – added timeout handling in StorageGrowthPredictor with fallback",
+        "🐛 Fixed DuplicateContactScanner – corrected merge logic so contact numbers aren't lost, skips contacts with no name",
+        "🐛 Fixed OneTapCleanQuota – cleared a not-yet-loaded aggressiveness threshold at app startup",
+        "🐛 Fixed the native result parser – unified delimiter handling across ApkInspector, VideoScanner, LargeFileScanner",
+        "🐛 Fixed AppPatternMatcher – ensured a consistent Kotlin fallback when native load fails",
+        "📊 Improved error handling in PhotoCompressor (quality detection + invalid EXIF), NitroPurgeApp (WorkManager init), TurboMonitorViewModel (polling job cancellation)",
+        "⚙️ Ensured StorageWidgetProvider & LeftoverWidgetProvider use a consistent aggressiveness preference",
+        "🔐 Hardened NitroPurgeApp init + improved error logging for easier diagnostics",
+        "✅ Thoroughly verified ~3,400 lines of native-lib.cpp (24 JNI functions) – filesystem walk, duplicate finder, DCT perceptual hash, APK parser, fuzzy clustering, linear regression"
+      ]
+    },
+    {
+      "version": "1.0.2",
+      "date": "2026-06-05",
+      "notes": [
+        "Optimized Junk Cleaner scan speed",
+        "UI fixes for Android 14"
+      ]
+    }
+  ],
   "accent": "#3DDC97",
   "features": [
     "Trash manager & pemampat foto",
     "Penggabung kontak duplikat",
     "App lock dengan proteksi brute-force",
     "Widget & pembersihan otomatis terjadwal"
+  ],
+  "features_en": [
+    "Trash manager & photo compressor",
+    "Duplicate contact merger",
+    "App lock with brute-force protection",
+    "Scheduled widgets & auto-cleanup"
   ],
   "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.nitropurge",
   "privacy": {

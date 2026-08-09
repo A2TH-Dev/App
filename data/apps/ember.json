@@ -3,8 +3,11 @@
   "slug": "ember",
   "name": "EmberMP",
   "tagline": "Pemutar musik MP3 dengan kehangatan espresso.",
+  "tagline_en": "An MP3 player with espresso warmth.",
   "description": "Ember adalah pemutar musik lokal dengan tema amber-terracotta yang hangat, pemutaran latar penuh, playlist, dan library manager — dibangun untuk yang bosan dengan tampilan pemutar musik yang dingin dan generik.",
+  "description_en": "Ember is a local music player with a warm amber-terracotta theme, full background playback, playlists, and a library manager — built for anyone tired of cold, generic music player designs.",
   "category": "Musik & Audio",
+  "category_en": "Music & Audio",
   "version": "1.2.0",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 18,
@@ -17,6 +20,12 @@
     "Mini player & full player screen",
     "Manajemen playlist & library",
     "Tema visual Ember yang khas"
+  ],
+  "features_en": [
+    "Background playback via MediaSession",
+    "Mini player & full player screen",
+    "Playlist & library management",
+    "Ember's signature visual theme"
   ],
   "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.ember",
   "order": 2

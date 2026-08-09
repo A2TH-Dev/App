@@ -3,8 +3,11 @@
   "slug": "petajiwa",
   "name": "Peta Jiwa",
   "tagline": "Peta kepribadian dan arah hidupmu.",
+  "tagline_en": "A map of your personality and life direction.",
   "description": "Peta Jiwa adalah alat analisis diri lengkap: natal chart & Human Design dari tanggal-jam-lokasi lahir, tes kepribadian 5 sifat utama, analisis wajah & sidik jari, cek kecocokan dua orang, jurnal harian dengan mood tracker, hingga fokus Pomodoro dengan melodi penenang — semua tersimpan lokal di HP tanpa perlu koneksi internet.",
+  "description_en": "Peta Jiwa is a complete self-analysis toolkit: natal chart & Human Design from your birth date, time, and location, a 5-trait personality test, face & fingerprint analysis, compatibility checks between two people, a daily journal with mood tracker, and Pomodoro focus sessions with calming melodies — all stored locally on your phone, no internet connection required.",
   "category": "Gaya Hidup",
+  "category_en": "Lifestyle",
   "version": "1.0.0",
   "minAndroid": "8.0 (Oreo) test",
   "sizeMb": 8,
@@ -17,6 +20,12 @@
     "Cek kecocokan dua orang + jurnal & mood tracker harian",
     "Fokus Pomodoro dengan melodi penenang bawaan",
     "Ekspor/impor data & 100% tersimpan lokal di HP"
+  ],
+  "features_en": [
+    "Natal chart, Human Design & 5-trait personality analysis",
+    "Two-person compatibility check + daily journal & mood tracker",
+    "Pomodoro focus sessions with built-in calming melodies",
+    "Data export/import & 100% stored locally on your phone"
   ],
   "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2thdev.petajiwa",
   "icon": "asset/icon.png",
@@ -54,7 +63,6 @@
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
   },
-  "icon": "asset/icon.png",
   "screenshots": [
     "asset/1.png",
     "asset/2.jpg",
