@@ -464,6 +464,7 @@ function generateAppPage(app, lang, ctx) {
     APP_COUNT: data.apps.length,
     YEAR: year,
     ROOT_PATH: '../',
+    SITE_ROOT_ABS: `${data.site.siteUrl}/`,
     APPS_INDEX_JSON: appsIndexJsonLang,
     LANG_SWITCH_URL: langSwitchUrl,
     I18N_NAV_APPS: t.navApps,
@@ -661,6 +662,7 @@ function generateSite(lang, downloadCounts) {
     APP_COUNT: data.apps.length,
     YEAR: year,
     ROOT_PATH: './',
+    SITE_ROOT_ABS: `${data.site.siteUrl}/`,
     APPS_INDEX_JSON: appsIndexJsonLang,
     LANG_SWITCH_URL: rootLangSwitchUrl,
     I18N_NAV_APPS: t.navApps,
@@ -721,6 +723,7 @@ function generateSite(lang, downloadCounts) {
   const notFoundSiteMap = {
     ...rootSiteMap,
     ROOT_PATH: `${siteUrlLang}/`,
+    SITE_ROOT_ABS: `${data.site.siteUrl}/`,
     LANG_SWITCH_URL: notFoundLangSwitchUrl,
   };
   const notFoundMap = {
