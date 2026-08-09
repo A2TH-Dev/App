@@ -830,6 +830,10 @@ generateSite('en', downloadCounts);
 const sitemapUrls = [
   { loc: `${data.site.siteUrl}/`, priority: '1.0' },
   { loc: `${data.site.siteUrl}/en/`, priority: '0.9' },
+  { loc: `${data.site.siteUrl}/about.html`, priority: '0.5' },
+  { loc: `${data.site.siteUrl}/en/about.html`, priority: '0.4' },
+  { loc: `${data.site.siteUrl}/install.html`, priority: '0.5' },
+  { loc: `${data.site.siteUrl}/en/install.html`, priority: '0.4' },
   ...data.apps.flatMap((app) => [
     { loc: `${data.site.siteUrl}/${app.slug}/`, priority: '0.8' },
     { loc: `${data.site.siteUrl}/en/${app.slug}/`, priority: '0.7' },

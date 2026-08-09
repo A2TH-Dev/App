@@ -6,6 +6,7 @@ on:
     branches: [main]
     paths:
       - "data/site.json"
+      - "data/i18n.json"
       - "data/apps/**"
       - "templates/**"
       - "build.js"
