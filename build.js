@@ -23,6 +23,7 @@ const read = (p) => fs.readFileSync(path.join(ROOT, p), 'utf8');
 // data/apps/<slug>.json = satu file per aplikasi, biar tidak numpuk di 1 file besar.
 // Urutan tampil di homepage mengikuti field "order" di tiap file (kalau tidak ada, urut nama file).
 const site = JSON.parse(read('data/site.json'));
+const i18n = JSON.parse(read('data/i18n.json'));
 const appsDir = path.join(ROOT, 'data/apps');
 const appFiles = fs.readdirSync(appsDir).filter((f) => f.endsWith('.json'));
 const apps = appFiles
@@ -30,9 +31,6 @@ const apps = appFiles
   .sort((a, b) => (a.order ?? 999) - (b.order ?? 999) || a.slug.localeCompare(b.slug));
 const data = { site, apps };
 
-const appsIndexJson = JSON.stringify(
-  apps.map((a) => ({ name: a.name, slug: a.slug, category: a.category, accent: a.accent }))
-);
 
 const partialHead = read('templates/partials/head.html');
 const partialHeader = read('templates/partials/header.html');
@@ -42,6 +40,9 @@ const idxTpl = read('templates/index.template.html');
 const appTpl = read('templates/app.template.html');
 const privTpl = read('templates/privacy.template.html');
 const notFoundTpl = read('templates/404.template.html');
+const aboutTpl = read('templates/about.template.html');
+const installTpl = read('templates/install.template.html');
+const installEnTpl = read('templates/install.en.template.html');
 
 const buildDate = new Date().toISOString().slice(0, 10);
 const year = new Date().getFullYear();
@@ -129,7 +130,7 @@ function iconBlock(app, prefix, sizeClass, sizePx, eager) {
   return `<img src="${esc(prefix + app.icon)}" alt="${esc(app.name)} icon"${dims}${loadingAttr} class="${sizeClass} rounded-xl object-cover shadow-2xl" />`;
 }
 
-function screenshotGallery(app, prefix) {
+function screenshotGallery(app, prefix, t) {
   const shots = app.screenshots;
   if (!shots || !shots.length) return '';
   const renderItem = (src, i) =>
@@ -142,7 +143,7 @@ function screenshotGallery(app, prefix) {
       <div class="mb-32">
         <div class="flex items-center gap-unit-sm mb-unit-lg">
           <div class="h-[1px] w-8 bg-primary"></div>
-          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Screenshot</span>
+          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">${t.sectionScreenshot}</span>
         </div>
         <div class="relative left-1/2 overflow-hidden" style="width:min(1200px,88vw);transform:translateX(-50%);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);">
           <div class="flex gap-unit-md screenshot-track" style="width:max-content;animation:screenshot-scroll ${durationSec}s linear infinite;">
@@ -263,7 +264,7 @@ function isPlayStore(app) {
 
 // ---------- changelog (opsional, isi field "changelog" di data/apps/<slug>.json) ----------
 // Format: [{ "version": "1.0.3", "date": "2026-07-20", "notes": ["...", "..."] }, ...]
-function buildChangelog(app) {
+function buildChangelog(app, t) {
   const entries = app.changelog;
   if (!entries || !entries.length) return '';
   const items = entries
@@ -277,7 +278,7 @@ function buildChangelog(app) {
             <div class="absolute left-[5px] top-4 bottom-0 w-[2px] bg-surface-container-highest last:hidden"></div>
             <div class="flex items-center gap-unit-sm mb-unit-xs flex-wrap">
               <span class="text-body-md font-body-md text-on-surface font-semibold">v${entry.version}</span>
-              ${isLatest ? '<span class="text-label-sm font-label-sm text-primary bg-primary/10 px-unit-sm py-[2px] rounded-full">Terbaru</span>' : ''}
+              ${isLatest ? `<span class="text-label-sm font-label-sm text-primary bg-primary/10 px-unit-sm py-[2px] rounded-full">${t.changelogLatest}</span>` : ''}
               <span class="text-label-sm font-label-sm text-on-surface-variant">${entry.date || ''}</span>
             </div>
             <ul class="list-disc pl-5 space-y-1">
@@ -290,7 +291,7 @@ function buildChangelog(app) {
       <div class="mb-32 reveal">
         <div class="flex items-center gap-unit-sm mb-unit-lg">
           <div class="h-[1px] w-8 bg-primary"></div>
-          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Yang Baru</span>
+          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">${t.sectionChangelog}</span>
         </div>
         <div class="max-w-2xl">
           ${items}
@@ -305,6 +306,58 @@ function buildChangelog(app) {
 // dsb.) build TETAP jalan normal, badge download cuma tidak muncul untuk app itu.
 const DOWNLOAD_CACHE_PATH = path.join(ROOT, 'data', '.download-cache.json');
 const DOWNLOAD_CACHE_TTL_MS = 60 * 60 * 1000; // 1 jam
+
+// ---------- validasi data sebelum build ----------
+// Nangkep typo/data rusak (path gambar salah, field wajib kosong, slug dobel)
+// SEBELUM sempat ke-generate & ke-push, bukan diam-diam dilewati.
+function validateData(apps) {
+  const errors = [];
+  const seenSlugs = new Set();
+  const requiredFields = ['name', 'slug', 'category', 'accent', 'tagline', 'description', 'version', 'minAndroid', 'sizeMb'];
+
+  for (const app of apps) {
+    const label = app.slug || app.name || '(tanpa slug/nama)';
+
+    for (const field of requiredFields) {
+      if (app[field] === undefined || app[field] === null || app[field] === '') {
+        errors.push(`${label}: field "${field}" kosong/tidak ada`);
+      }
+    }
+
+    if (!app.repo && !app.playStoreUrl) {
+      errors.push(`${label}: butuh salah satu dari "repo" atau "playStoreUrl" (buat link download)`);
+    }
+
+    if (app.slug) {
+      if (seenSlugs.has(app.slug)) {
+        errors.push(`slug "${app.slug}" dipakai lebih dari satu app (harus unik)`);
+      }
+      seenSlugs.add(app.slug);
+    }
+
+    if (app.accent && !/^#[0-9a-fA-F]{6}$/.test(app.accent)) {
+      errors.push(`${label}: "accent" harus format hex 6 digit (contoh: #6C4DFF), sekarang: "${app.accent}"`);
+    }
+
+    const imagePaths = [];
+    if (app.icon) imagePaths.push(app.icon);
+    if (app.heroScreenshot) imagePaths.push(app.heroScreenshot);
+    if (app.screenshots) imagePaths.push(...app.screenshots);
+    for (const rel of imagePaths) {
+      const full = path.join(ROOT, app.slug || '', rel);
+      if (!fs.existsSync(full)) {
+        errors.push(`${label}: gambar "${rel}" tidak ditemukan di ${app.slug}/${rel} (cek typo path?)`);
+      }
+    }
+  }
+
+  if (errors.length) {
+    console.error(`\n[VALIDASI GAGAL] ${errors.length} masalah ditemukan di data/apps/*.json:\n`);
+    errors.forEach((e) => console.error(`  ✗ ${e}`));
+    console.error('\nPerbaiki dulu sebelum build lanjut.\n');
+    process.exit(1);
+  }
+}
 
 function readDownloadCache() {
   try {
@@ -343,7 +396,12 @@ async function fetchDownloadCount(app) {
   }
 }
 
-function formatDownloadCount(n) {
+function formatDownloadCount(n, lang) {
+  if (lang === 'en') {
+    if (n >= 1000000) return `${(n / 1000000).toFixed(1).replace(/\.0$/, '')}M`;
+    if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, '')}K`;
+    return String(n);
+  }
   if (n >= 1000000) return `${(n / 1000000).toFixed(1).replace(/\.0$/, '')}JT`;
   if (n >= 1000) return `${(n / 1000).toFixed(1).replace(/\.0$/, '')}RB`;
   return String(n);
@@ -385,18 +443,20 @@ function buildHead(map) { return fill(partialHead, map); }
 function buildHeader(map) { return fill(partialHeader, map); }
 function buildFooter(map) { return fill(partialFooter, map); }
 
-// ---------- generate per-app pages ----------
-async function main() {
-const downloadCounts = await getDownloadCounts(data.apps);
-
-console.log('↻ Optimasi gambar (resize + WebP)...');
-await Promise.all(data.apps.map((app) => optimizeAppImages(app)));
-
-for (const app of data.apps) {
-  const dir = path.join(ROOT, app.slug);
+// ---------- generate satu app (index.html + privacy.html) untuk 1 bahasa ----------
+function generateAppPage(app, lang, ctx) {
+  const { t, outRoot, siteUrlLang, downloadCounts, appsIndexJsonLang } = ctx;
+  const dir = path.join(outRoot, app.slug);
   fs.mkdirSync(dir, { recursive: true });
 
   const initialsStr = app.initials || initials(app.name);
+
+  const appName = (lang === 'en' && app.name_en) || app.name;
+  const appTagline = (lang === 'en' && app.tagline_en) || app.tagline;
+  const appDescription = (lang === 'en' && app.description_en) || app.description;
+  const appFeatures = (lang === 'en' && app.features_en) || app.features;
+
+  const langSwitchUrl = lang === 'id' ? `../en/${app.slug}/` : `../../${app.slug}/`;
 
   const siteMap = {
     SITE_BRAND: data.site.brand,
@@ -404,10 +464,22 @@ for (const app of data.apps) {
     APP_COUNT: data.apps.length,
     YEAR: year,
     ROOT_PATH: '../',
-    APPS_INDEX_JSON: appsIndexJson,
+    APPS_INDEX_JSON: appsIndexJsonLang,
+    LANG_SWITCH_URL: langSwitchUrl,
+    I18N_NAV_APPS: t.navApps,
+    I18N_NAV_INSTALL: t.navInstall,
+    I18N_NAV_ABOUT: t.navAbout,
+    I18N_NAV_GITHUB: t.navGithub,
+    I18N_SEARCH_PLACEHOLDER: t.searchPlaceholder,
+    I18N_SEARCH_NO_RESULTS: t.searchNoResults,
+    I18N_SEARCH_ARIA: t.searchAria,
+    I18N_MENU_ARIA: t.menuAria,
+    I18N_BACK_TO_TOP_ARIA: t.backToTopAria,
+    I18N_LANG_SWITCH: t.langSwitch,
+    I18N_LANG_SWITCH_ARIA: t.langSwitchAria,
   };
 
-  const featureCards = app.features
+  const featureCards = appFeatures
     .map((f, i) => {
       const icon = FEATURE_ICONS[i % FEATURE_ICONS.length];
       return `<div class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors group">
@@ -428,6 +500,7 @@ for (const app of data.apps) {
   const otherApps = data.apps.filter((a) => a.slug !== app.slug).slice(0, 4);
   const otherAppsCards = otherApps
     .map((oa) => {
+      const oaName = (lang === 'en' && oa.name_en) || oa.name;
       const oaInitials = oa.initials || initials(oa.name);
       const oaIcon =
         iconBlock(oa, `../${oa.slug}/`, 'w-12 h-12', { w: 48, h: 48 }) ||
@@ -435,18 +508,22 @@ for (const app of data.apps) {
       return `<a href="../${oa.slug}/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid ${oa.accent}">
           ${oaIcon}
           <div class="min-w-0">
-            <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">${oa.name}</div>
+            <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">${oaName}</div>
             <div class="text-label-sm font-label-sm text-on-surface-variant truncate">${oa.category}</div>
           </div>
         </a>`;
     })
     .join('\n        ');
 
+  // Privacy policy cuma ada dalam Bahasa Indonesia (tidak diterjemahkan otomatis —
+  // dokumen legal berisiko kalau salah terjemah). Versi EN tetap link ke halaman ID-nya.
+  const appPrivacyUrl = lang === 'id' ? 'privacy.html' : `../../${app.slug}/privacy.html`;
+
   const commonMap = {
     ...siteMap,
-    APP_NAME: app.name,
-    APP_TAGLINE: app.tagline,
-    APP_DESCRIPTION: app.description,
+    APP_NAME: appName,
+    APP_TAGLINE: appTagline,
+    APP_DESCRIPTION: appDescription,
     APP_CATEGORY: app.category,
     APP_VERSION: app.version,
     APP_MIN_ANDROID: app.minAndroid,
@@ -454,23 +531,36 @@ for (const app of data.apps) {
     APP_REPO: app.repo,
     APP_ACCENT: app.accent,
     APP_INITIALS: initialsStr,
+    APP_PRIVACY_URL: appPrivacyUrl,
     APP_DOWNLOAD_URL: downloadUrl(app),
-    APP_DOWNLOAD_LABEL: isPlayStore(app) ? 'Get it on Google Play' : 'Unduh APK',
+    APP_DOWNLOAD_LABEL: isPlayStore(app) ? 'Get it on Google Play' : (lang === 'en' ? 'Download APK' : 'Unduh APK'),
     APP_DOWNLOAD_ICON: isPlayStore(app) ? 'shop' : 'download',
     FEATURE_CARDS: featureCards,
     BUILD_DATE: buildDate,
     APP_ICON_HERO: iconBlock(app, imgPrefix, 'w-24 h-24', { w: 96, h: 96 }, true) || initialsDivHero,
     APP_ICON_PHONE: phoneMockupBlock(app, imgPrefix) || initialsDivPhone,
-    SCREENSHOT_GALLERY: screenshotGallery(app, imgPrefix),
+    SCREENSHOT_GALLERY: screenshotGallery(app, imgPrefix, t),
     OTHER_APPS_CARDS: otherAppsCards,
     BREADCRUMB_CATEGORY_URL: `../?category=${encodeURIComponent(app.category)}`,
-    CHANGELOG_SECTION: buildChangelog(app),
+    CHANGELOG_SECTION: buildChangelog(app, t),
+    I18N_SKIP_LINK: t.skipLink,
+    I18N_PRIVACY_LABEL: t.privacyPolicyLabel,
+    I18N_INSTALL_HELP_LINK: t.installHelpLink,
+    I18N_SECTION_ABOUT: t.sectionAbout,
+    I18N_SECTION_SPECS: t.sectionSpecs,
+    I18N_SPEC_VERSION: t.specVersion,
+    I18N_SPEC_MIN_ANDROID: t.specMinAndroid,
+    I18N_SPEC_SIZE: t.specSize,
+    I18N_SPEC_SOURCE: t.specSource,
+    I18N_SPEC_SOURCE_LINK: t.specSourceLink,
+    I18N_SECTION_OTHER_APPS: t.sectionOtherApps,
+    LANG_ATTR: lang,
     DOWNLOAD_BADGE: (() => {
       const count = downloadCounts[app.slug];
       if (count === null || count === undefined) return '';
       return `<div class="flex items-center gap-unit-xs px-unit-sm py-unit-xs bg-surface-container-high rounded-full">
               <span class="material-symbols-outlined text-primary text-[16px]">download</span>
-              <span class="font-label-sm text-label-sm text-on-surface">${formatDownloadCount(count)} unduhan</span>
+              <span class="font-label-sm text-label-sm text-on-surface">${formatDownloadCount(count, lang)} ${t.downloadsSuffix}</span>
             </div>`;
     })(),
     ...buildPrivacySections(app),
@@ -478,113 +568,249 @@ for (const app of data.apps) {
 
   const appPageMap = {
     ...commonMap,
-    PAGE_TITLE: `${app.name} — ${data.site.brand}`,
-    PAGE_DESCRIPTION: app.tagline,
-    PAGE_URL: `${data.site.siteUrl}/${app.slug}/`,
+    PAGE_TITLE: `${appName} — ${data.site.brand}`,
+    PAGE_DESCRIPTION: appTagline,
+    PAGE_URL: `${siteUrlLang}/${app.slug}/`,
     PAGE_IMAGE: appImage,
-    JSONLD: buildJsonLd(app, `${data.site.siteUrl}/${app.slug}/`, appImage),
-  };
-  const privacyPageMap = {
-    ...commonMap,
-    PAGE_TITLE: `Kebijakan Privasi — ${app.name}`,
-    PAGE_DESCRIPTION: `Kebijakan privasi untuk ${app.name}.`,
-    PAGE_URL: `${data.site.siteUrl}/${app.slug}/privacy.html`,
-    PAGE_IMAGE: appImage,
+    JSONLD: buildJsonLd(app, `${siteUrlLang}/${app.slug}/`, appImage),
   };
 
-  const headApp = buildHead(appPageMap);
-  const headPrivacy = buildHead(privacyPageMap);
   const header = buildHeader(siteMap);
   const footer = buildFooter(siteMap);
+  const headApp = buildHead(appPageMap);
 
   fs.writeFileSync(
     path.join(dir, 'index.html'),
     fill(appTpl, { ...appPageMap, HEAD: headApp, HEADER: header, FOOTER: footer })
   );
-  fs.writeFileSync(
-    path.join(dir, 'privacy.html'),
-    fill(privTpl, { ...privacyPageMap, HEAD: headPrivacy, HEADER: header, FOOTER: footer })
-  );
-  console.log(`✓ ${app.slug}/index.html + privacy.html`);
+
+  // privacy.html cuma di-generate untuk bahasa Indonesia (lihat catatan appPrivacyUrl di atas)
+  if (lang === 'id') {
+    const privacyPageMap = {
+      ...commonMap,
+      PAGE_TITLE: `Kebijakan Privasi — ${app.name}`,
+      PAGE_DESCRIPTION: `Kebijakan privasi untuk ${app.name}.`,
+      PAGE_URL: `${siteUrlLang}/${app.slug}/privacy.html`,
+      PAGE_IMAGE: appImage,
+    };
+    const headPrivacy = buildHead(privacyPageMap);
+    fs.writeFileSync(
+      path.join(dir, 'privacy.html'),
+      fill(privTpl, { ...privacyPageMap, HEAD: headPrivacy, HEADER: header, FOOTER: footer })
+    );
+  }
+
+  console.log(`✓ [${lang}] ${app.slug}/index.html${lang === 'id' ? ' + privacy.html' : ''}`);
 }
 
-// ---------- generate root marketplace page ----------
-const cards = data.apps
-  .map((app) => {
-    const initialsStr = app.initials || initials(app.name);
-    const iconHtml =
-      iconBlock(app, `${app.slug}/`, 'w-16 h-16', { w: 64, h: 64 }) ||
-      `<div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
-    return `<a href="${app.slug}/" data-name="${esc(app.name.toLowerCase())}" data-category="${esc(app.category)}" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
+// ---------- generate seluruh situs untuk 1 bahasa (id atau en) ----------
+function generateSite(lang, downloadCounts) {
+  const t = i18n[lang];
+  const outRoot = lang === 'id' ? ROOT : path.join(ROOT, 'en');
+  const siteUrlLang = lang === 'id' ? data.site.siteUrl : `${data.site.siteUrl}/en`;
+  fs.mkdirSync(outRoot, { recursive: true });
+
+  const appsIndexJsonLang = JSON.stringify(
+    data.apps.map((a) => ({
+      name: (lang === 'en' && a.name_en) || a.name,
+      slug: a.slug,
+      category: a.category,
+      accent: a.accent,
+    }))
+  );
+
+  const ctx = { t, outRoot, siteUrlLang, downloadCounts, appsIndexJsonLang };
+  for (const app of data.apps) {
+    generateAppPage(app, lang, ctx);
+  }
+
+  // ---------- root marketplace page ----------
+  const cards = data.apps
+    .map((app) => {
+      const appName = (lang === 'en' && app.name_en) || app.name;
+      const appTagline = (lang === 'en' && app.tagline_en) || app.tagline;
+      const initialsStr = app.initials || initials(app.name);
+      const iconHtml =
+        iconBlock(app, `${app.slug}/`, 'w-16 h-16', { w: 64, h: 64 }) ||
+        `<div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
+      return `<a href="${app.slug}/" data-name="${esc(appName.toLowerCase())}" data-category="${esc(app.category)}" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
         <div class="flex justify-between items-start mb-unit-lg">
           ${iconHtml}
           <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v${app.version}</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">${app.name}</h3>
-        <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">${app.tagline}</p>
+        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">${appName}</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">${appTagline}</p>
         <div class="mt-unit-xl flex items-center justify-between">
           <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:${app.accent}1a;color:${app.accent}">${app.category}</span>
           <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">${app.sizeMb} MB</span>
         </div>
       </a>`;
-  })
-  .join('\n      ');
+    })
+    .join('\n      ');
 
-const categories = [...new Set(data.apps.map((a) => a.category))].sort();
-const categoryOptions = categories
-  .map((c) => `<option value="${esc(c)}">${esc(c)}</option>`)
-  .join('\n        ');
+  const categories = [...new Set(data.apps.map((a) => a.category))].sort();
+  const categoryOptions = categories
+    .map((c) => `<option value="${esc(c)}">${esc(c)}</option>`)
+    .join('\n        ');
 
-const rootSiteMap = {
-  SITE_BRAND: data.site.brand,
-  GITHUB_USER: data.site.githubUser,
-  APP_COUNT: data.apps.length,
-  YEAR: year,
-  ROOT_PATH: './',
-  APPS_INDEX_JSON: appsIndexJson,
-};
+  const rootLangSwitchUrl = lang === 'id' ? 'en/' : '../';
 
-const rootJsonLd = `<script type="application/ld+json">${JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  itemListElement: data.apps.map((a, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    url: `${data.site.siteUrl}/${a.slug}/`,
-    name: a.name,
-  })),
-})}</script>`;
+  const rootSiteMap = {
+    SITE_BRAND: data.site.brand,
+    GITHUB_USER: data.site.githubUser,
+    APP_COUNT: data.apps.length,
+    YEAR: year,
+    ROOT_PATH: './',
+    APPS_INDEX_JSON: appsIndexJsonLang,
+    LANG_SWITCH_URL: rootLangSwitchUrl,
+    I18N_NAV_APPS: t.navApps,
+    I18N_NAV_INSTALL: t.navInstall,
+    I18N_NAV_ABOUT: t.navAbout,
+    I18N_NAV_GITHUB: t.navGithub,
+    I18N_SEARCH_PLACEHOLDER: t.searchPlaceholder,
+    I18N_SEARCH_NO_RESULTS: t.searchNoResults,
+    I18N_SEARCH_ARIA: t.searchAria,
+    I18N_MENU_ARIA: t.menuAria,
+    I18N_BACK_TO_TOP_ARIA: t.backToTopAria,
+    I18N_LANG_SWITCH: t.langSwitch,
+    I18N_LANG_SWITCH_ARIA: t.langSwitchAria,
+  };
 
-const rootMap = {
-  ...rootSiteMap,
-  PAGE_TITLE: `${data.site.brand} — ${data.site.tagline}`,
-  PAGE_DESCRIPTION: data.site.tagline,
-  PAGE_URL: `${data.site.siteUrl}/`,
-  PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
-  JSONLD: rootJsonLd,
-  SITE_HEADLINE_LINE1: data.site.headlineLine1 || 'Katalog aplikasi',
-  SITE_HEADLINE_LINE2: data.site.headlineLine2 || 'Android independen.',
-  SITE_TAGLINE: data.site.tagline,
-  SITE_FOOTER_NOTE: data.site.footerNote,
-  MODULE_CARDS: cards,
-  CATEGORY_OPTIONS: categoryOptions,
-};
+  const rootJsonLd = `<script type="application/ld+json">${JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: data.apps.map((a, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${siteUrlLang}/${a.slug}/`,
+      name: (lang === 'en' && a.name_en) || a.name,
+    })),
+  })}</script>`;
 
-const rootHead = buildHead(rootMap);
-const rootHeader = buildHeader(rootMap);
-const rootFooter = buildFooter(rootMap);
+  const rootMap = {
+    ...rootSiteMap,
+    PAGE_TITLE: `${data.site.brand} — ${data.site.tagline}`,
+    PAGE_DESCRIPTION: data.site.tagline,
+    PAGE_URL: `${siteUrlLang}/`,
+    PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
+    JSONLD: rootJsonLd,
+    SITE_HEADLINE_LINE1: data.site.headlineLine1 || 'Katalog aplikasi',
+    SITE_HEADLINE_LINE2: data.site.headlineLine2 || 'Android independen.',
+    SITE_TAGLINE: data.site.tagline,
+    SITE_FOOTER_NOTE: data.site.footerNote,
+    MODULE_CARDS: cards,
+    CATEGORY_OPTIONS: categoryOptions,
+    I18N_SKIP_LINK: t.skipLink,
+    I18N_RECENT_RELEASES: t.recentReleases,
+    I18N_CATEGORY_ALL: t.categoryAll,
+    I18N_GRID_NO_RESULTS: t.gridNoResults,
+    I18N_CTA_BUTTON: t.ctaButton,
+    LANG_ATTR: lang,
+  };
 
-fs.writeFileSync(
-  path.join(ROOT, 'index.html'),
-  fill(idxTpl, { ...rootMap, HEAD: rootHead, HEADER: rootHeader, FOOTER: rootFooter })
-);
-console.log('✓ index.html (root)');
+  fs.writeFileSync(
+    path.join(outRoot, 'index.html'),
+    fill(idxTpl, { ...rootMap, HEAD: buildHead(rootMap), HEADER: buildHeader(rootSiteMap), FOOTER: buildFooter(rootSiteMap) })
+  );
+  console.log(`✓ [${lang}] index.html`);
 
-// ---------- sitemap.xml ----------
+  // ---------- 404.html ----------
+  // Path relatif tidak bisa dipakai di 404 (GitHub Pages bisa nyajikan file ini dari
+  // kedalaman URL manapun), jadi header/footer 404 pakai ROOT_PATH absolut.
+  const notFoundLangSwitchUrl = lang === 'id' ? `${data.site.siteUrl}/en/404.html` : `${data.site.siteUrl}/404.html`;
+  const notFoundSiteMap = {
+    ...rootSiteMap,
+    ROOT_PATH: `${siteUrlLang}/`,
+    LANG_SWITCH_URL: notFoundLangSwitchUrl,
+  };
+  const notFoundMap = {
+    ...notFoundSiteMap,
+    PAGE_TITLE: `${t.notFoundTitle} — ${data.site.brand}`,
+    PAGE_DESCRIPTION: t.notFoundBody,
+    PAGE_URL: `${siteUrlLang}/404.html`,
+    PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
+    I18N_SKIP_LINK: t.skipLink,
+    I18N_404_TITLE: t.notFoundTitle,
+    I18N_404_BODY: t.notFoundBody,
+    I18N_404_BACK_HOME: t.notFoundBackHome,
+    LANG_ATTR: lang,
+  };
+  fs.writeFileSync(
+    path.join(outRoot, '404.html'),
+    fill(notFoundTpl, { ...notFoundMap, HEAD: buildHead(notFoundMap), HEADER: buildHeader(notFoundSiteMap), FOOTER: buildFooter(notFoundSiteMap) })
+  );
+  console.log(`✓ [${lang}] 404.html`);
+
+  // ---------- about.html ----------
+  const contactEmailBlock = data.site.supportEmail
+    ? `<a href="mailto:${esc(data.site.supportEmail)}" class="flex-1 flex items-center gap-unit-md p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+              <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">mail</span></div>
+              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">${t.contactEmailLabel}</div><div class="text-body-md font-body-md text-on-surface">${esc(data.site.supportEmail)}</div></div>
+            </a>`
+    : '';
+  const aboutParagraphsSrc = (lang === 'en' && data.site.aboutParagraphsEn) || data.site.aboutParagraphs || [];
+  const aboutParagraphsHtml = aboutParagraphsSrc
+    .map((p) => `<p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">${p}</p>`)
+    .join('\n          ');
+  const aboutMap = {
+    ...rootSiteMap,
+    PAGE_TITLE: `${t.aboutHeading} — ${data.site.brand}`,
+    PAGE_DESCRIPTION: data.site.tagline,
+    PAGE_URL: `${siteUrlLang}/about.html`,
+    PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
+    ABOUT_PARAGRAPHS: aboutParagraphsHtml,
+    CONTACT_EMAIL_BLOCK: contactEmailBlock,
+    I18N_SKIP_LINK: t.skipLink,
+    I18N_ABOUT_BREADCRUMB: t.aboutBreadcrumb,
+    I18N_ABOUT_HEADING: t.aboutHeading,
+    I18N_CONTACT_HEADING: t.contactHeading,
+    I18N_CONTACT_BODY: t.contactBody,
+    I18N_CONTACT_REPORT_BUG: t.contactReportBug,
+    LANG_ATTR: lang,
+  };
+  fs.writeFileSync(
+    path.join(outRoot, 'about.html'),
+    fill(aboutTpl, { ...aboutMap, HEAD: buildHead(aboutMap), HEADER: buildHeader(rootSiteMap), FOOTER: buildFooter(rootSiteMap) })
+  );
+  console.log(`✓ [${lang}] about.html`);
+
+  // ---------- install.html ----------
+  const installMap = {
+    ...rootSiteMap,
+    PAGE_TITLE: `${t.navInstall} — ${data.site.brand}`,
+    PAGE_DESCRIPTION: data.site.tagline,
+    PAGE_URL: `${siteUrlLang}/install.html`,
+    PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
+  };
+  const installTemplateForLang = lang === 'en' ? installEnTpl : installTpl;
+  fs.writeFileSync(
+    path.join(outRoot, 'install.html'),
+    fill(installTemplateForLang, { ...installMap, HEAD: buildHead(installMap), HEADER: buildHeader(rootSiteMap), FOOTER: buildFooter(rootSiteMap) })
+  );
+  console.log(`✓ [${lang}] install.html`);
+
+  return { siteUrlLang };
+}
+
+// ---------- generate semua halaman (ID lalu EN) ----------
+async function main() {
+validateData(data.apps);
+
+const downloadCounts = await getDownloadCounts(data.apps);
+
+console.log('↻ Optimasi gambar (resize + WebP)...');
+await Promise.all(data.apps.map((app) => optimizeAppImages(app)));
+
+generateSite('id', downloadCounts);
+generateSite('en', downloadCounts);
+
+// ---------- sitemap.xml (mencakup ID + EN) ----------
 const sitemapUrls = [
   { loc: `${data.site.siteUrl}/`, priority: '1.0' },
+  { loc: `${data.site.siteUrl}/en/`, priority: '0.9' },
   ...data.apps.flatMap((app) => [
     { loc: `${data.site.siteUrl}/${app.slug}/`, priority: '0.8' },
+    { loc: `${data.site.siteUrl}/en/${app.slug}/`, priority: '0.7' },
     { loc: `${data.site.siteUrl}/${app.slug}/privacy.html`, priority: '0.3' },
   ]),
 ];
@@ -596,7 +822,7 @@ ${sitemapUrls
 </urlset>
 `;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemapXml);
-console.log('✓ sitemap.xml');
+console.log('✓ sitemap.xml (ID + EN)');
 
 // ---------- robots.txt ----------
 const robotsTxt = `User-agent: *
@@ -622,34 +848,7 @@ const manifest = {
 fs.writeFileSync(path.join(ROOT, 'manifest.json'), JSON.stringify(manifest, null, 2));
 console.log('✓ manifest.json');
 
-// ---------- 404.html ----------
-// Path relatif tidak bisa dipakai di 404 (GitHub Pages bisa nyajikan file ini dari
-// kedalaman URL manapun), jadi header/footer 404 pakai ROOT_PATH absolut.
-const notFoundSiteMap = {
-  SITE_BRAND: data.site.brand,
-  GITHUB_USER: data.site.githubUser,
-  APP_COUNT: data.apps.length,
-  YEAR: year,
-  ROOT_PATH: `${data.site.siteUrl}/`,
-  APPS_INDEX_JSON: appsIndexJson,
-};
-const notFoundMap = {
-  ...notFoundSiteMap,
-  PAGE_TITLE: `Halaman Tidak Ditemukan — ${data.site.brand}`,
-  PAGE_DESCRIPTION: `Halaman yang kamu cari tidak ada di ${data.site.brand}.`,
-  PAGE_URL: `${data.site.siteUrl}/404.html`,
-  PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
-};
-const notFoundHead = buildHead(notFoundMap);
-const notFoundHeader = buildHeader(notFoundSiteMap);
-const notFoundFooter = buildFooter(notFoundSiteMap);
-fs.writeFileSync(
-  path.join(ROOT, '404.html'),
-  fill(notFoundTpl, { ...notFoundMap, HEAD: notFoundHead, HEADER: notFoundHeader, FOOTER: notFoundFooter })
-);
-console.log('✓ 404.html');
-
-// ---------- feed.xml (RSS) ----------
+// ---------- feed.xml (RSS, Bahasa Indonesia) ----------
 // Item diurutkan dari entri changelog terbaru tiap app (kalau ada), fallback ke buildDate.
 function escXml(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -684,7 +883,7 @@ ${feedItems}
 fs.writeFileSync(path.join(ROOT, 'feed.xml'), feedXml);
 console.log('✓ feed.xml');
 
-console.log(`\nSelesai. ${data.apps.length} aplikasi ter-generate.`);
+console.log(`\nSelesai. ${data.apps.length} aplikasi ter-generate, dalam 2 bahasa (id + en).`);
 }
 
 main().catch((err) => {

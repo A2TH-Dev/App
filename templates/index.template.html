@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="id">
+<html lang="{{LANG_ATTR}}">
 <head>
 {{HEAD}}
 </head>
 <body class="bg-background font-body-md text-on-background">
-<a href="#main-content" class="skip-link">Langsung ke konten</a>
+<a href="#main-content" class="skip-link">{{I18N_SKIP_LINK}}</a>
 {{HEADER}}
 <main id="main-content" class="w-full pt-16 min-h-screen">
   <div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop py-unit-xl">
@@ -39,16 +39,16 @@
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/[0.03] rounded-full blur-[140px] pointer-events-none"></div>
         <div class="relative flex flex-col md:flex-row md:items-end justify-between gap-unit-lg mb-unit-xl reveal">
           <div class="flex flex-col gap-unit-xs">
-            <h2 class="font-headline-lg text-headline-lg text-on-surface">Recent Releases</h2>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">{{I18N_RECENT_RELEASES}}</h2>
             <div class="h-1 w-12 bg-surface-container-highest"></div>
           </div>
           <div class="flex flex-col sm:flex-row gap-unit-sm w-full md:w-auto">
             <div class="relative flex-1 sm:w-64">
               <span class="material-symbols-outlined absolute left-unit-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] pointer-events-none">search</span>
-              <input id="app-search" type="text" placeholder="Cari aplikasi..." class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-unit-sm text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
+              <input id="app-search" type="text" placeholder="{{I18N_SEARCH_PLACEHOLDER}}" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-unit-sm text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
             </div>
             <select id="app-category" class="bg-surface-container-low border border-outline-variant/20 rounded-lg px-unit-sm py-unit-sm text-body-sm font-body-sm text-on-surface focus:outline-none focus:border-primary transition-colors">
-              <option value="">Semua Kategori</option>
+              <option value="">{{I18N_CATEGORY_ALL}}</option>
               {{CATEGORY_OPTIONS}}
             </select>
           </div>
@@ -58,7 +58,7 @@
         </div>
         <div id="app-empty" class="hidden py-unit-xl text-center">
           <span class="material-symbols-outlined text-on-surface-variant text-[40px]">search_off</span>
-          <p class="font-body-md text-body-md text-on-surface-variant mt-unit-sm">Tidak ada aplikasi yang cocok.</p>
+          <p class="font-body-md text-body-md text-on-surface-variant mt-unit-sm">{{I18N_GRID_NO_RESULTS}}</p>
         </div>
       </section>
 
@@ -70,7 +70,7 @@
             <h2 class="font-headline-lg text-headline-lg text-on-primary">Build your own store front.</h2>
             <p class="font-body-md text-body-md text-on-primary/90 mt-unit-sm">{{SITE_BRAND}} is open-source. Fork the repository, add your APKs, and deploy your own catalog in minutes.</p>
           </div>
-          <a href="https://github.com/{{GITHUB_USER}}" class="bg-on-primary text-primary font-label-md text-label-md px-unit-xl py-unit-md rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity inline-block text-center">Lihat di GitHub</a>
+          <a href="https://github.com/{{GITHUB_USER}}" class="bg-on-primary text-primary font-label-md text-label-md px-unit-xl py-unit-md rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity inline-block text-center">{{I18N_CTA_BUTTON}}</a>
         </div>
       </section>
 

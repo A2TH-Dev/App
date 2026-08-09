@@ -7,35 +7,41 @@
       <span class="font-headline-md text-headline-md text-on-surface tracking-tight">{{SITE_BRAND}}</span>
     </a>
     <nav class="hidden md:flex items-center gap-unit-lg shrink-0">
-      <a href="{{ROOT_PATH}}" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Apps</a>
-      <a href="https://github.com/{{GITHUB_USER}}" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">GitHub</a>
+      <a href="{{ROOT_PATH}}" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">{{I18N_NAV_APPS}}</a>
+      <a href="{{ROOT_PATH}}install.html" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">{{I18N_NAV_INSTALL}}</a>
+      <a href="{{ROOT_PATH}}about.html" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">{{I18N_NAV_ABOUT}}</a>
+      <a href="https://github.com/{{GITHUB_USER}}" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">{{I18N_NAV_GITHUB}}</a>
     </nav>
     <div class="flex-1 max-w-xs hidden sm:block relative">
       <span class="material-symbols-outlined absolute left-unit-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">search</span>
-      <input id="global-search" type="text" autocomplete="off" placeholder="Cari aplikasi..." class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-1.5 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
+      <input id="global-search" type="text" autocomplete="off" placeholder="{{I18N_SEARCH_PLACEHOLDER}}" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-1.5 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
       <div id="global-search-results" class="hidden absolute top-full mt-unit-xs left-0 right-0 bg-surface-container rounded-xl shadow-2xl border border-outline-variant/10 overflow-hidden max-h-80 overflow-y-auto"></div>
     </div>
     <div class="flex items-center gap-unit-sm shrink-0">
-      <button id="search-toggle" type="button" aria-label="Cari aplikasi" class="sm:hidden w-9 h-9 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
+      <button id="search-toggle" type="button" aria-label="{{I18N_SEARCH_ARIA}}" class="sm:hidden w-9 h-9 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
         <span class="material-symbols-outlined">search</span>
       </button>
+      <a href="{{LANG_SWITCH_URL}}" aria-label="{{I18N_LANG_SWITCH_ARIA}}" class="hidden sm:flex w-9 h-9 items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold border border-outline-variant/20">{{I18N_LANG_SWITCH}}</a>
       <div class="hidden lg:flex bg-primary/10 border border-primary/20 px-unit-sm py-unit-xs rounded-full items-center gap-unit-xs">
         <span class="material-symbols-outlined text-primary text-[16px]">inventory_2</span>
         <span class="font-label-sm text-label-sm text-primary">{{APP_COUNT}} Apps</span>
       </div>
-      <button id="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
+      <button id="menu-toggle" type="button" aria-label="{{I18N_MENU_ARIA}}" aria-expanded="false" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
         <span class="material-symbols-outlined" id="menu-toggle-icon">menu</span>
       </button>
     </div>
   </div>
   <div id="mobile-search" class="hidden sm:hidden px-margin-mobile pb-unit-md relative">
     <span class="material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">search</span>
-    <input id="global-search-mobile" type="text" autocomplete="off" placeholder="Cari aplikasi..." class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-2 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
+    <input id="global-search-mobile" type="text" autocomplete="off" placeholder="{{I18N_SEARCH_PLACEHOLDER}}" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-2 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
     <div id="global-search-results-mobile" class="hidden mt-unit-xs bg-surface-container rounded-xl shadow-2xl border border-outline-variant/10 overflow-hidden max-h-80 overflow-y-auto"></div>
   </div>
   <nav id="mobile-menu" class="hidden md:hidden flex-col px-margin-mobile pb-unit-lg pt-unit-xs border-t border-outline-variant/10 gap-unit-xs">
-    <a href="{{ROOT_PATH}}" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">apps</span> Apps</a>
-    <a href="https://github.com/{{GITHUB_USER}}" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">code</span> GitHub</a>
+    <a href="{{ROOT_PATH}}" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">apps</span> {{I18N_NAV_APPS}}</a>
+    <a href="{{ROOT_PATH}}install.html" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">install_mobile</span> {{I18N_NAV_INSTALL}}</a>
+    <a href="{{ROOT_PATH}}about.html" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">info</span> {{I18N_NAV_ABOUT}}</a>
+    <a href="https://github.com/{{GITHUB_USER}}" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">code</span> {{I18N_NAV_GITHUB}}</a>
+    <a href="{{LANG_SWITCH_URL}}" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">translate</span> {{I18N_LANG_SWITCH_ARIA}}</a>
   </nav>
 </header>
 <script>
@@ -64,13 +70,14 @@
 
   var ROOT_PATH = '{{ROOT_PATH}}';
   var APPS_INDEX = {{APPS_INDEX_JSON}};
+  var NO_RESULTS_TEXT = '{{I18N_SEARCH_NO_RESULTS}}';
 
   function renderResults(query, container) {
     var q = query.trim().toLowerCase();
     if (!q) { container.classList.add('hidden'); container.innerHTML = ''; return; }
     var matches = APPS_INDEX.filter(function (a) { return a.name.toLowerCase().indexOf(q) !== -1; }).slice(0, 6);
     if (!matches.length) {
-      container.innerHTML = '<div class="px-unit-md py-unit-md text-body-sm font-body-sm text-on-surface-variant">Tidak ada hasil.</div>';
+      container.innerHTML = '<div class="px-unit-md py-unit-md text-body-sm font-body-sm text-on-surface-variant">' + NO_RESULTS_TEXT + '</div>';
       container.classList.remove('hidden');
       return;
     }

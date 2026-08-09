@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="{{LANG_ATTR}}">
+<head>
+{{HEAD}}
+</head>
+<body class="bg-background font-body-md text-on-background">
+<a href="#main-content" class="skip-link">{{I18N_SKIP_LINK}}</a>
+{{HEADER}}
+<main id="main-content" class="w-full pt-20 bg-background overflow-x-hidden">
+  <div class="flex flex-col w-full">
+    <div class="max-w-[760px] mx-auto px-margin-mobile lg:px-margin-desktop py-unit-xl">
+
+      <nav aria-label="Breadcrumb" class="mb-unit-xl">
+        <ol class="flex items-center gap-unit-xs text-label-md font-label-md text-on-surface-variant">
+          <li class="flex items-center gap-unit-xs">
+            <a href="{{ROOT_PATH}}" class="hover:text-primary transition-colors">{{SITE_BRAND}}</a>
+            <span class="material-symbols-outlined text-[16px] opacity-50">chevron_right</span>
+          </li>
+          <li class="text-on-surface" aria-current="page">{{I18N_ABOUT_BREADCRUMB}}</li>
+        </ol>
+      </nav>
+
+      <div class="fade-in">
+        <div class="flex items-center gap-unit-sm mb-unit-md">
+          <div class="h-[1px] w-8 bg-primary"></div>
+          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">{{I18N_ABOUT_HEADING}}</span>
+        </div>
+        <h1 class="text-headline-xl font-headline-xl text-on-surface mb-unit-xl">{{SITE_BRAND}}</h1>
+
+        <div class="flex flex-col gap-unit-lg mb-32">
+          {{ABOUT_PARAGRAPHS}}
+        </div>
+
+        <!-- Kontak -->
+        <div class="bg-surface-container-lowest rounded-2xl p-unit-xl reveal">
+          <div class="flex items-center gap-unit-md mb-unit-md">
+            <span class="material-symbols-outlined text-primary">forum</span>
+            <h2 class="text-headline-md font-headline-md text-on-surface">{{I18N_CONTACT_HEADING}}</h2>
+          </div>
+          <p class="text-body-md font-body-md text-on-surface-variant mb-unit-lg">
+            {{I18N_CONTACT_BODY}}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-unit-md">
+            <a href="https://github.com/{{GITHUB_USER}}/App/issues" class="flex-1 flex items-center gap-unit-md p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors">
+              <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">bug_report</span></div>
+              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">{{I18N_CONTACT_REPORT_BUG}}</div><div class="text-body-md font-body-md text-on-surface">GitHub Issues</div></div>
+            </a>
+            {{CONTACT_EMAIL_BLOCK}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</main>
+{{FOOTER}}
+</body>
+</html>

@@ -5,5 +5,14 @@
   "headlineLine2": "App Distribution.",
   "tagline": "Katalog aplikasi Android independen, dibangun untuk kecepatan dan privasi — didistribusikan langsung lewat GitHub Releases.",
   "githubUser": "A2TH-Dev",
-  "footerNote": "Semua aplikasi dibangun dan dirawat langsung oleh satu developer."
+  "footerNote": "Semua aplikasi dibangun dan dirawat langsung oleh satu developer.",
+  "supportEmail": "",
+  "aboutParagraphs": [
+    "APK Bench adalah katalog aplikasi Android independen. Semua aplikasi di sini dibangun, diuji, dan dirawat langsung — tanpa perantara, tanpa app store pihak ketiga yang membatasi.",
+    "Kenapa distribusi lewat GitHub Releases, bukan cuma Play Store? Karena APK-nya bisa diperiksa siapa saja — source code publik, tanpa proses review tertutup, dan update langsung begitu dirilis tanpa menunggu antrian moderasi."
+  ],
+  "aboutParagraphsEn": [
+    "APK Bench is an independent Android app catalog. Every app here is built, tested, and maintained directly — no middlemen, no third-party app store gatekeeping.",
+    "Why distribute through GitHub Releases instead of just the Play Store? Because the APKs can be inspected by anyone — public source code, no closed-door review process, and updates go live the moment they're released, no moderation queue to wait on."
+  ]
 }

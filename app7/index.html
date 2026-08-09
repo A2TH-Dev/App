@@ -91,6 +91,8 @@ tailwind.config={darkMode:"class",theme:{extend:{
     </a>
     <nav class="hidden md:flex items-center gap-unit-lg shrink-0">
       <a href="../" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Apps</a>
+      <a href="../install.html" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Cara Install</a>
+      <a href="../about.html" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">Tentang</a>
       <a href="https://github.com/A2TH-Dev" class="font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors">GitHub</a>
     </nav>
     <div class="flex-1 max-w-xs hidden sm:block relative">
@@ -102,6 +104,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
       <button id="search-toggle" type="button" aria-label="Cari aplikasi" class="sm:hidden w-9 h-9 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
         <span class="material-symbols-outlined">search</span>
       </button>
+      <a href="../en/app7/" aria-label="Ganti ke Bahasa Inggris" class="hidden sm:flex w-9 h-9 items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold border border-outline-variant/20">EN</a>
       <div class="hidden lg:flex bg-primary/10 border border-primary/20 px-unit-sm py-unit-xs rounded-full items-center gap-unit-xs">
         <span class="material-symbols-outlined text-primary text-[16px]">inventory_2</span>
         <span class="font-label-sm text-label-sm text-primary">9 Apps</span>
@@ -118,7 +121,10 @@ tailwind.config={darkMode:"class",theme:{extend:{
   </div>
   <nav id="mobile-menu" class="hidden md:hidden flex-col px-margin-mobile pb-unit-lg pt-unit-xs border-t border-outline-variant/10 gap-unit-xs">
     <a href="../" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">apps</span> Apps</a>
+    <a href="../install.html" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">install_mobile</span> Cara Install</a>
+    <a href="../about.html" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">info</span> Tentang</a>
     <a href="https://github.com/A2TH-Dev" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">code</span> GitHub</a>
+    <a href="../en/app7/" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">translate</span> Ganti ke Bahasa Inggris</a>
   </nav>
 </header>
 <script>
@@ -147,13 +153,14 @@ tailwind.config={darkMode:"class",theme:{extend:{
 
   var ROOT_PATH = '../';
   var APPS_INDEX = [{"name":"Nitro Purge","slug":"nitropurge","category":"Utilitas & Optimasi","accent":"#3DDC97"},{"name":"EmberMP","slug":"ember","category":"Musik & Audio","accent":"#D97757"},{"name":"Peta Jiwa","slug":"petajiwa","category":"Gaya Hidup","accent":"#8B6FD9"},{"name":"Peta Jiwa Ultimate","slug":"petajiwa-ultimate","category":"Gaya Hidup","accent":"#C9A227"},{"name":"GANTI_NAMA_APP","slug":"app5","category":"Kategori","accent":"#4C8EFF"},{"name":"GANTI_NAMA_APP","slug":"app6","category":"Kategori","accent":"#FF6B6B"},{"name":"GANTI_NAMA_APP","slug":"app7","category":"Kategori","accent":"#3DDC97"},{"name":"GANTI_NAMA_APP","slug":"app8","category":"Kategori","accent":"#D97757"},{"name":"GANTI_NAMA_APP","slug":"app9","category":"Kategori","accent":"#C9A227"}];
+  var NO_RESULTS_TEXT = 'Tidak ada hasil.';
 
   function renderResults(query, container) {
     var q = query.trim().toLowerCase();
     if (!q) { container.classList.add('hidden'); container.innerHTML = ''; return; }
     var matches = APPS_INDEX.filter(function (a) { return a.name.toLowerCase().indexOf(q) !== -1; }).slice(0, 6);
     if (!matches.length) {
-      container.innerHTML = '<div class="px-unit-md py-unit-md text-body-sm font-body-sm text-on-surface-variant">Tidak ada hasil.</div>';
+      container.innerHTML = '<div class="px-unit-md py-unit-md text-body-sm font-body-sm text-on-surface-variant">' + NO_RESULTS_TEXT + '</div>';
       container.classList.remove('hidden');
       return;
     }
@@ -223,6 +230,9 @@ tailwind.config={darkMode:"class",theme:{extend:{
               <span class="material-symbols-outlined">gpp_maybe</span> Kebijakan Privasi
             </a>
           </div>
+          <a href="../install.html" class="inline-flex items-center gap-1 mt-unit-sm text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors">
+            <span class="material-symbols-outlined text-[14px]">help</span> Cara install APK di Android?
+          </a>
         </div>
         <div class="lg:col-span-5 relative">
           <div class="absolute -inset-4 blur-[80px] rounded-full" style="background:#3DDC9722"></div>
@@ -351,9 +361,11 @@ tailwind.config={darkMode:"class",theme:{extend:{
       <span class="font-headline-md text-[20px] text-on-surface">APK Bench</span>
       <p class="font-body-sm text-body-sm text-on-surface-variant"></p>
     </div>
-    <div class="flex items-center gap-unit-lg">
+    <div class="flex items-center gap-unit-lg flex-wrap justify-center">
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="../install.html">Cara Install</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="../about.html">Tentang</a>
       <a class="flex items-center gap-unit-xs font-label-md text-label-md text-primary hover:text-primary-fixed-dim transition-colors" href="https://github.com/A2TH-Dev">
-        <span class="material-symbols-outlined text-[18px]">code</span>View on GitHub
+        <span class="material-symbols-outlined text-[18px]">code</span>GitHub
       </a>
       <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">© 2026 APK Bench</span>
     </div>

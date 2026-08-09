@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+{{HEAD}}
+</head>
+<body class="bg-background font-body-md text-on-background">
+<a href="#main-content" class="skip-link">Skip to content</a>
+{{HEADER}}
+<main id="main-content" class="w-full pt-20 bg-background overflow-x-hidden">
+  <div class="flex flex-col w-full">
+    <div class="max-w-[760px] mx-auto px-margin-mobile lg:px-margin-desktop py-unit-xl">
+
+      <nav aria-label="Breadcrumb" class="mb-unit-xl">
+        <ol class="flex items-center gap-unit-xs text-label-md font-label-md text-on-surface-variant">
+          <li class="flex items-center gap-unit-xs">
+            <a href="{{ROOT_PATH}}" class="hover:text-primary transition-colors">{{SITE_BRAND}}</a>
+            <span class="material-symbols-outlined text-[16px] opacity-50">chevron_right</span>
+          </li>
+          <li class="text-on-surface" aria-current="page">How to Install</li>
+        </ol>
+      </nav>
+
+      <div class="fade-in">
+        <div class="flex items-center gap-unit-sm mb-unit-md">
+          <div class="h-[1px] w-8 bg-primary"></div>
+          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">Guide</span>
+        </div>
+        <h1 class="text-headline-xl font-headline-xl text-on-surface mb-unit-sm">How to Install an APK</h1>
+        <p class="text-body-lg font-body-lg text-on-surface-variant mb-32 max-w-xl">
+          Apps on {{SITE_BRAND}} are distributed directly as APK files via GitHub Releases —
+          not through the Play Store. Android will show a standard warning when installing
+          from outside the Play Store. That's normal, not a sign the APK is unsafe.
+        </p>
+
+        <div class="flex flex-col gap-unit-lg mb-32">
+
+          <div class="flex gap-unit-lg reveal">
+            <div class="shrink-0 w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-lg font-bold">1</div>
+            <div class="flex-1 pb-unit-lg border-b border-outline-variant/10">
+              <h2 class="text-headline-sm font-headline-sm text-on-surface mb-unit-xs">Allow installs from unknown sources</h2>
+              <p class="text-body-md font-body-md text-on-surface-variant">
+                When you open the downloaded APK, Android usually shows a warning like
+                "For your security, your phone is not allowed to install unknown apps from this source."
+                Tap <strong class="text-on-surface">Settings</strong> in that notification, then enable
+                <strong class="text-on-surface">"Allow from this source"</strong> for whichever browser or
+                file manager you used. This is a per-app setting, safe, and can be turned off again anytime.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-unit-lg reveal">
+            <div class="shrink-0 w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-lg font-bold">2</div>
+            <div class="flex-1 pb-unit-lg border-b border-outline-variant/10">
+              <h2 class="text-headline-sm font-headline-sm text-on-surface mb-unit-xs">Open the APK file again</h2>
+              <p class="text-body-md font-body-md text-on-surface-variant">
+                Once the permission is enabled, reopen the APK file from your download notification or your
+                <strong class="text-on-surface">Downloads</strong> folder in the File Manager. Tap <strong class="text-on-surface">Install</strong>.
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-unit-lg reveal">
+            <div class="shrink-0 w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-label-lg font-bold">3</div>
+            <div class="flex-1">
+              <h2 class="text-headline-sm font-headline-sm text-on-surface mb-unit-xs">(Optional) Play Protect scan</h2>
+              <p class="text-body-md font-body-md text-on-surface-variant">
+                Google Play Protect may offer to scan the APK before installing. This is a built-in Android
+                security feature, not something specific to {{SITE_BRAND}} — you can run it for extra peace
+                of mind, or skip straight to installing if you already trust the source.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="bg-surface-container-lowest rounded-2xl p-unit-xl flex items-start gap-unit-md reveal">
+          <span class="material-symbols-outlined text-primary text-[24px] shrink-0">verified_user</span>
+          <p class="text-body-sm font-body-sm text-on-surface-variant">
+            Every APK on {{SITE_BRAND}} is built from public source code on
+            <a href="https://github.com/{{GITHUB_USER}}" class="text-primary hover:underline">GitHub</a> —
+            anyone can inspect it before installing. If you're unsure about a specific APK, check
+            <a href="{{ROOT_PATH}}" class="text-primary hover:underline">its app page</a> for a link to the source repo.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</main>
+{{FOOTER}}
+</body>
+</html>

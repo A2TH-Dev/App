@@ -4,15 +4,17 @@
       <span class="font-headline-md text-[20px] text-on-surface">{{SITE_BRAND}}</span>
       <p class="font-body-sm text-body-sm text-on-surface-variant">{{SITE_FOOTER_NOTE}}</p>
     </div>
-    <div class="flex items-center gap-unit-lg">
+    <div class="flex items-center gap-unit-lg flex-wrap justify-center">
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="{{ROOT_PATH}}install.html">{{I18N_NAV_INSTALL}}</a>
+      <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors" href="{{ROOT_PATH}}about.html">{{I18N_NAV_ABOUT}}</a>
       <a class="flex items-center gap-unit-xs font-label-md text-label-md text-primary hover:text-primary-fixed-dim transition-colors" href="https://github.com/{{GITHUB_USER}}">
-        <span class="material-symbols-outlined text-[18px]">code</span>View on GitHub
+        <span class="material-symbols-outlined text-[18px]">code</span>{{I18N_NAV_GITHUB}}
       </a>
       <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">© {{YEAR}} {{SITE_BRAND}}</span>
     </div>
   </div>
 </footer>
-<button id="back-to-top" type="button" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary text-on-primary shadow-xl shadow-primary/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:scale-110">
+<button id="back-to-top" type="button" aria-label="{{I18N_BACK_TO_TOP_ARIA}}" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary text-on-primary shadow-xl shadow-primary/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:scale-110">
   <span class="material-symbols-outlined text-[22px]">arrow_upward</span>
 </button>
 <script>

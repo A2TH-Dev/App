@@ -1,20 +1,20 @@
 <!doctype html>
-<html lang="id">
+<html lang="{{LANG_ATTR}}">
 <head>
 {{HEAD}}
 </head>
 <body class="bg-background font-body-md text-on-background">
-<a href="#main-content" class="skip-link">Langsung ke konten</a>
+<a href="#main-content" class="skip-link">{{I18N_SKIP_LINK}}</a>
 {{HEADER}}
 <main id="main-content" class="w-full min-h-screen flex items-center justify-center pt-20 px-margin-mobile">
   <div class="max-w-lg text-center flex flex-col items-center fade-in">
     <span class="font-headline-xl text-[96px] leading-none text-primary/20 font-bold">404</span>
-    <h1 class="font-headline-lg text-headline-lg text-on-surface mt-unit-lg">Halaman tidak ditemukan</h1>
+    <h1 class="font-headline-lg text-headline-lg text-on-surface mt-unit-lg">{{I18N_404_TITLE}}</h1>
     <p class="font-body-md text-body-md text-on-surface-variant mt-unit-sm mb-unit-xl">
-      Link yang kamu buka mungkin salah ketik atau aplikasinya sudah dipindahkan.
+      {{I18N_404_BODY}}
     </p>
     <a href="{{ROOT_PATH}}" class="bg-primary text-on-primary font-label-md text-label-md px-unit-xl py-unit-md rounded-lg shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform inline-flex items-center gap-unit-sm">
-      <span class="material-symbols-outlined">home</span> Kembali ke {{SITE_BRAND}}
+      <span class="material-symbols-outlined">home</span> {{I18N_404_BACK_HOME}} {{SITE_BRAND}}
     </a>
   </div>
 </main>
