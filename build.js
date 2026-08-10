@@ -503,7 +503,10 @@ function generateAppPage(app, lang, ctx) {
     })
     .join('\n        ');
 
-  const imgPrefix = ''; // gambar app ada di <slug>/asset/..., path di JSON sudah relatif dari situ
+  // Gambar app cuma disimpan fisik di <slug>/asset/... (tidak diduplikasi ke en/<slug>/asset/).
+  // Halaman ID ada di kedalaman yang sama (../<slug>/asset/... == asset/... dari dalam <slug>/),
+  // tapi halaman EN 1 folder lebih dalam (en/<slug>/) jadi butuh path relatif naik 2 tingkat dulu.
+  const imgPrefix = lang === 'id' ? '' : `../../${app.slug}/`;
   const initialsDivHero = `<div class="w-24 h-24 rounded-xl flex items-center justify-center text-2xl font-bold shadow-2xl" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
   const initialsDivPhone = `<div class="w-20 h-20 rounded-3xl flex items-center justify-center text-2xl font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
 
@@ -515,8 +518,9 @@ function generateAppPage(app, lang, ctx) {
       const oaName = (lang === 'en' && oa.name_en) || oa.name;
       const oaCategory = (lang === 'en' && oa.category_en) || oa.category;
       const oaInitials = oa.initials || initials(oa.name);
+      const oaIconPrefix = lang === 'id' ? `../${oa.slug}/` : `../../${oa.slug}/`;
       const oaIcon =
-        iconBlock(oa, `../${oa.slug}/`, 'w-12 h-12', { w: 48, h: 48 }) ||
+        iconBlock(oa, oaIconPrefix, 'w-12 h-12', { w: 48, h: 48 }) ||
         `<div class="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold" style="background:${oa.accent}22;color:${oa.accent}">${oaInitials}</div>`;
       return `<a href="../${oa.slug}/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid ${oa.accent}">
           ${oaIcon}
@@ -646,8 +650,9 @@ function generateSite(lang, downloadCounts) {
       const appTagline = (lang === 'en' && app.tagline_en) || app.tagline;
       const appCategory = (lang === 'en' && app.category_en) || app.category;
       const initialsStr = app.initials || initials(app.name);
+      const cardIconPrefix = lang === 'id' ? `${app.slug}/` : `../${app.slug}/`;
       const iconHtml =
-        iconBlock(app, `${app.slug}/`, 'w-16 h-16', { w: 64, h: 64 }) ||
+        iconBlock(app, cardIconPrefix, 'w-16 h-16', { w: 64, h: 64 }) ||
         `<div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
       return `<a href="${app.slug}/" data-name="${esc(appName.toLowerCase())}" data-category="${esc(appCategory)}" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
         <div class="flex justify-between items-start mb-unit-lg">
