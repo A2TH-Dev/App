@@ -909,6 +909,30 @@ ${feedItems}
 fs.writeFileSync(path.join(ROOT, 'feed.xml'), feedXml);
 console.log('✓ feed.xml');
 
+// ---------- deteksi folder app lama yang ketinggalan (tidak dihapus otomatis,
+// cuma diperingatkan — biar tidak ada halaman "hantu" yang diam-diam masih
+// hidup di GitHub Pages padahal sudah tidak ada di data/apps/) ----------
+const KNOWN_NON_APP_DIRS = new Set([
+  'node_modules', '.git', '.github', 'templates', 'data', 'en', '.vscode', '.idea',
+]);
+function findOrphanFolders(dir, currentSlugs) {
+  if (!fs.existsSync(dir)) return [];
+  return fs.readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isDirectory() && !KNOWN_NON_APP_DIRS.has(e.name) && !e.name.startsWith('.'))
+    .map((e) => e.name)
+    .filter((name) => fs.existsSync(path.join(dir, name, 'index.html')) && !currentSlugs.has(name));
+}
+const currentSlugs = new Set(data.apps.map((a) => a.slug));
+const orphansRoot = findOrphanFolders(ROOT, currentSlugs);
+const orphansEn = findOrphanFolders(path.join(ROOT, 'en'), currentSlugs);
+if (orphansRoot.length || orphansEn.length) {
+  console.log('\n⚠ Ketemu folder app LAMA yang sudah tidak ada di data/apps/ tapi masih tersisa di disk:');
+  orphansRoot.forEach((s) => console.log(`  - ${s}/`));
+  orphansEn.forEach((s) => console.log(`  - en/${s}/`));
+  console.log('  Halaman ini masih LIVE di GitHub Pages (bisa diakses langsung lewat URL) walau sudah tidak ke-link dari homepage.');
+  console.log('  Hapus manual foldernya kalau appnya memang sudah tidak dipakai lagi, lalu commit penghapusannya.\n');
+}
+
 console.log(`\nSelesai. ${data.apps.length} aplikasi ter-generate, dalam 2 bahasa (id + en).`);
 }
 
