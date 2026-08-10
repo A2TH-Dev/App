@@ -23,7 +23,7 @@
 <meta name="twitter:title" content="APK Bench — Katalog aplikasi Android independen, dibangun untuk kecepatan dan privasi — didistribusikan langsung lewat GitHub Releases."/>
 <meta name="twitter:description" content="Katalog aplikasi Android independen, dibangun untuk kecepatan dan privasi — didistribusikan langsung lewat GitHub Releases."/>
 <meta name="twitter:image" content="https://a2th-dev.github.io/App/favicon.svg"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://a2th-dev.github.io/App/nitropurge/","name":"Nitro Purge"},{"@type":"ListItem","position":2,"url":"https://a2th-dev.github.io/App/ember/","name":"EmberMP"},{"@type":"ListItem","position":3,"url":"https://a2th-dev.github.io/App/petajiwa/","name":"Peta Jiwa"},{"@type":"ListItem","position":4,"url":"https://a2th-dev.github.io/App/petajiwa-ultimate/","name":"Peta Jiwa Ultimate"},{"@type":"ListItem","position":5,"url":"https://a2th-dev.github.io/App/app5/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":6,"url":"https://a2th-dev.github.io/App/app6/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":7,"url":"https://a2th-dev.github.io/App/app7/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":8,"url":"https://a2th-dev.github.io/App/app8/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":9,"url":"https://a2th-dev.github.io/App/app9/","name":"GANTI_NAMA_APP"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://a2th-dev.github.io/App/nitropurge/","name":"Nitro Purge"},{"@type":"ListItem","position":2,"url":"https://a2th-dev.github.io/App/ember/","name":"EmberMP"},{"@type":"ListItem","position":3,"url":"https://a2th-dev.github.io/App/petajiwa/","name":"Peta Jiwa"},{"@type":"ListItem","position":4,"url":"https://a2th-dev.github.io/App/catat-yuk/","name":"Catat Yuk"},{"@type":"ListItem","position":5,"url":"https://a2th-dev.github.io/App/app5/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":6,"url":"https://a2th-dev.github.io/App/app6/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":7,"url":"https://a2th-dev.github.io/App/app7/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":8,"url":"https://a2th-dev.github.io/App/app8/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":9,"url":"https://a2th-dev.github.io/App/app9/","name":"GANTI_NAMA_APP"}]}</script>
 <style>
   @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}}
   ::-webkit-scrollbar{display:none;}
@@ -152,7 +152,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
   }
 
   var ROOT_PATH = './';
-  var APPS_INDEX = [{"name":"Nitro Purge","slug":"nitropurge","category":"Utilitas & Optimasi","accent":"#3DDC97"},{"name":"EmberMP","slug":"ember","category":"Musik & Audio","accent":"#D97757"},{"name":"Peta Jiwa","slug":"petajiwa","category":"Gaya Hidup","accent":"#8B6FD9"},{"name":"Peta Jiwa Ultimate","slug":"petajiwa-ultimate","category":"Gaya Hidup","accent":"#C9A227"},{"name":"GANTI_NAMA_APP","slug":"app5","category":"Kategori","accent":"#4C8EFF"},{"name":"GANTI_NAMA_APP","slug":"app6","category":"Kategori","accent":"#FF6B6B"},{"name":"GANTI_NAMA_APP","slug":"app7","category":"Kategori","accent":"#3DDC97"},{"name":"GANTI_NAMA_APP","slug":"app8","category":"Kategori","accent":"#D97757"},{"name":"GANTI_NAMA_APP","slug":"app9","category":"Kategori","accent":"#C9A227"}];
+  var APPS_INDEX = [{"name":"Nitro Purge","slug":"nitropurge","category":"Utilitas & Optimasi","accent":"#3DDC97"},{"name":"EmberMP","slug":"ember","category":"Musik & Audio","accent":"#D97757"},{"name":"Peta Jiwa","slug":"petajiwa","category":"Gaya Hidup","accent":"#8B6FD9"},{"name":"Catat Yuk","slug":"catat-yuk","category":"Keuangan","accent":"#4A2E8F"},{"name":"GANTI_NAMA_APP","slug":"app5","category":"Kategori","accent":"#4C8EFF"},{"name":"GANTI_NAMA_APP","slug":"app6","category":"Kategori","accent":"#FF6B6B"},{"name":"GANTI_NAMA_APP","slug":"app7","category":"Kategori","accent":"#3DDC97"},{"name":"GANTI_NAMA_APP","slug":"app8","category":"Kategori","accent":"#D97757"},{"name":"GANTI_NAMA_APP","slug":"app9","category":"Kategori","accent":"#C9A227"}];
   var NO_RESULTS_TEXT = 'Tidak ada hasil.';
 
   function renderResults(query, container) {
@@ -233,6 +233,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
               <option value="">Semua Kategori</option>
               <option value="Gaya Hidup">Gaya Hidup</option>
         <option value="Kategori">Kategori</option>
+        <option value="Keuangan">Keuangan</option>
         <option value="Musik &amp; Audio">Musik &amp; Audio</option>
         <option value="Utilitas &amp; Optimasi">Utilitas &amp; Optimasi</option>
             </select>
@@ -275,16 +276,16 @@ tailwind.config={darkMode:"class",theme:{extend:{
           <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">8 MB</span>
         </div>
       </a>
-      <a href="petajiwa-ultimate/" data-name="peta jiwa ultimate" data-category="Gaya Hidup" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #C9A227">
+      <a href="catat-yuk/" data-name="catat yuk" data-category="Keuangan" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #4A2E8F">
         <div class="flex justify-between items-start mb-unit-lg">
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:#C9A22722;color:#C9A227">PJ</div>
-          <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v3.1.0</span>
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:#4A2E8F22;color:#4A2E8F">CY</div>
+          <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v0.5.0</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Peta Jiwa Ultimate</h3>
-        <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">Weton, BaZi, Tarot, dan biorhythm dalam satu genggaman.</p>
+        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">Catat Yuk</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">Pencatat keuangan otomatis — baca sendiri dari notifikasi bank & e-wallet.</p>
         <div class="mt-unit-xl flex items-center justify-between">
-          <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:#C9A2271a;color:#C9A227">Gaya Hidup</span>
-          <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">15 MB</span>
+          <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:#4A2E8F1a;color:#4A2E8F">Keuangan</span>
+          <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">20 MB</span>
         </div>
       </a>
       <a href="app5/" data-name="ganti_nama_app" data-category="Kategori" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #4C8EFF">

@@ -1,0 +1,62 @@
+{
+  "id": "app4",
+  "slug": "catat-yuk",
+  "name": "Catat Yuk",
+  "tagline": "Pencatat keuangan otomatis — baca sendiri dari notifikasi bank & e-wallet.",
+  "tagline_en": "Automatic finance tracker — reads your bank & e-wallet notifications for you.",
+  "description": "Catat Yuk otomatis mendeteksi transaksi begitu ada notifikasi masuk dari bank atau e-wallet, lengkap dengan kategori otomatis yang makin pintar seiring koreksi manual kamu. Bisa juga catat manual lewat voice input atau scan struk belanja (OCR). Dilengkapi budget per kategori, goal tabungan, pencatat utang-piutang, kalkulator cicilan, hingga ringkasan tahunan ala Wrapped — semua tersimpan lokal di HP, tanpa server.",
+  "description_en": "Catat Yuk automatically detects transactions the moment a notification arrives from your bank or e-wallet app, with auto-categorization that gets smarter from your manual corrections. You can also log entries by voice or by scanning a receipt (OCR). Includes per-category budgets, savings goals, debt/receivable tracking, a loan calculator, and a Wrapped-style yearly summary — everything stored locally on your phone, no server involved.",
+  "category": "Keuangan",
+  "category_en": "Finance",
+  "version": "0.5.0",
+  "minAndroid": "8.0 (Oreo)",
+  "sizeMb": 20,
+  "repo": "A2TH-Dev/catatyuk",
+  "releaseTag": "v0.5.0",
+  "apkFile": "Catat-Yuk_v0.5.0.apk",
+  "accent": "#4A2E8F",
+  "features": [
+    "Deteksi transaksi otomatis dari notifikasi bank & e-wallet",
+    "Voice input & scan struk belanja (OCR on-device)",
+    "Kunci aplikasi PIN + biometrik, mode aman privasi",
+    "Goal tabungan, utang-piutang & kalkulator cicilan"
+  ],
+  "features_en": [
+    "Auto-detects transactions from bank & e-wallet notifications",
+    "Voice input & receipt scanning (on-device OCR)",
+    "PIN + biometric app lock, privacy-safe screenshot mode",
+    "Savings goals, debt tracker & loan calculator"
+  ],
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2htdev.catatyuk",
+  "privacy": {
+    "dataCollectedIntro": "Catat Yuk dibangun dengan prinsip <strong>lokal-dulu (local-first)</strong>. Seluruh data transaksi kamu disimpan di database lokal perangkat — kami bahkan tidak memiliki server sendiri. Data berikut diakses secara lokal untuk menjalankan fitur yang kamu aktifkan sendiri:",
+    "dataCollectedList": [
+      "Notifikasi sistem — khusus untuk mendeteksi transaksi otomatis, dan hanya diproses kalau berasal dari daftar tetap aplikasi bank/e-wallet populer Indonesia yang dikenali aplikasi; notifikasi dari aplikasi lain diabaikan sepenuhnya, tidak disimpan dalam bentuk apapun",
+      "Rekaman suara sementara — khusus fitur Voice Input, diproses langsung oleh speech-to-text bawaan Android, tidak direkam atau disimpan oleh Catat Yuk",
+      "Kamera — khusus fitur Scan Struk Belanja, diproses on-device lewat ML Kit OCR (Google, on-device, bukan cloud) — foto struk tidak diunggah ke internet",
+      "Data biometrik untuk Kunci Aplikasi ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Catat Yuk sendiri tidak pernah menyimpan data biometrik apapun",
+      "Advertising ID — dipakai Google Mobile Ads SDK untuk menampilkan iklan pada versi gratis (lihat bagian 03)"
+    ],
+    "dataCollectedNote": "Setelah upgrade ke Pro (pembelian sekali bayar, bukan langganan), aplikasi berhenti total memuat/menampilkan iklan di semua layar. Karena Catat Yuk cuma 1 APK (bukan edisi Free/Pro terpisah), izin internet tetap terdaftar untuk keperluan verifikasi pembelian lewat Google Play Billing — bukan berarti data lain ikut dikirim ke mana pun.",
+    "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk mendeteksi transaksi otomatis, menjalankan fitur yang kamu buka langsung, atau menampilkan iklan (versi gratis). Catat Yuk tidak membangun profil pengguna dari isi transaksi kamu dan tidak menjual data apapun. Notifikasi yang tidak cocok dengan pola transaksi bank/e-wallet langsung diabaikan saat itu juga.",
+    "dataSharing": [
+      "Catat Yuk tidak memiliki server sendiri — tidak ada transaksi, saldo, atau data lain yang pernah diunggah ke infrastruktur kami, karena infrastruktur itu tidak ada.",
+      "Menggunakan Google Mobile Ads SDK (AdMob) dan Google User Messaging Platform (UMP) untuk menampilkan iklan pada versi gratis dan mengelola persetujuan privasi pengguna di Uni Eropa/Inggris (GDPR/UK). Lewat SDK ini, Advertising ID dikirim ke Google untuk keperluan penayangan iklan. Kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
+      "Menggunakan Google Play Billing untuk memproses pembelian Pro — detail pembayaran (kartu, dll) ditangani sepenuhnya oleh Google Play, tidak pernah melewati atau tersimpan di Catat Yuk.",
+      "Backup/restore data (opsional, lewat menu Pengaturan) menghasilkan 1 file JSON yang kamu bagikan sendiri lewat share sheet Android (mis. ke Google Drive) — sepenuhnya atas kendali dan pilihan kamu, bukan otomatis dari Catat Yuk."
+    ],
+    "permissions": [
+      { "name": "Notifikasi (Notification Listener)", "use": "Deteksi transaksi otomatis dari notifikasi bank/e-wallet — hanya memproses notifikasi dari daftar aplikasi yang dikenali, sisanya diabaikan" },
+      { "name": "Kamera", "use": "Scan struk belanja (OCR on-device via ML Kit)" },
+      { "name": "Rekam Audio", "use": "Voice input pencatatan transaksi" },
+      { "name": "Biometrik", "use": "Kunci Aplikasi via sidik jari/wajah lewat <code>BiometricPrompt</code> sistem — data biometrik tidak disimpan aplikasi" },
+      { "name": "Kirim Notifikasi (Post Notifications)", "use": "Notifikasi peringatan budget & reminder tagihan" },
+      { "name": "Mulai Otomatis Saat Boot", "use": "Supaya jadwal transaksi rutin & ringkasan harian via WorkManager tetap jalan setelah HP di-restart" },
+      { "name": "Internet & Advertising ID", "use": "Menampilkan iklan AdMob (versi gratis) & verifikasi pembelian Pro lewat Google Play Billing" }
+    ],
+    "permissionsNote": "<code>android:allowBackup</code> sengaja dimatikan di level sistem — supaya database transaksi dan hash PIN kunci aplikasi tidak bisa diekstrak lewat <code>adb backup</code> tanpa melewati PIN. Catat Yuk punya mekanisme backup/restore sendiri yang eksplisit dan sepenuhnya atas kendali kamu (lihat bagian 02).",
+    "contactName": "Tri Nofri Andi (A2TH-Dev)",
+    "contactEmail": "a2thdev@gmail.com"
+  },
+  "order": 4
+}
