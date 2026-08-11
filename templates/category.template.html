@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{LANG_ATTR}}">
+<head>
+{{HEAD}}
+</head>
+<body class="bg-background font-body-md text-on-background">
+<a href="#main-content" class="skip-link">{{I18N_SKIP_LINK}}</a>
+{{HEADER}}
+<main id="main-content" class="w-full pt-20 bg-background overflow-x-hidden">
+  <div class="flex flex-col w-full">
+    <div class="max-w-[1200px] mx-auto px-margin-mobile lg:px-margin-desktop py-unit-xl">
+
+      <nav aria-label="Breadcrumb" class="mb-unit-xl">
+        <ol class="flex items-center gap-unit-xs text-label-md font-label-md text-on-surface-variant">
+          <li class="flex items-center gap-unit-xs">
+            <a href="{{ROOT_PATH}}" class="hover:text-primary transition-colors">{{SITE_BRAND}}</a>
+            <span class="material-symbols-outlined text-[16px] opacity-50">chevron_right</span>
+          </li>
+          <li class="text-on-surface" aria-current="page">{{CATEGORY_NAME}}</li>
+        </ol>
+      </nav>
+
+      <div class="fade-in mb-32">
+        <div class="flex items-center gap-unit-sm mb-unit-md">
+          <div class="h-[1px] w-8 bg-primary"></div>
+          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">{{I18N_CATEGORY_LABEL}}</span>
+        </div>
+        <h1 class="text-headline-xl font-headline-xl text-on-surface">{{CATEGORY_NAME}}</h1>
+        <p class="text-body-lg font-body-lg text-on-surface-variant mt-unit-sm">{{CATEGORY_COUNT_TEXT}}</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter reveal">
+        {{MODULE_CARDS}}
+      </div>
+
+    </div>
+  </div>
+</main>
+{{FOOTER}}
+</body>
+</html>

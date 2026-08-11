@@ -31,6 +31,18 @@ const apps = appFiles
   .sort((a, b) => (a.order ?? 999) - (b.order ?? 999) || a.slug.localeCompare(b.slug));
 const data = { site, apps };
 
+// map nama kategori ID <-> EN, dibangun dari pasangan category/category_en tiap app
+// (dipakai buat nentuin URL yang benar pas toggle bahasa di halaman kategori,
+// karena slug kategori beda antar bahasa — "keuangan" vs "finance").
+const categoryNameIdToEn = new Map();
+const categoryNameEnToId = new Map();
+for (const app of apps) {
+  if (app.category && app.category_en) {
+    categoryNameIdToEn.set(app.category, app.category_en);
+    categoryNameEnToId.set(app.category_en, app.category);
+  }
+}
+
 
 const partialHead = read('templates/partials/head.html');
 const partialHeader = read('templates/partials/header.html');
@@ -42,6 +54,7 @@ const privTpl = read('templates/privacy.template.html');
 const notFoundTpl = read('templates/404.template.html');
 const aboutTpl = read('templates/about.template.html');
 const installTpl = read('templates/install.template.html');
+const categoryTpl = read('templates/category.template.html');
 const installEnTpl = read('templates/install.en.template.html');
 
 const buildDate = new Date().toISOString().slice(0, 10);
@@ -78,6 +91,15 @@ function releaseUrl(app) {
 // itu sendiri (prefix '') maupun dari root index.html (prefix '<slug>/').
 function esc(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function slugifyCategory(s) {
+  return s
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
 }
 
 // ---------- optimasi gambar: resize + convert ke WebP ----------
@@ -652,18 +674,21 @@ function generateSite(lang, downloadCounts) {
     generateAppPage(app, lang, ctx);
   }
 
-  // ---------- root marketplace page ----------
-  const cards = data.apps
-    .map((app) => {
-      const appName = (lang === 'en' && app.name_en) || app.name;
-      const appTagline = (lang === 'en' && app.tagline_en) || app.tagline;
-      const appCategory = (lang === 'en' && app.category_en) || app.category;
-      const initialsStr = app.initials || initials(app.name);
-      const cardIconPrefix = lang === 'id' ? `${app.slug}/` : `../${app.slug}/`;
-      const iconHtml =
-        iconBlock(app, cardIconPrefix, 'w-16 h-16', { w: 64, h: 64 }) ||
-        `<div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
-      return `<a href="${app.slug}/" data-name="${esc(appName.toLowerCase())}" data-category="${esc(appCategory)}" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
+  // depthFromLangRoot: 0 buat homepage (kartu langsung di root bahasa), 2 buat halaman
+  // kategori (kategori/<cat>/ atau en/category/<cat>/, 2 folder lebih dalam).
+  function renderAppCard(app, depthFromLangRoot) {
+    const appName = (lang === 'en' && app.name_en) || app.name;
+    const appTagline = (lang === 'en' && app.tagline_en) || app.tagline;
+    const appCategory = (lang === 'en' && app.category_en) || app.category;
+    const initialsStr = app.initials || initials(app.name);
+    const up = '../'.repeat(depthFromLangRoot);
+    const hrefToApp = `${up}${app.slug}/`;
+    const iconDepthFromTrueRoot = depthFromLangRoot + (lang === 'en' ? 1 : 0);
+    const cardIconPrefix = '../'.repeat(iconDepthFromTrueRoot) + `${app.slug}/`;
+    const iconHtml =
+      iconBlock(app, cardIconPrefix, 'w-16 h-16', { w: 64, h: 64 }) ||
+      `<div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
+    return `<a href="${hrefToApp}" data-name="${esc(appName.toLowerCase())}" data-category="${esc(appCategory)}" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid ${app.accent}">
         <div class="flex justify-between items-start mb-unit-lg">
           ${iconHtml}
           <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v${app.version}</span>
@@ -675,8 +700,10 @@ function generateSite(lang, downloadCounts) {
           <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">${app.sizeMb} MB</span>
         </div>
       </a>`;
-    })
-    .join('\n      ');
+  }
+
+  // ---------- root marketplace page ----------
+  const cards = data.apps.map((app) => renderAppCard(app, 0)).join('\n      ');
 
   const categories = [...new Set(data.apps.map((a) => (lang === 'en' && a.category_en) || a.category))].sort();
   const categoryOptions = categories
@@ -745,6 +772,58 @@ function generateSite(lang, downloadCounts) {
     fill(idxTpl, { ...rootMap, HEAD: buildHead(rootMap), HEADER: buildHeader(rootSiteMap), FOOTER: buildFooter(rootSiteMap) })
   );
   console.log(`✓ [${lang}] index.html`);
+
+  // ---------- halaman per kategori ----------
+  // URL: /kategori/<slug>/ (ID), /en/category/<slug>/ (EN) — biar Google bisa index
+  // "semua app Keuangan" dst sebagai halaman tersendiri, bukan cuma filter JS di homepage.
+  const categorySegment = lang === 'id' ? 'kategori' : 'category';
+  for (const catName of categories) {
+    const catSlug = slugifyCategory(catName);
+    const catDir = path.join(outRoot, categorySegment, catSlug);
+    fs.mkdirSync(catDir, { recursive: true });
+
+    const appsInCategory = data.apps.filter((a) => ((lang === 'en' && a.category_en) || a.category) === catName);
+    const catCards = appsInCategory.map((app) => renderAppCard(app, 2)).join('\n        ');
+    const countText =
+      appsInCategory.length === 1 ? t.categoryCountOne : t.categoryCountMany.replace('{n}', appsInCategory.length);
+
+    const counterpartCatName = lang === 'id' ? categoryNameIdToEn.get(catName) : categoryNameEnToId.get(catName);
+    // dari ID (kategori/X/, 2 level) ke true root perlu ../../ lalu masuk en/category/...
+    // dari EN (en/category/X/, 3 level) ke true root perlu ../../../ lalu masuk kategori/...
+    const upToTrueRoot = lang === 'id' ? '../../' : '../../../';
+    const counterpartLangSwitchUrl = counterpartCatName
+      ? lang === 'id'
+        ? `${upToTrueRoot}en/category/${slugifyCategory(counterpartCatName)}/`
+        : `${upToTrueRoot}kategori/${slugifyCategory(counterpartCatName)}/`
+      : lang === 'id'
+      ? `${upToTrueRoot}en/`
+      : `${upToTrueRoot}`;
+
+    const catSiteMap = {
+      ...rootSiteMap,
+      ROOT_PATH: '../../',
+      LANG_SWITCH_URL: counterpartLangSwitchUrl,
+    };
+    const catMap = {
+      ...catSiteMap,
+      PAGE_TITLE: `${catName} — ${data.site.brand}`,
+      PAGE_DESCRIPTION: `${countText} ${t.categoryLabel.toLowerCase()} ${catName} — ${siteTagline}`,
+      PAGE_URL: `${siteUrlLang}/${categorySegment}/${catSlug}/`,
+      PAGE_IMAGE: `${data.site.siteUrl}/favicon.svg`,
+      JSONLD: '',
+      CATEGORY_NAME: catName,
+      CATEGORY_COUNT_TEXT: countText,
+      MODULE_CARDS: catCards,
+      I18N_SKIP_LINK: t.skipLink,
+      I18N_CATEGORY_LABEL: t.categoryLabel,
+      LANG_ATTR: lang,
+    };
+    fs.writeFileSync(
+      path.join(catDir, 'index.html'),
+      fill(categoryTpl, { ...catMap, HEAD: buildHead(catMap), HEADER: buildHeader(catSiteMap), FOOTER: buildFooter(catSiteMap) })
+    );
+  }
+  console.log(`✓ [${lang}] ${categories.length} halaman kategori (${categorySegment}/*)`);
 
   // ---------- 404.html ----------
   // Path relatif tidak bisa dipakai di 404 (GitHub Pages bisa nyajikan file ini dari
@@ -825,7 +904,7 @@ function generateSite(lang, downloadCounts) {
   );
   console.log(`✓ [${lang}] install.html`);
 
-  return { siteUrlLang };
+  return { siteUrlLang, categorySegment, categorySlugs: categories.map(slugifyCategory) };
 }
 
 // ---------- generate semua halaman (ID lalu EN) ----------
@@ -837,10 +916,18 @@ const downloadCounts = await getDownloadCounts(data.apps);
 console.log('↻ Optimasi gambar (resize + WebP)...');
 await Promise.all(data.apps.map((app) => optimizeAppImages(app)));
 
-generateSite('id', downloadCounts);
-generateSite('en', downloadCounts);
+const idResult = generateSite('id', downloadCounts);
+const enResult = generateSite('en', downloadCounts);
 
 // ---------- sitemap.xml (mencakup ID + EN) ----------
+function appImageUrls(app) {
+  const urls = [];
+  if (app.banner) urls.push(`${data.site.siteUrl}/${app.slug}/${app.banner}`);
+  if (app.icon) urls.push(`${data.site.siteUrl}/${app.slug}/${app.icon}`);
+  if (app.screenshots) urls.push(...app.screenshots.map((s) => `${data.site.siteUrl}/${app.slug}/${s}`));
+  return urls.map(escXml);
+}
+
 const sitemapUrls = [
   { loc: `${data.site.siteUrl}/`, priority: '1.0' },
   { loc: `${data.site.siteUrl}/en/`, priority: '0.9' },
@@ -848,21 +935,34 @@ const sitemapUrls = [
   { loc: `${data.site.siteUrl}/en/about.html`, priority: '0.4' },
   { loc: `${data.site.siteUrl}/install.html`, priority: '0.5' },
   { loc: `${data.site.siteUrl}/en/install.html`, priority: '0.4' },
+  ...idResult.categorySlugs.map((slug) => ({
+    loc: `${data.site.siteUrl}/${idResult.categorySegment}/${slug}/`,
+    priority: '0.6',
+  })),
+  ...enResult.categorySlugs.map((slug) => ({
+    loc: `${data.site.siteUrl}/en/${enResult.categorySegment}/${slug}/`,
+    priority: '0.5',
+  })),
   ...data.apps.flatMap((app) => [
-    { loc: `${data.site.siteUrl}/${app.slug}/`, priority: '0.8' },
-    { loc: `${data.site.siteUrl}/en/${app.slug}/`, priority: '0.7' },
+    { loc: `${data.site.siteUrl}/${app.slug}/`, priority: '0.8', images: appImageUrls(app) },
+    { loc: `${data.site.siteUrl}/en/${app.slug}/`, priority: '0.7', images: appImageUrls(app) },
     { loc: `${data.site.siteUrl}/${app.slug}/privacy.html`, priority: '0.3' },
   ]),
 ];
 const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${sitemapUrls
-  .map((u) => `  <url><loc>${u.loc}</loc><lastmod>${buildDate}</lastmod><priority>${u.priority}</priority></url>`)
+  .map((u) => {
+    const imageTags = (u.images || [])
+      .map((img) => `<image:image><image:loc>${img}</image:loc></image:image>`)
+      .join('');
+    return `  <url><loc>${escXml(u.loc)}</loc><lastmod>${buildDate}</lastmod><priority>${u.priority}</priority>${imageTags}</url>`;
+  })
   .join('\n')}
 </urlset>
 `;
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), sitemapXml);
-console.log('✓ sitemap.xml (ID + EN)');
+console.log('✓ sitemap.xml (ID + EN + kategori + gambar)');
 
 // ---------- robots.txt ----------
 const robotsTxt = `User-agent: *
@@ -946,6 +1046,86 @@ if (orphansRoot.length || orphansEn.length) {
   console.log('  Halaman ini masih LIVE di GitHub Pages (bisa diakses langsung lewat URL) walau sudah tidak ke-link dari homepage.');
   console.log('  Hapus manual foldernya kalau appnya memang sudah tidak dipakai lagi, lalu commit penghapusannya.\n');
 }
+
+// ---------- self-check otomatis: scan SEMUA halaman hasil generate ----------
+// Cek link/gambar internal yang putus & tag <div> yang tidak seimbang. Ini versi
+// otomatis dari audit manual yang biasa dijalankan tiap kali diminta "cek menyeluruh"
+// — sekarang jalan tiap build, bukan cuma pas diminta.
+function decodeHtmlEntities(s) {
+  return s.replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+}
+const SELF_CHECK_SKIP_DIRS = new Set(['node_modules', 'templates', 'data', '.github', '.git']);
+function runSelfCheck() {
+  const htmlFiles = [];
+  function walk(dir) {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      if (entry.name.startsWith('.') || SELF_CHECK_SKIP_DIRS.has(entry.name)) continue;
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) walk(full);
+      else if (entry.name.endsWith('.html')) htmlFiles.push(full);
+    }
+  }
+  walk(ROOT);
+
+  const brokenLinks = [];
+  const unbalancedDivs = [];
+  const leakedPlaceholders = [];
+
+  for (const file of htmlFiles) {
+    const baseDir = path.dirname(file);
+    const html = fs.readFileSync(file, 'utf8');
+    const relFile = path.relative(ROOT, file);
+
+    const noScript = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g, '');
+    const refs = [...noScript.matchAll(/(?:href|src)="([^"]+)"/g)].map((m) => decodeHtmlEntities(m[1]));
+    for (const ref of refs) {
+      if (/^https?:|^mailto:|^#/.test(ref) || ref.includes('?')) continue;
+      const clean = ref.split('#')[0];
+      if (!clean) continue;
+      const target = clean.endsWith('/') ? path.join(baseDir, clean, 'index.html') : path.join(baseDir, clean);
+      if (!fs.existsSync(target)) brokenLinks.push(`${relFile} -> ${ref}`);
+    }
+
+    const opens = (html.match(/<div\b/g) || []).length;
+    const closes = (html.match(/<\/div>/g) || []).length;
+    if (opens !== closes) unbalancedDivs.push(`${relFile} (${opens} <div> vs ${closes} </div>)`);
+
+    if (/{{[A-Z_]+}}/.test(html)) leakedPlaceholders.push(relFile);
+  }
+
+  const problems = [];
+  if (brokenLinks.length) problems.push(`${brokenLinks.length} link/gambar putus:\n  ` + brokenLinks.join('\n  '));
+  if (unbalancedDivs.length) problems.push(`${unbalancedDivs.length} halaman dengan <div> tidak seimbang:\n  ` + unbalancedDivs.join('\n  '));
+  if (leakedPlaceholders.length) problems.push(`${leakedPlaceholders.length} halaman dengan placeholder {{...}} bocor:\n  ` + leakedPlaceholders.join('\n  '));
+
+  if (problems.length) {
+    console.error(`\n[SELF-CHECK GAGAL] Hasil generate rusak:\n\n${problems.join('\n\n')}\n`);
+    process.exit(1);
+  }
+  console.log(`✓ Self-check: ${htmlFiles.length} halaman dicek, semua link/gambar valid, tag seimbang.`);
+}
+
+// Cek dasar "well-formed" buat file XML (tanpa perlu library XML parser eksternal):
+// tidak ada karakter "&" mentah yang bukan bagian dari entity valid (&amp; &lt; &gt; &quot; &apos; &#123;).
+function checkXmlEscaping(filePath) {
+  if (!fs.existsSync(filePath)) return [];
+  const content = fs.readFileSync(filePath, 'utf8');
+  const badAmpersands = content.match(/&(?!amp;|lt;|gt;|quot;|apos;|#\d+;)/g);
+  if (!badAmpersands) return [];
+  return [`${path.relative(ROOT, filePath)}: ${badAmpersands.length} karakter "&" tidak ter-escape (bikin XML invalid)`];
+}
+
+runSelfCheck();
+
+const xmlProblems = [
+  ...checkXmlEscaping(path.join(ROOT, 'sitemap.xml')),
+  ...checkXmlEscaping(path.join(ROOT, 'feed.xml')),
+];
+if (xmlProblems.length) {
+  console.error(`\n[SELF-CHECK GAGAL] Masalah XML:\n\n  ${xmlProblems.join('\n  ')}\n`);
+  process.exit(1);
+}
+console.log(`✓ Self-check XML: sitemap.xml & feed.xml well-formed.`);
 
 console.log(`\nSelesai. ${data.apps.length} aplikasi ter-generate, dalam 2 bahasa (id + en).`);
 }
