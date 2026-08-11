@@ -60,13 +60,13 @@
   },
   "icon": "asset/icon.png",
     "screenshots": [
-      "asset/home.jpg",
-      "asset/1.jpg",
-      "asset/2.jpg",
-      "asset/3.jpg",
-      "asset/4.jpg",
-      "asset/5.jpg",
-      "asset/6.jpg"
+      "asset/home.png",
+      "asset/1.png",
+      "asset/2.png",
+      "asset/3.png",
+      "asset/4.png",
+      "asset/5.png",
+      "asset/6.png"
     ],
   "banner": "asset/banner.png",
   "order": 4
