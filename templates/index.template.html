@@ -67,10 +67,17 @@
         <div class="absolute inset-0 bg-gradient-to-r from-on-primary/10 to-transparent"></div>
         <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-unit-xl">
           <div class="max-w-xl">
-            <h2 class="font-headline-lg text-headline-lg text-on-primary">Build your own store front.</h2>
-            <p class="font-body-md text-body-md text-on-primary/90 mt-unit-sm">{{SITE_BRAND}} is open-source. Fork the repository, add your APKs, and deploy your own catalog in minutes.</p>
+            <h2 class="font-headline-lg text-headline-lg text-on-primary">{{I18N_CTA_TITLE}}</h2>
+            <p class="font-body-md text-body-md text-on-primary/90 mt-unit-sm">{{I18N_CTA_BODY}}</p>
           </div>
-          <a href="https://github.com/{{GITHUB_USER}}" class="bg-on-primary text-primary font-label-md text-label-md px-unit-xl py-unit-md rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity inline-block text-center">{{I18N_CTA_BUTTON}}</a>
+          <div class="flex flex-col sm:flex-row gap-unit-sm shrink-0">
+            <a href="{{SITE_ROOT_ABS}}feed.xml" class="bg-on-primary text-primary font-label-md text-label-md px-unit-xl py-unit-md rounded-lg whitespace-nowrap hover:opacity-90 transition-opacity inline-flex items-center justify-center gap-unit-xs">
+              <span class="material-symbols-outlined text-[18px]">rss_feed</span>{{I18N_CTA_BUTTON}}
+            </a>
+            <a href="{{ROOT_PATH}}about.html#kontak" class="bg-on-primary/10 border border-on-primary/30 text-on-primary font-label-md text-label-md px-unit-xl py-unit-md rounded-lg whitespace-nowrap hover:bg-on-primary/20 transition-colors inline-flex items-center justify-center gap-unit-xs">
+              <span class="material-symbols-outlined text-[18px]">forum</span>{{I18N_CTA_BUTTON_SECONDARY}}
+            </a>
+          </div>
         </div>
       </section>
 

@@ -27,9 +27,9 @@
     "recentReleases": "Recent Releases",
     "categoryAll": "Semua Kategori",
     "gridNoResults": "Tidak ada aplikasi yang cocok.",
-    "ctaTitle": "Build your own store front.",
-    "ctaBody": "is open-source. Fork the repository, add your APKs, and deploy your own catalog in minutes.",
-    "ctaButton": "Lihat di GitHub",
+    "ctaTitle": "Selalu Diperbarui, Langsung dari Developer.",
+    "ctaBody": "Tanpa iklan pelacak, tanpa proses ribet — {{SITE_BRAND}} diperbarui langsung tiap ada app atau versi baru. Mau dapat kabar duluan, atau punya masukan buat kami?",
+    "ctaButton": "Subscribe RSS",
     "langSwitch": "EN",
     "langSwitchAria": "Ganti ke Bahasa Inggris",
     "notFoundTitle": "Halaman tidak ditemukan",
@@ -44,7 +44,8 @@
     "specUpdated": "Terakhir Diperbarui",
     "categoryLabel": "Kategori",
     "categoryCountOne": "1 aplikasi ditemukan",
-    "categoryCountMany": "{n} aplikasi ditemukan"
+    "categoryCountMany": "{n} aplikasi ditemukan",
+    "ctaButtonSecondary": "Hubungi Kami"
   },
   "en": {
     "navApps": "Apps",
@@ -74,9 +75,9 @@
     "recentReleases": "Recent Releases",
     "categoryAll": "All Categories",
     "gridNoResults": "No matching apps.",
-    "ctaTitle": "Build your own store front.",
-    "ctaBody": "is open-source. Fork the repository, add your APKs, and deploy your own catalog in minutes.",
-    "ctaButton": "View on GitHub",
+    "ctaTitle": "Always Up to Date, Straight from the Developer.",
+    "ctaBody": "No tracking ads, no hassle — {{SITE_BRAND}} updates the moment a new app or version ships. Want to hear first, or got some feedback for us?",
+    "ctaButton": "Subscribe via RSS",
     "langSwitch": "ID",
     "langSwitchAria": "Switch to Indonesian",
     "notFoundTitle": "Page not found",
@@ -91,6 +92,7 @@
     "specUpdated": "Last Updated",
     "categoryLabel": "Category",
     "categoryCountOne": "1 app found",
-    "categoryCountMany": "{n} apps found"
+    "categoryCountMany": "{n} apps found",
+    "ctaButtonSecondary": "Contact Us"
   }
 }

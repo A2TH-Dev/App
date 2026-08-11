@@ -763,7 +763,10 @@ function generateSite(lang, downloadCounts) {
     I18N_RECENT_RELEASES: t.recentReleases,
     I18N_CATEGORY_ALL: t.categoryAll,
     I18N_GRID_NO_RESULTS: t.gridNoResults,
+    I18N_CTA_TITLE: t.ctaTitle,
+    I18N_CTA_BODY: t.ctaBody.replace('{{SITE_BRAND}}', data.site.brand),
     I18N_CTA_BUTTON: t.ctaButton,
+    I18N_CTA_BUTTON_SECONDARY: t.ctaButtonSecondary,
     LANG_ATTR: lang,
   };
 
