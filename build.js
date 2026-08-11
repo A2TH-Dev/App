@@ -123,6 +123,7 @@ async function optimizeImage(app, relPath, maxWidth, quality) {
 
 async function optimizeAppImages(app) {
   if (app.icon) app.icon = await optimizeImage(app, app.icon, 512, 90);
+  if (app.banner) app.banner = await optimizeImage(app, app.banner, 1024, 85);
   if (app.heroScreenshot) app.heroScreenshot = await optimizeImage(app, app.heroScreenshot, 900, 82);
   if (app.screenshots && app.screenshots.length) {
     app.screenshots = await Promise.all(app.screenshots.map((s) => optimizeImage(app, s, 800, 80)));
@@ -510,7 +511,14 @@ function generateAppPage(app, lang, ctx) {
   const initialsDivHero = `<div class="w-24 h-24 rounded-xl flex items-center justify-center text-2xl font-bold shadow-2xl" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
   const initialsDivPhone = `<div class="w-20 h-20 rounded-3xl flex items-center justify-center text-2xl font-bold" style="background:${app.accent}22;color:${app.accent}">${initialsStr}</div>`;
 
-  const appImage = app.icon ? `${data.site.siteUrl}/${app.slug}/${app.icon}` : `${data.site.siteUrl}/favicon.svg`;
+  const appImage = app.banner
+    ? `${data.site.siteUrl}/${app.slug}/${app.banner}`
+    : app.icon
+    ? `${data.site.siteUrl}/${app.slug}/${app.icon}`
+    : `${data.site.siteUrl}/favicon.svg`;
+  const bannerBlock = app.banner
+    ? `<img src="${esc(imgPrefix + app.banner)}" alt="${esc(appName)} banner" loading="eager" width="1024" height="500" class="w-full rounded-2xl object-cover mb-32 shadow-xl" style="aspect-ratio:1024/500"/>`
+    : '';
 
   const otherApps = data.apps.filter((a) => a.slug !== app.slug).slice(0, 4);
   const otherAppsCards = otherApps
@@ -558,6 +566,7 @@ function generateAppPage(app, lang, ctx) {
     APP_ICON_PHONE: phoneMockupBlock(app, imgPrefix) || initialsDivPhone,
     SCREENSHOT_GALLERY: screenshotGallery(app, imgPrefix, t),
     OTHER_APPS_CARDS: otherAppsCards,
+    BANNER_BLOCK: bannerBlock,
     BREADCRUMB_CATEGORY_URL: `../?category=${encodeURIComponent(appCategory)}`,
     CHANGELOG_SECTION: buildChangelog(appChangelog, t),
     I18N_SKIP_LINK: t.skipLink,

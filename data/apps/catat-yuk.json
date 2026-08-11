@@ -68,5 +68,6 @@
       "asset/5.jpg",
       "asset/6.jpg"
     ],
+  "banner": "asset/banner.png",
   "order": 4
 }
