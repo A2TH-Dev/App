@@ -169,5 +169,6 @@
     "asset/rapikan_downloads.jpg",
     "asset/backup_apk.jpg"
   ],
+  "banner": "asset/banner.png",
   "order": 1
 }
