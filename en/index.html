@@ -23,7 +23,7 @@
 <meta name="twitter:title" content="APK Bench — An independent Android app catalog, built for speed and privacy — distributed directly via GitHub Releases."/>
 <meta name="twitter:description" content="An independent Android app catalog, built for speed and privacy — distributed directly via GitHub Releases."/>
 <meta name="twitter:image" content="https://a2th-dev.github.io/App/favicon.svg"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://a2th-dev.github.io/App/en/nitropurge/","name":"Nitro Purge"},{"@type":"ListItem","position":2,"url":"https://a2th-dev.github.io/App/en/ember/","name":"EmberMP"},{"@type":"ListItem","position":3,"url":"https://a2th-dev.github.io/App/en/petajiwa/","name":"Peta Jiwa"},{"@type":"ListItem","position":4,"url":"https://a2th-dev.github.io/App/en/catat-yuk/","name":"Catat Yuk"},{"@type":"ListItem","position":5,"url":"https://a2th-dev.github.io/App/en/app5/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":6,"url":"https://a2th-dev.github.io/App/en/app6/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":7,"url":"https://a2th-dev.github.io/App/en/app7/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":8,"url":"https://a2th-dev.github.io/App/en/app8/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":9,"url":"https://a2th-dev.github.io/App/en/app9/","name":"GANTI_NAMA_APP"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://a2th-dev.github.io/App/en/nitropurge/","name":"Nitro Purge"},{"@type":"ListItem","position":2,"url":"https://a2th-dev.github.io/App/en/ember/","name":"EmberMP"},{"@type":"ListItem","position":3,"url":"https://a2th-dev.github.io/App/en/petajiwa/","name":"Peta Jiwa"},{"@type":"ListItem","position":4,"url":"https://a2th-dev.github.io/App/en/catat-yuk/","name":"Catat Yuk"},{"@type":"ListItem","position":5,"url":"https://a2th-dev.github.io/App/en/qr-scanner-pro/","name":"QR Scanner Pro"},{"@type":"ListItem","position":6,"url":"https://a2th-dev.github.io/App/en/app6/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":7,"url":"https://a2th-dev.github.io/App/en/app7/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":8,"url":"https://a2th-dev.github.io/App/en/app8/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":9,"url":"https://a2th-dev.github.io/App/en/app9/","name":"GANTI_NAMA_APP"}]}</script>
 <style>
   @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}}
   ::-webkit-scrollbar{display:none;}
@@ -152,7 +152,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
   }
 
   var ROOT_PATH = './';
-  var APPS_INDEX = [{"name":"Nitro Purge","slug":"nitropurge","category":"Utilities & Optimization","accent":"#3DDC97"},{"name":"EmberMP","slug":"ember","category":"Music & Audio","accent":"#D97757"},{"name":"Peta Jiwa","slug":"petajiwa","category":"Lifestyle","accent":"#8B6FD9"},{"name":"Catat Yuk","slug":"catat-yuk","category":"Finance","accent":"#4A2E8F"},{"name":"GANTI_NAMA_APP","slug":"app5","category":"Kategori","accent":"#4C8EFF"},{"name":"GANTI_NAMA_APP","slug":"app6","category":"Kategori","accent":"#FF6B6B"},{"name":"GANTI_NAMA_APP","slug":"app7","category":"Kategori","accent":"#3DDC97"},{"name":"GANTI_NAMA_APP","slug":"app8","category":"Kategori","accent":"#D97757"},{"name":"GANTI_NAMA_APP","slug":"app9","category":"Kategori","accent":"#C9A227"}];
+  var APPS_INDEX = [{"name":"Nitro Purge","slug":"nitropurge","category":"Utilities & Optimization","accent":"#3DDC97"},{"name":"EmberMP","slug":"ember","category":"Music & Audio","accent":"#D97757"},{"name":"Peta Jiwa","slug":"petajiwa","category":"Lifestyle","accent":"#8B6FD9"},{"name":"Catat Yuk","slug":"catat-yuk","category":"Finance","accent":"#4A2E8F"},{"name":"QR Scanner Pro","slug":"qr-scanner-pro","category":"Utilities & Productivity","accent":"#0D9488"},{"name":"GANTI_NAMA_APP","slug":"app6","category":"Kategori","accent":"#FF6B6B"},{"name":"GANTI_NAMA_APP","slug":"app7","category":"Kategori","accent":"#3DDC97"},{"name":"GANTI_NAMA_APP","slug":"app8","category":"Kategori","accent":"#D97757"},{"name":"GANTI_NAMA_APP","slug":"app9","category":"Kategori","accent":"#C9A227"}];
   var NO_RESULTS_TEXT = 'No results.';
 
   function renderResults(query, container) {
@@ -236,6 +236,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
         <option value="Lifestyle">Lifestyle</option>
         <option value="Music &amp; Audio">Music &amp; Audio</option>
         <option value="Utilities &amp; Optimization">Utilities &amp; Optimization</option>
+        <option value="Utilities &amp; Productivity">Utilities &amp; Productivity</option>
             </select>
           </div>
         </div>
@@ -288,16 +289,16 @@ tailwind.config={darkMode:"class",theme:{extend:{
           <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">20 MB</span>
         </div>
       </a>
-      <a href="app5/" data-name="ganti_nama_app" data-category="Kategori" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #4C8EFF">
+      <a href="qr-scanner-pro/" data-name="qr scanner pro" data-category="Utilities &amp; Productivity" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #0D9488">
         <div class="flex justify-between items-start mb-unit-lg">
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:#4C8EFF22;color:#4C8EFF">GA</div>
+          <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:#0D948822;color:#0D9488">QS</div>
           <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v1.0.0</span>
         </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">GANTI_NAMA_APP</h3>
-        <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">Ganti dengan tagline singkat satu baris.</p>
+        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">QR Scanner Pro</h3>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">Blazing-fast QR & barcode scanning, with built-in anti-phishing protection.</p>
         <div class="mt-unit-xl flex items-center justify-between">
-          <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:#4C8EFF1a;color:#4C8EFF">Kategori</span>
-          <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">10 MB</span>
+          <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:#0D94881a;color:#0D9488">Utilities & Productivity</span>
+          <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">15 MB</span>
         </div>
       </a>
       <a href="app6/" data-name="ganti_nama_app" data-category="Kategori" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #FF6B6B">

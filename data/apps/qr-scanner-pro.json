@@ -1,0 +1,55 @@
+{
+  "id": "qr-scanner-pro",
+  "slug": "qr-scanner-pro",
+  "name": "QR Scanner Pro",
+  "tagline": "Scan QR & barcode secepat kedip, plus proteksi anti-phishing.",
+  "tagline_en": "Blazing-fast QR & barcode scanning, with built-in anti-phishing protection.",
+  "description": "QR Scanner Pro bukan cuma pemindai QR biasa — kenali juga barcode produk (EAN/UPC, Code128/39), scan kartu nama pakai OCR langsung jadi QR kontak, dan generate massal dari file CSV buat badge atau tiket acara. Sebelum kamu buka link hasil scan, aplikasi otomatis memeriksa pola mencurigakan dulu (proteksi \"quishing\"). Semua diproses langsung di HP, riwayat tersimpan lokal — tidak ada akun, tidak ada data yang dikirim ke server.",
+  "description_en": "QR Scanner Pro is more than a plain QR reader — it also recognizes product barcodes (EAN/UPC, Code128/39), scans business cards via OCR straight into a contact QR, and bulk-generates QR codes from a CSV file for event badges or tickets. Before you open a link from a scan, it automatically checks for suspicious patterns first (anti-\"quishing\" protection). Everything runs on-device, history stays local — no account, no data sent to any server.",
+  "category": "Utilitas & Produktivitas",
+  "category_en": "Utilities & Productivity",
+  "version": "1.0.0",
+  "minAndroid": "8.0 (Oreo)",
+  "sizeMb": 15,
+  "repo": "A2TH-Dev/qrscannerpro",
+  "releaseTag": "v1.0.0",
+  "apkFile": "QR-Scanner-Pro_v1.0.0.apk",
+  "accent": "#0D9488",
+  "features": [
+    "Scan multi-format: QR, barcode produk (EAN/UPC), Code128/39",
+    "Peringatan keamanan URL sebelum buka link hasil scan",
+    "Scan kartu nama (OCR) langsung jadi QR kontak",
+    "Generate massal dari CSV buat badge & tiket acara"
+  ],
+  "features_en": [
+    "Multi-format scanning: QR, product barcodes (EAN/UPC), Code128/39",
+    "URL safety check before opening scanned links",
+    "Business card scan (OCR) straight to a contact QR",
+    "Bulk CSV generator for event badges & tickets"
+  ],
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2thdev.qrscannerpro",
+  "privacy": {
+    "dataCollectedIntro": "QR Scanner Pro tidak memiliki sistem akun/login dan tidak mengirim data pribadi kamu ke server milik pengembang. Data yang diproses aplikasi:",
+    "dataCollectedList": [
+      "Akses Kamera — dipakai hanya untuk memindai QR code secara langsung. Gambar dari kamera diproses di perangkat (on-device) dan tidak disimpan atau diunggah ke mana pun",
+      "Riwayat Pindai/Buat QR — konten yang kamu pindai atau buat (teks/URL) disimpan secara lokal di perangkat memakai database internal aplikasi, tidak pernah dikirim ke server pengembang. Bisa dihapus kapan saja lewat menu \"Hapus Semua\" di halaman Riwayat",
+      "Akses Galeri (opsional) — hanya saat kamu memilih gambar dari galeri untuk dipindai",
+      "Penyimpanan (Android 9 ke bawah) — untuk menyimpan hasil QR code yang kamu buat ke galeri foto perangkat"
+    ],
+    "dataCollectedNote": "Riwayat sengaja dikecualikan dari cloud backup otomatis Android demi privasi — tersedia ekspor/impor manual (JSON/CSV) lewat menu Riwayat kalau kamu ingin memindahkan data waktu ganti perangkat.",
+    "dataUsage": "Seluruh data pada bagian 01 diproses hanya di perangkat kamu, semata-mata untuk menjalankan fitur scan/generate yang kamu buka langsung. QR Scanner Pro tidak membangun profil pengguna dan tidak menjual data apapun.",
+    "dataSharing": [
+      "QR Scanner Pro tidak memiliki server sendiri — riwayat pindai/generate kamu tidak pernah diunggah ke infrastruktur kami.",
+      "Menampilkan iklan lewat layanan Start.io (StartApp). Penyedia iklan pihak ketiga ini bisa mengumpulkan data seperti identifier perangkat, informasi teknis perangkat, perkiraan lokasi, dan data interaksi iklan untuk keperluan personalisasi & pengukuran iklan, sesuai kebijakan privasi mereka sendiri. Detail lengkap: <a class=\"text-primary hover:underline\" href=\"https://www.start.io/policy/policy-latest/\">start.io/policy</a>."
+    ],
+    "permissions": [
+      { "name": "Kamera", "use": "Memindai QR code secara langsung" },
+      { "name": "Penyimpanan (maks. Android 9)", "use": "Menyimpan QR code hasil generate ke galeri" },
+      { "name": "Internet, Akses Status Jaringan, Akses Status WiFi", "use": "Diperlukan SDK iklan Start.io untuk memuat iklan" }
+    ],
+    "permissionsNote": "Aplikasi ini pakai Start.io (StartApp), bukan Google AdMob, sebagai penyedia iklan — kebijakan privasi & data yang dikumpulkan mengikuti Start.io, bukan Google.",
+    "contactName": "Tri Nofri Andi (A2TH-Dev)",
+    "contactEmail": "a2thdev@gmail.com"
+  },
+  "order": 5
+}
