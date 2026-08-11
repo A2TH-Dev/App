@@ -28,7 +28,6 @@
     "Data export/import & 100% stored locally on your phone"
   ],
   "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2thdev.petajiwa",
-  "icon": "asset/icon.png",
   "privacy": {
     "dataCollectedIntro": "Peta Jiwa dibangun dengan prinsip <strong>local-first</strong>. Aplikasi ini tidak memiliki server backend, sehingga tidak ada data pribadi yang pernah diunggah ke internet. Data berikut diakses untuk menjalankan fitur di dalam aplikasi:",
     "dataCollectedList": [
@@ -63,6 +62,7 @@
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
   },
+  "icon": "asset/icon.png",
   "screenshots": [
     "asset/1.png",
     "asset/2.jpg",

@@ -51,5 +51,7 @@
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
   },
+  "icon": "asset/icon.png",
+  "banner": "asset/banner.png",
   "order": 5
 }
