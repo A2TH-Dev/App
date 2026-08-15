@@ -190,14 +190,14 @@
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">01</span> Data yang Dikumpulkan</h3>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Nitro Purge dibangun dengan prinsip <strong>local-first</strong>. Aplikasi ini tidak memiliki server backend, sehingga tidak ada file, foto, kontak, atau data pemakaian yang pernah diunggah ke internet. Data berikut diakses secara lokal di perangkat kamu untuk menjalankan fitur yang kamu pilih:</p>
             <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
-              <li>File & media (untuk Junk Cleaner, Large File Finder, Duplicate Finder, Photo Compressor, Video Cleaner, App Leftover Finder)</li>
+              <li>File & media (untuk Junk Cleaner, Large File Finder, Duplicate Finder, Photo Compressor, Video Cleaner, App Leftover Finder, Screenshot & Screen Recording Cleaner, Stale Downloads Cleaner, TikTok Video Cleaner, Bluetooth File Cleaner, Burst Photo Cleaner)</li>
               <li>Statistik penggunaan aplikasi (untuk Usage Insights / Screen Time dan App Manager)</li>
               <li>Kontak (khusus fitur Duplicate Contacts)</li>
               <li>Notifikasi aktif (khusus fitur Notification Cleaner — isi notifikasi tidak dibaca untuk tujuan lain)</li>
               <li>Data biometrik untuk App Lock ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Nitro Purge sendiri tidak pernah menyimpan data biometrik apapun</li>
               <li>Advertising ID / Device ID — <strong>khusus edisi Free</strong>, dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan (lihat bagian 03)</li>
             </ul>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Edisi <strong>Pro</strong> tidak memiliki izin internet sama sekali secara teknis, sehingga tidak ada data yang bisa keluar dari perangkat dalam bentuk apapun — bisa diverifikasi lewat menu "Sertifikat Privasi" di dalam aplikasi.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Edisi <strong>Pro</strong> tidak memiliki izin internet sama sekali secara teknis, sehingga tidak ada data yang bisa keluar dari perangkat dalam bentuk apapun — bisa diverifikasi lewat menu "Sertifikat Privasi" di dalam aplikasi. Halaman utama juga menjalankan pemindaian ringan otomatis (Storage Insights) untuk menampilkan estimasi ukuran file besar & duplikat begitu aplikasi dibuka — proses ini sepenuhnya lokal, tidak ada data yang dikirim kemanapun.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">02</span> Bagaimana Data Digunakan</h3>
@@ -220,7 +220,7 @@
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-outline-variant/10 font-body-sm text-body-sm text-on-surface-variant">
-                  <tr><td class="py-unit-sm pr-unit-md">Semua File / Akses Penyimpanan</td><td class="py-unit-sm">Junk Cleaner, Large File Finder, Duplicate Finder, Similar Photo Finder, Photo Compressor, Video Cleaner, App Leftover Finder</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Semua File / Akses Penyimpanan</td><td class="py-unit-sm">Junk Cleaner, Large File Finder, Duplicate Finder, Similar Photo Finder, Photo Compressor, Video Cleaner, App Leftover Finder, Screenshot & Screen Recording Cleaner, Stale Downloads Cleaner, TikTok Video Cleaner, Bluetooth File Cleaner, Burst Photo Cleaner</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Akses Penggunaan (Usage Access)</td><td class="py-unit-sm">Usage Insights / Screen Time, App Manager (ukuran cache per app)</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Lihat Semua Aplikasi</td><td class="py-unit-sm">App Manager, App Leftover, App Auto-Start</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Hapus Aplikasi</td><td class="py-unit-sm">Uninstall app langsung dari App Manager</td></tr>
@@ -235,7 +235,7 @@
                 </tbody>
               </table>
             </div>
-            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Edisi Pro tidak mendeklarasikan izin internet maupun Advertising ID sama sekali. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app), bukan perintah shell bebas.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Edisi Pro tidak mendeklarasikan izin internet maupun Advertising ID sama sekali. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app, termasuk membersihkan cache semua app sekaligus), bukan perintah shell bebas.</p>
             <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Kontak: <strong>Tri Nofri Andi (A2TH-Dev)</strong> — <a class="text-primary hover:underline" href="mailto:a2thdev@gmail.com">a2thdev@gmail.com</a></p>
           </section>
           <section class="border-t border-outline-variant/10 pt-unit-xl pb-unit-xl text-center">
