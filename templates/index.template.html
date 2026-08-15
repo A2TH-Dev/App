@@ -28,7 +28,7 @@
             <a href="#library" class="bg-primary text-on-primary font-label-md text-label-md px-unit-xl py-unit-md rounded-lg shadow-xl shadow-primary/20 hover:scale-[1.02] transition-transform">Browse Library</a>
             <div class="flex flex-col">
               <span class="font-headline-md text-headline-md text-on-surface" id="stat-apps">0</span>
-              <span class="font-label-sm text-label-sm text-on-tertiary-fixed-variant uppercase">Verified APKs</span>
+              <span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Verified APKs</span>
             </div>
           </div>
         </div>
@@ -45,9 +45,9 @@
           <div class="flex flex-col sm:flex-row gap-unit-sm w-full md:w-auto">
             <div class="relative flex-1 sm:w-64">
               <span class="material-symbols-outlined absolute left-unit-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px] pointer-events-none">search</span>
-              <input id="app-search" type="text" placeholder="{{I18N_SEARCH_PLACEHOLDER}}" class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-unit-sm text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
+              <input id="app-search" type="text" aria-label="{{I18N_SEARCH_PLACEHOLDER}}" placeholder="{{I18N_SEARCH_PLACEHOLDER}}" class="w-full bg-surface-container-low border border-outline/40 rounded-lg pl-9 pr-unit-sm py-unit-sm text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
             </div>
-            <select id="app-category" class="bg-surface-container-low border border-outline-variant/20 rounded-lg px-unit-sm py-unit-sm text-body-sm font-body-sm text-on-surface focus:outline-none focus:border-primary transition-colors">
+            <select id="app-category" aria-label="{{I18N_CATEGORY_LABEL}}" class="bg-surface-container-low border border-outline/40 rounded-lg px-unit-sm py-unit-sm text-body-sm font-body-sm text-on-surface focus:outline-none focus:border-primary transition-colors">
               <option value="">{{I18N_CATEGORY_ALL}}</option>
               {{CATEGORY_OPTIONS}}
             </select>

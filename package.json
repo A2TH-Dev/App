@@ -8,5 +8,8 @@
   },
   "dependencies": {
     "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
   }
 }

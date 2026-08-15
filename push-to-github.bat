@@ -38,12 +38,15 @@ if errorlevel 1 (
 )
 
 echo [1/4] Build ulang situs dari data/site.json + data/apps/*.json ...
-if not exist "node_modules\sharp" (
+set NEED_INSTALL=0
+if not exist "node_modules\sharp" set NEED_INSTALL=1
+if not exist "node_modules\tailwindcss" set NEED_INSTALL=1
+if "%NEED_INSTALL%"=="1" (
     where npm >nul 2>nul
     if errorlevel 1 (
-        echo [PERINGATAN] npm tidak ditemukan, lewati optimasi gambar ^(sharp^).
+        echo [PERINGATAN] npm tidak ditemukan, build kemungkinan gagal ^(butuh sharp + tailwindcss^).
     ) else (
-        echo Menginstal dependency ^(sharp, buat kompresi gambar^), sekali saja...
+        echo Menginstal dependency ^(sharp buat kompresi gambar, tailwindcss buat styling^), sekali saja...
         call npm install --no-audit --no-fund
     )
 )

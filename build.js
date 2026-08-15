@@ -8,6 +8,7 @@
  */
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 let sharp = null;
 try {
   sharp = require('sharp');
@@ -379,6 +380,42 @@ function validateData(apps) {
         errors.push(`${label}: gambar "${rel}" tidak ditemukan di ${app.slug}/${rel} (cek typo path?)`);
       }
     }
+
+    // Kalau field "privacy" diisi, field wajib di dalamnya juga harus lengkap —
+    // kalau kosong/hilang, sebelumnya cuma nongol literal teks "undefined" di
+    // halaman privacy.html, diam-diam, tanpa build gagal.
+    if (app.privacy) {
+      const p = app.privacy;
+      if (!p.dataCollectedIntro || typeof p.dataCollectedIntro !== 'string') {
+        errors.push(`${label}: privacy.dataCollectedIntro kosong/bukan teks`);
+      }
+      if (!p.dataUsage || typeof p.dataUsage !== 'string') {
+        errors.push(`${label}: privacy.dataUsage kosong/bukan teks`);
+      }
+      const sharingOk =
+        (typeof p.dataSharing === 'string' && p.dataSharing.length) ||
+        (Array.isArray(p.dataSharing) && p.dataSharing.length);
+      if (!sharingOk) {
+        errors.push(`${label}: privacy.dataSharing kosong/bukan teks atau array`);
+      }
+      if (p.dataCollectedList && !Array.isArray(p.dataCollectedList)) {
+        errors.push(`${label}: privacy.dataCollectedList harus berupa array`);
+      }
+      if (p.permissions) {
+        if (!Array.isArray(p.permissions)) {
+          errors.push(`${label}: privacy.permissions harus berupa array`);
+        } else {
+          p.permissions.forEach((row, i) => {
+            if (!row.name || !row.use) {
+              errors.push(`${label}: privacy.permissions[${i}] butuh field "name" dan "use", keduanya harus terisi`);
+            }
+          });
+        }
+      }
+      if (p.contactEmail && !p.contactName) {
+        errors.push(`${label}: privacy.contactEmail diisi tapi privacy.contactName kosong (kontak tidak akan tampil sama sekali di halaman privacy tanpa contactName)`);
+      }
+    }
   }
 
   if (errors.length) {
@@ -697,7 +734,7 @@ function generateSite(lang, downloadCounts) {
         <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">${appTagline}</p>
         <div class="mt-unit-xl flex items-center justify-between">
           <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:${app.accent}1a;color:${app.accent}">${appCategory}</span>
-          <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">${app.sizeMb} MB</span>
+          <span class="font-body-sm text-body-sm text-on-surface-variant">${app.sizeMb} MB</span>
         </div>
       </a>`;
   }
@@ -764,6 +801,7 @@ function generateSite(lang, downloadCounts) {
     I18N_CATEGORY_ALL: t.categoryAll,
     I18N_GRID_NO_RESULTS: t.gridNoResults,
     I18N_CTA_TITLE: t.ctaTitle,
+    I18N_CATEGORY_LABEL: t.categoryLabel,
     I18N_CTA_BODY: t.ctaBody.replace('{{SITE_BRAND}}', data.site.brand),
     I18N_CTA_BUTTON: t.ctaButton,
     I18N_CTA_BUTTON_SECONDARY: t.ctaButtonSecondary,
@@ -911,7 +949,27 @@ function generateSite(lang, downloadCounts) {
 }
 
 // ---------- generate semua halaman (ID lalu EN) ----------
+// ---------- compile Tailwind CSS (build-time, bukan CDN lagi) ----------
+// Wajib (bukan opsional kayak sharp) — tanpa CSS ini situs benar-benar tanpa
+// styling sama sekali, jadi build berhenti kalau gagal, bukan diam-diam lanjut.
+function compileTailwindCss() {
+  console.log('↻ Compile Tailwind CSS...');
+  try {
+    execSync(
+      'npx tailwindcss -i ./templates/tailwind-input.css -o ./styles.css --minify',
+      { cwd: ROOT, stdio: 'pipe' }
+    );
+    console.log('✓ styles.css');
+  } catch (e) {
+    console.error('\n[BUILD GAGAL] Compile Tailwind CSS gagal.');
+    console.error('Pastikan sudah jalankan "npm install" dulu (butuh package "tailwindcss").');
+    console.error('\nDetail error:\n' + (e.stderr ? e.stderr.toString() : e.message));
+    process.exit(1);
+  }
+}
+
 async function main() {
+compileTailwindCss();
 validateData(data.apps);
 
 const downloadCounts = await getDownloadCounts(data.apps);

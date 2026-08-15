@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="preconnect" href="https://cdn.tailwindcss.com"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <title>Kebijakan Privasi — GANTI_NAMA_APP</title>
@@ -37,44 +36,7 @@
   .skip-link{position:absolute;left:1rem;top:-3rem;z-index:100;background:#c0c1ff;color:#1000a9;padding:.6rem 1rem;border-radius:.5rem;font-weight:600;font-size:.875rem;transition:top .2s ease;text-decoration:none;}
   .skip-link:focus{top:1rem;}
 </style>
-<script src="https://cdn.tailwindcss.com"></script>
-<script id="tailwind-config">
-tailwind.config={darkMode:"class",theme:{extend:{
-  colors:{
-    "background":"#131313","surface":"#131313","surface-dim":"#131313",
-    "surface-bright":"#393939","surface-container-lowest":"#0e0e0e",
-    "surface-container-low":"#1b1c1c","surface-container":"#1f2020",
-    "surface-container-high":"#2a2a2a","surface-container-highest":"#353535",
-    "on-background":"#e4e2e1","on-surface":"#e4e2e1","on-surface-variant":"#c7c4d7",
-    "outline":"#908fa0","outline-variant":"#464554",
-    "primary":"#c0c1ff","on-primary":"#1000a9","primary-container":"#8083ff",
-    "on-primary-container":"#0d0096","primary-fixed":"#e1e0ff","primary-fixed-dim":"#c0c1ff",
-    "on-primary-fixed":"#07006c","on-primary-fixed-variant":"#2f2ebe",
-    "secondary":"#c9c6c5","on-secondary":"#313030","secondary-container":"#4a4949",
-    "on-secondary-container":"#bab8b7","tertiary":"#c6c6c7","on-tertiary":"#2f3131",
-    "tertiary-container":"#767777","on-tertiary-container":"#040506",
-    "on-tertiary-fixed-variant":"#454747","error":"#ffb4ab","error-container":"#93000a",
-    "on-error":"#690005","on-error-container":"#ffdad6","inverse-surface":"#e4e2e1",
-    "inverse-on-surface":"#303030","inverse-primary":"#494bd6"
-  },
-  borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},
-  spacing:{"unit-xs":"4px","unit-sm":"8px","unit-md":"16px","unit-lg":"24px","unit-xl":"48px","gutter":"24px","margin-mobile":"16px","margin-desktop":"48px"},
-  fontFamily:{
-    "headline-xl":["Space Grotesk"],"headline-lg":["Space Grotesk"],"headline-md":["Space Grotesk"],
-    "body-lg":["Inter"],"body-md":["Inter"],"body-sm":["Inter"],"label-md":["Inter"],"label-sm":["Inter"]
-  },
-  fontSize:{
-    "headline-xl":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"700"}],
-    "headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"600"}],
-    "headline-md":["24px",{"lineHeight":"1.3","fontWeight":"500"}],
-    "body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],
-    "body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],
-    "body-sm":["14px",{"lineHeight":"1.5","fontWeight":"400"}],
-    "label-md":["14px",{"lineHeight":"1","letterSpacing":"0.02em","fontWeight":"600"}],
-    "label-sm":["12px",{"lineHeight":"1","fontWeight":"500"}]
-  }
-}}}
-</script>
+<link rel="stylesheet" href="https://a2th-dev.github.io/App/styles.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Inter:wght@300..700&display=swap" rel="stylesheet"/>
 <style>.material-symbols-outlined{font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;}</style>
@@ -96,14 +58,14 @@ tailwind.config={darkMode:"class",theme:{extend:{
     </nav>
     <div class="flex-1 max-w-xs hidden sm:block relative">
       <span class="material-symbols-outlined absolute left-unit-sm top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">search</span>
-      <input id="global-search" type="text" autocomplete="off" placeholder="Cari aplikasi..." class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-1.5 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
-      <div id="global-search-results" class="hidden absolute top-full mt-unit-xs left-0 right-0 bg-surface-container rounded-xl shadow-2xl border border-outline-variant/10 overflow-hidden max-h-80 overflow-y-auto"></div>
+      <input id="global-search" type="text" autocomplete="off" aria-label="Cari aplikasi..." placeholder="Cari aplikasi..." class="w-full bg-surface-container-low border border-outline/40 rounded-lg pl-9 pr-unit-sm py-1.5 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
+      <div id="global-search-results" role="listbox" aria-live="polite" class="hidden absolute top-full mt-unit-xs left-0 right-0 bg-surface-container rounded-xl shadow-2xl border border-outline-variant/10 overflow-hidden max-h-80 overflow-y-auto"></div>
     </div>
     <div class="flex items-center gap-unit-sm shrink-0">
       <button id="search-toggle" type="button" aria-label="Cari aplikasi" class="sm:hidden w-9 h-9 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
         <span class="material-symbols-outlined">search</span>
       </button>
-      <a href="../en/app8/" aria-label="Ganti ke Bahasa Inggris" class="hidden sm:flex w-9 h-9 items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold border border-outline-variant/20">EN</a>
+      <a href="../en/app8/" aria-label="Ganti ke Bahasa Inggris" class="hidden sm:flex w-9 h-9 items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold border border-outline/40">EN</a>
       <div class="hidden lg:flex bg-primary/10 border border-primary/20 px-unit-sm py-unit-xs rounded-full items-center gap-unit-xs">
         <span class="material-symbols-outlined text-primary text-[16px]">inventory_2</span>
         <span class="font-label-sm text-label-sm text-primary">9 Apps</span>
@@ -115,8 +77,8 @@ tailwind.config={darkMode:"class",theme:{extend:{
   </div>
   <div id="mobile-search" class="hidden sm:hidden px-margin-mobile pb-unit-md relative">
     <span class="material-symbols-outlined absolute left-6 top-1/2 -translate-y-1/2 text-on-surface-variant text-[18px] pointer-events-none">search</span>
-    <input id="global-search-mobile" type="text" autocomplete="off" placeholder="Cari aplikasi..." class="w-full bg-surface-container-low border border-outline-variant/20 rounded-lg pl-9 pr-unit-sm py-2 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
-    <div id="global-search-results-mobile" class="hidden mt-unit-xs bg-surface-container rounded-xl shadow-2xl border border-outline-variant/10 overflow-hidden max-h-80 overflow-y-auto"></div>
+    <input id="global-search-mobile" type="text" autocomplete="off" aria-label="Cari aplikasi..." placeholder="Cari aplikasi..." class="w-full bg-surface-container-low border border-outline/40 rounded-lg pl-9 pr-unit-sm py-2 text-body-sm font-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:border-primary transition-colors"/>
+    <div id="global-search-results-mobile" role="listbox" aria-live="polite" class="hidden mt-unit-xs bg-surface-container rounded-xl shadow-2xl border border-outline-variant/10 overflow-hidden max-h-80 overflow-y-auto"></div>
   </div>
   <nav id="mobile-menu" class="hidden md:hidden flex-col px-margin-mobile pb-unit-lg pt-unit-xs border-t border-outline-variant/10 gap-unit-xs">
     <a href="../" class="py-unit-sm font-label-md text-label-md text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-unit-sm"><span class="material-symbols-outlined text-[18px]">apps</span> Apps</a>
@@ -164,7 +126,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
       return;
     }
     container.innerHTML = matches.map(function (a) {
-      return '<a href="' + ROOT_PATH + a.slug + '/" class="flex items-center gap-unit-sm px-unit-md py-unit-sm hover:bg-surface-container-high transition-colors">' +
+      return '<a href="' + ROOT_PATH + a.slug + '/" role="option" class="flex items-center gap-unit-sm px-unit-md py-unit-sm hover:bg-surface-container-high transition-colors">' +
         '<span class="w-2 h-2 rounded-full shrink-0" style="background:' + a.accent + '"></span>' +
         '<span class="text-body-sm font-body-sm text-on-surface">' + a.name + '</span>' +
         '<span class="ml-auto text-label-sm font-label-sm text-on-surface-variant">' + a.category + '</span>' +
@@ -205,7 +167,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
           <div class="flex items-center gap-unit-md text-on-surface-variant/60">
             <span class="font-label-sm text-label-sm uppercase tracking-tighter">GANTI_NAMA_APP</span>
             <span class="w-1 h-1 rounded-full bg-outline"></span>
-            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-08-11</span>
+            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-08-15</span>
           </div>
         </header>
 
@@ -263,11 +225,11 @@ tailwind.config={darkMode:"class",theme:{extend:{
       <a class="flex items-center gap-unit-xs font-label-md text-label-md text-primary hover:text-primary-fixed-dim transition-colors" href="https://github.com/A2TH-Dev">
         <span class="material-symbols-outlined text-[18px]">code</span>GitHub
       </a>
-      <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">© 2026 APK Bench</span>
+      <span class="font-body-sm text-body-sm text-on-surface-variant">© 2026 APK Bench</span>
     </div>
   </div>
 </footer>
-<button id="back-to-top" type="button" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary text-on-primary shadow-xl shadow-primary/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:scale-110">
+<button id="back-to-top" type="button" tabindex="-1" aria-label="Kembali ke atas" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary text-on-primary shadow-xl shadow-primary/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:scale-110">
   <span class="material-symbols-outlined text-[22px]">arrow_upward</span>
 </button>
 <script>
@@ -279,6 +241,7 @@ tailwind.config={darkMode:"class",theme:{extend:{
     btn.classList.toggle('opacity-0', !show);
     btn.classList.toggle('pointer-events-none', !show);
     btn.classList.toggle('translate-y-2', !show);
+    btn.tabIndex = show ? 0 : -1;
   }
   window.addEventListener('scroll', toggle, { passive: true });
   toggle();

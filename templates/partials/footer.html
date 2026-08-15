@@ -10,11 +10,11 @@
       <a class="flex items-center gap-unit-xs font-label-md text-label-md text-primary hover:text-primary-fixed-dim transition-colors" href="https://github.com/{{GITHUB_USER}}">
         <span class="material-symbols-outlined text-[18px]">code</span>{{I18N_NAV_GITHUB}}
       </a>
-      <span class="font-body-sm text-body-sm text-on-tertiary-fixed-variant">© {{YEAR}} {{SITE_BRAND}}</span>
+      <span class="font-body-sm text-body-sm text-on-surface-variant">© {{YEAR}} {{SITE_BRAND}}</span>
     </div>
   </div>
 </footer>
-<button id="back-to-top" type="button" aria-label="{{I18N_BACK_TO_TOP_ARIA}}" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary text-on-primary shadow-xl shadow-primary/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:scale-110">
+<button id="back-to-top" type="button" tabindex="-1" aria-label="{{I18N_BACK_TO_TOP_ARIA}}" class="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-primary text-on-primary shadow-xl shadow-primary/30 flex items-center justify-center opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:scale-110">
   <span class="material-symbols-outlined text-[22px]">arrow_upward</span>
 </button>
 <script>
@@ -26,6 +26,7 @@
     btn.classList.toggle('opacity-0', !show);
     btn.classList.toggle('pointer-events-none', !show);
     btn.classList.toggle('translate-y-2', !show);
+    btn.tabIndex = show ? 0 : -1;
   }
   window.addEventListener('scroll', toggle, { passive: true });
   toggle();
