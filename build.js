@@ -818,6 +818,11 @@ function generateSite(lang, downloadCounts) {
   // URL: /kategori/<slug>/ (ID), /en/category/<slug>/ (EN) — biar Google bisa index
   // "semua app Keuangan" dst sebagai halaman tersendiri, bukan cuma filter JS di homepage.
   const categorySegment = lang === 'id' ? 'kategori' : 'category';
+  // Bersihkan total folder kategori sebelum generate ulang. Tanpa ini, folder
+  // kategori dari build lama yang appnya sudah dihapus/dipindah (mis. app "ember"
+  // yang dulu satu-satunya penghuni kategori "Musik & Audio") akan tetap nyangkut
+  // di disk dengan link mati ke app yang sudah tidak ada, dan ketangkep self-check.
+  fs.rmSync(path.join(outRoot, categorySegment), { recursive: true, force: true });
   for (const catName of categories) {
     const catSlug = slugifyCategory(catName);
     const catDir = path.join(outRoot, categorySegment, catSlug);
