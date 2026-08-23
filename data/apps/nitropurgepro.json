@@ -4,19 +4,19 @@
   "name": "Nitro Purge Pro",
   "tagline": "Pembersih & optimizer Android tanpa drama.",
   "tagline_en": "Android cleaner & optimizer without the fuss.",
-  "description": "Nitro Purge membersihkan file sampah, mengubah ukuran foto, menghapus duplikat kontak, dan mengunci aplikasi sensitif dengan PIN — semua dari satu dashboard ringan tanpa iklan mengganggu.",
+  "description": "Nitro Purge membersihkan file sampah, mengubah ukuran foto, menghapus duplikat kontak, dan mengunci aplikasi sensitif dengan PIN — semua dari satu dashboard ringan tanpa iklan sama sekali.",
   "description_en": "Nitro Purge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.0.6",
+  "version": "1.0.5",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 13,
   "repo": "A2TH-Dev/nitropurgepro",
-  "releaseTag": "v1.0.6",
-  "apkFile": "Nitro-Purge_Pro_v1.0.6.apk",
+  "releaseTag": "v1.0.5",
+  "apkFile": "Nitro-Purge_Pro_v1.0.5.apk",
   "changelog": [
     {
-      "version": "1.0.6",
+      "version": "1.0.5",
       "date": "2026-08-23",
       "category": "Fitur Baru & Perbaikan",
       "notes": [
@@ -29,7 +29,7 @@
       ]
     },
     {
-      "version": "1.0.5",
+      "version": "1.0.4",
       "date": "2026-08-15",
       "category": "Fitur Baru & Perbaikan",
       "notes": [
@@ -79,7 +79,7 @@
   ],
   "changelog_en": [
     {
-      "version": "1.0.6",
+      "version": "1.0.5",
       "date": "2026-08-23",
       "category": "New Features & Fixes",
       "notes": [
