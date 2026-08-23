@@ -8,13 +8,26 @@
   "description_en": "NitroPurge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 13,
   "repo": "A2TH-Dev/nitropurge",
-  "releaseTag": "v1.0.4",
-  "apkFile": "Nitro-Purge_Free_v1.0.4.apk",
+  "releaseTag": "v1.0.5",
+  "apkFile": "Nitro-Purge_Free_v1.0.5.apk",
   "changelog": [
+    {
+      "version": "1.0.5",
+      "date": "2026-08-23",
+      "category": "Fitur Baru & Perbaikan",
+      "notes": [
+        "⚡ Proses hapus sampah di Junk Cleaner sekarang jauh lebih cepat - sebelumnya bisa terasa lama saat membersihkan banyak file kecil sekaligus, meski total ukurannya kecil",
+        "✨ Animasi & progres real-time saat proses berjalan, menggantikan loading berputar polos, hadir di: Junk Cleaner, Pembersih Media Chat App (WhatsApp/Telegram), Kompres Foto, File Bluetooth, Foto Beruntun (Burst), File Duplikat, File Besar, Screenshot & Rekaman Layar, Download Lama, dan Video TikTok Tersimpan - tiap proses sekarang menampilkan jumlah file yang sudah selesai dan nama file yang sedang diproses",
+        "🔐 Halaman Info Aplikasi sekarang punya tombol \"Buka Pengaturan\" langsung untuk memberi izin akses penggunaan aplikasi, tidak perlu cari sendiri di menu Settings HP",
+        "🖼️ Kompres Foto kini menampilkan progres pengompresan secara bertahap, bukan diam lalu tiba-tiba selesai",
+        "🚫 Tombol \"Hapus\" di berbagai halaman kini otomatis nonaktif selama proses berjalan, mencegah tap ganda yang tidak disengaja",
+        "✨ Berbagai penyempurnaan kecil lainnya untuk pengalaman yang lebih mulus"
+      ]
+    },
     {
       "version": "1.0.4",
       "date": "2026-08-15",
@@ -65,6 +78,19 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.0.5",
+      "date": "2026-08-23",
+      "category": "New Features & Fixes",
+      "notes": [
+        "⚡ The junk-deletion process in Junk Cleaner is now much faster – it used to feel slow when clearing many small files at once, even with a small total size",
+        "✨ Real-time animation & progress while processing, replacing the plain spinning loader, now live in: Junk Cleaner, Chat App Media Cleaner (WhatsApp/Telegram), Photo Compress, Bluetooth Files, Burst Photos, Duplicate Files, Large Files, Screenshots & Screen Recordings, Old Downloads, and Saved TikTok Videos – each process now shows how many files are done and which file is currently being processed",
+        "🔐 App Info page now has an \"Open Settings\" button to grant app usage access permission directly, no need to hunt for it in phone Settings",
+        "🖼️ Photo Compress now shows compression progress incrementally, instead of sitting idle and suddenly finishing",
+        "🚫 The \"Delete\" button on various pages is now automatically disabled while a process is running, preventing accidental double-taps",
+        "✨ Various other small refinements for a smoother experience"
+      ]
+    },
     {
       "version": "1.0.4",
       "date": "2026-08-15",
