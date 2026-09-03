@@ -55,6 +55,13 @@
       { "name": "Internet & Advertising ID", "use": "Menampilkan iklan AdMob (versi gratis) & verifikasi pembelian Pro lewat Google Play Billing" }
     ],
     "permissionsNote": "<code>android:allowBackup</code> sengaja dimatikan di level sistem — supaya database transaksi dan hash PIN kunci aplikasi tidak bisa diekstrak lewat <code>adb backup</code> tanpa melewati PIN. Catat Yuk punya mekanisme backup/restore sendiri yang eksplisit dan sepenuhnya atas kendali kamu (lihat bagian 02).",
+    "dataDeletionIntro": "Karena seluruh data Catat Yuk tersimpan lokal di perangkat Anda tanpa server, Anda dapat menghapus data sendiri kapan saja tanpa perlu menghubungi kami:",
+    "dataDeletionList": [
+      "Hapus sebagian data — buka Catat Yuk &rarr; Pengaturan &rarr; kelola atau hapus transaksi, kategori, budget, maupun goal tabungan secara manual satu per satu.",
+      "Hapus semua data sekaligus — buka Catat Yuk &rarr; Pengaturan &rarr; tekan tombol <strong>\"Hapus Semua Data\"</strong>. Seluruh transaksi, kategori kustom, budget, dan goal akan terhapus permanen dari perangkat secara instan.",
+      "Hapus total — uninstall aplikasi dari perangkat Anda. Karena tidak ada server, tidak ada salinan data yang tersisa di mana pun setelah aplikasi dihapus."
+    ],
+    "dataDeletionNote": "Data yang dihapus melalui langkah di atas tidak dapat dipulihkan, kecuali Anda sebelumnya melakukan backup manual sendiri lewat menu Backup/Restore di Pengaturan.",
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
   },
