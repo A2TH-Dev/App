@@ -254,6 +254,9 @@ function buildPrivacySections(app) {
         'GANTI: jelaskan apakah data dibagikan ke pihak ketiga (mis. analitik, iklan) dan pihak mana saja.'
       ),
       PRIVACY_PERMISSIONS: `<p class="font-body-md text-body-md text-on-surface-variant mb-unit-lg">GANTI: daftar izin Android yang diminta dan alasannya.</p>`,
+      PRIVACY_DATA_DELETION: fallback(
+        'GANTI: jelaskan cara pengguna dapat meminta atau melakukan penghapusan data mereka.'
+      ),
       PRIVACY_CONTACT: '',
     };
   }
@@ -271,6 +274,11 @@ function buildPrivacySections(app) {
       ? `\n            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">${p.permissionsNote}</p>`
       : '');
 
+  const dataDeletion =
+    paragraphs(p.dataDeletionIntro) +
+    (p.dataDeletionList ? '\n            ' + bulletList(p.dataDeletionList) : '') +
+    (p.dataDeletionNote ? '\n            ' + paragraphs(p.dataDeletionNote) : '');
+
   const contact = p.contactName
     ? `<p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Kontak: <strong>${esc(
         p.contactName
@@ -282,6 +290,7 @@ function buildPrivacySections(app) {
     PRIVACY_DATA_USAGE: paragraphs(p.dataUsage),
     PRIVACY_DATA_SHARING: dataSharing,
     PRIVACY_PERMISSIONS: permissions,
+    PRIVACY_DATA_DELETION: dataDeletion,
     PRIVACY_CONTACT: contact,
   };
 }
