@@ -8,15 +8,15 @@
   "description_en": "Nitro Purge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.0.7",
+  "version": "1.0.6",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 13,
   "repo": "A2TH-Dev/nitropurgepro",
-  "releaseTag": "v1.0.7",
-  "apkFile": "Nitro-Purge_Pro_v1.0.7.apk",
+  "releaseTag": "v1.0.6",
+  "apkFile": "Nitro-Purge_Pro_v1.0.6.apk",
   "changelog": [
     {
-      "version": "1.0.7",
+      "version": "1.0.6",
       "date": "2026-09-04",
       "category": "Perbaikan Bug & Kepatuhan Play Store",
       "notes": [
@@ -91,7 +91,7 @@
   ],
   "changelog_en": [
     {
-      "version": "1.0.7",
+      "version": "1.0.6",
       "date": "2026-09-04",
       "category": "Bug Fixes & Play Store Compliance",
       "notes": [
@@ -253,17 +253,17 @@
   },
   "icon": "asset/icon.png",
   "screenshots": [
-    "asset/home.jpg",
-    "asset/junk_cleaner.jpg",
-    "asset/file_besar.jpg",
-    "asset/file_duplikat.jpg",
-    "asset/kompress_poto.jpg",
-    "asset/video_besar_&_duplikat.jpg",
-    "asset/storage_analyzer.jpg",
-    "asset/turbo_monitor.jpg",
-    "asset/media_chat_app.jpg",
-    "asset/rapikan_downloads.jpg",
-    "asset/backup_apk.jpg"
+    "asset/home.png",
+    "asset/junk_cleaner.png",
+    "asset/file_besar.png",
+    "asset/file_duplikat.png",
+    "asset/kompress_poto.png",
+    "asset/video_besar_&_duplikat.png",
+    "asset/storage_analyzer.png",
+    "asset/turbo_monitor.png",
+    "asset/media_chat_app.png",
+    "asset/rapikan_downloads.png",
+    "asset/backup_apk.png"
   ],
   "banner": "asset/banner.png",
   "order": 2
