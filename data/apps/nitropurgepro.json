@@ -8,13 +8,25 @@
   "description_en": "Nitro Purge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 13,
   "repo": "A2TH-Dev/nitropurgepro",
-  "releaseTag": "v1.0.5",
-  "apkFile": "Nitro-Purge_Pro_v1.0.5.apk",
+  "releaseTag": "v1.0.7",
+  "apkFile": "Nitro-Purge_Pro_v1.0.7.apk",
   "changelog": [
+    {
+      "version": "1.0.7",
+      "date": "2026-09-04",
+      "category": "Perbaikan Bug & Kepatuhan Play Store",
+      "notes": [
+        "🔒 Perbaiki layar App Lock (PIN/biometrik) agar tidak lagi tertutup status bar/navigasi di sebagian perangkat Android 15 ke atas",
+        "🛡️ Perbaiki potensi crash saat memindai APK yang rusak/tidak standar (bagian pembaca manifest)",
+        "🖼️ Perbaiki potensi crash saat menampilkan ikon aplikasi dengan data tidak valid di Pembersih Sampah",
+        "📸 Perbaiki potensi aplikasi macet kehabisan memori saat mengompres foto berukuran sangat besar",
+        "⚡ Perbaiki potensi aplikasi tidak merespons (ANR) saat memuat Turbo Monitor di perangkat yang di-root"
+      ]
+    },
     {
       "version": "1.0.5",
       "date": "2026-08-23",
@@ -78,6 +90,18 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.0.7",
+      "date": "2026-09-04",
+      "category": "Bug Fixes & Play Store Compliance",
+      "notes": [
+        "🔒 Fixed the App Lock screen (PIN/biometric) being drawn behind the status/navigation bar on some Android 15+ devices",
+        "🛡️ Fixed a potential crash when scanning a corrupted/non-standard APK (manifest reader)",
+        "🖼️ Fixed a potential crash when displaying an app icon with invalid data in Junk Cleaner",
+        "📸 Fixed a potential out-of-memory crash when compressing very large photos",
+        "⚡ Fixed a potential app freeze (ANR) when loading Turbo Monitor on rooted devices"
+      ]
+    },
     {
       "version": "1.0.5",
       "date": "2026-08-23",
