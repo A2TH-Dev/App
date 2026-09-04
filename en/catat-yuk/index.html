@@ -22,7 +22,7 @@
 <meta name="twitter:title" content="Catat Yuk — APK Bench"/>
 <meta name="twitter:description" content="Automatic finance tracker — reads your bank & e-wallet notifications for you."/>
 <meta name="twitter:image" content="https://a2th-dev.github.io/App/catat-yuk/asset/banner.webp"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Catat Yuk","description":"Automatic finance tracker — reads your bank & e-wallet notifications for you.","applicationCategory":"Finance","operatingSystem":"Android 8.0 (Oreo)+","softwareVersion":"1.0.0","fileSize":"20MB","url":"https://a2th-dev.github.io/App/en/catat-yuk/","image":"https://a2th-dev.github.io/App/catat-yuk/asset/banner.webp","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Catat Yuk","description":"Automatic finance tracker — reads your bank & e-wallet notifications for you.","applicationCategory":"Finance","operatingSystem":"Android 8.0 (Oreo)+","softwareVersion":"1.0.2","fileSize":"20MB","url":"https://a2th-dev.github.io/App/en/catat-yuk/","image":"https://a2th-dev.github.io/App/catat-yuk/asset/banner.webp","inLanguage":"en","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 <style>
   @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}}
   ::-webkit-scrollbar{display:none;}
@@ -181,7 +181,7 @@
             </div>
           </div>
           <div class="flex flex-wrap gap-unit-sm">
-            <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">info</span> v1.0.0</span>
+            <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">info</span> v1.0.2</span>
             <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">android</span> Android 8.0 (Oreo)+</span>
             <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">database</span> 20 MB</span>
             
@@ -281,7 +281,54 @@
         </div>
       </div>
 
-      
+      <!-- Changelog -->
+      <div class="mb-32 reveal">
+        <div class="flex items-center gap-unit-sm mb-unit-lg">
+          <div class="h-[1px] w-8 bg-primary"></div>
+          <span class="text-label-md font-label-md text-primary uppercase tracking-[0.2em]">What's New</span>
+        </div>
+        <div class="max-w-2xl">
+          <div class="relative pl-unit-xl pb-unit-lg last:pb-0">
+            <div class="absolute left-0 top-1 w-3 h-3 rounded-full bg-primary"></div>
+            <div class="absolute left-[5px] top-4 bottom-0 w-[2px] bg-surface-container-highest last:hidden"></div>
+            <div class="flex items-center gap-unit-sm mb-unit-xs flex-wrap">
+              <span class="text-body-md font-body-md text-on-surface font-semibold">v1.0.2</span>
+              <span class="text-label-sm font-label-sm text-primary bg-primary/10 px-unit-sm py-[2px] rounded-full">Latest</span>
+              <span class="text-label-sm font-label-sm text-on-surface-variant">2026-09-04</span>
+            </div>
+            <ul class="list-disc pl-5 space-y-1">
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🔀 Split transactions — a single transaction can now be divided across multiple categories</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🏷️ Custom tags/labels on transactions, included in search & export</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🔁 Recurring transactions now fully catch up on missed periods + flexible bill reminders (1-7 days before)</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🎯 Savings Goals with progress bar, estimated completion time & contribution history</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">💳 Debt/Receivable calculator with a real-time summary</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🧮 Loan/Installment simulation calculator (Flat & Annuity), linked to the Debt feature</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">💾 Local backup & restore (single JSON file) — your data stays safe without the cloud</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🌙 Dark mode, automatically follows your system theme</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">📄 Export to PDF, Excel (.xlsx), and CSV — including a one-page monthly summary report</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🔒 App Lock with 6-digit PIN + biometrics, auto-locks every time you return from background</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">📱 Home screen balance widget + quick shortcut to log a transaction</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🧾 Automatic receipt scanning (OCR) — fills in the amount & merchant name straight from a photo</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🕌 Zakat/Charity Tracker — auto-estimates 2.5% of your income, mark paid status per period</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🔔 Daily/weekly summaries & a reminder if you haven't logged anything for a few days</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">⚡ Quick-add via App Shortcut — log a transaction straight from the app icon</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">⚠️ Automatic detection of unusual spending (anomalies) in your History</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🎨 Customizable theme color, dashboard order, and category icons (44 to choose from)</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">📊 "Wrapped"-style yearly summary — a full year of financial stats in swipeable cards</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">📅 Seasonal/annual budget targets with custom date ranges</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🧠 Auto-categorization that learns from your manual corrections, per merchant</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">📈 Weekday vs. weekend spending pattern insight, right on the Dashboard</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🕵️ Privacy-safe mode — your balance is automatically hidden when you take a screenshot</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🔥 New Pro features: Spending Calendar Heatmap & Quick Bill-Split Calculator</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🐛 Fixed voice input misreading amounts under Rp1 million (e.g. "100.000" was read as 100)</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🐛 Fixed the category icon picker being cropped/unable to scroll</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🐛 Fixed backups that were missing custom notification threshold & reminder settings</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🐛 Fixed duplicate transactions being logged from bank notifications re-posted by the system</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🔐 Disabled Android's system auto-backup so the app lock PIN can't be bypassed that way</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
       <!-- Specs -->
       <div class="relative">
@@ -294,7 +341,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-unit-md">
             <div class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-unit-md">
               <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">info</span></div>
-              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Version</div><div class="text-body-md font-body-md text-on-surface">1.0.0</div></div>
+              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Version</div><div class="text-body-md font-body-md text-on-surface">1.0.2</div></div>
             </div>
             <div class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-unit-md">
               <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">android</span></div>

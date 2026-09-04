@@ -8,12 +8,86 @@
   "description_en": "Catat Yuk automatically detects transactions the moment a notification arrives from your bank or e-wallet app, with auto-categorization that gets smarter from your manual corrections. You can also log entries by voice or by scanning a receipt (OCR). Includes per-category budgets, savings goals, debt/receivable tracking, a loan calculator, and a Wrapped-style yearly summary — everything stored locally on your phone, no server involved.",
   "category": "Keuangan",
   "category_en": "Finance",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 20,
   "repo": "A2TH-Dev/catatyuk",
-  "releaseTag": "v1.0.0",
-  "apkFile": "Catat-Yuk_v1.0.0.apk",
+  "releaseTag": "v1.0.2",
+  "apkFile": "Catat-Yuk_v1.0.2.apk",
+  "changelog": [
+    {
+      "version": "1.0.2",
+      "date": "2026-09-04",
+      "category": "Rilis Fitur Lengkap",
+      "notes": [
+        "🔀 Split transaksi — satu transaksi bisa dipecah ke beberapa kategori sekaligus",
+        "🏷️ Tag/label custom pada transaksi, ikut masuk pencarian & export",
+        "🔁 Transaksi rutin kini catch-up penuh + reminder tagihan fleksibel (H-1 s/d H-7)",
+        "🎯 Goal Tabungan dengan progress bar, estimasi waktu tercapai & riwayat kontribusi",
+        "💳 Kalkulator Utang-Piutang dengan ringkasan real-time",
+        "🧮 Kalkulator Simulasi Cicilan/Pinjaman (Flat & Anuitas), terhubung ke fitur Utang",
+        "💾 Backup & Restore lokal (1 file JSON) — datamu tetap aman tanpa cloud",
+        "🌙 Dark mode otomatis mengikuti tema sistem",
+        "📄 Export ke PDF, Excel (.xlsx), dan CSV — termasuk laporan ringkasan bulanan",
+        "🔒 Kunci Aplikasi dengan PIN 6 digit + biometrik, auto-lock tiap kembali dari background",
+        "📱 Widget saldo di homescreen + shortcut cepat catat transaksi",
+        "🧾 Scan struk belanja otomatis (OCR) — isi nominal & nama toko langsung dari foto",
+        "🕌 Zakat/Sedekah Tracker — estimasi otomatis 2,5% dari pemasukan, tandai status bayar per periode",
+        "🔔 Ringkasan harian/mingguan & reminder kalau sudah beberapa hari tidak mencatat transaksi",
+        "⚡ Quick-add lewat App Shortcut — catat transaksi langsung dari ikon aplikasi",
+        "⚠️ Deteksi otomatis pengeluaran tidak biasa (anomali) di Riwayat",
+        "🎨 Kustomisasi warna tema, urutan dashboard, dan ikon kategori (44 pilihan)",
+        "📊 Ringkasan Tahunan ala \"Wrapped\" — statistik keuangan setahun dalam kartu swipeable",
+        "📅 Target Budget Musiman/Tahunan dengan periode custom",
+        "🧠 Auto-kategori yang belajar dari koreksi manualmu per merchant",
+        "📈 Insight pola pengeluaran hari kerja vs akhir pekan langsung di Dashboard",
+        "🕵️ Mode aman privasi — saldo otomatis tersembunyi saat kamu screenshot",
+        "🔥 Fitur Pro baru: Kalender Heatmap Pengeluaran & Kalkulator Patungan Cepat",
+        "🐛 Perbaiki voice input yang salah baca nominal di bawah Rp1 juta (mis. \"100.000\" sempat terbaca 100)",
+        "🐛 Perbaiki icon picker kategori yang sebelumnya terpotong/tidak bisa di-scroll",
+        "🐛 Perbaiki data backup yang belum menyertakan pengaturan threshold notifikasi & reminder custom",
+        "🐛 Perbaiki transaksi ganda yang sempat tercatat dari notifikasi bank yang di-repost sistem",
+        "🔐 Nonaktifkan auto-backup sistem Android supaya PIN kunci aplikasi tidak bisa dilewati"
+      ]
+    }
+  ],
+  "changelog_en": [
+    {
+      "version": "1.0.2",
+      "date": "2026-09-04",
+      "category": "Full Feature Release",
+      "notes": [
+        "🔀 Split transactions — a single transaction can now be divided across multiple categories",
+        "🏷️ Custom tags/labels on transactions, included in search & export",
+        "🔁 Recurring transactions now fully catch up on missed periods + flexible bill reminders (1-7 days before)",
+        "🎯 Savings Goals with progress bar, estimated completion time & contribution history",
+        "💳 Debt/Receivable calculator with a real-time summary",
+        "🧮 Loan/Installment simulation calculator (Flat & Annuity), linked to the Debt feature",
+        "💾 Local backup & restore (single JSON file) — your data stays safe without the cloud",
+        "🌙 Dark mode, automatically follows your system theme",
+        "📄 Export to PDF, Excel (.xlsx), and CSV — including a one-page monthly summary report",
+        "🔒 App Lock with 6-digit PIN + biometrics, auto-locks every time you return from background",
+        "📱 Home screen balance widget + quick shortcut to log a transaction",
+        "🧾 Automatic receipt scanning (OCR) — fills in the amount & merchant name straight from a photo",
+        "🕌 Zakat/Charity Tracker — auto-estimates 2.5% of your income, mark paid status per period",
+        "🔔 Daily/weekly summaries & a reminder if you haven't logged anything for a few days",
+        "⚡ Quick-add via App Shortcut — log a transaction straight from the app icon",
+        "⚠️ Automatic detection of unusual spending (anomalies) in your History",
+        "🎨 Customizable theme color, dashboard order, and category icons (44 to choose from)",
+        "📊 \"Wrapped\"-style yearly summary — a full year of financial stats in swipeable cards",
+        "📅 Seasonal/annual budget targets with custom date ranges",
+        "🧠 Auto-categorization that learns from your manual corrections, per merchant",
+        "📈 Weekday vs. weekend spending pattern insight, right on the Dashboard",
+        "🕵️ Privacy-safe mode — your balance is automatically hidden when you take a screenshot",
+        "🔥 New Pro features: Spending Calendar Heatmap & Quick Bill-Split Calculator",
+        "🐛 Fixed voice input misreading amounts under Rp1 million (e.g. \"100.000\" was read as 100)",
+        "🐛 Fixed the category icon picker being cropped/unable to scroll",
+        "🐛 Fixed backups that were missing custom notification threshold & reminder settings",
+        "🐛 Fixed duplicate transactions being logged from bank notifications re-posted by the system",
+        "🔐 Disabled Android's system auto-backup so the app lock PIN can't be bypassed that way"
+      ]
+    }
+  ],
   "accent": "#4A2E8F",
   "features": [
     "Deteksi transaksi otomatis dari notifikasi bank & e-wallet",
@@ -46,13 +120,34 @@
       "Backup/restore data (opsional, lewat menu Pengaturan) menghasilkan 1 file JSON yang kamu bagikan sendiri lewat share sheet Android (mis. ke Google Drive) — sepenuhnya atas kendali dan pilihan kamu, bukan otomatis dari Catat Yuk."
     ],
     "permissions": [
-      { "name": "Notifikasi (Notification Listener)", "use": "Deteksi transaksi otomatis dari notifikasi bank/e-wallet — hanya memproses notifikasi dari daftar aplikasi yang dikenali, sisanya diabaikan" },
-      { "name": "Kamera", "use": "Scan struk belanja (OCR on-device via ML Kit)" },
-      { "name": "Rekam Audio", "use": "Voice input pencatatan transaksi" },
-      { "name": "Biometrik", "use": "Kunci Aplikasi via sidik jari/wajah lewat <code>BiometricPrompt</code> sistem — data biometrik tidak disimpan aplikasi" },
-      { "name": "Kirim Notifikasi (Post Notifications)", "use": "Notifikasi peringatan budget & reminder tagihan" },
-      { "name": "Mulai Otomatis Saat Boot", "use": "Supaya jadwal transaksi rutin & ringkasan harian via WorkManager tetap jalan setelah HP di-restart" },
-      { "name": "Internet & Advertising ID", "use": "Menampilkan iklan AdMob (versi gratis) & verifikasi pembelian Pro lewat Google Play Billing" }
+      {
+        "name": "Notifikasi (Notification Listener)",
+        "use": "Deteksi transaksi otomatis dari notifikasi bank/e-wallet — hanya memproses notifikasi dari daftar aplikasi yang dikenali, sisanya diabaikan"
+      },
+      {
+        "name": "Kamera",
+        "use": "Scan struk belanja (OCR on-device via ML Kit)"
+      },
+      {
+        "name": "Rekam Audio",
+        "use": "Voice input pencatatan transaksi"
+      },
+      {
+        "name": "Biometrik",
+        "use": "Kunci Aplikasi via sidik jari/wajah lewat <code>BiometricPrompt</code> sistem — data biometrik tidak disimpan aplikasi"
+      },
+      {
+        "name": "Kirim Notifikasi (Post Notifications)",
+        "use": "Notifikasi peringatan budget & reminder tagihan"
+      },
+      {
+        "name": "Mulai Otomatis Saat Boot",
+        "use": "Supaya jadwal transaksi rutin & ringkasan harian via WorkManager tetap jalan setelah HP di-restart"
+      },
+      {
+        "name": "Internet & Advertising ID",
+        "use": "Menampilkan iklan AdMob (versi gratis) & verifikasi pembelian Pro lewat Google Play Billing"
+      }
     ],
     "permissionsNote": "<code>android:allowBackup</code> sengaja dimatikan di level sistem — supaya database transaksi dan hash PIN kunci aplikasi tidak bisa diekstrak lewat <code>adb backup</code> tanpa melewati PIN. Catat Yuk punya mekanisme backup/restore sendiri yang eksplisit dan sepenuhnya atas kendali kamu (lihat bagian 02).",
     "dataDeletionIntro": "Karena seluruh data Catat Yuk tersimpan lokal di perangkat Anda tanpa server, Anda dapat menghapus data sendiri kapan saja tanpa perlu menghubungi kami:",
@@ -66,15 +161,15 @@
     "contactEmail": "a2thdev@gmail.com"
   },
   "icon": "asset/icon.png",
-    "screenshots": [
-      "asset/home.png",
-      "asset/1.png",
-      "asset/2.png",
-      "asset/3.png",
-      "asset/4.png",
-      "asset/5.png",
-      "asset/6.png"
-    ],
+  "screenshots": [
+    "asset/home.png",
+    "asset/1.png",
+    "asset/2.png",
+    "asset/3.png",
+    "asset/4.png",
+    "asset/5.png",
+    "asset/6.png"
+  ],
   "banner": "asset/banner.png",
   "order": 4
 }
