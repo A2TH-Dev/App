@@ -181,7 +181,7 @@
     "App lock with brute-force protection",
     "Scheduled widgets & auto-cleanup"
   ],
-  "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.nitropurge",
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2thdev.nitropurge.free",
   "privacy": {
     "dataCollectedIntro": "Nitro Purge dibangun dengan prinsip <strong>local-first</strong>. Aplikasi ini tidak memiliki server backend, sehingga tidak ada file, foto, kontak, atau data pemakaian yang pernah diunggah ke internet. Data berikut diakses secara lokal di perangkat kamu untuk menjalankan fitur yang kamu pilih:",
     "dataCollectedList": [
