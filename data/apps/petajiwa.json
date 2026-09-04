@@ -8,12 +8,42 @@
   "description_en": "Peta Jiwa is a complete self-analysis toolkit: natal chart & Human Design from your birth date, time, and location, a 5-trait personality test, face & fingerprint analysis, compatibility checks between two people, a daily journal with mood tracker, and Pomodoro focus sessions with calming melodies — all stored locally on your phone, no internet connection required.",
   "category": "Gaya Hidup",
   "category_en": "Lifestyle",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "minAndroid": "8.0 (Oreo) test",
   "sizeMb": 8,
   "repo": "A2TH-Dev/petajiwa",
-  "releaseTag": "v1.0.0",
-  "apkFile": "PetaJiwa-v1.0.0.apk",
+  "releaseTag": "v1.0.2",
+  "apkFile": "PetaJiwa-v1.0.2.apk",
+  "changelog": [
+    {
+      "version": "1.0.2",
+      "date": "2026-09-04",
+      "category": "Perbaikan Bahasa & Tampilan",
+      "notes": [
+        "🌐 Perbaiki tombol ganti bahasa (EN/ID) yang sebelumnya tidak berfungsi sama sekali",
+        "🎨 Perbaiki judul aplikasi & tombol bahasa yang tumpang tindih dengan status bar (jam, baterai, sinyal)",
+        "✨ Perbaiki logo splash screen yang terpotong saat aplikasi dibuka, kini dengan animasi transisi yang lebih halus",
+        "🧹 Hapus garis kecil yang tidak perlu di bawah judul \"Peta Jiwa\"",
+        "🌐 Perbaiki judul Afirmasi Harian yang belum sepenuhnya berubah ke Bahasa Inggris saat mode EN aktif",
+        "🔊 Tingkatkan kualitas suara fitur \"Dengarkan\" (Text-to-Speech) - kini otomatis memilih suara terbaik & bahasa yang sesuai di kedua mode bahasa"
+      ]
+    }
+  ],
+  "changelog_en": [
+    {
+      "version": "1.0.2",
+      "date": "2026-09-04",
+      "category": "Language & UI Fixes",
+      "notes": [
+        "🌐 Fixed the EN/ID language toggle button that previously didn't work at all",
+        "🎨 Fixed the app title & language button overlapping the status bar (clock, battery, signal icons)",
+        "✨ Fixed the splash screen logo being cropped on launch, now with a smoother exit animation",
+        "🧹 Removed an unnecessary small line under the \"Peta Jiwa\" title",
+        "🌐 Fixed the Daily Affirmation title not fully switching to English in EN mode",
+        "🔊 Improved \"Listen\" (text-to-speech) voice quality - now automatically picks the best available voice and matches the active language in both modes"
+      ]
+    }
+  ],
   "accent": "#8B6FD9",
   "features": [
     "Natal chart, Human Design & analisis kepribadian 5 sifat",
