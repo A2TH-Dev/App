@@ -255,17 +255,16 @@
   },
   "icon": "asset/icon.png",
   "screenshots": [
-    "asset/home.png",
-    "asset/junk_cleaner.png",
-    "asset/file_besar.png",
-    "asset/file_duplikat.png",
-    "asset/kompress_poto.png",
-    "asset/video_besar_&_duplikat.png",
-    "asset/storage_analyzer.png",
-    "asset/turbo_monitor.png",
-    "asset/media_chat_app.png",
-    "asset/rapikan_downloads.png",
-    "asset/backup_apk.png"
+    "asset/1.png",
+    "asset/2.png",
+    "asset/3.png",
+    "asset/4.png",
+    "asset/5.png",
+    "asset/6.png",
+    "asset/7.png",
+    "asset/8.png",
+    "asset/9.png",
+    "asset/10.png"
   ],
   "banner": "asset/banner.png",
   "order": 1
