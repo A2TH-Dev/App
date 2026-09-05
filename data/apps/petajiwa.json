@@ -95,16 +95,13 @@
   "icon": "asset/icon.png",
   "screenshots": [
     "asset/1.png",
-    "asset/2.jpg",
-    "asset/3.jpg",
-    "asset/4.jpg",
-    "asset/5.jpg",
-    "asset/6.jpg",
-    "asset/7.jpg",
-    "asset/8.jpg",
-    "asset/9.jpg",
-    "asset/10.jpg",
-    "asset/11.jpg"
+    "asset/2.png",
+    "asset/3.png",
+    "asset/4.png",
+    "asset/5.png",
+    "asset/6.png",
+    "asset/7.png",
+    "asset/8.png"
   ],
   "banner": "asset/banner.png",
   "order": 3
