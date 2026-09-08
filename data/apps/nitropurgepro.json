@@ -8,13 +8,26 @@
   "description_en": "Nitro Purge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 13,
   "repo": "A2TH-Dev/nitropurgepro",
-  "releaseTag": "v1.0.6",
-  "apkFile": "Nitro-Purge_Pro_v1.0.6.apk",
+  "releaseTag": "v1.0.7",
+  "apkFile": "Nitro-Purge_Pro_v1.0.7.apk",
   "changelog": [
+    {
+      "version": "1.0.7",
+      "date": "2026-09-08",
+      "category": "Fitur Baru & Perbaikan",
+      "notes": [
+        "🔄 Fitur baru: NitroPurge sekarang otomatis mengecek pembaruan lewat Google Play dan menampilkan prompt update begitu versi baru tersedia (khusus instalasi dari Play Store)",
+        "🔐 Fitur baru: Bersihkan Clipboard - tombol pembersih clipboard manual baru di halaman Pengaturan",
+        "🖼️ File Explorer di Storage Analyzer sekarang menampilkan thumbnail foto/video untuk setiap folder yang dibuka",
+        "🔋 Perbaiki App Lock boros baterai - pengecekan keyboard aktif yang sebelumnya memanggil sistem berulang kali per detik saat scroll/animasi di app manapun, sekarang di-cache dan hanya diperbarui saat keyboard benar-benar diganti",
+        "⚡ Percepat pemuatan thumbnail folder di Storage Analyzer - proses yang sebelumnya berjalan satu per satu sekarang berjalan paralel",
+        "🛡️ Hardening: hapus kode debug/testing tersisa dan log verbose dari layanan Accessibility App Lock sebelum rilis"
+      ]
+    },
     {
       "version": "1.0.6",
       "date": "2026-09-04",
@@ -90,6 +103,19 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.0.7",
+      "date": "2026-09-08",
+      "category": "New Features & Fixes",
+      "notes": [
+        "🔄 New feature: NitroPurge now automatically checks for updates via Google Play and shows an update prompt when a new version is available (Play Store installs only)",
+        "🔐 New feature: Clear Clipboard - a new manual clipboard-clearing button on the Settings page",
+        "🖼️ The Storage Analyzer file explorer now shows photo/video thumbnails for each folder you open",
+        "🔋 Fixed App Lock battery drain - the active-keyboard check used to hit the system repeatedly per second during scrolling/animation in any app; it's now cached and only refreshed when the keyboard actually changes",
+        "⚡ Sped up folder thumbnail loading in Storage Analyzer - what used to load one at a time now loads in parallel",
+        "🛡️ Hardening: removed leftover debug/testing code and verbose logging from the App Lock accessibility service before release"
+      ]
+    },
     {
       "version": "1.0.6",
       "date": "2026-09-04",
