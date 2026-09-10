@@ -89,6 +89,10 @@
       }
     ],
     "permissionsNote": "Aplikasi tidak memiliki server backend, sehingga tidak ada risiko kebocoran data dari sisi kami. Seluruh data pribadi (nama, tanggal lahir, foto, jurnal) tetap berada di perangkat kamu dan dilindungi oleh mekanisme keamanan sistem operasi Android. Aplikasi ini tidak ditujukan untuk anak-anak di bawah 13 tahun dan tidak dirancang untuk menargetkan audiens anak.",
+    "dataDeletionIntro": "Peta Jiwa tidak memiliki server backend, sehingga tidak ada data pribadi (nama, tanggal lahir, foto, jurnal) yang tersimpan di luar perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk jurnal pribadi dan riwayat analisis) adalah dengan meng-uninstall aplikasi dari perangkatmu.",
+    "dataDeletionList": [
+      "Untuk mereset Advertising ID yang dipakai AdMob (lihat bagian 03), buka Setelan Android → Google → Iklan → Setel Ulang ID Iklan."
+    ],
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
   },

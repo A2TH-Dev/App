@@ -43,11 +43,24 @@
       "Menampilkan iklan lewat layanan Start.io (StartApp). Penyedia iklan pihak ketiga ini bisa mengumpulkan data seperti identifier perangkat, informasi teknis perangkat, perkiraan lokasi, dan data interaksi iklan untuk keperluan personalisasi & pengukuran iklan, sesuai kebijakan privasi mereka sendiri. Detail lengkap: <a class=\"text-primary hover:underline\" href=\"https://www.start.io/policy/policy-latest/\">start.io/policy</a>."
     ],
     "permissions": [
-      { "name": "Kamera", "use": "Memindai QR code secara langsung" },
-      { "name": "Penyimpanan (maks. Android 9)", "use": "Menyimpan QR code hasil generate ke galeri" },
-      { "name": "Internet, Akses Status Jaringan, Akses Status WiFi", "use": "Diperlukan SDK iklan Start.io untuk memuat iklan" }
+      {
+        "name": "Kamera",
+        "use": "Memindai QR code secara langsung"
+      },
+      {
+        "name": "Penyimpanan (maks. Android 9)",
+        "use": "Menyimpan QR code hasil generate ke galeri"
+      },
+      {
+        "name": "Internet, Akses Status Jaringan, Akses Status WiFi",
+        "use": "Diperlukan SDK iklan Start.io untuk memuat iklan"
+      }
     ],
     "permissionsNote": "Aplikasi ini pakai Start.io (StartApp), bukan Google AdMob, sebagai penyedia iklan — kebijakan privasi & data yang dikumpulkan mengikuti Start.io, bukan Google.",
+    "dataDeletionIntro": "QR Scanner Pro tidak memiliki server backend, sehingga tidak ada data yang tersimpan di luar perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk riwayat scan/generate) adalah dengan meng-uninstall aplikasi dari perangkatmu.",
+    "dataDeletionList": [
+      "Iklan di aplikasi ini disediakan Start.io, bukan Google AdMob - untuk opsi penghapusan data/opt-out dari sisi mereka, kunjungi <a class=\"text-primary hover:underline\" href=\"https://www.start.io/policy/policy-latest/\">start.io/policy</a>."
+    ],
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
   },

@@ -22,7 +22,7 @@
 <meta name="twitter:title" content="APK Bench — An independent Android app catalog, built for speed and privacy — distributed directly via GitHub Releases."/>
 <meta name="twitter:description" content="An independent Android app catalog, built for speed and privacy — distributed directly via GitHub Releases."/>
 <meta name="twitter:image" content="https://a2th-dev.github.io/App/favicon.svg"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://a2th-dev.github.io/App/en/nitropurge/","name":"Nitro Purge"},{"@type":"ListItem","position":2,"url":"https://a2th-dev.github.io/App/en/nitropurgepro/","name":"Nitro Purge Pro"},{"@type":"ListItem","position":3,"url":"https://a2th-dev.github.io/App/en/petajiwa/","name":"Peta Jiwa"},{"@type":"ListItem","position":4,"url":"https://a2th-dev.github.io/App/en/catat-yuk/","name":"Catat Yuk"},{"@type":"ListItem","position":5,"url":"https://a2th-dev.github.io/App/en/qr-scanner-pro/","name":"QR Scanner Pro"},{"@type":"ListItem","position":6,"url":"https://a2th-dev.github.io/App/en/app6/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":7,"url":"https://a2th-dev.github.io/App/en/app7/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":8,"url":"https://a2th-dev.github.io/App/en/app8/","name":"GANTI_NAMA_APP"},{"@type":"ListItem","position":9,"url":"https://a2th-dev.github.io/App/en/app9/","name":"GANTI_NAMA_APP"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://a2th-dev.github.io/App/en/nitropurge/","name":"Nitro Purge"},{"@type":"ListItem","position":2,"url":"https://a2th-dev.github.io/App/en/nitropurgepro/","name":"Nitro Purge Pro"},{"@type":"ListItem","position":3,"url":"https://a2th-dev.github.io/App/en/petajiwa/","name":"Peta Jiwa"},{"@type":"ListItem","position":4,"url":"https://a2th-dev.github.io/App/en/catat-yuk/","name":"Catat Yuk"},{"@type":"ListItem","position":5,"url":"https://a2th-dev.github.io/App/en/qr-scanner-pro/","name":"QR Scanner Pro"}]}</script>
 <style>
   @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}}
   ::-webkit-scrollbar{display:none;}
@@ -69,7 +69,7 @@
       <a href="../" aria-label="Switch to Indonesian" class="hidden sm:flex w-9 h-9 items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold border border-outline/40">ID</a>
       <div class="hidden lg:flex bg-primary/10 border border-primary/20 px-unit-sm py-unit-xs rounded-full items-center gap-unit-xs">
         <span class="material-symbols-outlined text-primary text-[16px]">inventory_2</span>
-        <span class="font-label-sm text-label-sm text-primary">9 Apps</span>
+        <span class="font-label-sm text-label-sm text-primary">5 Apps</span>
       </div>
       <button id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
         <span class="material-symbols-outlined" id="menu-toggle-icon">menu</span>
@@ -114,7 +114,7 @@
   }
 
   var ROOT_PATH = './';
-  var APPS_INDEX = [{"name":"Nitro Purge","slug":"nitropurge","category":"Utilities & Optimization","accent":"#3DDC97"},{"name":"Nitro Purge Pro","slug":"nitropurgepro","category":"Utilities & Optimization","accent":"#3DDC97"},{"name":"Peta Jiwa","slug":"petajiwa","category":"Lifestyle","accent":"#8B6FD9"},{"name":"Catat Yuk","slug":"catat-yuk","category":"Finance","accent":"#4A2E8F"},{"name":"QR Scanner Pro","slug":"qr-scanner-pro","category":"Utilities & Productivity","accent":"#0D9488"},{"name":"GANTI_NAMA_APP","slug":"app6","category":"Kategori","accent":"#FF6B6B"},{"name":"GANTI_NAMA_APP","slug":"app7","category":"Kategori","accent":"#3DDC97"},{"name":"GANTI_NAMA_APP","slug":"app8","category":"Kategori","accent":"#D97757"},{"name":"GANTI_NAMA_APP","slug":"app9","category":"Kategori","accent":"#C9A227"}];
+  var APPS_INDEX = [{"name":"Nitro Purge","slug":"nitropurge","category":"Utilities & Optimization","accent":"#3DDC97"},{"name":"Nitro Purge Pro","slug":"nitropurgepro","category":"Utilities & Optimization","accent":"#3DDC97"},{"name":"Peta Jiwa","slug":"petajiwa","category":"Lifestyle","accent":"#8B6FD9"},{"name":"Catat Yuk","slug":"catat-yuk","category":"Finance","accent":"#4A2E8F"},{"name":"QR Scanner Pro","slug":"qr-scanner-pro","category":"Utilities & Productivity","accent":"#0D9488"}];
   var NO_RESULTS_TEXT = 'No results.';
 
   function renderResults(query, container) {
@@ -194,14 +194,13 @@
             <select id="app-category" aria-label="Category" class="bg-surface-container-low border border-outline/40 rounded-lg px-unit-sm py-unit-sm text-body-sm font-body-sm text-on-surface focus:outline-none focus:border-primary transition-colors">
               <option value="">All Categories</option>
               <option value="Finance">Finance</option>
-        <option value="Kategori">Kategori</option>
         <option value="Lifestyle">Lifestyle</option>
         <option value="Utilities &amp; Optimization">Utilities &amp; Optimization</option>
         <option value="Utilities &amp; Productivity">Utilities &amp; Productivity</option>
             </select>
           </div>
         </div>
-        <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter" id="app-grid" data-app-total="9">
+        <div class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter" id="app-grid" data-app-total="5">
           <a href="nitropurge/" data-name="nitro purge" data-category="Utilities &amp; Optimization" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #3DDC97">
         <div class="flex justify-between items-start mb-unit-lg">
           <img src="../nitropurge/asset/icon.webp" alt="Nitro Purge icon" width="64" height="64" loading="lazy" class="w-16 h-16 rounded-xl object-cover shadow-2xl" />
@@ -260,54 +259,6 @@
         <div class="mt-unit-xl flex items-center justify-between">
           <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:#0D94881a;color:#0D9488">Utilities & Productivity</span>
           <span class="font-body-sm text-body-sm text-on-surface-variant">15 MB</span>
-        </div>
-      </a>
-      <a href="app6/" data-name="ganti_nama_app" data-category="Kategori" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #FF6B6B">
-        <div class="flex justify-between items-start mb-unit-lg">
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:#FF6B6B22;color:#FF6B6B">GA</div>
-          <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v1.0.0</span>
-        </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">GANTI_NAMA_APP</h3>
-        <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">Ganti dengan tagline singkat satu baris.</p>
-        <div class="mt-unit-xl flex items-center justify-between">
-          <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:#FF6B6B1a;color:#FF6B6B">Kategori</span>
-          <span class="font-body-sm text-body-sm text-on-surface-variant">10 MB</span>
-        </div>
-      </a>
-      <a href="app7/" data-name="ganti_nama_app" data-category="Kategori" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #3DDC97">
-        <div class="flex justify-between items-start mb-unit-lg">
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:#3DDC9722;color:#3DDC97">GA</div>
-          <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v1.0.0</span>
-        </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">GANTI_NAMA_APP</h3>
-        <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">Ganti dengan tagline singkat satu baris.</p>
-        <div class="mt-unit-xl flex items-center justify-between">
-          <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:#3DDC971a;color:#3DDC97">Kategori</span>
-          <span class="font-body-sm text-body-sm text-on-surface-variant">10 MB</span>
-        </div>
-      </a>
-      <a href="app8/" data-name="ganti_nama_app" data-category="Kategori" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #D97757">
-        <div class="flex justify-between items-start mb-unit-lg">
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:#D9775722;color:#D97757">GA</div>
-          <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v1.0.0</span>
-        </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">GANTI_NAMA_APP</h3>
-        <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">Ganti dengan tagline singkat satu baris.</p>
-        <div class="mt-unit-xl flex items-center justify-between">
-          <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:#D977571a;color:#D97757">Kategori</span>
-          <span class="font-body-sm text-body-sm text-on-surface-variant">10 MB</span>
-        </div>
-      </a>
-      <a href="app9/" data-name="ganti_nama_app" data-category="Kategori" class="group relative bg-surface-container-low p-unit-lg rounded-xl transition-all duration-300 hover:bg-surface-container hover:shadow-2xl hover:shadow-primary/5 hover:-translate-y-1 block" style="border-top:2px solid #C9A227">
-        <div class="flex justify-between items-start mb-unit-lg">
-          <div class="w-16 h-16 rounded-2xl flex items-center justify-center text-lg font-bold" style="background:#C9A22722;color:#C9A227">GA</div>
-          <span class="font-label-sm text-label-sm px-unit-sm py-unit-xs bg-surface-container-highest text-on-surface-variant rounded-full">v1.0.0</span>
-        </div>
-        <h3 class="font-headline-md text-headline-md text-on-surface group-hover:text-primary transition-colors">GANTI_NAMA_APP</h3>
-        <p class="font-body-sm text-body-sm text-on-surface-variant mt-unit-xs line-clamp-1">Ganti dengan tagline singkat satu baris.</p>
-        <div class="mt-unit-xl flex items-center justify-between">
-          <span class="px-unit-sm py-[2px] font-label-sm text-[10px] uppercase tracking-wider rounded" style="background:#C9A2271a;color:#C9A227">Kategori</span>
-          <span class="font-body-sm text-body-sm text-on-surface-variant">10 MB</span>
         </div>
       </a>
         </div>
@@ -398,7 +349,7 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const target = 9;
+  const target = 5;
   const display = document.getElementById('stat-apps');
   let count = 0;
   const step = Math.max(1, Math.round(target / 20));
