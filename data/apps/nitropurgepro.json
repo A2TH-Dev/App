@@ -8,13 +8,27 @@
   "description_en": "Nitro Purge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 13,
   "repo": "A2TH-Dev/nitropurgepro",
-  "releaseTag": "v1.0.7",
-  "apkFile": "Nitro-Purge_Pro_v1.0.7.apk",
+  "releaseTag": "v1.0.8",
+  "apkFile": "Nitro-Purge_Pro_v1.0.8.apk",
   "changelog": [
+    {
+      "version": "1.0.8",
+      "date": "2026-09-09",
+      "category": "Perbaikan Bug & Keamanan",
+      "notes": [
+        "🐛 Perbaiki progress bar Kompres Foto yang macet/tidak akurat - sekarang menampilkan jumlah foto selesai dengan benar dari awal sampai akhir",
+        "🔗 Merge Kontak Duplikat sekarang juga menggabungkan alamat email dari kontak yang digabung, tidak cuma nomor telepon seperti sebelumnya",
+        "💾 Perbaiki potensi Backup APK saling menimpa - dua aplikasi berbeda dengan nama & versi yang kebetulan sama sekarang tidak lagi bisa menimpa backup satu sama lain",
+        "🔐 Sertifikat Privasi sekarang menjelaskan izin Akses Semua File dan 2 izin lain dengan lebih jelas dan akurat (sebelumnya cuma tertulis \"izin standar\")",
+        "🛡️ Tingkatkan keamanan verifikasi PIN App Lock terhadap analisis waktu respons",
+        "🔒 Perbaiki potensi crash saat memindai APK yang sengaja dibuat rusak/berbahaya (bagian pembaca sertifikat tanda tangan APK)",
+        "⚙️ Perbaikan kecil konsistensi format ukuran file di seluruh halaman"
+      ]
+    },
     {
       "version": "1.0.7",
       "date": "2026-09-08",
@@ -103,6 +117,20 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.0.8",
+      "date": "2026-09-09",
+      "category": "Bug Fixes & Security",
+      "notes": [
+        "🐛 Fixed a stuck/inaccurate progress bar in Photo Compressor - it now correctly reports how many photos are done from start to finish",
+        "🔗 Merge Duplicate Contacts now also merges email addresses from the merged contacts, not just phone numbers as before",
+        "💾 Fixed a possible APK Backup overwrite issue - two different apps that happen to share the same name and version number can no longer overwrite each other's backup",
+        "🔐 The Privacy Certificate now explains the All Files Access permission and 2 other permissions more clearly and accurately (previously just labeled \"standard permission\")",
+        "🛡️ Hardened App Lock PIN verification against timing analysis",
+        "🔒 Fixed a potential crash when scanning a deliberately corrupted or malicious APK file (APK signing certificate reader)",
+        "⚙️ Minor consistency fix for file size formatting across the app"
+      ]
+    },
     {
       "version": "1.0.7",
       "date": "2026-09-08",
@@ -205,7 +233,7 @@
     "App lock with brute-force protection",
     "Scheduled widgets & auto-cleanup"
   ],
-  "playStoreUrl": "https://play.google.com/store/apps/details?id=com.username.nitropurge",
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2thdev.nitropurge.pro",
   "privacy": {
     "dataCollectedIntro": "Nitro Purge dibangun dengan prinsip <strong>local-first</strong>. Aplikasi ini tidak memiliki server backend, sehingga tidak ada file, foto, kontak, atau data pemakaian yang pernah diunggah ke internet. Data berikut diakses secara lokal di perangkat kamu untuk menjalankan fitur yang kamu pilih:",
     "dataCollectedList": [
@@ -274,6 +302,7 @@
       }
     ],
     "permissionsNote": "Edisi Pro tidak mendeklarasikan izin internet maupun Advertising ID sama sekali. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app, termasuk membersihkan cache semua app sekaligus), bukan perintah shell bebas.",
+    "dataDeletionIntro": "Nitro Purge Pro tidak memiliki server backend maupun izin internet sama sekali, sehingga tidak ada data yang pernah meninggalkan perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk pengaturan dan PIN App Lock) adalah dengan meng-uninstall aplikasi dari perangkatmu.",
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
   },
