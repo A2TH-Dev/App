@@ -167,7 +167,7 @@
           <div class="flex items-center gap-unit-md text-on-surface-variant/60">
             <span class="font-label-sm text-label-sm uppercase tracking-tighter">QR Scanner Pro</span>
             <span class="w-1 h-1 rounded-full bg-outline"></span>
-            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-09-10</span>
+            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-09-12</span>
           </div>
         </header>
 
@@ -192,19 +192,22 @@
             <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
               <li>Akses Kamera — dipakai hanya untuk memindai QR code secara langsung. Gambar dari kamera diproses di perangkat (on-device) dan tidak disimpan atau diunggah ke mana pun</li>
               <li>Riwayat Pindai/Buat QR — konten yang kamu pindai atau buat (teks/URL) disimpan secara lokal di perangkat memakai database internal aplikasi, tidak pernah dikirim ke server pengembang. Bisa dihapus kapan saja lewat menu "Hapus Semua" di halaman Riwayat</li>
-              <li>Akses Galeri (opsional) — hanya saat kamu memilih gambar dari galeri untuk dipindai</li>
+              <li>Akses Galeri (opsional) — hanya saat kamu memilih gambar dari galeri untuk dipindai, atau saat menambahkan logo kustom ke QR code yang kamu buat</li>
               <li>Penyimpanan (Android 9 ke bawah) — untuk menyimpan hasil QR code yang kamu buat ke galeri foto perangkat</li>
+              <li>Pembelian Premium (opsional) — kalau kamu membeli fitur Premium (QR Berpassword, ekspor PDF, widget), transaksi pembayaran diproses sepenuhnya oleh Google Play Billing. Kami tidak pernah menerima atau menyimpan data kartu/metode pembayaran kamu — hanya status "sudah/belum membeli" yang disimpan lokal di perangkat</li>
+              <li>Identifier Iklan (Advertising ID) & data teknis perangkat — dikumpulkan oleh Google Mobile Ads SDK (AdMob) untuk menampilkan & mengukur iklan, lihat bagian 03</li>
             </ul>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Riwayat sengaja dikecualikan dari cloud backup otomatis Android demi privasi — tersedia ekspor/impor manual (JSON/CSV) lewat menu Riwayat kalau kamu ingin memindahkan data waktu ganti perangkat.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">02</span> Bagaimana Data Digunakan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Seluruh data pada bagian 01 diproses hanya di perangkat kamu, semata-mata untuk menjalankan fitur scan/generate yang kamu buka langsung. QR Scanner Pro tidak membangun profil pengguna dan tidak menjual data apapun.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data riwayat scan/generate pada bagian 01 diproses hanya di perangkat kamu, semata-mata untuk menjalankan fitur scan/generate yang kamu buka langsung. QR Scanner Pro tidak membangun profil pengguna dari riwayat tersebut dan tidak menjualnya. Data iklan (lihat bagian 03) dipakai oleh Google sesuai kebijakan privasi Google sendiri.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">03</span> Berbagi Data ke Pihak Ketiga</h3>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">QR Scanner Pro tidak memiliki server sendiri — riwayat pindai/generate kamu tidak pernah diunggah ke infrastruktur kami.</p>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menampilkan iklan lewat layanan Start.io (StartApp). Penyedia iklan pihak ketiga ini bisa mengumpulkan data seperti identifier perangkat, informasi teknis perangkat, perkiraan lokasi, dan data interaksi iklan untuk keperluan personalisasi & pengukuran iklan, sesuai kebijakan privasi mereka sendiri. Detail lengkap: <a class="text-primary hover:underline" href="https://www.start.io/policy/policy-latest/">start.io/policy</a>.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menampilkan iklan lewat Google Mobile Ads (Google AdMob). Google, sebagai penyedia iklan pihak ketiga, bisa mengumpulkan Advertising ID, informasi teknis perangkat, perkiraan lokasi, dan data interaksi iklan untuk keperluan personalisasi & pengukuran iklan, sesuai kebijakan privasi Google. Kamu bisa mengatur ulang pilihan consent (GDPR/UK) kapan saja lewat menu Pengaturan > Kelola Consent Iklan di dalam aplikasi. Detail lengkap: <a class="text-primary hover:underline" href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a>.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Pembelian Premium diproses oleh Google Play Billing — data pembayaran (metode bayar, kartu, dsb.) ditangani sepenuhnya oleh Google Play, tidak pernah melewati atau disimpan oleh QR Scanner Pro maupun pengembang.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">04</span> Izin Aplikasi</h3>
@@ -219,17 +222,18 @@
                 <tbody class="divide-y divide-outline-variant/10 font-body-sm text-body-sm text-on-surface-variant">
                   <tr><td class="py-unit-sm pr-unit-md">Kamera</td><td class="py-unit-sm">Memindai QR code secara langsung</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Penyimpanan (maks. Android 9)</td><td class="py-unit-sm">Menyimpan QR code hasil generate ke galeri</td></tr>
-                  <tr><td class="py-unit-sm pr-unit-md">Internet, Akses Status Jaringan, Akses Status WiFi</td><td class="py-unit-sm">Diperlukan SDK iklan Start.io untuk memuat iklan</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Internet, Akses Status Jaringan, Akses Status WiFi</td><td class="py-unit-sm">Diperlukan Google Mobile Ads SDK (AdMob) untuk memuat & menampilkan iklan</td></tr>
                 </tbody>
               </table>
             </div>
-            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Aplikasi ini pakai Start.io (StartApp), bukan Google AdMob, sebagai penyedia iklan — kebijakan privasi & data yang dikumpulkan mengikuti Start.io, bukan Google.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Aplikasi ini memakai Google Mobile Ads (AdMob) sebagai penyedia iklan, dengan Google User Messaging Platform (UMP) untuk mengelola persetujuan (consent) GDPR/UK sebelum iklan personalisasi ditampilkan — kebijakan privasi & data yang dikumpulkan mengikuti Google, bukan pihak ketiga lain.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">05</span> Cara Menghapus Data Anda</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">QR Scanner Pro tidak memiliki server backend, sehingga tidak ada data yang tersimpan di luar perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk riwayat scan/generate) adalah dengan meng-uninstall aplikasi dari perangkatmu.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">QR Scanner Pro tidak memiliki server backend, sehingga tidak ada data riwayat yang tersimpan di luar perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk riwayat scan/generate & status consent iklan) adalah dengan meng-uninstall aplikasi dari perangkatmu.</p>
             <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
-              <li>Iklan di aplikasi ini disediakan Start.io, bukan Google AdMob - untuk opsi penghapusan data/opt-out dari sisi mereka, kunjungi <a class="text-primary hover:underline" href="https://www.start.io/policy/policy-latest/">start.io/policy</a>.</li>
+              <li>Iklan di aplikasi ini disediakan Google Mobile Ads (AdMob) — untuk melihat/menghapus data iklan yang dikumpulkan Google atau menonaktifkan personalisasi iklan, kunjungi <a class="text-primary hover:underline" href="https://adssettings.google.com">adssettings.google.com</a>, atau ubah pilihan consent GDPR/UK kapan saja lewat menu Pengaturan > Kelola Consent Iklan di dalam aplikasi.</li>
+              <li>Riwayat pembelian Premium dikelola lewat akun Google Play kamu sendiri (Play Store > Menu > Pembayaran & langganan).</li>
             </ul>
             <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Kontak: <strong>Tri Nofri Andi (A2TH-Dev)</strong> — <a class="text-primary hover:underline" href="mailto:a2thdev@gmail.com">a2thdev@gmail.com</a></p>
           </section>
