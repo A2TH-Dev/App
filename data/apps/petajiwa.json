@@ -8,15 +8,32 @@
   "description_en": "Peta Jiwa is a complete self-analysis toolkit: natal chart & Human Design from your birth date, time, and location, a 5-trait personality test, face & fingerprint analysis, compatibility checks between two people, a daily journal with mood tracker, and Pomodoro focus sessions with calming melodies — all stored locally on your phone, no internet connection required.",
   "category": "Gaya Hidup",
   "category_en": "Lifestyle",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 8,
   "repo": "A2TH-Dev/petajiwa",
-  "releaseTag": "v1.0.4",
-  "apkFile": "PetaJiwa-v1.0.4.apk",
+  "releaseTag": "v1.0.5",
+  "apkFile": "PetaJiwa-v1.0.5.apk",
   "changelog": [
     {
+      "version": "1.0.5",
+      "date": "2026-09-15",
+      "category": "Perbaikan Lanjutan Crash Notifikasi",
+      "notes": [
+        "🐛 Tutup celah crash saat notifikasi ditekan yang sempat muncul lagi di versi sebelumnya, kali ini dengan jaring pengaman lebih menyeluruh"
+      ]
+    },
+    {
       "version": "1.0.4",
+      "date": "2026-09-15",
+      "category": "Perbaikan Stabilitas Startup & Crash Monitoring",
+      "notes": [
+        "🐛 Perbaiki crash saat aplikasi pertama kali dijalankan (gagal inisialisasi komponen penjadwal internal)",
+        "📊 Tambah sistem pemantauan crash (Firebase Crashlytics) untuk membantu mendeteksi & memperbaiki bug lebih cepat ke depannya"
+      ]
+    },
+    {
+      "version": "1.0.3",
       "date": "2026-09-14",
       "category": "Perbaikan Stabilitas & Kualitas Aplikasi",
       "notes": [
@@ -44,7 +61,24 @@
   ],
   "changelog_en": [
     {
+      "version": "1.0.5",
+      "date": "2026-09-15",
+      "category": "Further Notification Crash Fix",
+      "notes": [
+        "🐛 Closed a remaining crash gap when tapping a notification that resurfaced in the previous version, this time with more thorough safeguards"
+      ]
+    },
+    {
       "version": "1.0.4",
+      "date": "2026-09-15",
+      "category": "Startup Stability & Crash Monitoring",
+      "notes": [
+        "🐛 Fixed a crash on first app launch (internal scheduler component failed to initialize)",
+        "📊 Added crash monitoring (Firebase Crashlytics) to help detect and fix bugs faster going forward"
+      ]
+    },
+    {
+      "version": "1.0.3",
       "date": "2026-09-14",
       "category": "Stability & Quality Improvements",
       "notes": [
@@ -91,13 +125,17 @@
       "Nama dan tanggal lahir — untuk fitur analisis numerologi/astrologi, disimpan hanya secara lokal di perangkat",
       "Foto wajah (opsional) — untuk fitur analisis tertentu, disimpan hanya secara lokal di perangkat",
       "Catatan/entri jurnal pribadi — disimpan hanya secara lokal di perangkat",
-      "Advertising ID — dipakai oleh Google AdMob untuk menampilkan iklan (interstitial & rewarded video) serta personalisasi dan pengukuran performa iklan"
+      "Advertising ID — dipakai oleh Google AdMob untuk menampilkan iklan (interstitial & rewarded video) serta personalisasi dan pengukuran performa iklan",
+      "Data diagnostik, laporan crash & performa aplikasi (log error, jenis perangkat, versi Android, versi aplikasi, waktu loading aplikasi) — dikirim ke Firebase Crashlytics & Firebase Performance Monitoring (Google) untuk membantu kami menemukan bug dan mempercepat performa aplikasi; tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu",
+      "Data penggunaan aplikasi (statistik jumlah pengguna, fitur yang dibuka, jenis perangkat) — dikumpulkan lewat Firebase Analytics (Google) untuk memahami cara aplikasi dipakai secara umum; tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu"
     ],
     "dataCollectedNote": "Kami tidak mengoperasikan server backend untuk aplikasi ini. Nama, tanggal lahir, foto, dan jurnal hanya tersimpan di penyimpanan internal perangkat kamu. Jika aplikasi dihapus atau data aplikasi dibersihkan, data ini hilang secara permanen dan tidak dapat kami pulihkan.",
-    "dataUsage": "Data pada bagian 01 digunakan semata-mata untuk menjalankan fitur inti aplikasi (perhitungan natal chart, analisis numerologi/astrologi, jurnal pribadi), menampilkan iklan melalui AdMob, dan meningkatkan stabilitas serta pengalaman pengguna. Kami <strong>tidak menggunakan data pribadi</strong> (nama, tanggal lahir, foto, jurnal) untuk tujuan apapun di luar aplikasi, karena data tersebut tidak pernah meninggalkan perangkat kamu.",
+    "dataUsage": "Data pada bagian 01 digunakan semata-mata untuk menjalankan fitur inti aplikasi (perhitungan natal chart, analisis numerologi/astrologi, jurnal pribadi), menampilkan iklan melalui AdMob, mendeteksi & memperbaiki bug lewat Firebase Crashlytics, memantau & mempercepat performa aplikasi lewat Firebase Performance Monitoring, memahami pola penggunaan aplikasi secara umum lewat Firebase Analytics, dan meningkatkan stabilitas serta pengalaman pengguna. Kami <strong>tidak menggunakan data pribadi</strong> (nama, tanggal lahir, foto, jurnal) untuk tujuan apapun di luar aplikasi, karena data tersebut tidak pernah meninggalkan perangkat kamu.",
     "dataSharing": [
       "Kami tidak menjual, menyewakan, atau membagikan data pribadi kepada pihak ketiga di luar keperluan menampilkan iklan.",
       "Aplikasi menggunakan <strong>Google AdMob</strong> dan <strong>Google User Messaging Platform (UMP)</strong> untuk menampilkan iklan dan mengelola persetujuan iklan, termasuk untuk pengguna di wilayah EEA/UK (GDPR/UK). Lewat SDK ini, Advertising ID dapat dikumpulkan oleh Google untuk keperluan personalisasi dan pengukuran performa iklan, tunduk pada <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
+      "Aplikasi menggunakan <strong>Firebase Crashlytics</strong> dan <strong>Firebase Performance Monitoring</strong> (Google) untuk memantau laporan crash & performa aplikasi (termasuk waktu loading). Data yang dikirim berupa log error teknis dan info perangkat (model, versi Android, versi aplikasi) — <strong>tidak pernah</strong> berisi nama, tanggal lahir, foto, atau isi jurnal kamu, tunduk pada <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
+      "Aplikasi menggunakan <strong>Firebase Analytics</strong> (Google) untuk memahami statistik penggunaan aplikasi secara umum (jumlah pengguna, fitur yang dibuka). Untuk pengguna di wilayah EEA/UK, pengumpulan ini mengikuti pilihan consent yang sama dengan yang diatur lewat UMP (lihat di atas) — kalau consent tidak diberikan, data ini tidak dikumpulkan.",
       "Data lokasi, nama, tanggal lahir, foto wajah, dan jurnal tidak pernah dikirim, diunggah, atau disimpan di server kami maupun pihak ketiga manapun."
     ],
     "permissions": [

@@ -167,7 +167,7 @@
           <div class="flex items-center gap-unit-md text-on-surface-variant/60">
             <span class="font-label-sm text-label-sm uppercase tracking-tighter">Peta Jiwa</span>
             <span class="w-1 h-1 rounded-full bg-outline"></span>
-            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-09-14</span>
+            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-09-15</span>
           </div>
         </header>
 
@@ -195,17 +195,21 @@
               <li>Foto wajah (opsional) — untuk fitur analisis tertentu, disimpan hanya secara lokal di perangkat</li>
               <li>Catatan/entri jurnal pribadi — disimpan hanya secara lokal di perangkat</li>
               <li>Advertising ID — dipakai oleh Google AdMob untuk menampilkan iklan (interstitial & rewarded video) serta personalisasi dan pengukuran performa iklan</li>
+              <li>Data diagnostik, laporan crash & performa aplikasi (log error, jenis perangkat, versi Android, versi aplikasi, waktu loading aplikasi) — dikirim ke Firebase Crashlytics & Firebase Performance Monitoring (Google) untuk membantu kami menemukan bug dan mempercepat performa aplikasi; tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu</li>
+              <li>Data penggunaan aplikasi (statistik jumlah pengguna, fitur yang dibuka, jenis perangkat) — dikumpulkan lewat Firebase Analytics (Google) untuk memahami cara aplikasi dipakai secara umum; tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu</li>
             </ul>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Kami tidak mengoperasikan server backend untuk aplikasi ini. Nama, tanggal lahir, foto, dan jurnal hanya tersimpan di penyimpanan internal perangkat kamu. Jika aplikasi dihapus atau data aplikasi dibersihkan, data ini hilang secara permanen dan tidak dapat kami pulihkan.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">02</span> Bagaimana Data Digunakan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data pada bagian 01 digunakan semata-mata untuk menjalankan fitur inti aplikasi (perhitungan natal chart, analisis numerologi/astrologi, jurnal pribadi), menampilkan iklan melalui AdMob, dan meningkatkan stabilitas serta pengalaman pengguna. Kami <strong>tidak menggunakan data pribadi</strong> (nama, tanggal lahir, foto, jurnal) untuk tujuan apapun di luar aplikasi, karena data tersebut tidak pernah meninggalkan perangkat kamu.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data pada bagian 01 digunakan semata-mata untuk menjalankan fitur inti aplikasi (perhitungan natal chart, analisis numerologi/astrologi, jurnal pribadi), menampilkan iklan melalui AdMob, mendeteksi & memperbaiki bug lewat Firebase Crashlytics, memantau & mempercepat performa aplikasi lewat Firebase Performance Monitoring, memahami pola penggunaan aplikasi secara umum lewat Firebase Analytics, dan meningkatkan stabilitas serta pengalaman pengguna. Kami <strong>tidak menggunakan data pribadi</strong> (nama, tanggal lahir, foto, jurnal) untuk tujuan apapun di luar aplikasi, karena data tersebut tidak pernah meninggalkan perangkat kamu.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">03</span> Berbagi Data ke Pihak Ketiga</h3>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Kami tidak menjual, menyewakan, atau membagikan data pribadi kepada pihak ketiga di luar keperluan menampilkan iklan.</p>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Aplikasi menggunakan <strong>Google AdMob</strong> dan <strong>Google User Messaging Platform (UMP)</strong> untuk menampilkan iklan dan mengelola persetujuan iklan, termasuk untuk pengguna di wilayah EEA/UK (GDPR/UK). Lewat SDK ini, Advertising ID dapat dikumpulkan oleh Google untuk keperluan personalisasi dan pengukuran performa iklan, tunduk pada <a class="text-primary hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Aplikasi menggunakan <strong>Firebase Crashlytics</strong> dan <strong>Firebase Performance Monitoring</strong> (Google) untuk memantau laporan crash & performa aplikasi (termasuk waktu loading). Data yang dikirim berupa log error teknis dan info perangkat (model, versi Android, versi aplikasi) — <strong>tidak pernah</strong> berisi nama, tanggal lahir, foto, atau isi jurnal kamu, tunduk pada <a class="text-primary hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Aplikasi menggunakan <strong>Firebase Analytics</strong> (Google) untuk memahami statistik penggunaan aplikasi secara umum (jumlah pengguna, fitur yang dibuka). Untuk pengguna di wilayah EEA/UK, pengumpulan ini mengikuti pilihan consent yang sama dengan yang diatur lewat UMP (lihat di atas) — kalau consent tidak diberikan, data ini tidak dikumpulkan.</p>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data lokasi, nama, tanggal lahir, foto wajah, dan jurnal tidak pernah dikirim, diunggah, atau disimpan di server kami maupun pihak ketiga manapun.</p>
           </section>
           <section>
