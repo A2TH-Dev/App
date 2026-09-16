@@ -8,13 +8,22 @@
   "description_en": "Peta Jiwa is a complete self-analysis toolkit: natal chart & Human Design from your birth date, time, and location, a 5-trait personality test, face & fingerprint analysis, compatibility checks between two people, a daily journal with mood tracker, and Pomodoro focus sessions with calming melodies — all stored locally on your phone, no internet connection required.",
   "category": "Gaya Hidup",
   "category_en": "Lifestyle",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 8,
   "repo": "A2TH-Dev/petajiwa",
-  "releaseTag": "v1.0.5",
-  "apkFile": "PetaJiwa-v1.0.5.apk",
+  "releaseTag": "v1.0.6",
+  "apkFile": "PetaJiwa-v1.0.6.apk",
   "changelog": [
+    {
+      "version": "1.0.6",
+      "date": "2026-09-16",
+      "category": "Perbaikan Kecil & Stabilitas",
+      "notes": [
+        "🐛 Perbaiki crash yang kadang muncul terkait tampilan iklan pada beberapa perangkat",
+        "🎨 Perbaiki jarak antara tombol bahasa (EN/ID) dan menu tab di bawahnya agar tidak terlalu rapat"
+      ]
+    },
     {
       "version": "1.0.5",
       "date": "2026-09-15",
@@ -60,6 +69,15 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.0.6",
+      "date": "2026-09-16",
+      "category": "Minor Fixes & Stability",
+      "notes": [
+        "🐛 Fixed a crash that occasionally occurred related to ad display on some devices",
+        "🎨 Fixed spacing between the language toggle button (EN/ID) and the tab menu below it"
+      ]
+    },
     {
       "version": "1.0.5",
       "date": "2026-09-15",
