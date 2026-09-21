@@ -8,13 +8,36 @@
   "description_en": "Catat Yuk automatically detects transactions the moment a notification arrives from your bank or e-wallet app, with auto-categorization that gets smarter from your manual corrections. You can also log entries by voice or by scanning a receipt (OCR). Includes per-category budgets, savings goals, debt/receivable tracking, a loan calculator, and a Wrapped-style yearly summary — everything stored locally on your phone, no server involved.",
   "category": "Keuangan",
   "category_en": "Finance",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 20,
   "repo": "A2TH-Dev/catatyuk",
-  "releaseTag": "v1.0.2",
-  "apkFile": "Catat-Yuk_v1.0.2.apk",
+  "releaseTag": "v1.0.4",
+  "apkFile": "Catat-Yuk_v1.0.4.apk",
   "changelog": [
+    {
+      "version": "1.0.4",
+      "date": "2026-09-21",
+      "category": "Perbaikan & Penyempurnaan",
+      "notes": [
+        "👋 Tutorial singkat 3 halaman muncul otomatis saat pertama kali buka aplikasi",
+        "👤 Nama panggilan bisa diisi sejak awal & diubah kapan saja lewat menu Pengaturan",
+        "🎨 Pilihan warna tema bertambah jadi 16 (10 warna solid + 6 gradien baru)",
+        "📌 Topbar & kartu saldo di Dashboard, Riwayat, Catat Transaksi, dan Pengaturan sekarang diam di tempat, tidak ikut scroll",
+        "➕ Tombol tambah kategori baru langsung dari form Catat Transaksi, tanpa perlu pindah layar dan kehilangan input yang sudah diisi",
+        "🎙️ Voice input sekarang otomatis mengisi kolom Catatan dari kalimat yang diucapkan (mis. \"beli kopi 20.000\" langsung terisi catatan \"beli kopi\")",
+        "🔒 Akun kini wajib dipilih saat catat transaksi, supaya jelas saldo akun mana yang berubah",
+        "💾 Backup data kini bisa disimpan langsung ke penyimpanan perangkat, tidak cuma lewat share ke aplikasi lain",
+        "💎 Export Excel & PDF resmi jadi fitur Pro sesuai rencana awal — Export CSV tetap gratis selamanya",
+        "🐛 Perbaiki kartu Total Saldo yang tidak ikut berubah warna saat ganti tema",
+        "🐛 Perbaiki tampilan yang sempat tertutup jam/baterai status bar di beberapa layar",
+        "🐛 Perbaiki Total Saldo & Uang Masuk yang tidak ter-update untuk transaksi tanpa akun terpilih",
+        "🐛 Perbaiki navigasi menu bawah yang kadang perlu ditekan dua kali atau salah pindah layar",
+        "🐛 Perbaiki layar Catat Transaksi yang sempat macet kalau iklan gagal dimuat setelah simpan",
+        "🐛 Perbaiki judul \"Riwayat\" yang sempat tidak kelihatan di sebagian perangkat",
+        "🛡️ Peningkatan stabilitas lewat sistem pemantauan crash otomatis"
+      ]
+    },
     {
       "version": "1.0.2",
       "date": "2026-09-04",
@@ -52,6 +75,29 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.0.4",
+      "date": "2026-09-21",
+      "category": "Fixes & Refinements",
+      "notes": [
+        "👋 A short 3-page tutorial now appears automatically the first time you open the app",
+        "👤 Set a nickname right from the start, or change it anytime from Settings",
+        "🎨 Theme colors expanded to 16 options (10 solid colors + 6 new gradients)",
+        "📌 The topbar and balance card on Dashboard, History, Add Transaction, and Settings now stay in place instead of scrolling away",
+        "➕ Add a new category directly from the Add Transaction form, no need to leave the screen and lose what you've filled in",
+        "🎙️ Voice input now auto-fills the Note field from what you said (e.g. \"beli kopi 20.000\" fills the note with \"beli kopi\")",
+        "🔒 Selecting an account is now required when logging a transaction, so it's always clear which account's balance changes",
+        "💾 Backups can now be saved directly to device storage, not just shared to another app",
+        "💎 Excel & PDF export are now officially Pro features as originally planned — CSV export stays free forever",
+        "🐛 Fixed the Total Balance card not changing color when switching themes",
+        "🐛 Fixed content being hidden behind the status bar clock/battery on some screens",
+        "🐛 Fixed Total Balance & Income not updating for transactions with no account assigned",
+        "🐛 Fixed bottom navigation sometimes needing a second tap or landing on the wrong screen",
+        "🐛 Fixed the Add Transaction screen occasionally freezing if an ad failed to load after saving",
+        "🐛 Fixed the \"History\" title not showing up on some devices",
+        "🛡️ Improved stability with automatic crash monitoring"
+      ]
+    },
     {
       "version": "1.0.2",
       "date": "2026-09-04",
@@ -109,7 +155,8 @@
       "Rekaman suara sementara — khusus fitur Voice Input, diproses langsung oleh speech-to-text bawaan Android, tidak direkam atau disimpan oleh Catat Yuk",
       "Kamera — khusus fitur Scan Struk Belanja, diproses on-device lewat ML Kit OCR (Google, on-device, bukan cloud) — foto struk tidak diunggah ke internet",
       "Data biometrik untuk Kunci Aplikasi ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Catat Yuk sendiri tidak pernah menyimpan data biometrik apapun",
-      "Advertising ID — dipakai Google Mobile Ads SDK untuk menampilkan iklan pada versi gratis (lihat bagian 03)"
+      "Advertising ID — dipakai Google Mobile Ads SDK untuk menampilkan iklan pada versi gratis (lihat bagian 03)",
+      "Data diagnostik teknis (crash log, performa aplikasi) — dipakai Firebase Crashlytics & Performance Monitoring untuk membantu kami menemukan & memperbaiki bug lebih cepat; tidak berisi data transaksi/keuangan kamu"
     ],
     "dataCollectedNote": "Setelah upgrade ke Pro (pembelian sekali bayar, bukan langganan), aplikasi berhenti total memuat/menampilkan iklan di semua layar. Karena Catat Yuk cuma 1 APK (bukan edisi Free/Pro terpisah), izin internet tetap terdaftar untuk keperluan verifikasi pembelian lewat Google Play Billing — bukan berarti data lain ikut dikirim ke mana pun.",
     "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk mendeteksi transaksi otomatis, menjalankan fitur yang kamu buka langsung, atau menampilkan iklan (versi gratis). Catat Yuk tidak membangun profil pengguna dari isi transaksi kamu dan tidak menjual data apapun. Notifikasi yang tidak cocok dengan pola transaksi bank/e-wallet langsung diabaikan saat itu juga.",
@@ -117,7 +164,8 @@
       "Catat Yuk tidak memiliki server sendiri — tidak ada transaksi, saldo, atau data lain yang pernah diunggah ke infrastruktur kami, karena infrastruktur itu tidak ada.",
       "Menggunakan Google Mobile Ads SDK (AdMob) dan Google User Messaging Platform (UMP) untuk menampilkan iklan pada versi gratis dan mengelola persetujuan privasi pengguna di Uni Eropa/Inggris (GDPR/UK). Lewat SDK ini, Advertising ID dikirim ke Google untuk keperluan penayangan iklan. Kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
       "Menggunakan Google Play Billing untuk memproses pembelian Pro — detail pembayaran (kartu, dll) ditangani sepenuhnya oleh Google Play, tidak pernah melewati atau tersimpan di Catat Yuk.",
-      "Backup/restore data (opsional, lewat menu Pengaturan) menghasilkan 1 file JSON yang kamu bagikan sendiri lewat share sheet Android (mis. ke Google Drive) — sepenuhnya atas kendali dan pilihan kamu, bukan otomatis dari Catat Yuk."
+      "Menggunakan Firebase Crashlytics & Performance Monitoring (Google) untuk memantau stabilitas aplikasi — data yang dikirim murni diagnostik teknis (log crash, performa), bukan data transaksi/keuangan kamu.",
+      "Backup/restore data (opsional, lewat menu Pengaturan) menghasilkan 1 file JSON yang kamu simpan langsung ke penyimpanan perangkat atau bagikan sendiri lewat share sheet Android (mis. ke Google Drive) — sepenuhnya atas kendali dan pilihan kamu, bukan otomatis dari Catat Yuk."
     ],
     "permissions": [
       {
@@ -146,7 +194,7 @@
       },
       {
         "name": "Internet & Advertising ID",
-        "use": "Menampilkan iklan AdMob (versi gratis) & verifikasi pembelian Pro lewat Google Play Billing"
+        "use": "Menampilkan iklan AdMob (versi gratis), verifikasi pembelian Pro lewat Google Play Billing, & pemantauan stabilitas lewat Firebase Crashlytics"
       }
     ],
     "permissionsNote": "<code>android:allowBackup</code> sengaja dimatikan di level sistem — supaya database transaksi dan hash PIN kunci aplikasi tidak bisa diekstrak lewat <code>adb backup</code> tanpa melewati PIN. Catat Yuk punya mekanisme backup/restore sendiri yang eksplisit dan sepenuhnya atas kendali kamu (lihat bagian 02).",

@@ -167,7 +167,7 @@
           <div class="flex items-center gap-unit-md text-on-surface-variant/60">
             <span class="font-label-sm text-label-sm uppercase tracking-tighter">Catat Yuk</span>
             <span class="w-1 h-1 rounded-full bg-outline"></span>
-            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-09-16</span>
+            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-09-21</span>
           </div>
         </header>
 
@@ -195,6 +195,7 @@
               <li>Kamera — khusus fitur Scan Struk Belanja, diproses on-device lewat ML Kit OCR (Google, on-device, bukan cloud) — foto struk tidak diunggah ke internet</li>
               <li>Data biometrik untuk Kunci Aplikasi ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Catat Yuk sendiri tidak pernah menyimpan data biometrik apapun</li>
               <li>Advertising ID — dipakai Google Mobile Ads SDK untuk menampilkan iklan pada versi gratis (lihat bagian 03)</li>
+              <li>Data diagnostik teknis (crash log, performa aplikasi) — dipakai Firebase Crashlytics & Performance Monitoring untuk membantu kami menemukan & memperbaiki bug lebih cepat; tidak berisi data transaksi/keuangan kamu</li>
             </ul>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Setelah upgrade ke Pro (pembelian sekali bayar, bukan langganan), aplikasi berhenti total memuat/menampilkan iklan di semua layar. Karena Catat Yuk cuma 1 APK (bukan edisi Free/Pro terpisah), izin internet tetap terdaftar untuk keperluan verifikasi pembelian lewat Google Play Billing — bukan berarti data lain ikut dikirim ke mana pun.</p>
           </section>
@@ -207,7 +208,8 @@
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Catat Yuk tidak memiliki server sendiri — tidak ada transaksi, saldo, atau data lain yang pernah diunggah ke infrastruktur kami, karena infrastruktur itu tidak ada.</p>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menggunakan Google Mobile Ads SDK (AdMob) dan Google User Messaging Platform (UMP) untuk menampilkan iklan pada versi gratis dan mengelola persetujuan privasi pengguna di Uni Eropa/Inggris (GDPR/UK). Lewat SDK ini, Advertising ID dikirim ke Google untuk keperluan penayangan iklan. Kebijakan privasi Google dapat dibaca di <a class="text-primary hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menggunakan Google Play Billing untuk memproses pembelian Pro — detail pembayaran (kartu, dll) ditangani sepenuhnya oleh Google Play, tidak pernah melewati atau tersimpan di Catat Yuk.</p>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Backup/restore data (opsional, lewat menu Pengaturan) menghasilkan 1 file JSON yang kamu bagikan sendiri lewat share sheet Android (mis. ke Google Drive) — sepenuhnya atas kendali dan pilihan kamu, bukan otomatis dari Catat Yuk.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menggunakan Firebase Crashlytics & Performance Monitoring (Google) untuk memantau stabilitas aplikasi — data yang dikirim murni diagnostik teknis (log crash, performa), bukan data transaksi/keuangan kamu.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Backup/restore data (opsional, lewat menu Pengaturan) menghasilkan 1 file JSON yang kamu simpan langsung ke penyimpanan perangkat atau bagikan sendiri lewat share sheet Android (mis. ke Google Drive) — sepenuhnya atas kendali dan pilihan kamu, bukan otomatis dari Catat Yuk.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">04</span> Izin Aplikasi</h3>
@@ -226,7 +228,7 @@
                   <tr><td class="py-unit-sm pr-unit-md">Biometrik</td><td class="py-unit-sm">Kunci Aplikasi via sidik jari/wajah lewat <code>BiometricPrompt</code> sistem — data biometrik tidak disimpan aplikasi</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Kirim Notifikasi (Post Notifications)</td><td class="py-unit-sm">Notifikasi peringatan budget & reminder tagihan</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Mulai Otomatis Saat Boot</td><td class="py-unit-sm">Supaya jadwal transaksi rutin & ringkasan harian via WorkManager tetap jalan setelah HP di-restart</td></tr>
-                  <tr><td class="py-unit-sm pr-unit-md">Internet & Advertising ID</td><td class="py-unit-sm">Menampilkan iklan AdMob (versi gratis) & verifikasi pembelian Pro lewat Google Play Billing</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Internet & Advertising ID</td><td class="py-unit-sm">Menampilkan iklan AdMob (versi gratis), verifikasi pembelian Pro lewat Google Play Billing, & pemantauan stabilitas lewat Firebase Crashlytics</td></tr>
                 </tbody>
               </table>
             </div>
