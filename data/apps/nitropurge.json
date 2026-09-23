@@ -318,13 +318,12 @@
       "Kontak (khusus fitur Duplicate Contacts)",
       "Notifikasi aktif (khusus fitur Notification Cleaner — isi notifikasi tidak dibaca untuk tujuan lain)",
       "Data biometrik untuk App Lock ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Nitro Purge sendiri tidak pernah menyimpan data biometrik apapun",
-      "Advertising ID / Device ID — <strong>khusus edisi Free</strong>, dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan (lihat bagian 03)"
+      "Advertising ID / Device ID, perkiraan &amp; lokasi presisi (jika izin lokasi diberikan), dan alamat IP — dipakai oleh Start.io SDK untuk menampilkan iklan selama kamu belum membeli Upgrade Pro (lihat bagian 03)"
     ],
-    "dataCollectedNote": "Edisi <strong>Pro</strong> tidak memiliki izin internet sama sekali secara teknis, sehingga tidak ada data yang bisa keluar dari perangkat dalam bentuk apapun — bisa diverifikasi lewat menu \"Sertifikat Privasi\" di dalam aplikasi. Halaman utama juga menjalankan pemindaian ringan otomatis (Storage Insights) untuk menampilkan estimasi ukuran file besar & duplikat begitu aplikasi dibuka — proses ini sepenuhnya lokal, tidak ada data yang dikirim kemanapun.",
-    "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah edisi Free, di mana Advertising ID/Device ID dipakai oleh Google Mobile Ads SDK untuk menampilkan iklan banner, interstitial, dan rewarded — dijelaskan lebih lanjut di bagian 03.",
+    "dataCollectedNote": "Setelah membeli <strong>Upgrade Pro</strong> (in-app purchase sekali beli), semua iklan dihentikan dan pengumpulan data untuk keperluan iklan di atas tidak lagi berjalan. Halaman utama juga menjalankan pemindaian ringan otomatis (Storage Insights) untuk menampilkan estimasi ukuran file besar & duplikat begitu aplikasi dibuka — proses ini sepenuhnya lokal, tidak ada data yang dikirim kemanapun.",
+    "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah data yang dipakai Start.io SDK untuk menampilkan iklan banner, interstitial, dan app-open selama kamu belum membeli Upgrade Pro — dijelaskan lebih lanjut di bagian 03.",
     "dataSharing": [
-      "<strong>Edisi Pro:</strong> tidak membagikan data apapun ke pihak manapun — aplikasi ini secara teknis tidak memiliki izin internet, sehingga tidak ada koneksi jaringan yang bisa dibuka sama sekali.",
-      "<strong>Edisi Free:</strong> menggunakan Google Mobile Ads SDK (AdMob) dan Google User Messaging Platform (UMP) untuk menampilkan iklan dan mengelola persetujuan privasi pengguna di Uni Eropa/Inggris (GDPR/UK). Lewat SDK ini, Advertising ID dan Device/other ID dikirim ke Google untuk keperluan penayangan iklan. Kamu bisa meninjau atau mencabut persetujuan ini kapan saja lewat Pengaturan → Preferensi Iklan di dalam aplikasi. Kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a> dan kebijakan mitra iklan Google di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/technologies/partner-sites\">policies.google.com/technologies/partner-sites</a>.",
+      "Nitro Purge menggunakan <strong>Start.io</strong> sebagai penyedia iklan. Lewat SDK ini, Advertising ID/Device ID, perkiraan &amp; lokasi presisi (jika izin lokasi diberikan), dan alamat IP dikirim ke Start.io serta jaringan mitra iklannya untuk keperluan penayangan dan personalisasi iklan. Kamu bisa menghentikan pengumpulan &amp; pembagian data ini kapan saja dengan membeli <strong>Upgrade Pro</strong> di dalam aplikasi (menghapus semua iklan secara permanen). Kebijakan privasi Start.io dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://www.start.io/policy/privacy-policy-ws/\">start.io/policy/privacy-policy-ws</a>.",
       "Di luar hal tersebut, tidak ada data lain (file, kontak, statistik pemakaian, dsb.) yang dibagikan ke pihak ketiga manapun oleh Nitro Purge."
     ],
     "permissions": [
@@ -373,15 +372,15 @@
         "use": "Clipboard Cleaner — hanya <em>mengosongkan</em> clipboard, tidak pernah membaca atau menyimpan isinya"
       },
       {
-        "name": "Internet & Advertising ID <span class=\"opacity-60\">(khusus edisi Free)</span>",
-        "use": "Menampilkan iklan AdMob (banner, interstitial, rewarded)"
+        "name": "Internet & Advertising ID",
+        "use": "Menampilkan iklan Start.io (banner, interstitial, app-open) — berhenti dipakai setelah Upgrade Pro dibeli"
       }
     ],
-    "permissionsNote": "Edisi Pro tidak mendeklarasikan izin internet maupun Advertising ID sama sekali. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app, termasuk membersihkan cache semua app sekaligus), bukan perintah shell bebas.",
+    "permissionsNote": "Setelah Upgrade Pro dibeli, aplikasi berhenti melakukan permintaan iklan sehingga Advertising ID/lokasi tidak lagi dikirim ke Start.io, meski izin internet & lokasi tetap tercantum di manifest aplikasi. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app, termasuk membersihkan cache semua app sekaligus), bukan perintah shell bebas.",
     "dataDeletionIntro": "Nitro Purge tidak memiliki server backend, sehingga tidak ada data yang tersimpan di luar perangkatmu untuk kami hapus. Cara paling sederhana untuk menghapus SEMUA data lokal aplikasi (termasuk pengaturan, PIN App Lock, dan cache pemindaian) adalah meng-uninstall aplikasi dari perangkatmu.",
     "dataDeletionList": [
-      "Untuk mereset Advertising ID yang dipakai edisi Free (lihat bagian 03), buka Setelan Android → Google → Iklan → Setel Ulang ID Iklan.",
-      "Untuk mencabut persetujuan iklan tanpa uninstall, buka Pengaturan → Preferensi Iklan di dalam aplikasi."
+      "Untuk mereset Advertising ID yang dipakai Start.io (lihat bagian 03), buka Setelan Android → Google → Iklan → Setel Ulang ID Iklan.",
+      "Untuk menghentikan seluruh pengumpulan &amp; pembagian data terkait iklan tanpa uninstall, beli Upgrade Pro di dalam aplikasi."
     ],
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
