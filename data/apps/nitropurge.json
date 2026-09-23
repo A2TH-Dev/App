@@ -8,13 +8,26 @@
   "description_en": "NitroPurge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 13,
   "repo": "A2TH-Dev/nitropurge",
-  "releaseTag": "v1.1.0",
-  "apkFile": "Nitro-Purge_Free_v1.1.0.apk",
+  "releaseTag": "v1.1.1",
+  "apkFile": "Nitro-Purge_Free_v1.1.1.apk",
   "changelog": [
+    {
+      "version": "1.1.1",
+      "date": "2026-09-23",
+      "category": "Upgrade Pro & Fitur Root Baru",
+      "notes": [
+        "💎 Upgrade Pro: sekali beli, hapus semua iklan (banner, interstitial, app-open) sekaligus membuka kuota unlimited untuk One-Tap Clean, Restore, dan Batch Delete - tidak perlu lagi nonton iklan untuk hapus banyak file sekaligus",
+        "🧹 Deep Clean (Root) - fitur Pro: untuk device yang sudah di-root, bersihkan cache SEMUA app lain langsung dari dalam Nitro Purge, bukan cuma cache aplikasi sendiri",
+        "🗂️ Storage Explorer (Root) - fitur Pro: telusuri dan bersihkan isi folder Android/data & Android/obb milik app lain - sumber utama kategori \"Lainnya\" di Setelan Penyimpanan Android yang selama ini tidak bisa dilihat atau dihapus lewat cara biasa",
+        "⚙️ App Manager: tombol pintas baru di tiap aplikasi untuk langsung membuka halaman Pengaturan Penyimpanan aplikasi tersebut, jadi lebih cepat membersihkan cache/data app lain walau device tidak di-root",
+        "🎨 Perbaikan ikon aplikasi dan splash screen",
+        "🐛 Berbagai perbaikan stabilitas dan peningkatan performa"
+      ]
+    },
     {
       "version": "1.1.0",
       "date": "2026-09-21",
@@ -142,6 +155,19 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.1.1",
+      "date": "2026-09-23",
+      "category": "Pro Upgrade & New Root Features",
+      "notes": [
+        "💎 Upgrade Pro: a one-time purchase that removes all ads (banner, interstitial, app-open) and unlocks unlimited quota for One-Tap Clean, Restore, and Batch Delete - no more watching ads just to delete multiple files at once",
+        "🧹 Deep Clean (Root) - Pro feature: on rooted devices, clear the cache of ALL other installed apps directly from within Nitro Purge, not just its own cache",
+        "🗂️ Storage Explorer (Root) - Pro feature: browse and clean up Android/data & Android/obb folders belonging to other apps - the main contributor to the mysterious \"Other\" category in Android's Storage settings, previously invisible and undeletable through normal means",
+        "⚙️ App Manager: a new shortcut button on every app that jumps straight to that app's Storage settings page, making it faster to clear another app's cache/data even without root",
+        "🎨 Fixed app icon and splash screen",
+        "🐛 Various stability fixes and performance improvements"
+      ]
+    },
     {
       "version": "1.1.0",
       "date": "2026-09-21",
