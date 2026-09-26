@@ -1,0 +1,118 @@
+{
+    "id": "app2",
+    "slug": "netscoutpro",
+    "name": "NetScout Pro",
+    "tagline": "Analisis & audit keamanan WiFi dalam satu aplikasi.",
+    "tagline_en": "WiFi analysis & security audit in one app.",
+    "description": "NetScout Pro memindai jaringan WiFi di sekitar, memberi skor keamanan untuk jaringan yang terhubung, mendeteksi kemungkinan jaringan tiruan (evil twin) dan access point mencurigakan, plus dilengkapi uji kecepatan, cek DNS, pemindai port router, dan peta sinyal (heatmap) — semua berbasis data yang sudah disiarkan publik oleh jaringan WiFi itu sendiri, tanpa pernah mencoba membobol atau menyadap siapa pun.",
+    "description_en": "NetScout Pro scans nearby WiFi networks, scores the security of the one you're connected to, detects possible fake (evil twin) networks and suspicious new access points, and includes a speed test, DNS check, router port scanner, and signal heatmap — all based on information WiFi networks already broadcast publicly, never by cracking or intercepting anyone's traffic.",
+    "category": "Utilitas & Jaringan",
+    "category_en": "Utilities & Networking",
+    "version": "1.0.0",
+    "minAndroid": "8.0 (Oreo)",
+    "sizeMb": 18,
+    "repo": "A2TH-Dev/netscoutpro",
+    "releaseTag": "v1.0.0",
+    "apkFile": "NetScout-Pro_v1.0.0.apk",
+    "changelog": [
+        {
+            "version": "1.0.0",
+            "date": "2026-09-23",
+            "notes": [
+                "📡 Pemindaian WiFi real-time dengan badge keamanan (Terbuka/WEP/WPA/WPA2/WPA3) untuk tiap jaringan di sekitar",
+                "🛡️ Skor Keamanan Jaringan (0-100) untuk jaringan yang sedang terhubung — deteksi enkripsi lemah, SSID/password default pabrik, dan channel width tidak wajar",
+                "🚨 Deteksi jaringan tiruan (evil twin) dan access point baru yang mencurigakan (rogue AP), lengkap notifikasi latar belakang",
+                "⚡ Uji Kecepatan (download/upload) dan Uji Latensi (ping) langsung dari dalam app",
+                "🔍 Cek DNS (deteksi indikasi router disusupi/DNS dialihkan) dan status IPv6",
+                "🔒 Pemindai port admin router sendiri (HTTP/HTTPS/Telnet/FTP/SSH/TR-069) dan checklist self-check kekuatan password WiFi",
+                "📊 Analisis kongesti channel 2.4GHz & 5GHz, plus peta sinyal (heatmap) per ruangan",
+                "📄 Ekspor laporan audit keamanan ke PDF — bisa dibagikan atau disimpan langsung ke perangkat",
+                "🌐 Tersedia dalam Bahasa Indonesia dan Inggris, mengikuti bahasa sistem atau bisa diganti manual (Android 13+)",
+                "📱 Widget layar utama untuk info sinyal jaringan yang terhubung"
+            ]
+        }
+    ],
+    "changelog_en": [
+        {
+            "version": "1.0.0",
+            "date": "2026-09-23",
+            "notes": [
+                "📡 Real-time WiFi scanning with security badges (Open/WEP/WPA/WPA2/WPA3) for every nearby network",
+                "🛡️ Network Security Score (0-100) for the connected network — detects weak encryption, factory-default SSID/password, and unusual channel width",
+                "🚨 Evil-twin (fake network) and rogue access point detection, with background notifications",
+                "⚡ Speed Test (download/upload) and Latency Test (ping) built right in",
+                "🔍 DNS Check (flags signs of a compromised router/DNS hijacking) and IPv6 status",
+                "🔒 Scans your own router's admin ports (HTTP/HTTPS/Telnet/FTP/SSH/TR-069) and a WiFi password strength self-check checklist",
+                "📊 2.4GHz & 5GHz channel congestion analysis, plus a per-room signal heatmap",
+                "📄 Export a security audit report to PDF — share it or save straight to your device",
+                "🌐 Available in Indonesian and English, following the system language or switchable manually (Android 13+)",
+                "📱 Home screen widget showing the connected network's signal info"
+            ]
+        }
+    ],
+    "accent": "#0E62EB",
+    "features": [
+        "Skor Keamanan Jaringan & deteksi evil twin/rogue AP",
+        "Speed Test, Ping, Cek DNS, dan status IPv6",
+        "Pemindai port router & self-check kekuatan password",
+        "Analisis channel 2.4GHz/5GHz & peta sinyal (heatmap)",
+        "Ekspor laporan audit ke PDF + widget layar utama"
+    ],
+    "features_en": [
+        "Network Security Score & evil-twin/rogue AP detection",
+        "Speed Test, Ping, DNS Check, and IPv6 status",
+        "Router port scanner & password strength self-check",
+        "2.4GHz/5GHz channel analysis & signal heatmap",
+        "PDF audit report export + home screen widget"
+    ],
+    "playStoreUrl": "",
+    "privacy": {
+        "dataCollectedIntro": "NetScout Pro hanya membaca informasi jaringan WiFi yang memang sudah disiarkan secara publik oleh access point di sekitar (nama jaringan, kekuatan sinyal, channel, jenis keamanan) — informasi yang sama yang bisa dilihat perangkat lain mana pun di sekitar. Aplikasi ini tidak memiliki fitur cracking, injection, atau bypass keamanan apa pun, dan tidak pernah bisa melihat password WiFi siapa pun.",
+        "dataCollectedList": [
+            "Lokasi perkiraan/tepat — diwajibkan oleh sistem Android agar hasil pemindaian WiFi bisa dibaca aplikasi mana pun (bukan untuk melacak lokasi Anda; NetScout Pro tidak mengirim data lokasi ke mana pun)",
+            "Informasi jaringan WiFi (SSID, BSSID, kekuatan sinyal, channel, jenis keamanan) — diproses sepenuhnya di perangkat untuk fitur Scanner, Audit Keamanan, dan Heatmap",
+            "Statistik penggunaan aplikasi & laporan crash (Firebase Analytics, Crashlytics, Performance Monitoring) — membantu kami menemukan bug dan memahami fitur mana yang paling berguna",
+            "Advertising ID — dipakai oleh Start.io SDK untuk menampilkan iklan banner"
+        ],
+        "dataCollectedNote": "Semua fitur analisis jaringan (Scanner, Audit Keamanan, Uji Kecepatan, Cek DNS, Pemindai Port, Heatmap) berjalan sepenuhnya lokal di perangkat kamu — tidak ada data hasil pemindaian jaringan yang dikirim ke server kami, karena kami memang tidak punya server backend sama sekali.",
+        "dataUsage": "Data lokasi dan informasi jaringan WiFi pada bagian 01 dipakai <strong>hanya di perangkat kamu</strong> untuk menjalankan fitur pemindaian dan analisis yang kamu buka secara langsung. Statistik penggunaan & laporan crash dikirim ke Firebase (Google) untuk membantu perbaikan aplikasi. Advertising ID dipakai Start.io untuk menampilkan iklan yang relevan, sesuai pilihan persetujuan yang kamu buat lewat dialog consent di dalam aplikasi.",
+        "dataSharing": [
+            "<strong>Firebase (Google):</strong> Analytics, Crashlytics, dan Performance Monitoring — kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
+            "<strong>Start.io:</strong> menampilkan iklan banner memakai Advertising ID, sesuai pilihan consent yang kamu buat (bisa diubah kapan saja lewat Setelan → Opsi Privasi Iklan). Kebijakan privasi Start.io dapat dibaca di situs resmi mereka.",
+            "Di luar dua hal tersebut, tidak ada data lain (hasil scan WiFi, lokasi, riwayat sinyal) yang dibagikan ke pihak ketiga manapun oleh NetScout Pro."
+        ],
+        "permissions": [
+            {
+                "name": "Lokasi (Perkiraan/Tepat)",
+                "use": "Diwajibkan Android agar hasil pemindaian WiFi (Scanner, Audit Keamanan, Heatmap) bisa dibaca aplikasi — bukan untuk melacak lokasi pengguna"
+            },
+            {
+                "name": "Perangkat WiFi Terdekat (Android 13+)",
+                "use": "Alternatif modern untuk izin lokasi khusus pemindaian WiFi, sesuai kebijakan Android terbaru"
+            },
+            {
+                "name": "Internet & Info Jaringan",
+                "use": "Uji Kecepatan, Cek DNS, Pemindai Port, Firebase, dan menampilkan iklan Start.io"
+            },
+            {
+                "name": "Notifikasi",
+                "use": "Peringatan Sinyal Lemah dan Rogue Access Point Alert (keduanya bisa dimatikan di Setelan)"
+            }
+        ],
+        "permissionsNote": "Semua fitur pemindaian jaringan bisa dipakai tanpa NetScout Pro pernah terhubung ke jaringan yang dipindai — aplikasi hanya membaca sinyal yang disiarkan publik, sama seperti cara kerja aplikasi WiFi analyzer manapun.",
+        "dataDeletionIntro": "NetScout Pro tidak memiliki server backend untuk menyimpan hasil pemindaian jaringan, riwayat sinyal, atau pengaturan kamu — semuanya tersimpan lokal di perangkat. Cara menghapus semua data lokal aplikasi adalah dengan meng-uninstall aplikasi dari perangkatmu. Untuk data yang dikirim ke Firebase/Start.io, ikuti tautan kebijakan privasi masing-masing di atas.",
+        "contactName": "Tri Nofri Andi (A2TH-Dev)",
+        "contactEmail": "a2thdev@gmail.com"
+    },
+    "icon": "asset/icon.png",
+    "screenshots": [
+        "asset/1.png",
+        "asset/2.png",
+        "asset/3.png",
+        "asset/4.png",
+        "asset/5.png",
+        "asset/6.png"
+    ],
+    "banner": "asset/banner.png",
+    "order": 2
+}
