@@ -8,289 +8,37 @@
   "description_en": "NitroPurge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.1.1",
+  "version": "1.1.3",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 13,
   "repo": "A2TH-Dev/nitropurge",
-  "releaseTag": "v1.1.1",
-  "apkFile": "Nitro-Purge_Free_v1.1.1.apk",
+  "releaseTag": "v1.1.3",
+  "apkFile": "Nitro-Purge_v1.1.3.apk",
   "changelog": [
     {
-      "version": "1.1.1",
-      "date": "2026-09-23",
-      "category": "Upgrade Pro & Fitur Root Baru",
+      "version": "1.1.3",
+      "date": "2026-09-26",
+      "category": "One-Tap Clean Duplikat & Dukungan AdMob",
       "notes": [
-        "💎 Upgrade Pro: sekali beli, hapus semua iklan (banner, interstitial, app-open) sekaligus membuka kuota unlimited untuk One-Tap Clean, Restore, dan Batch Delete - tidak perlu lagi nonton iklan untuk hapus banyak file sekaligus",
-        "🧹 Deep Clean (Root) - fitur Pro: untuk device yang sudah di-root, bersihkan cache SEMUA app lain langsung dari dalam Nitro Purge, bukan cuma cache aplikasi sendiri",
-        "🗂️ Storage Explorer (Root) - fitur Pro: telusuri dan bersihkan isi folder Android/data & Android/obb milik app lain - sumber utama kategori \"Lainnya\" di Setelan Penyimpanan Android yang selama ini tidak bisa dilihat atau dihapus lewat cara biasa",
-        "⚙️ App Manager: tombol pintas baru di tiap aplikasi untuk langsung membuka halaman Pengaturan Penyimpanan aplikasi tersebut, jadi lebih cepat membersihkan cache/data app lain walau device tidak di-root",
-        "🎨 Perbaikan ikon aplikasi dan splash screen",
-        "🐛 Berbagai perbaikan stabilitas dan peningkatan performa"
-      ]
-    },
-    {
-      "version": "1.1.0",
-      "date": "2026-09-21",
-      "category": "Perombakan App Lock & Perbaikan Performa",
-      "notes": [
-        "🔒 App Lock dirombak total mengikuti alur seperti aplikasi mbanking - begitu app yang dikunci ditinggalkan (ditutup, pindah app lain, buka Recents, layar dimatikan, HP di-restart), wajib masukkan PIN lagi saat kembali, tanpa pengecualian",
-        "🐛 Perbaiki App Lock yang di sebagian perangkat (Xiaomi/Oppo/Vivo dan sejenisnya) bisa berhenti berfungsi sama sekali atau layanan Aksesibilitasnya tidak muncul di daftar Pengaturan",
-        "🐛 Perbaiki App Lock yang sempat minta PIN berulang-ulang tanpa henti hanya beberapa detik setelah berhasil membuka app",
-        "🔋 App Lock sekarang meminta pengecualian dari optimisasi baterai untuk dirinya sendiri, supaya tetap berjalan andal di HP dengan manajemen baterai yang agresif",
-        "⚡ Perbaiki hampir semua fitur pemindaian (Junk Cleaner, File Besar, File Duplikat, Screenshot, dan 15+ fitur lainnya) yang sebelumnya memindai ulang dari awal setiap kali dibuka - sekarang hasil pemindaian tetap tersimpan selama app masih terbuka, jauh lebih cepat dan hemat baterai",
-        "🖼️ Thumbnail cache foto/video (termasuk bawaan galeri) tidak lagi ikut terhapus oleh Junk Cleaner selama file aslinya masih ada, mencegah galeri harus memuat ulang thumbnail dari awal"
-      ]
-    },
-    {
-      "version": "1.0.9",
-      "date": "2026-09-17",
-      "category": "Peningkatan & Perbaikan",
-      "notes": [
-        "✨ Rombak tampilan Dashboard - 4 fitur andalan (File Besar, File Duplikat, Screenshot, Download Lama) sekarang tampil sebagai kartu unggulan di bagian atas, sisanya dikelompokkan rapi per kategori (Media & Foto, Aplikasi & Sistem, Lainnya)",
-        "🛡️ Tambahkan pelaporan crash & analitik dasar (khusus edisi Free) - membantu kami menemukan & memperbaiki bug lebih cepat; edisi Pro tetap 100% tanpa pengiriman data apapun (lihat Sertifikat Privasi di dalam app)",
-        "🌐 Perbaiki beberapa teks yang sebelumnya belum ikut diterjemahkan ke Bahasa Inggris (layar Onboarding, layar kunci PIN, notifikasi auto-clean, dan beberapa pesan lainnya)",
-        "🎨 Perbaiki badge/label kecil yang kadang tampil kepenyet atau terpotong tidak rapi di beberapa layar (Junk Cleaner, Media Chat App, dan lainnya)"
-      ]
-    },
-    {
-      "version": "1.0.8",
-      "date": "2026-09-09",
-      "category": "Perbaikan Bug & Keamanan",
-      "notes": [
-        "🐛 Perbaiki progress bar Kompres Foto yang macet/tidak akurat - sekarang menampilkan jumlah foto selesai dengan benar dari awal sampai akhir",
-        "🔗 Merge Kontak Duplikat sekarang juga menggabungkan alamat email dari kontak yang digabung, tidak cuma nomor telepon seperti sebelumnya",
-        "💾 Perbaiki potensi Backup APK saling menimpa - dua aplikasi berbeda dengan nama & versi yang kebetulan sama sekarang tidak lagi bisa menimpa backup satu sama lain",
-        "🔐 Sertifikat Privasi sekarang menjelaskan izin Akses Semua File dan 2 izin lain dengan lebih jelas dan akurat (sebelumnya cuma tertulis \"izin standar\")",
-        "🛡️ Tingkatkan keamanan verifikasi PIN App Lock terhadap analisis waktu respons",
-        "🔒 Perbaiki potensi crash saat memindai APK yang sengaja dibuat rusak/berbahaya (bagian pembaca sertifikat tanda tangan APK)",
-        "⚙️ Perbaikan kecil konsistensi format ukuran file di seluruh halaman"
-      ]
-    },
-    {
-      "version": "1.0.7",
-      "date": "2026-09-08",
-      "category": "Fitur Baru & Perbaikan",
-      "notes": [
-        "🔄 Fitur baru: NitroPurge sekarang otomatis mengecek pembaruan lewat Google Play dan menampilkan prompt update begitu versi baru tersedia (khusus instalasi dari Play Store)",
-        "🔐 Fitur baru: Bersihkan Clipboard - tombol pembersih clipboard manual baru di halaman Pengaturan",
-        "🖼️ File Explorer di Storage Analyzer sekarang menampilkan thumbnail foto/video untuk setiap folder yang dibuka",
-        "🔋 Perbaiki App Lock boros baterai - pengecekan keyboard aktif yang sebelumnya memanggil sistem berulang kali per detik saat scroll/animasi di app manapun, sekarang di-cache dan hanya diperbarui saat keyboard benar-benar diganti",
-        "⚡ Percepat pemuatan thumbnail folder di Storage Analyzer - proses yang sebelumnya berjalan satu per satu sekarang berjalan paralel",
-        "🛡️ Hardening: hapus kode debug/testing tersisa dan log verbose dari layanan Accessibility App Lock sebelum rilis"
-      ]
-    },
-    {
-      "version": "1.0.6",
-      "date": "2026-09-04",
-      "category": "Perbaikan Bug & Kepatuhan Play Store",
-      "notes": [
-        "📢 Perbarui SDK iklan (Google Mobile Ads) ke versi terbaru mengikuti kebijakan Google Play terkini",
-        "🔒 Perbaiki layar App Lock (PIN/biometrik) agar tidak lagi tertutup status bar/navigasi di sebagian perangkat Android 15 ke atas",
-        "🛡️ Perbaiki potensi crash saat memindai APK yang rusak/tidak standar (bagian pembaca manifest)",
-        "🖼️ Perbaiki potensi crash saat menampilkan ikon aplikasi dengan data tidak valid di Pembersih Sampah",
-        "📸 Perbaiki potensi aplikasi macet kehabisan memori saat mengompres foto berukuran sangat besar",
-        "⚡ Perbaiki potensi aplikasi tidak merespons (ANR) saat memuat Turbo Monitor di perangkat yang di-root"
-      ]
-    },
-    {
-      "version": "1.0.5",
-      "date": "2026-08-23",
-      "category": "Fitur Baru & Perbaikan",
-      "notes": [
-        "⚡ Proses hapus sampah di Junk Cleaner sekarang jauh lebih cepat - sebelumnya bisa terasa lama saat membersihkan banyak file kecil sekaligus, meski total ukurannya kecil",
-        "✨ Animasi & progres real-time saat proses berjalan, menggantikan loading berputar polos, hadir di: Junk Cleaner, Pembersih Media Chat App (WhatsApp/Telegram), Kompres Foto, File Bluetooth, Foto Beruntun (Burst), File Duplikat, File Besar, Screenshot & Rekaman Layar, Download Lama, dan Video TikTok Tersimpan - tiap proses sekarang menampilkan jumlah file yang sudah selesai dan nama file yang sedang diproses",
-        "🔐 Halaman Info Aplikasi sekarang punya tombol \"Buka Pengaturan\" langsung untuk memberi izin akses penggunaan aplikasi, tidak perlu cari sendiri di menu Settings HP",
-        "🖼️ Kompres Foto kini menampilkan progres pengompresan secara bertahap, bukan diam lalu tiba-tiba selesai",
-        "🚫 Tombol \"Hapus\" di berbagai halaman kini otomatis nonaktif selama proses berjalan, mencegah tap ganda yang tidak disengaja",
-        "✨ Berbagai penyempurnaan kecil lainnya untuk pengalaman yang lebih mulus"
-      ]
-    },
-    {
-      "version": "1.0.4",
-      "date": "2026-08-15",
-      "category": "Fitur Baru & Perbaikan",
-      "notes": [
-        "📊 Tambah Storage Insights Card di halaman utama – ringkasan real-time potensi GB yang bisa dihemat dari file besar & duplikat, langsung terlihat tanpa scan manual",
-        "🖼️ Fitur baru: Screenshot & Screen Recording Cleaner",
-        "📥 Fitur baru: Stale Downloads Cleaner – temukan file di folder Download yang sudah ≥30 hari tidak disentuh",
-        "🎵 Fitur baru: TikTok Saved Videos Cleaner – deteksi folder TikTok + deteksi tambahan di DCIM/Camera (nama file hash, wajib review manual demi keamanan foto pribadi)",
-        "📶 Fitur baru: Bluetooth Received Files Cleaner",
-        "📸 Fitur baru: Burst Photo Cleaner – deteksi foto beruntun dari pola waktu jepretan, foto terbaru per grup otomatis dipertahankan",
-        "🗑️ Junk Cleaner: tambah 2 kategori baru – file \".trashed-*\" sisa file manager lain, dan file berukuran 0 byte",
-        "🛡️ Root Mode: tambah ringkasan total cache dari semua aplikasi terinstal + tombol \"Bersihkan Semua Cache\" sekaligus (sebelumnya cuma bisa satu-satu)",
-        "🔧 Perbaiki prioritas \"App Jarang Dipakai\" di halaman utama – sekarang fokus ke app berukuran besar yang benar-benar dormant (≥14 hari), bukan cuma yang paling lama tidak disentuh secara tanggal",
-        "🛡️ File \".trashed-*\" kini melalui Trash NitroPurge dulu sebelum benar-benar terhapus (bisa di-undo), bukan langsung permanen",
-        "🐛 Fix RootExecutor – perbaiki potensi deadlock & kebocoran resource saat menjalankan perintah root, tambah timeout otomatis",
-        "🐛 Fix parser AndroidManifest.xml/resources.arsc – cegah potensi out-of-bounds read saat memindai APK yang corrupt/malformed",
-        "🐛 Fix delimiter di hasil scan Duplicate Finder, Similar Photos, dan Storage Analyzer – cegah file dengan nama tidak umum hilang diam-diam dari hasil scan",
-        "🎨 Perbaikan tampilan besar-besaran untuk pengguna yang memperbesar ukuran font di HP – Pengaturan, App Lock, navigasi bawah, dan berbagai layar lain kini tidak lagi berantakan atau terpotong",
-        "🔋 Halaman Info Baterai sekarang menampilkan data secara real-time"
-      ]
-    },
-    {
-      "version": "1.0.3",
-      "date": "2026-07-20",
-      "category": "Maintenance & Security",
-      "notes": [
-        "🔒 Tambah App Lock dengan proteksi brute-force (salted SHA-256, backoff bertingkat)",
-        "🔧 Fix race condition di AppLockRepository saat PIN dicek bersamaan dari UI + accessibility service",
-        "🐛 Fix crash saat memindai file besar – handle timeout di StorageGrowthPredictor dengan fallback",
-        "🐛 Fix DuplicateContactScanner – perbaiki merge logic agar nomor kontak tidak hilang, skip kontak tanpa nama",
-        "🐛 Fix OneTapCleanQuota – bersihkan threshold aggressiveness yang not-yet-loaded saat app startup",
-        "🐛 Fix parser hasil native – seragamkan delimiter handling di ApkInspector, VideoScanner, LargeFileScanner",
-        "🐛 Fix AppPatternMatcher – pastikan fallback Kotlin konsisten saat native load gagal",
-        "📊 Improve error handling di PhotoCompressor (quality detection + invalid EXIF), NitroPurgeApp (WorkManager init), TurboMonitorViewModel (polling job cancellation)",
-        "⚙️ Ensure StorageWidgetProvider & LeftoverWidgetProvider menggunakan aggressiveness preference konsisten",
-        "🔐 Hardening di NitroPurgeApp init + improve error logging untuk diagnostik lebih mudah",
-        "✅ Verifikasi menyeluruh ~3.400 baris native-lib.cpp (24 fungsi JNI) – walk filesystem, duplicate finder, DCT perceptual hash, APK parser, fuzzy clustering, regresi linear"
-      ]
-    },
-    {
-      "version": "1.0.2",
-      "date": "2026-06-05",
-      "notes": [
-        "Optimasi kecepatan scan Junk Cleaner",
-        "Perbaikan tampilan di Android 14"
+        "🗑️ One-Tap Clean sekarang juga otomatis memindahkan file duplikat PERSIS (byte-demi-byte identik) ke Baru Dihapus, tidak cuma cache/log seperti sebelumnya - ruang yang terbebas sekali klik jadi jauh lebih besar. File tertua per grup duplikat selalu dipertahankan, dan semua tetap bisa dipulihkan lewat Baru Dihapus (30 hari)",
+        "📢 Penyedia iklan diperluas: sekarang didukung Google AdMob (dengan Start.io sebagai salah satu mitra di dalamnya) untuk keandalan tayangan iklan yang lebih baik",
+        "🐛 Perbaiki iklan yang berpotensi muncul tiba-tiba tepat saat menyentuh tombol lain di layar",
+        "🧹 Berbagai perbaikan kecil stabilitas & konsistensi tampilan (Info Baterai, Storage Analyzer, Root Mode, Duplicate Contacts)",
+        "🌐 Perbaiki beberapa teks yang belum konsisten diterjemahkan ke Bahasa Inggris"
       ]
     }
   ],
   "changelog_en": [
     {
-      "version": "1.1.1",
-      "date": "2026-09-23",
-      "category": "Pro Upgrade & New Root Features",
+      "version": "1.1.3",
+      "date": "2026-09-26",
+      "category": "Smarter One-Tap Clean & AdMob Support",
       "notes": [
-        "💎 Upgrade Pro: a one-time purchase that removes all ads (banner, interstitial, app-open) and unlocks unlimited quota for One-Tap Clean, Restore, and Batch Delete - no more watching ads just to delete multiple files at once",
-        "🧹 Deep Clean (Root) - Pro feature: on rooted devices, clear the cache of ALL other installed apps directly from within Nitro Purge, not just its own cache",
-        "🗂️ Storage Explorer (Root) - Pro feature: browse and clean up Android/data & Android/obb folders belonging to other apps - the main contributor to the mysterious \"Other\" category in Android's Storage settings, previously invisible and undeletable through normal means",
-        "⚙️ App Manager: a new shortcut button on every app that jumps straight to that app's Storage settings page, making it faster to clear another app's cache/data even without root",
-        "🎨 Fixed app icon and splash screen",
-        "🐛 Various stability fixes and performance improvements"
-      ]
-    },
-    {
-      "version": "1.1.0",
-      "date": "2026-09-21",
-      "category": "App Lock Overhaul & Performance Fixes",
-      "notes": [
-        "🔒 App Lock completely reworked to follow a banking-app-style flow - once a locked app is left (closed, switched away from, Recents opened, screen turned off, phone restarted), it always asks for the PIN again on return, no exceptions",
-        "🐛 Fixed App Lock that could stop working entirely on some devices (Xiaomi/Oppo/Vivo and similar), or whose Accessibility service wouldn't show up in the Settings list at all",
-        "🐛 Fixed App Lock repeatedly asking for the PIN again just seconds after successfully unlocking an app",
-        "🔋 App Lock now requests its own exemption from battery optimization, so it keeps running reliably on phones with aggressive battery management",
-        "⚡ Fixed nearly every scanning feature (Junk Cleaner, Large Files, Duplicate Files, Screenshots, and 15+ others) re-scanning from scratch every time it was reopened - scan results now persist while the app stays open, making things noticeably faster and lighter on battery",
-        "🖼️ Photo/video thumbnail caches (including the gallery's own) are no longer swept up by Junk Cleaner as long as the original file still exists, preventing the gallery from having to regenerate thumbnails from scratch"
-      ]
-    },
-    {
-      "version": "1.0.9",
-      "date": "2026-09-17",
-      "category": "Improvements & Fixes",
-      "notes": [
-        "✨ Reworked the Dashboard layout - the 4 flagship features (Large Files, Duplicate Files, Screenshots, Old Downloads) now appear as featured cards up top, with the rest neatly grouped by category (Media & Photos, Apps & System, Other)",
-        "🛡️ Added basic crash reporting & analytics (Free edition only) - helps us find and fix bugs faster; the Pro edition remains 100% free of any data transmission (see the Privacy Certificate inside the app)",
-        "🌐 Fixed several strings that weren't yet translated into English (Onboarding screen, PIN lock screen, auto-clean notification, and a few other messages)",
-        "🎨 Fixed small badges/labels that sometimes appeared squished or cut off on a few screens (Junk Cleaner, Chat App Media, and others)"
-      ]
-    },
-    {
-      "version": "1.0.8",
-      "date": "2026-09-09",
-      "category": "Bug Fixes & Security",
-      "notes": [
-        "🐛 Fixed a stuck/inaccurate progress bar in Photo Compressor - it now correctly reports how many photos are done from start to finish",
-        "🔗 Merge Duplicate Contacts now also merges email addresses from the merged contacts, not just phone numbers as before",
-        "💾 Fixed a possible APK Backup overwrite issue - two different apps that happen to share the same name and version number can no longer overwrite each other's backup",
-        "🔐 The Privacy Certificate now explains the All Files Access permission and 2 other permissions more clearly and accurately (previously just labeled \"standard permission\")",
-        "🛡️ Hardened App Lock PIN verification against timing analysis",
-        "🔒 Fixed a potential crash when scanning a deliberately corrupted or malicious APK file (APK signing certificate reader)",
-        "⚙️ Minor consistency fix for file size formatting across the app"
-      ]
-    },
-    {
-      "version": "1.0.7",
-      "date": "2026-09-08",
-      "category": "New Features & Fixes",
-      "notes": [
-        "🔄 New feature: NitroPurge now automatically checks for updates via Google Play and shows an update prompt when a new version is available (Play Store installs only)",
-        "🔐 New feature: Clear Clipboard - a new manual clipboard-clearing button on the Settings page",
-        "🖼️ The Storage Analyzer file explorer now shows photo/video thumbnails for each folder you open",
-        "🔋 Fixed App Lock battery drain - the active-keyboard check used to hit the system repeatedly per second during scrolling/animation in any app; it's now cached and only refreshed when the keyboard actually changes",
-        "⚡ Sped up folder thumbnail loading in Storage Analyzer - what used to load one at a time now loads in parallel",
-        "🛡️ Hardening: removed leftover debug/testing code and verbose logging from the App Lock accessibility service before release"
-      ]
-    },
-    {
-      "version": "1.0.6",
-      "date": "2026-09-04",
-      "category": "Bug Fixes & Play Store Compliance",
-      "notes": [
-        "📢 Updated the ads SDK (Google Mobile Ads) to the latest version to align with current Google Play policies",
-        "🔒 Fixed the App Lock screen (PIN/biometric) being drawn behind the status/navigation bar on some Android 15+ devices",
-        "🛡️ Fixed a potential crash when scanning a corrupted/non-standard APK (manifest reader)",
-        "🖼️ Fixed a potential crash when displaying an app icon with invalid data in Junk Cleaner",
-        "📸 Fixed a potential out-of-memory crash when compressing very large photos",
-        "⚡ Fixed a potential app freeze (ANR) when loading Turbo Monitor on rooted devices"
-      ]
-    },
-    {
-      "version": "1.0.5",
-      "date": "2026-08-23",
-      "category": "New Features & Fixes",
-      "notes": [
-        "⚡ The junk-deletion process in Junk Cleaner is now much faster – it used to feel slow when clearing many small files at once, even with a small total size",
-        "✨ Real-time animation & progress while processing, replacing the plain spinning loader, now live in: Junk Cleaner, Chat App Media Cleaner (WhatsApp/Telegram), Photo Compress, Bluetooth Files, Burst Photos, Duplicate Files, Large Files, Screenshots & Screen Recordings, Old Downloads, and Saved TikTok Videos – each process now shows how many files are done and which file is currently being processed",
-        "🔐 App Info page now has an \"Open Settings\" button to grant app usage access permission directly, no need to hunt for it in phone Settings",
-        "🖼️ Photo Compress now shows compression progress incrementally, instead of sitting idle and suddenly finishing",
-        "🚫 The \"Delete\" button on various pages is now automatically disabled while a process is running, preventing accidental double-taps",
-        "✨ Various other small refinements for a smoother experience"
-      ]
-    },
-    {
-      "version": "1.0.4",
-      "date": "2026-08-15",
-      "category": "New Features & Fixes",
-      "notes": [
-        "📊 Added a Storage Insights Card on the home screen – see real-time savings potential from large files & duplicates without a manual scan",
-        "🖼️ New feature: Screenshot & Screen Recording Cleaner",
-        "📥 New feature: Stale Downloads Cleaner – find files in the Download folder untouched for ≥30 days",
-        "🎵 New feature: TikTok Saved Videos Cleaner – detects the TikTok folder plus an extra check in DCIM/Camera (hash-named files, always requires manual review to protect personal photos)",
-        "📶 New feature: Bluetooth Received Files Cleaner",
-        "📸 New feature: Burst Photo Cleaner – detects burst-mode photos from shot-timing patterns, automatically keeps the newest photo per group",
-        "🗑️ Junk Cleaner: added 2 new categories – leftover \".trashed-*\" files from other file managers, and 0-byte files",
-        "🛡️ Root Mode: added a total-cache summary across all installed apps + a \"Clear All Caches\" button (previously one at a time only)",
-        "🔧 Fixed \"Rarely Used Apps\" prioritization on the home screen – now focuses on large apps that are genuinely dormant (≥14 days), not just the least-recently-opened by date",
-        "🛡️ \".trashed-*\" files now go through NitroPurge's Trash before being deleted (undoable), instead of being deleted permanently right away",
-        "🐛 Fixed RootExecutor – resolved a potential deadlock & resource leak when running root commands, added an automatic timeout",
-        "🐛 Fixed the AndroidManifest.xml/resources.arsc parser – prevented a potential out-of-bounds read when scanning corrupt/malformed APKs",
-        "🐛 Fixed delimiter handling in Duplicate Finder, Similar Photos, and Storage Analyzer scan results – prevented files with unusual names from silently disappearing from results",
-        "🎨 Major layout fixes for users with larger system font sizes – Settings, App Lock, the bottom navigation, and several other screens no longer look broken or get cut off",
-        "🔋 The Battery Info screen now shows real-time data"
-      ]
-    },
-    {
-      "version": "1.0.3",
-      "date": "2026-07-20",
-      "category": "Maintenance & Security",
-      "notes": [
-        "🔒 Added App Lock with brute-force protection (salted SHA-256, tiered backoff)",
-        "🔧 Fixed a race condition in AppLockRepository when the PIN is checked simultaneously from the UI + accessibility service",
-        "🐛 Fixed a crash when scanning large files – added timeout handling in StorageGrowthPredictor with fallback",
-        "🐛 Fixed DuplicateContactScanner – corrected merge logic so contact numbers aren't lost, skips contacts with no name",
-        "🐛 Fixed OneTapCleanQuota – cleared a not-yet-loaded aggressiveness threshold at app startup",
-        "🐛 Fixed the native result parser – unified delimiter handling across ApkInspector, VideoScanner, LargeFileScanner",
-        "🐛 Fixed AppPatternMatcher – ensured a consistent Kotlin fallback when native load fails",
-        "📊 Improved error handling in PhotoCompressor (quality detection + invalid EXIF), NitroPurgeApp (WorkManager init), TurboMonitorViewModel (polling job cancellation)",
-        "⚙️ Ensured StorageWidgetProvider & LeftoverWidgetProvider use a consistent aggressiveness preference",
-        "🔐 Hardened NitroPurgeApp init + improved error logging for easier diagnostics",
-        "✅ Thoroughly verified ~3,400 lines of native-lib.cpp (24 JNI functions) – filesystem walk, duplicate finder, DCT perceptual hash, APK parser, fuzzy clustering, linear regression"
-      ]
-    },
-    {
-      "version": "1.0.2",
-      "date": "2026-06-05",
-      "notes": [
-        "Optimized Junk Cleaner scan speed",
-        "UI fixes for Android 14"
+        "🗑️ One-Tap Clean now also automatically moves EXACT duplicate files (byte-for-byte identical) to Recently Deleted, not just cache/log junk like before - way more space freed in a single tap. The oldest file in each duplicate group is always kept, and everything can still be restored from Recently Deleted (30 days)",
+        "📢 Expanded ad provider: now backed by Google AdMob (with Start.io as one of the mediated partners) for more reliable ad delivery",
+        "🐛 Fixed an ad that could occasionally pop up right as you tapped another button on screen",
+        "🧹 Various small stability & UI consistency fixes (Battery Info, Storage Analyzer, Root Mode, Duplicate Contacts)",
+        "🌐 Fixed some text that wasn't fully translated to English"
       ]
     }
   ],
@@ -318,12 +66,12 @@
       "Kontak (khusus fitur Duplicate Contacts)",
       "Notifikasi aktif (khusus fitur Notification Cleaner — isi notifikasi tidak dibaca untuk tujuan lain)",
       "Data biometrik untuk App Lock ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Nitro Purge sendiri tidak pernah menyimpan data biometrik apapun",
-      "Advertising ID / Device ID, perkiraan &amp; lokasi presisi (jika izin lokasi diberikan), dan alamat IP — dipakai oleh Start.io SDK untuk menampilkan iklan selama kamu belum membeli Upgrade Pro (lihat bagian 03)"
+      "Advertising ID / Device ID, perkiraan &amp; lokasi presisi (jika izin lokasi diberikan), dan alamat IP — dipakai oleh Google AdMob (beserta mitra mediasinya, termasuk Start.io) untuk menampilkan iklan selama kamu belum membeli Upgrade Pro (lihat bagian 03)"
     ],
     "dataCollectedNote": "Setelah membeli <strong>Upgrade Pro</strong> (in-app purchase sekali beli), semua iklan dihentikan dan pengumpulan data untuk keperluan iklan di atas tidak lagi berjalan. Halaman utama juga menjalankan pemindaian ringan otomatis (Storage Insights) untuk menampilkan estimasi ukuran file besar & duplikat begitu aplikasi dibuka — proses ini sepenuhnya lokal, tidak ada data yang dikirim kemanapun.",
-    "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah data yang dipakai Start.io SDK untuk menampilkan iklan banner, interstitial, dan app-open selama kamu belum membeli Upgrade Pro — dijelaskan lebih lanjut di bagian 03.",
+    "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah data yang dipakai Google AdMob (beserta mitra mediasinya) untuk menampilkan iklan banner, interstitial, rewarded, dan app-open selama kamu belum membeli Upgrade Pro — dijelaskan lebih lanjut di bagian 03.",
     "dataSharing": [
-      "Nitro Purge menggunakan <strong>Start.io</strong> sebagai penyedia iklan. Lewat SDK ini, Advertising ID/Device ID, perkiraan &amp; lokasi presisi (jika izin lokasi diberikan), dan alamat IP dikirim ke Start.io serta jaringan mitra iklannya untuk keperluan penayangan dan personalisasi iklan. Kamu bisa menghentikan pengumpulan &amp; pembagian data ini kapan saja dengan membeli <strong>Upgrade Pro</strong> di dalam aplikasi (menghapus semua iklan secara permanen). Kebijakan privasi Start.io dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://www.start.io/policy/privacy-policy-ws/\">start.io/policy/privacy-policy-ws</a>.",
+      "Nitro Purge menggunakan <strong>Google AdMob</strong> sebagai penyedia iklan utama. AdMob menjalankan sistem mediasi yang bisa melibatkan beberapa mitra jaringan iklan untuk menampilkan banner, interstitial, rewarded, dan app-open ads — saat ini termasuk <strong>Start.io</strong>. Lewat SDK ini, Advertising ID/Device ID, perkiraan &amp; lokasi presisi (jika izin lokasi diberikan), dan alamat IP dikirim ke Google AdMob serta mitra jaringan iklan yang aktif (termasuk Start.io) untuk keperluan penayangan dan personalisasi iklan. Untuk pengguna di kawasan Uni Eropa (EEA), Inggris (UK), dan beberapa wilayah lain, Nitro Purge menampilkan formulir persetujuan (consent) sesuai kerangka kerja Google User Messaging Platform (UMP) sebelum iklan dipersonalisasi ditampilkan, dan kamu bisa mengubah pilihan tersebut kapan saja lewat menu <strong>Preferensi Iklan</strong> di halaman Pengaturan aplikasi. Kamu juga bisa menghentikan pengumpulan &amp; pembagian data ini sepenuhnya kapan saja dengan membeli <strong>Upgrade Pro</strong> di dalam aplikasi (menghapus semua iklan secara permanen). Kebijakan privasi masing-masing dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a> dan <a class=\"text-primary hover:underline\" href=\"https://www.start.io/policy/privacy-policy-ws/\">start.io/policy/privacy-policy-ws</a>.",
       "Di luar hal tersebut, tidak ada data lain (file, kontak, statistik pemakaian, dsb.) yang dibagikan ke pihak ketiga manapun oleh Nitro Purge."
     ],
     "permissions": [
@@ -373,13 +121,13 @@
       },
       {
         "name": "Internet & Advertising ID",
-        "use": "Menampilkan iklan Start.io (banner, interstitial, app-open) — berhenti dipakai setelah Upgrade Pro dibeli"
+        "use": "Menampilkan iklan Google AdMob (banner, interstitial, rewarded, app-open), termasuk mitra mediasi seperti Start.io — berhenti dipakai setelah Upgrade Pro dibeli"
       }
     ],
-    "permissionsNote": "Setelah Upgrade Pro dibeli, aplikasi berhenti melakukan permintaan iklan sehingga Advertising ID/lokasi tidak lagi dikirim ke Start.io, meski izin internet & lokasi tetap tercantum di manifest aplikasi. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app, termasuk membersihkan cache semua app sekaligus), bukan perintah shell bebas.",
+    "permissionsNote": "Setelah Upgrade Pro dibeli, aplikasi berhenti melakukan permintaan iklan sehingga Advertising ID/lokasi tidak lagi dikirim ke Google AdMob maupun mitra mediasinya, meski izin internet & lokasi tetap tercantum di manifest aplikasi. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app, termasuk membersihkan cache semua app sekaligus), bukan perintah shell bebas.",
     "dataDeletionIntro": "Nitro Purge tidak memiliki server backend, sehingga tidak ada data yang tersimpan di luar perangkatmu untuk kami hapus. Cara paling sederhana untuk menghapus SEMUA data lokal aplikasi (termasuk pengaturan, PIN App Lock, dan cache pemindaian) adalah meng-uninstall aplikasi dari perangkatmu.",
     "dataDeletionList": [
-      "Untuk mereset Advertising ID yang dipakai Start.io (lihat bagian 03), buka Setelan Android → Google → Iklan → Setel Ulang ID Iklan.",
+      "Untuk mereset Advertising ID yang dipakai Google AdMob & mitra mediasinya (lihat bagian 03), buka Setelan Android → Google → Iklan → Setel Ulang ID Iklan.",
       "Untuk menghentikan seluruh pengumpulan &amp; pembagian data terkait iklan tanpa uninstall, beli Upgrade Pro di dalam aplikasi."
     ],
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
