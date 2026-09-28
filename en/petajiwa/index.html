@@ -69,7 +69,7 @@
       <a href="../../petajiwa/" aria-label="Switch to Indonesian" class="hidden sm:flex w-9 h-9 items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors font-label-sm text-label-sm font-semibold border border-outline/40">ID</a>
       <div class="hidden lg:flex bg-primary/10 border border-primary/20 px-unit-sm py-unit-xs rounded-full items-center gap-unit-xs">
         <span class="material-symbols-outlined text-primary text-[16px]">inventory_2</span>
-        <span class="font-label-sm text-label-sm text-primary">5 Apps</span>
+        <span class="font-label-sm text-label-sm text-primary">6 Apps</span>
       </div>
       <button id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" class="md:hidden w-9 h-9 flex items-center justify-center rounded-lg text-on-surface hover:bg-surface-container-high transition-colors">
         <span class="material-symbols-outlined" id="menu-toggle-icon">menu</span>
@@ -114,7 +114,7 @@
   }
 
   var ROOT_PATH = '../';
-  var APPS_INDEX = [{"name":"Nitro Purge","slug":"nitropurge","category":"Utilities & Optimization","accent":"#3DDC97"},{"name":"NetScout Pro","slug":"netscoutpro","category":"Utilities & Networking","accent":"#0E62EB"},{"name":"Peta Jiwa","slug":"petajiwa","category":"Lifestyle","accent":"#8B6FD9"},{"name":"Catat Yuk","slug":"catat-yuk","category":"Finance","accent":"#4A2E8F"},{"name":"QR Scanner Pro","slug":"qr-scanner-pro","category":"Utilities & Productivity","accent":"#0D9488"}];
+  var APPS_INDEX = [{"name":"Nitro Purge","slug":"nitropurge","category":"Utilities & Optimization","accent":"#3DDC97"},{"name":"NetScout Pro","slug":"netscoutpro","category":"Utilities & Networking","accent":"#0E62EB"},{"name":"HardwareX","slug":"hardwarex","category":"Utilities & System","accent":"#00D4FF"},{"name":"Peta Jiwa","slug":"petajiwa","category":"Lifestyle","accent":"#8B6FD9"},{"name":"Catat Yuk","slug":"catat-yuk","category":"Finance","accent":"#4A2E8F"},{"name":"QR Scanner Pro","slug":"qr-scanner-pro","category":"Utilities & Productivity","accent":"#0D9488"}];
   var NO_RESULTS_TEXT = 'No results.';
 
   function renderResults(query, container) {
@@ -388,7 +388,7 @@
             </div>
             <div class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-unit-md">
               <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">update</span></div>
-              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Last Updated</div><div class="text-body-md font-body-md text-on-surface">2026-09-26</div></div>
+              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Last Updated</div><div class="text-body-md font-body-md text-on-surface">2026-09-28</div></div>
             </div>
           </div>
         </div>
@@ -415,18 +415,18 @@
             <div class="text-label-sm font-label-sm text-on-surface-variant truncate">Utilities & Networking</div>
           </div>
         </a>
+        <a href="../hardwarex/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid #00D4FF">
+          <div class="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold" style="background:#00D4FF22;color:#00D4FF">HA</div>
+          <div class="min-w-0">
+            <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">HardwareX</div>
+            <div class="text-label-sm font-label-sm text-on-surface-variant truncate">Utilities & System</div>
+          </div>
+        </a>
         <a href="../catat-yuk/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid #4A2E8F">
           <img src="../../catat-yuk/asset/icon.webp" alt="Catat Yuk icon" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-xl object-cover shadow-2xl" />
           <div class="min-w-0">
             <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">Catat Yuk</div>
             <div class="text-label-sm font-label-sm text-on-surface-variant truncate">Finance</div>
-          </div>
-        </a>
-        <a href="../qr-scanner-pro/" class="group flex items-center gap-unit-md p-unit-md rounded-xl bg-surface-container-low hover:bg-surface-container transition-all duration-300 hover:-translate-y-1" style="border-top:2px solid #0D9488">
-          <img src="../../qr-scanner-pro/asset/icon.webp" alt="QR Scanner Pro icon" width="48" height="48" loading="lazy" class="w-12 h-12 rounded-xl object-cover shadow-2xl" />
-          <div class="min-w-0">
-            <div class="text-body-md font-body-md text-on-surface group-hover:text-primary transition-colors truncate">QR Scanner Pro</div>
-            <div class="text-label-sm font-label-sm text-on-surface-variant truncate">Utilities & Productivity</div>
           </div>
         </a>
         </div>

@@ -1,0 +1,107 @@
+{
+    "id": "app3",
+    "slug": "hardwarex",
+    "name": "HardwareX",
+    "tagline": "Diagnosa perangkat keras tingkat lanjut dengan presisi tinggi.",
+    "tagline_en": "Advanced, high-precision hardware diagnostics.",
+    "description": "HardwareX menyediakan diagnosa perangkat keras tingkat lanjut dengan presisi tinggi untuk para profesional dan pengguna antusias. Cek spesifikasi lengkap perangkat (CPU, RAM, penyimpanan, layar, baterai, kamera, sensor, jaringan, Bluetooth), pantau beban CPU real-time, jalankan benchmark performa, dan lihat status keamanan perangkat — semua dalam satu dashboard yang bisa disegarkan kapan saja lewat \"Run Audit\".",
+    "description_en": "HardwareX provides advanced, high-precision hardware diagnostics for professionals and enthusiasts alike. Check your device's full specs (CPU, RAM, storage, display, battery, camera, sensors, network, Bluetooth), monitor real-time CPU load, run performance benchmarks, and view device security status — all from one dashboard you can refresh anytime with \"Run Audit\".",
+    "category": "Utilitas & Sistem",
+    "category_en": "Utilities & System",
+    "version": "1.0.0",
+    "minAndroid": "7.0 (Nougat)",
+    "sizeMb": 16,
+    "repo": "A2TH-Dev/hardwarex",
+    "releaseTag": "v1.0.0",
+    "apkFile": "HardwareX_v1.0.0.apk",
+    "changelog": [
+        {
+            "version": "1.0.0",
+            "date": "2026-09-26",
+            "notes": [
+                "📊 Dashboard profil perangkat + status sistem (baterai, RAM, penyimpanan) sekali lihat, bisa disegarkan lewat \"Run Audit\"",
+                "⚙️ Info CPU lengkap (jumlah core, ABI) + monitor beban CPU real-time dengan grafik riwayat 60 detik terakhir",
+                "🏁 Benchmark performa CPU (skor terbaik dari 3 percobaan) plus analisis skor per-core",
+                "🔋 Diagnostik baterai real-time: arus, voltase, suhu, health state, chemistry, dan charge counter",
+                "📱 Daftar aplikasi terpasang dengan filter Pengguna/Sistem dan pencarian",
+                "🔍 Info lengkap Layar, Perangkat & OS, Jaringan, Bluetooth, Kamera, dan Sensor — tiap nilai bisa disalin sekali tap",
+                "🔒 Info status keamanan perangkat: indikasi root (heuristik), status USB debugging, dan enkripsi penyimpanan",
+                "🌐 Tersedia dalam Bahasa Indonesia dan Inggris",
+                "🛡️ Opsi Kelola Privasi (GDPR/UK) bawaan untuk transparansi consent iklan"
+            ]
+        }
+    ],
+    "changelog_en": [
+        {
+            "version": "1.0.0",
+            "date": "2026-09-26",
+            "notes": [
+                "📊 Device profile dashboard + system status (battery, RAM, storage) at a glance, refreshable via \"Run Audit\"",
+                "⚙️ Full CPU info (core count, ABI) + real-time CPU load monitor with a 60-second load history graph",
+                "🏁 CPU performance benchmark (best score of 3 runs) plus per-core score analysis",
+                "🔋 Real-time battery diagnostics: current, voltage, temperature, health state, chemistry, and charge counter",
+                "📱 Installed apps list with User/System filters and search",
+                "🔍 Full info for Display, Device & OS, Network, Bluetooth, Camera, and Sensors — every value copyable with one tap",
+                "🔒 Device security status: root indication (heuristic), USB debugging status, and storage encryption",
+                "🌐 Available in Indonesian and English",
+                "🛡️ Built-in Manage Privacy (GDPR/UK) option for ad-consent transparency"
+            ]
+        }
+    ],
+    "accent": "#00D4FF",
+    "features": [
+        "Dashboard profil & status sistem real-time",
+        "Monitor beban CPU + benchmark performa per-core",
+        "Diagnostik baterai lengkap (arus, voltase, health, suhu)",
+        "Info detail: Layar, Jaringan, Bluetooth, Kamera, Sensor",
+        "Status keamanan perangkat & daftar aplikasi terpasang"
+    ],
+    "features_en": [
+        "Real-time profile dashboard & system status",
+        "CPU load monitor + per-core performance benchmark",
+        "Full battery diagnostics (current, voltage, health, temp)",
+        "Detailed info: Display, Network, Bluetooth, Camera, Sensors",
+        "Device security status & installed apps list"
+    ],
+    "playStoreUrl": "",
+    "privacy": {
+        "dataCollectedIntro": "HardwareX membaca informasi perangkat keras dan sistem yang memang disediakan Android untuk aplikasi (CPU, RAM, baterai, layar, dll). Sebagian besar diagnostik ini murni dibaca dari API resmi Android di perangkat kamu sendiri.",
+        "dataCollectedList": [
+            "Info perangkat keras & sistem (CPU, RAM, penyimpanan, baterai, layar, sensor, kamera) — diproses sepenuhnya di perangkat untuk fitur Dashboard, Performance, dan Battery",
+            "Info jaringan umum (jenis koneksi, nama operator) — tidak termasuk nomor telepon atau IMEI",
+            "Daftar paket aplikasi terpasang (nama, apakah system/user app) untuk fitur tab Apps",
+            "Statistik penggunaan aplikasi & laporan crash (Firebase Crashlytics, Performance Monitoring)",
+            "Advertising ID — dipakai Google AdMob untuk menampilkan iklan banner dan iklan rewarded (buka Analisis Per-Core)"
+        ],
+        "dataCollectedNote": "Semua data diagnostik perangkat (CPU, RAM, baterai, dll.) diproses sepenuhnya lokal di perangkat kamu — HardwareX tidak punya server backend, jadi tidak ada data diagnostik yang dikirim ke mana pun.",
+        "dataUsage": "Info perangkat keras/sistem pada bagian 01 dipakai <strong>hanya di perangkat kamu</strong> untuk menampilkan dashboard dan hasil diagnostik yang kamu buka langsung. Statistik penggunaan & laporan crash dikirim ke Firebase (Google) untuk membantu perbaikan aplikasi. Advertising ID dipakai Google AdMob untuk menampilkan iklan, sesuai pilihan consent yang kamu buat lewat tombol Kelola Privasi (GDPR/UK).",
+        "dataSharing": [
+            "<strong>Firebase (Google):</strong> Crashlytics dan Performance Monitoring — kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
+            "<strong>Google AdMob:</strong> menampilkan iklan banner & rewarded memakai Advertising ID, sesuai pilihan consent yang kamu buat (bisa diubah kapan saja lewat tombol Kelola Privasi (GDPR/UK) di halaman Tentang Aplikasi).",
+            "Di luar dua hal tersebut, tidak ada data diagnostik perangkat yang dibagikan ke pihak ketiga manapun oleh HardwareX."
+        ],
+        "permissions": [
+            {
+                "name": "Info Jaringan & WiFi",
+                "use": "Menampilkan jenis koneksi aktif dan nama operator di kartu Jaringan"
+            },
+            {
+                "name": "Status Telepon",
+                "use": "Hanya untuk info jaringan umum (jenis SIM, roaming) — nomor telepon dan IMEI tidak diakses"
+            },
+            {
+                "name": "Bluetooth",
+                "use": "Menampilkan nama dan status adapter Bluetooth perangkat"
+            },
+            {
+                "name": "Internet",
+                "use": "Menampilkan iklan AdMob dan mengirim laporan Firebase"
+            }
+        ],
+        "permissionsNote": "Semua fitur diagnostik (CPU, RAM, baterai, dll.) bekerja dengan membaca API resmi Android di perangkat kamu sendiri — HardwareX tidak pernah mengakses data pribadi seperti kontak, pesan, atau riwayat panggilan.",
+        "dataDeletionIntro": "HardwareX tidak memiliki server backend untuk menyimpan hasil diagnostik atau pengaturan kamu — semuanya tersimpan lokal di perangkat. Cara menghapus semua data lokal aplikasi adalah dengan meng-uninstall aplikasi dari perangkatmu. Untuk data yang dikirim ke Firebase/AdMob, ikuti tautan kebijakan privasi masing-masing di atas.",
+        "contactName": "Tri Nofri Andi (A2TH-Dev)",
+        "contactEmail": "a2thdev@gmail.com"
+    },
+    "order": 3
+}

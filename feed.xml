@@ -5,6 +5,13 @@
   <link>https://a2th-dev.github.io/App/</link>
   <description>Katalog aplikasi Android independen, dibangun untuk kecepatan dan privasi — didistribusikan langsung lewat GitHub Releases.</description>
   <item>
+    <title>QR Scanner Pro v1.0.0</title>
+    <link>https://a2th-dev.github.io/App/qr-scanner-pro/</link>
+    <guid>https://a2th-dev.github.io/App/qr-scanner-pro/</guid>
+    <description>Scan QR &amp; barcode secepat kedip, plus proteksi anti-phishing.</description>
+    <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+  </item>
+  <item>
     <title>Nitro Purge v1.1.3</title>
     <link>https://a2th-dev.github.io/App/nitropurge/</link>
     <guid>https://a2th-dev.github.io/App/nitropurge/</guid>
@@ -12,10 +19,10 @@
     <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
   </item>
   <item>
-    <title>QR Scanner Pro v1.0.0</title>
-    <link>https://a2th-dev.github.io/App/qr-scanner-pro/</link>
-    <guid>https://a2th-dev.github.io/App/qr-scanner-pro/</guid>
-    <description>Scan QR &amp; barcode secepat kedip, plus proteksi anti-phishing.</description>
+    <title>HardwareX v1.0.0</title>
+    <link>https://a2th-dev.github.io/App/hardwarex/</link>
+    <guid>https://a2th-dev.github.io/App/hardwarex/</guid>
+    <description>Diagnosa perangkat keras tingkat lanjut dengan presisi tinggi.</description>
     <pubDate>Sat, 26 Sep 2026 00:00:00 GMT</pubDate>
   </item>
   <item>
