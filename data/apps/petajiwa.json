@@ -8,117 +8,37 @@
   "description_en": "Peta Jiwa is a complete self-analysis toolkit: natal chart & Human Design from your birth date, time, and location, a 5-trait personality test, face & fingerprint analysis, compatibility checks between two people, a daily journal with mood tracker, and Pomodoro focus sessions with calming melodies — all stored locally on your phone, no internet connection required.",
   "category": "Gaya Hidup",
   "category_en": "Lifestyle",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 8,
   "repo": "A2TH-Dev/petajiwa",
-  "releaseTag": "v1.0.6",
-  "apkFile": "PetaJiwa-v1.0.6.apk",
+  "releaseTag": "v1.0.7",
+  "apkFile": "PetaJiwa-v1.0.7.apk",
   "changelog": [
     {
-      "version": "1.0.6",
-      "date": "2026-09-16",
-      "category": "Perbaikan Kecil & Stabilitas",
+      "version": "1.0.7",
+      "date": "2026-09-29",
+      "category": "Perbaikan Iklan & Pengalaman Pengguna",
       "notes": [
-        "🐛 Perbaiki crash yang kadang muncul terkait tampilan iklan pada beberapa perangkat",
-        "🎨 Perbaiki jarak antara tombol bahasa (EN/ID) dan menu tab di bawahnya agar tidak terlalu rapat"
-      ]
-    },
-    {
-      "version": "1.0.5",
-      "date": "2026-09-15",
-      "category": "Perbaikan Lanjutan Crash Notifikasi",
-      "notes": [
-        "🐛 Tutup celah crash saat notifikasi ditekan yang sempat muncul lagi di versi sebelumnya, kali ini dengan jaring pengaman lebih menyeluruh"
-      ]
-    },
-    {
-      "version": "1.0.4",
-      "date": "2026-09-15",
-      "category": "Perbaikan Stabilitas Startup & Crash Monitoring",
-      "notes": [
-        "🐛 Perbaiki crash saat aplikasi pertama kali dijalankan (gagal inisialisasi komponen penjadwal internal)",
-        "📊 Tambah sistem pemantauan crash (Firebase Crashlytics) untuk membantu mendeteksi & memperbaiki bug lebih cepat ke depannya"
-      ]
-    },
-    {
-      "version": "1.0.3",
-      "date": "2026-09-14",
-      "category": "Perbaikan Stabilitas & Kualitas Aplikasi",
-      "notes": [
-        "🐛 Perbaiki crash saat notifikasi (pengingat harian/Pomodoro) ditekan",
-        "📱 Perbaiki tampilan layar penuh (edge-to-edge) supaya konsisten di semua versi Android, termasuk Android 16",
-        "🔄 Aplikasi kini bisa dipakai nyaman dalam orientasi apa pun, termasuk di tablet & perangkat layar lipat",
-        "🔒 Perbarui beberapa komponen inti (termasuk Google Mobile Ads) untuk keamanan & efisiensi memori yang lebih baik",
-        "⬇️ Tambah update otomatis di dalam aplikasi — tidak perlu lagi cek Play Store manual saat ada versi baru",
-        "⭐ Tambah opsi beri rating/ulasan langsung dari dalam aplikasi"
-      ]
-    },
-    {
-      "version": "1.0.2",
-      "date": "2026-09-04",
-      "category": "Perbaikan Bahasa & Tampilan",
-      "notes": [
-        "🌐 Perbaiki tombol ganti bahasa (EN/ID) yang sebelumnya tidak berfungsi sama sekali",
-        "🎨 Perbaiki judul aplikasi & tombol bahasa yang tumpang tindih dengan status bar (jam, baterai, sinyal)",
-        "✨ Perbaiki logo splash screen yang terpotong saat aplikasi dibuka, kini dengan animasi transisi yang lebih halus",
-        "🧹 Hapus garis kecil yang tidak perlu di bawah judul \"Peta Jiwa\"",
-        "🌐 Perbaiki judul Afirmasi Harian yang belum sepenuhnya berubah ke Bahasa Inggris saat mode EN aktif",
-        "🔊 Tingkatkan kualitas suara fitur \"Dengarkan\" (Text-to-Speech) - kini otomatis memilih suara terbaik & bahasa yang sesuai di kedua mode bahasa"
+        "🐛 Perbaiki iklan banner yang kadang tidak tampil - kini otomatis dicoba ulang kalau gagal muat",
+        "🎨 Perbaiki ukuran iklan banner yang sempat tampil terlalu besar di sebagian perangkat",
+        "⭐ Perbaiki waktu permintaan rating aplikasi agar tidak muncul terlalu cepat atau terlalu sering",
+        "🔔 Perbaiki izin notifikasi agar tidak langsung muncul di detik pertama membuka aplikasi",
+        "🔄 Kurangi frekuensi iklan layar penuh (interstitial) di awal pemakaian supaya pengalaman pertama lebih nyaman"
       ]
     }
   ],
   "changelog_en": [
     {
-      "version": "1.0.6",
-      "date": "2026-09-16",
-      "category": "Minor Fixes & Stability",
+      "version": "1.0.7",
+      "date": "2026-09-29",
+      "category": "Ads & User Experience Fixes",
       "notes": [
-        "🐛 Fixed a crash that occasionally occurred related to ad display on some devices",
-        "🎨 Fixed spacing between the language toggle button (EN/ID) and the tab menu below it"
-      ]
-    },
-    {
-      "version": "1.0.5",
-      "date": "2026-09-15",
-      "category": "Further Notification Crash Fix",
-      "notes": [
-        "🐛 Closed a remaining crash gap when tapping a notification that resurfaced in the previous version, this time with more thorough safeguards"
-      ]
-    },
-    {
-      "version": "1.0.4",
-      "date": "2026-09-15",
-      "category": "Startup Stability & Crash Monitoring",
-      "notes": [
-        "🐛 Fixed a crash on first app launch (internal scheduler component failed to initialize)",
-        "📊 Added crash monitoring (Firebase Crashlytics) to help detect and fix bugs faster going forward"
-      ]
-    },
-    {
-      "version": "1.0.3",
-      "date": "2026-09-14",
-      "category": "Stability & Quality Improvements",
-      "notes": [
-        "🐛 Fixed a crash when tapping a notification (daily reminder/Pomodoro)",
-        "📱 Fixed full-screen (edge-to-edge) display to be consistent across all Android versions, including Android 16",
-        "🔄 The app now works smoothly in any orientation, including on tablets & foldable devices",
-        "🔒 Updated several core components (including Google Mobile Ads) for better security & memory efficiency",
-        "⬇️ Added in-app automatic updates — no more manually checking the Play Store for new versions",
-        "⭐ Added the option to leave a rating/review directly from within the app"
-      ]
-    },
-    {
-      "version": "1.0.2",
-      "date": "2026-09-04",
-      "category": "Language & UI Fixes",
-      "notes": [
-        "🌐 Fixed the EN/ID language toggle button that previously didn't work at all",
-        "🎨 Fixed the app title & language button overlapping the status bar (clock, battery, signal icons)",
-        "✨ Fixed the splash screen logo being cropped on launch, now with a smoother exit animation",
-        "🧹 Removed an unnecessary small line under the \"Peta Jiwa\" title",
-        "🌐 Fixed the Daily Affirmation title not fully switching to English in EN mode",
-        "🔊 Improved \"Listen\" (text-to-speech) voice quality - now automatically picks the best available voice and matches the active language in both modes"
+        "🐛 Fixed banner ads occasionally not appearing - now automatically retried when loading fails",
+        "🎨 Fixed banner ads that were sometimes displayed too large on some devices",
+        "⭐ Fixed the timing of in-app review prompts so they no longer appear too soon or too often",
+        "🔔 Fixed the notification permission prompt so it no longer appears in the very first seconds of opening the app",
+        "🔄 Reduced full-screen (interstitial) ad frequency during first-time use for a smoother first experience"
       ]
     }
   ],
