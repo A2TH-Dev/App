@@ -8,13 +8,26 @@
   "description_en": "NitroPurge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 13,
   "repo": "A2TH-Dev/nitropurge",
-  "releaseTag": "v1.1.3",
-  "apkFile": "Nitro-Purge_v1.1.3.apk",
+  "releaseTag": "v1.1.4",
+  "apkFile": "Nitro-Purge_v1.1.4.apk",
   "changelog": [
+    {
+      "version": "1.1.4",
+      "date": "2026-10-02",
+      "category": "Lupa PIN, Peringatan Storage & Update Tanpa Blokir",
+      "notes": [
+        "🔑 Lupa PIN App Lock? Sekarang ada tombol \"Lupa PIN?\" di layar kunci. Verifikasi dengan kunci layar HP-mu, lalu buat PIN baru - tidak perlu lagi Hapus Data atau install ulang app",
+        "🔔 Izin notifikasi tidak lagi diminta begitu app pertama dibuka. Sekarang diminta setelah pembersihan pertama berhasil atau saat Auto Clean diaktifkan, lengkap dengan penjelasan kenapa",
+        "📦 Update app tidak lagi memblokir seluruh layar. Update rutin diunduh di latar belakang dan kamu tinggal pilih Mulai Ulang saat siap (hanya update penting yang tetap wajib)",
+        "⚠️ Peringatan storage baru: notifikasi hanya muncul saat ruang menipis (di bawah 10%) atau diperkirakan penuh dalam seminggu, maksimal sekali tiap 3 hari. Bisa dimatikan di Pengaturan",
+        "📊 Dashboard kini menampilkan total ruang yang sudah dibebaskan sejak install, dan menawarkan pasang widget storage dengan satu ketukan",
+        "🗑️ Prompt ulasan kini juga bisa muncul setelah memulihkan file dari Baru Dihapus atau menghapus duplikat dengan sukses"
+      ]
+    },
     {
       "version": "1.1.3",
       "date": "2026-09-26",
@@ -29,6 +42,19 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.1.4",
+      "date": "2026-10-02",
+      "category": "Forgot PIN, Storage Alerts & Non-Blocking Updates",
+      "notes": [
+        "🔑 Forgot your App Lock PIN? There's now a \"Forgot PIN?\" button on the lock screen. Verify with your phone's screen lock, then create a new PIN - no more clearing app data or reinstalling",
+        "🔔 The notification permission is no longer requested the moment the app first opens. It's now asked after your first successful clean or when you turn on Auto Clean, with an explanation of why",
+        "📦 App updates no longer block the whole screen. Regular updates download in the background and you just tap Restart when ready (only important updates remain mandatory)",
+        "⚠️ New storage alerts: a notification only appears when space runs low (under 10%) or is predicted to fill within a week, at most once every 3 days. Can be turned off in Settings",
+        "📊 The dashboard now shows the total space freed since install, and offers a one-tap storage widget",
+        "🗑️ The review prompt can now also appear after successfully restoring a file from Recently Deleted or removing duplicates"
+      ]
+    },
     {
       "version": "1.1.3",
       "date": "2026-09-26",
