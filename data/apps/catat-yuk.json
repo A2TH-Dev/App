@@ -147,7 +147,7 @@
     "PIN + biometric app lock, privacy-safe screenshot mode",
     "Savings goals, debt tracker & loan calculator"
   ],
-  "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2htdev.catatyuk",
+  "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2thdev.catatyuk",
   "privacy": {
     "dataCollectedIntro": "Catat Yuk dibangun dengan prinsip <strong>lokal-dulu (local-first)</strong>. Seluruh data transaksi kamu disimpan di database lokal perangkat — kami bahkan tidak memiliki server sendiri. Data berikut diakses secara lokal untuk menjalankan fitur yang kamu aktifkan sendiri:",
     "dataCollectedList": [
