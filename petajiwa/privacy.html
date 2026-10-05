@@ -194,11 +194,11 @@
               <li>Nama dan tanggal lahir — untuk fitur analisis numerologi/astrologi, disimpan hanya secara lokal di perangkat</li>
               <li>Foto wajah (opsional) — untuk fitur analisis tertentu, disimpan hanya secara lokal di perangkat</li>
               <li>Catatan/entri jurnal pribadi — disimpan hanya secara lokal di perangkat</li>
-              <li>Advertising ID — dipakai oleh Google AdMob untuk menampilkan iklan (interstitial & rewarded video) serta personalisasi dan pengukuran performa iklan</li>
-              <li>Data diagnostik, laporan crash & performa aplikasi (log error, jenis perangkat, versi Android, versi aplikasi, waktu loading aplikasi) — dikirim ke Firebase Crashlytics & Firebase Performance Monitoring (Google) untuk membantu kami menemukan bug dan mempercepat performa aplikasi; tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu</li>
-              <li>Data penggunaan aplikasi (statistik jumlah pengguna, fitur yang dibuka, jenis perangkat) — dikumpulkan lewat Firebase Analytics (Google) untuk memahami cara aplikasi dipakai secara umum; tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu</li>
+              <li>Advertising ID — dipakai oleh Google AdMob untuk menampilkan iklan (banner, interstitial & rewarded video) serta personalisasi dan pengukuran performa iklan</li>
+              <li>Data diagnostik, laporan crash & performa aplikasi (log error, jenis perangkat, versi Android, versi aplikasi, waktu loading aplikasi) — dikirim ke Firebase Crashlytics & Firebase Performance Monitoring (Google) untuk membantu kami menemukan bug dan mempercepat performa aplikasi (pengumpulan baru dimulai setelah proses persetujuan/UMP selesai); tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu</li>
+              <li>Data penggunaan aplikasi (statistik jumlah pengguna, fitur yang dibuka, jenis perangkat) — dikumpulkan lewat Firebase Analytics (Google) untuk memahami cara aplikasi dipakai secara umum (pengumpulan baru dimulai setelah proses persetujuan/UMP selesai); tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu</li>
             </ul>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Kami tidak mengoperasikan server backend untuk aplikasi ini. Nama, tanggal lahir, foto, dan jurnal hanya tersimpan di penyimpanan internal perangkat kamu. Jika aplikasi dihapus atau data aplikasi dibersihkan, data ini hilang secara permanen dan tidak dapat kami pulihkan.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Kami tidak mengoperasikan server backend untuk aplikasi ini. Nama, tanggal lahir, foto, dan jurnal hanya tersimpan di penyimpanan internal perangkat kamu. Jika aplikasi dihapus atau data aplikasi dibersihkan, data ini hilang secara permanen dan tidak dapat kami pulihkan. Fitur ekspor data menyimpan salinan ke file di perangkatmu hanya atas permintaanmu; file itu sepenuhnya berada di bawah kendalimu.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">02</span> Bagaimana Data Digunakan</h3>
@@ -209,7 +209,7 @@
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Kami tidak menjual, menyewakan, atau membagikan data pribadi kepada pihak ketiga di luar keperluan menampilkan iklan.</p>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Aplikasi menggunakan <strong>Google AdMob</strong> dan <strong>Google User Messaging Platform (UMP)</strong> untuk menampilkan iklan dan mengelola persetujuan iklan, termasuk untuk pengguna di wilayah EEA/UK (GDPR/UK). Lewat SDK ini, Advertising ID dapat dikumpulkan oleh Google untuk keperluan personalisasi dan pengukuran performa iklan, tunduk pada <a class="text-primary hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Aplikasi menggunakan <strong>Firebase Crashlytics</strong> dan <strong>Firebase Performance Monitoring</strong> (Google) untuk memantau laporan crash & performa aplikasi (termasuk waktu loading). Data yang dikirim berupa log error teknis dan info perangkat (model, versi Android, versi aplikasi) — <strong>tidak pernah</strong> berisi nama, tanggal lahir, foto, atau isi jurnal kamu, tunduk pada <a class="text-primary hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Aplikasi menggunakan <strong>Firebase Analytics</strong> (Google) untuk memahami statistik penggunaan aplikasi secara umum (jumlah pengguna, fitur yang dibuka). Untuk pengguna di wilayah EEA/UK, pengumpulan ini mengikuti pilihan consent yang sama dengan yang diatur lewat UMP (lihat di atas) — kalau consent tidak diberikan, data ini tidak dikumpulkan.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Aplikasi menggunakan <strong>Firebase Analytics</strong> (Google) untuk memahami statistik penggunaan aplikasi secara umum (jumlah pengguna, fitur yang dibuka). Pengumpulan Firebase Analytics, Crashlytics, dan Performance Monitoring baru dinyalakan setelah proses persetujuan (UMP) selesai. Untuk pengguna di wilayah yang mewajibkan persetujuan (misalnya EEA/UK), jika persetujuan tidak diberikan maka data ini tidak dikumpulkan. Pilihan ini dapat diubah kapan saja lewat menu <strong>Pengaturan Privasi & Iklan</strong> di dalam aplikasi (tampil bila persetujuan diwajibkan di wilayahmu).</p>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data lokasi, nama, tanggal lahir, foto wajah, dan jurnal tidak pernah dikirim, diunggah, atau disimpan di server kami maupun pihak ketiga manapun.</p>
           </section>
           <section>
@@ -224,8 +224,9 @@
                 </thead>
                 <tbody class="divide-y divide-outline-variant/10 font-body-sm text-body-sm text-on-surface-variant">
                   <tr><td class="py-unit-sm pr-unit-md">Lokasi (Perkiraan & Presisi)</td><td class="py-unit-sm">Menghitung natal chart berdasarkan koordinat tempat lahir atau lokasi saat ini — diproses sepenuhnya on-device</td></tr>
-                  <tr><td class="py-unit-sm pr-unit-md">Notifikasi</td><td class="py-unit-sm">Mengirim pengingat terkait fitur di dalam aplikasi — tidak melibatkan pengumpulan data pribadi tambahan</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Notifikasi</td><td class="py-unit-sm">Mengirim pengingat terkait fitur di dalam aplikasi (misalnya pengingat Pomodoro dan Alarm Transit). Pengecekan Alarm Transit di latar belakang hanya berjalan jika kamu mengaktifkannya dan dihitung sepenuhnya di perangkat — tidak melibatkan pengumpulan data pribadi tambahan</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Internet & Advertising ID</td><td class="py-unit-sm">Menampilkan iklan AdMob (interstitial & rewarded video) via Google Mobile Ads SDK</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Penyimpanan (hanya Android 8–9)</td><td class="py-unit-sm">Menyimpan file cadangan data dan gambar kartu ke folder Download. Di Android 10 ke atas izin ini tidak diperlukan</td></tr>
                 </tbody>
               </table>
             </div>
@@ -236,6 +237,8 @@
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Peta Jiwa tidak memiliki server backend, sehingga tidak ada data pribadi (nama, tanggal lahir, foto, jurnal) yang tersimpan di luar perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk jurnal pribadi dan riwayat analisis) adalah dengan meng-uninstall aplikasi dari perangkatmu.</p>
             <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
               <li>Untuk mereset Advertising ID yang dipakai AdMob (lihat bagian 03), buka Setelan Android → Google → Iklan → Setel Ulang ID Iklan.</li>
+              <li>Untuk mengubah atau mencabut persetujuan iklan & analitik, buka <strong>Pengaturan Privasi & Iklan</strong> di dalam aplikasi (tersedia bila persetujuan diwajibkan di wilayahmu), atau hapus data aplikasi lewat Setelan Android.</li>
+              <li>File cadangan (ekspor) yang kamu simpan sendiri berada di luar kendali aplikasi; hapus manual dari penyimpananmu atau layanan cloud tempat kamu menyimpannya.</li>
             </ul>
             <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Kontak: <strong>Tri Nofri Andi (A2TH-Dev)</strong> — <a class="text-primary hover:underline" href="mailto:a2thdev@gmail.com">a2thdev@gmail.com</a></p>
           </section>

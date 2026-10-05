@@ -8,13 +8,29 @@
   "description_en": "Peta Jiwa is a complete self-analysis toolkit: natal chart & Human Design from your birth date, time, and location, a 5-trait personality test, face & fingerprint analysis, compatibility checks between two people, a daily journal with mood tracker, and Pomodoro focus sessions with calming melodies — all stored locally on your phone, no internet connection required.",
   "category": "Gaya Hidup",
   "category_en": "Lifestyle",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "minAndroid": "8.0 (Oreo)",
-  "sizeMb": 10.7,
+  "sizeMb": 6.39,
   "repo": "A2TH-Dev/petajiwa",
-  "releaseTag": "v1.0.7",
-  "apkFile": "PetaJiwa-v1.0.7.apk",
+  "releaseTag": "v1.0.8",
+  "apkFile": "PetaJiwa-v1.0.8.apk",
   "changelog": [
+    {
+      "version": "1.0.8",
+      "date": "2026-10-05",
+      "category": "Perbaikan Akurasi, Privasi & Stabilitas",
+      "notes": [
+        "🧭 Perbaiki perhitungan Peta Natal: Bintang yang Terbit (Ascendant) kini benar, dan ada pilihan zona waktu lokasi lahir",
+        "🔮 Perbaiki Gerbang Human Design (Personality & Design) agar mengikuti roda gerbang yang benar",
+        "🐉 Shio dan elemen BaZi kini memakai tahun Imlek / Li Chun sehingga kelahiran Januari–Februari tidak lagi keliru; Sembilan Bintang Ki dan Kartu Tarot kelahiran juga dirapikan",
+        "🔔 Notifikasi Alarm Transit maksimal sekali sehari, izin notifikasi diminta saat kamu mengaktifkannya, dan pengecekan di latar belakang hanya berjalan jika fitur ini aktif",
+        "🛡️ Tambah menu Pengaturan Privasi & Iklan; pengumpulan analitik dan laporan error kini mengikuti pilihan persetujuanmu",
+        "⏱️ Timer Pomodoro lebih akurat saat aplikasi di latar belakang, dan mengetuk notifikasi tidak lagi memuat ulang aplikasi",
+        "💾 Tambah pengingat cadangan data jurnal, serta perbaiki penyimpanan file di Android 8–9",
+        "🌐 Perbaiki teks bahasa Indonesia yang sempat rusak (mis. \"Bawah Sadar\", \"Suku Maya\"), tampilan tablet/landscape, dan aksesibilitas",
+        "🧑 Analisis wajah kini memakai 8 titik agar rasio lebar-panjang wajah lebih tepat"
+      ]
+    },
     {
       "version": "1.0.7",
       "date": "2026-09-29",
@@ -29,6 +45,22 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.0.8",
+      "date": "2026-10-05",
+      "category": "Accuracy, Privacy & Stability Fixes",
+      "notes": [
+        "🧭 Fixed natal chart calculation: the Rising Sign (Ascendant) is now correct, and you can choose the time zone of your birth location",
+        "🔮 Fixed Human Design Gates (Personality & Design) so they follow the correct gate wheel",
+        "🐉 Chinese zodiac and BaZi element now use the Lunar New Year / Li Chun, so January–February births are no longer wrong; Nine Star Ki and Birth Tarot Card were also refined",
+        "🔔 Transit Alarm notifications are limited to once a day, the notification permission is requested when you turn the feature on, and background checks only run while it is enabled",
+        "🛡️ Added a Privacy & Ads Settings menu; analytics and crash reporting now follow your consent choice",
+        "⏱️ The Pomodoro timer is more accurate while the app is in the background, and tapping a notification no longer reloads the app",
+        "💾 Added a reminder to back up your journal data, and fixed saving files on Android 8–9",
+        "🌐 Fixed Indonesian text that was sometimes garbled (e.g. \"Bawah Sadar\", \"Suku Maya\"), tablet/landscape layout, and accessibility",
+        "🧑 Face analysis now uses 8 points so the face width-to-length ratio is more accurate"
+      ]
+    },
     {
       "version": "1.0.7",
       "date": "2026-09-29",
@@ -63,17 +95,17 @@
       "Nama dan tanggal lahir — untuk fitur analisis numerologi/astrologi, disimpan hanya secara lokal di perangkat",
       "Foto wajah (opsional) — untuk fitur analisis tertentu, disimpan hanya secara lokal di perangkat",
       "Catatan/entri jurnal pribadi — disimpan hanya secara lokal di perangkat",
-      "Advertising ID — dipakai oleh Google AdMob untuk menampilkan iklan (interstitial & rewarded video) serta personalisasi dan pengukuran performa iklan",
-      "Data diagnostik, laporan crash & performa aplikasi (log error, jenis perangkat, versi Android, versi aplikasi, waktu loading aplikasi) — dikirim ke Firebase Crashlytics & Firebase Performance Monitoring (Google) untuk membantu kami menemukan bug dan mempercepat performa aplikasi; tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu",
-      "Data penggunaan aplikasi (statistik jumlah pengguna, fitur yang dibuka, jenis perangkat) — dikumpulkan lewat Firebase Analytics (Google) untuk memahami cara aplikasi dipakai secara umum; tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu"
+      "Advertising ID — dipakai oleh Google AdMob untuk menampilkan iklan (banner, interstitial & rewarded video) serta personalisasi dan pengukuran performa iklan",
+      "Data diagnostik, laporan crash & performa aplikasi (log error, jenis perangkat, versi Android, versi aplikasi, waktu loading aplikasi) — dikirim ke Firebase Crashlytics & Firebase Performance Monitoring (Google) untuk membantu kami menemukan bug dan mempercepat performa aplikasi (pengumpulan baru dimulai setelah proses persetujuan/UMP selesai); tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu",
+      "Data penggunaan aplikasi (statistik jumlah pengguna, fitur yang dibuka, jenis perangkat) — dikumpulkan lewat Firebase Analytics (Google) untuk memahami cara aplikasi dipakai secara umum (pengumpulan baru dimulai setelah proses persetujuan/UMP selesai); tidak berisi nama, tanggal lahir, foto, atau isi jurnal kamu"
     ],
-    "dataCollectedNote": "Kami tidak mengoperasikan server backend untuk aplikasi ini. Nama, tanggal lahir, foto, dan jurnal hanya tersimpan di penyimpanan internal perangkat kamu. Jika aplikasi dihapus atau data aplikasi dibersihkan, data ini hilang secara permanen dan tidak dapat kami pulihkan.",
+    "dataCollectedNote": "Kami tidak mengoperasikan server backend untuk aplikasi ini. Nama, tanggal lahir, foto, dan jurnal hanya tersimpan di penyimpanan internal perangkat kamu. Jika aplikasi dihapus atau data aplikasi dibersihkan, data ini hilang secara permanen dan tidak dapat kami pulihkan. Fitur ekspor data menyimpan salinan ke file di perangkatmu hanya atas permintaanmu; file itu sepenuhnya berada di bawah kendalimu.",
     "dataUsage": "Data pada bagian 01 digunakan semata-mata untuk menjalankan fitur inti aplikasi (perhitungan natal chart, analisis numerologi/astrologi, jurnal pribadi), menampilkan iklan melalui AdMob, mendeteksi & memperbaiki bug lewat Firebase Crashlytics, memantau & mempercepat performa aplikasi lewat Firebase Performance Monitoring, memahami pola penggunaan aplikasi secara umum lewat Firebase Analytics, dan meningkatkan stabilitas serta pengalaman pengguna. Kami <strong>tidak menggunakan data pribadi</strong> (nama, tanggal lahir, foto, jurnal) untuk tujuan apapun di luar aplikasi, karena data tersebut tidak pernah meninggalkan perangkat kamu.",
     "dataSharing": [
       "Kami tidak menjual, menyewakan, atau membagikan data pribadi kepada pihak ketiga di luar keperluan menampilkan iklan.",
       "Aplikasi menggunakan <strong>Google AdMob</strong> dan <strong>Google User Messaging Platform (UMP)</strong> untuk menampilkan iklan dan mengelola persetujuan iklan, termasuk untuk pengguna di wilayah EEA/UK (GDPR/UK). Lewat SDK ini, Advertising ID dapat dikumpulkan oleh Google untuk keperluan personalisasi dan pengukuran performa iklan, tunduk pada <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
       "Aplikasi menggunakan <strong>Firebase Crashlytics</strong> dan <strong>Firebase Performance Monitoring</strong> (Google) untuk memantau laporan crash & performa aplikasi (termasuk waktu loading). Data yang dikirim berupa log error teknis dan info perangkat (model, versi Android, versi aplikasi) — <strong>tidak pernah</strong> berisi nama, tanggal lahir, foto, atau isi jurnal kamu, tunduk pada <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
-      "Aplikasi menggunakan <strong>Firebase Analytics</strong> (Google) untuk memahami statistik penggunaan aplikasi secara umum (jumlah pengguna, fitur yang dibuka). Untuk pengguna di wilayah EEA/UK, pengumpulan ini mengikuti pilihan consent yang sama dengan yang diatur lewat UMP (lihat di atas) — kalau consent tidak diberikan, data ini tidak dikumpulkan.",
+      "Aplikasi menggunakan <strong>Firebase Analytics</strong> (Google) untuk memahami statistik penggunaan aplikasi secara umum (jumlah pengguna, fitur yang dibuka). Pengumpulan Firebase Analytics, Crashlytics, dan Performance Monitoring baru dinyalakan setelah proses persetujuan (UMP) selesai. Untuk pengguna di wilayah yang mewajibkan persetujuan (misalnya EEA/UK), jika persetujuan tidak diberikan maka data ini tidak dikumpulkan. Pilihan ini dapat diubah kapan saja lewat menu <strong>Pengaturan Privasi & Iklan</strong> di dalam aplikasi (tampil bila persetujuan diwajibkan di wilayahmu).",
       "Data lokasi, nama, tanggal lahir, foto wajah, dan jurnal tidak pernah dikirim, diunggah, atau disimpan di server kami maupun pihak ketiga manapun."
     ],
     "permissions": [
@@ -83,17 +115,23 @@
       },
       {
         "name": "Notifikasi",
-        "use": "Mengirim pengingat terkait fitur di dalam aplikasi — tidak melibatkan pengumpulan data pribadi tambahan"
+        "use": "Mengirim pengingat terkait fitur di dalam aplikasi (misalnya pengingat Pomodoro dan Alarm Transit). Pengecekan Alarm Transit di latar belakang hanya berjalan jika kamu mengaktifkannya dan dihitung sepenuhnya di perangkat — tidak melibatkan pengumpulan data pribadi tambahan"
       },
       {
         "name": "Internet & Advertising ID",
         "use": "Menampilkan iklan AdMob (interstitial & rewarded video) via Google Mobile Ads SDK"
+      },
+      {
+        "name": "Penyimpanan (hanya Android 8–9)",
+        "use": "Menyimpan file cadangan data dan gambar kartu ke folder Download. Di Android 10 ke atas izin ini tidak diperlukan"
       }
     ],
     "permissionsNote": "Aplikasi tidak memiliki server backend, sehingga tidak ada risiko kebocoran data dari sisi kami. Seluruh data pribadi (nama, tanggal lahir, foto, jurnal) tetap berada di perangkat kamu dan dilindungi oleh mekanisme keamanan sistem operasi Android. Aplikasi ini tidak ditujukan untuk anak-anak di bawah 13 tahun dan tidak dirancang untuk menargetkan audiens anak.",
     "dataDeletionIntro": "Peta Jiwa tidak memiliki server backend, sehingga tidak ada data pribadi (nama, tanggal lahir, foto, jurnal) yang tersimpan di luar perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk jurnal pribadi dan riwayat analisis) adalah dengan meng-uninstall aplikasi dari perangkatmu.",
     "dataDeletionList": [
-      "Untuk mereset Advertising ID yang dipakai AdMob (lihat bagian 03), buka Setelan Android → Google → Iklan → Setel Ulang ID Iklan."
+      "Untuk mereset Advertising ID yang dipakai AdMob (lihat bagian 03), buka Setelan Android → Google → Iklan → Setel Ulang ID Iklan.",
+      "Untuk mengubah atau mencabut persetujuan iklan & analitik, buka <strong>Pengaturan Privasi & Iklan</strong> di dalam aplikasi (tersedia bila persetujuan diwajibkan di wilayahmu), atau hapus data aplikasi lewat Setelan Android.",
+      "File cadangan (ekspor) yang kamu simpan sendiri berada di luar kendali aplikasi; hapus manual dari penyimpananmu atau layanan cloud tempat kamu menyimpannya."
     ],
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
