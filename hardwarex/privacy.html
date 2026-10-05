@@ -17,11 +17,11 @@
 <meta property="og:title" content="Kebijakan Privasi — HardwareX"/>
 <meta property="og:description" content="Kebijakan privasi untuk HardwareX."/>
 <meta property="og:url" content="https://a2th-dev.github.io/App/hardwarex/privacy.html"/>
-<meta property="og:image" content="https://a2th-dev.github.io/App/hardwarex/asset/icon.webp"/>
+<meta property="og:image" content="https://a2th-dev.github.io/App/hardwarex/asset/banner.webp"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Kebijakan Privasi — HardwareX"/>
 <meta name="twitter:description" content="Kebijakan privasi untuk HardwareX."/>
-<meta name="twitter:image" content="https://a2th-dev.github.io/App/hardwarex/asset/icon.webp"/>
+<meta name="twitter:image" content="https://a2th-dev.github.io/App/hardwarex/asset/banner.webp"/>
 
 <style>
   @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}}
@@ -167,7 +167,7 @@
           <div class="flex items-center gap-unit-md text-on-surface-variant/60">
             <span class="font-label-sm text-label-sm uppercase tracking-tighter">HardwareX</span>
             <span class="w-1 h-1 rounded-full bg-outline"></span>
-            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-10-03</span>
+            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-10-05</span>
           </div>
         </header>
 
@@ -191,22 +191,22 @@
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">HardwareX membaca informasi perangkat keras dan sistem yang memang disediakan Android untuk aplikasi (CPU, RAM, baterai, layar, dll). Sebagian besar diagnostik ini murni dibaca dari API resmi Android di perangkat kamu sendiri.</p>
             <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
               <li>Info perangkat keras & sistem (CPU, RAM, penyimpanan, baterai, layar, sensor, kamera) — diproses sepenuhnya di perangkat untuk fitur Dashboard, Performance, dan Battery</li>
-              <li>Info jaringan umum (jenis koneksi, nama operator) — tidak termasuk nomor telepon atau IMEI</li>
-              <li>Daftar paket aplikasi terpasang (nama, apakah system/user app) untuk fitur tab Apps</li>
-              <li>Statistik penggunaan aplikasi & laporan crash (Firebase Crashlytics, Performance Monitoring)</li>
-              <li>Advertising ID — dipakai Google AdMob untuk menampilkan iklan banner dan iklan rewarded (buka Analisis Per-Core)</li>
+              <li>Info jaringan umum (jenis koneksi, nama operator, status SIM) — tidak termasuk nomor telepon atau IMEI</li>
+              <li>Daftar paket aplikasi terpasang (nama, apakah system/user app) untuk fitur tab Apps — hanya ditampilkan di perangkat, tidak dikirim ke mana pun</li>
+              <li>Statistik penggunaan aplikasi (Firebase Analytics), laporan crash (Firebase Crashlytics), dan data kecepatan aplikasi (Firebase Performance Monitoring), termasuk model perangkat, versi Android, dan pengenal instalasi aplikasi</li>
+              <li>Advertising ID — dipakai Google AdMob untuk menampilkan iklan banner, iklan layar penuh (interstitial), dan iklan rewarded (buka Analisis Per-Core)</li>
             </ul>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Semua data diagnostik perangkat (CPU, RAM, baterai, dll.) diproses sepenuhnya lokal di perangkat kamu — HardwareX tidak punya server backend, jadi tidak ada data diagnostik yang dikirim ke mana pun.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">02</span> Bagaimana Data Digunakan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Info perangkat keras/sistem pada bagian 01 dipakai <strong>hanya di perangkat kamu</strong> untuk menampilkan dashboard dan hasil diagnostik yang kamu buka langsung. Statistik penggunaan & laporan crash dikirim ke Firebase (Google) untuk membantu perbaikan aplikasi. Advertising ID dipakai Google AdMob untuk menampilkan iklan, sesuai pilihan consent yang kamu buat lewat tombol Kelola Privasi (GDPR/UK).</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Info perangkat keras/sistem pada bagian 01 dipakai <strong>hanya di perangkat kamu</strong> untuk menampilkan dashboard dan hasil diagnostik yang kamu buka langsung. Statistik penggunaan, laporan crash, dan data kecepatan aplikasi dikirim ke Firebase (Google) untuk membantu perbaikan dan peningkatan kualitas aplikasi. Advertising ID dipakai Google AdMob untuk menampilkan iklan, sesuai pilihan consent yang kamu buat lewat tombol Kelola Privasi (GDPR/UK).</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">03</span> Berbagi Data ke Pihak Ketiga</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md"><strong>Firebase (Google):</strong> Crashlytics dan Performance Monitoring — kebijakan privasi Google dapat dibaca di <a class="text-primary hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md"><strong>Google AdMob:</strong> menampilkan iklan banner & rewarded memakai Advertising ID, sesuai pilihan consent yang kamu buat (bisa diubah kapan saja lewat tombol Kelola Privasi (GDPR/UK) di halaman Tentang Aplikasi).</p>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Di luar dua hal tersebut, tidak ada data diagnostik perangkat yang dibagikan ke pihak ketiga manapun oleh HardwareX.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md"><strong>Firebase (Google):</strong> Analytics, Crashlytics, dan Performance Monitoring — kebijakan privasi Google dapat dibaca di <a class="text-primary hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md"><strong>Google AdMob:</strong> menampilkan iklan banner, interstitial & rewarded memakai Advertising ID, sesuai pilihan consent yang kamu buat (bisa diubah kapan saja lewat tombol Kelola Privasi (GDPR/UK) di halaman Tentang Aplikasi).</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Di luar dua hal tersebut, tidak ada data diagnostik perangkat yang dibagikan ke pihak ketiga manapun oleh HardwareX. HardwareX tidak menjual data pengguna.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">04</span> Izin Aplikasi</h3>
@@ -222,7 +222,8 @@
                   <tr><td class="py-unit-sm pr-unit-md">Info Jaringan & WiFi</td><td class="py-unit-sm">Menampilkan jenis koneksi aktif dan nama operator di kartu Jaringan</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Status Telepon</td><td class="py-unit-sm">Hanya untuk info jaringan umum (jenis SIM, roaming) — nomor telepon dan IMEI tidak diakses</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Bluetooth</td><td class="py-unit-sm">Menampilkan nama dan status adapter Bluetooth perangkat</td></tr>
-                  <tr><td class="py-unit-sm pr-unit-md">Internet</td><td class="py-unit-sm">Menampilkan iklan AdMob dan mengirim laporan Firebase</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Internet</td><td class="py-unit-sm">Menampilkan iklan AdMob dan mengirim data Firebase (Analytics, Crashlytics, Performance)</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">ID Iklan (Advertising ID)</td><td class="py-unit-sm">Dipakai Google AdMob untuk menampilkan iklan, sesuai pilihan consent kamu</td></tr>
                 </tbody>
               </table>
             </div>
@@ -230,7 +231,7 @@
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">05</span> Cara Menghapus Data Anda</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">HardwareX tidak memiliki server backend untuk menyimpan hasil diagnostik atau pengaturan kamu — semuanya tersimpan lokal di perangkat. Cara menghapus semua data lokal aplikasi adalah dengan meng-uninstall aplikasi dari perangkatmu. Untuk data yang dikirim ke Firebase/AdMob, ikuti tautan kebijakan privasi masing-masing di atas.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">HardwareX tidak memiliki server backend untuk menyimpan hasil diagnostik atau pengaturan kamu — semuanya tersimpan lokal di perangkat. Cara menghapus semua data lokal aplikasi adalah dengan meng-uninstall aplikasi dari perangkatmu. Untuk data yang dikirim ke Firebase/AdMob, ikuti tautan kebijakan privasi masing-masing di atas, atau hubungi kami lewat email di bawah untuk permintaan penghapusan data.</p>
             <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Kontak: <strong>Tri Nofri Andi (A2TH-Dev)</strong> — <a class="text-primary hover:underline" href="mailto:a2thdev@gmail.com">a2thdev@gmail.com</a></p>
           </section>
           <section class="border-t border-outline-variant/10 pt-unit-xl pb-unit-xl text-center">

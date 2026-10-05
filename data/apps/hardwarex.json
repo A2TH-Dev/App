@@ -8,13 +8,21 @@
     "description_en": "HardwareX provides advanced, high-precision hardware diagnostics for professionals and enthusiasts alike. Check your device's full specs (CPU, RAM, storage, display, battery, camera, sensors, network, Bluetooth), monitor real-time CPU load, run performance benchmarks, and view device security status — all from one dashboard you can refresh anytime with \"Run Audit\".",
     "category": "Utilitas & Sistem",
     "category_en": "Utilities & System",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "minAndroid": "7.0 (Nougat)",
     "sizeMb": 16,
     "repo": "A2TH-Dev/hardwarex",
-    "releaseTag": "v1.0.0",
-    "apkFile": "HardwareX_v1.0.0.apk",
+    "releaseTag": "v1.0.1",
+    "apkFile": "HardwareX_v1.0.1.apk",
     "changelog": [
+        {
+            "version": "1.0.1",
+            "date": "2026-10-05",
+            "notes": [
+                "🛡️ Kebijakan privasi diperbarui: kini mencantumkan Firebase Analytics dan iklan interstitial secara lengkap",
+                "🔧 Perbaikan stabilitas dan penyempurnaan kecil"
+            ]
+        },
         {
             "version": "1.0.0",
             "date": "2026-09-26",
@@ -32,6 +40,14 @@
         }
     ],
     "changelog_en": [
+        {
+            "version": "1.0.1",
+            "date": "2026-10-05",
+            "notes": [
+                "🛡️ Privacy policy updated: now fully lists Firebase Analytics and interstitial ads",
+                "🔧 Stability fixes and minor improvements"
+            ]
+        },
         {
             "version": "1.0.0",
             "date": "2026-09-26",
@@ -68,17 +84,17 @@
         "dataCollectedIntro": "HardwareX membaca informasi perangkat keras dan sistem yang memang disediakan Android untuk aplikasi (CPU, RAM, baterai, layar, dll). Sebagian besar diagnostik ini murni dibaca dari API resmi Android di perangkat kamu sendiri.",
         "dataCollectedList": [
             "Info perangkat keras & sistem (CPU, RAM, penyimpanan, baterai, layar, sensor, kamera) — diproses sepenuhnya di perangkat untuk fitur Dashboard, Performance, dan Battery",
-            "Info jaringan umum (jenis koneksi, nama operator) — tidak termasuk nomor telepon atau IMEI",
-            "Daftar paket aplikasi terpasang (nama, apakah system/user app) untuk fitur tab Apps",
-            "Statistik penggunaan aplikasi & laporan crash (Firebase Crashlytics, Performance Monitoring)",
-            "Advertising ID — dipakai Google AdMob untuk menampilkan iklan banner dan iklan rewarded (buka Analisis Per-Core)"
+            "Info jaringan umum (jenis koneksi, nama operator, status SIM) — tidak termasuk nomor telepon atau IMEI",
+            "Daftar paket aplikasi terpasang (nama, apakah system/user app) untuk fitur tab Apps — hanya ditampilkan di perangkat, tidak dikirim ke mana pun",
+            "Statistik penggunaan aplikasi (Firebase Analytics), laporan crash (Firebase Crashlytics), dan data kecepatan aplikasi (Firebase Performance Monitoring), termasuk model perangkat, versi Android, dan pengenal instalasi aplikasi",
+            "Advertising ID — dipakai Google AdMob untuk menampilkan iklan banner, iklan layar penuh (interstitial), dan iklan rewarded (buka Analisis Per-Core)"
         ],
         "dataCollectedNote": "Semua data diagnostik perangkat (CPU, RAM, baterai, dll.) diproses sepenuhnya lokal di perangkat kamu — HardwareX tidak punya server backend, jadi tidak ada data diagnostik yang dikirim ke mana pun.",
-        "dataUsage": "Info perangkat keras/sistem pada bagian 01 dipakai <strong>hanya di perangkat kamu</strong> untuk menampilkan dashboard dan hasil diagnostik yang kamu buka langsung. Statistik penggunaan & laporan crash dikirim ke Firebase (Google) untuk membantu perbaikan aplikasi. Advertising ID dipakai Google AdMob untuk menampilkan iklan, sesuai pilihan consent yang kamu buat lewat tombol Kelola Privasi (GDPR/UK).",
+        "dataUsage": "Info perangkat keras/sistem pada bagian 01 dipakai <strong>hanya di perangkat kamu</strong> untuk menampilkan dashboard dan hasil diagnostik yang kamu buka langsung. Statistik penggunaan, laporan crash, dan data kecepatan aplikasi dikirim ke Firebase (Google) untuk membantu perbaikan dan peningkatan kualitas aplikasi. Advertising ID dipakai Google AdMob untuk menampilkan iklan, sesuai pilihan consent yang kamu buat lewat tombol Kelola Privasi (GDPR/UK).",
         "dataSharing": [
-            "<strong>Firebase (Google):</strong> Crashlytics dan Performance Monitoring — kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
-            "<strong>Google AdMob:</strong> menampilkan iklan banner & rewarded memakai Advertising ID, sesuai pilihan consent yang kamu buat (bisa diubah kapan saja lewat tombol Kelola Privasi (GDPR/UK) di halaman Tentang Aplikasi).",
-            "Di luar dua hal tersebut, tidak ada data diagnostik perangkat yang dibagikan ke pihak ketiga manapun oleh HardwareX."
+            "<strong>Firebase (Google):</strong> Analytics, Crashlytics, dan Performance Monitoring — kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
+            "<strong>Google AdMob:</strong> menampilkan iklan banner, interstitial & rewarded memakai Advertising ID, sesuai pilihan consent yang kamu buat (bisa diubah kapan saja lewat tombol Kelola Privasi (GDPR/UK) di halaman Tentang Aplikasi).",
+            "Di luar dua hal tersebut, tidak ada data diagnostik perangkat yang dibagikan ke pihak ketiga manapun oleh HardwareX. HardwareX tidak menjual data pengguna."
         ],
         "permissions": [
             {
@@ -95,22 +111,27 @@
             },
             {
                 "name": "Internet",
-                "use": "Menampilkan iklan AdMob dan mengirim laporan Firebase"
+                "use": "Menampilkan iklan AdMob dan mengirim data Firebase (Analytics, Crashlytics, Performance)"
+            },
+            {
+                "name": "ID Iklan (Advertising ID)",
+                "use": "Dipakai Google AdMob untuk menampilkan iklan, sesuai pilihan consent kamu"
             }
         ],
         "permissionsNote": "Semua fitur diagnostik (CPU, RAM, baterai, dll.) bekerja dengan membaca API resmi Android di perangkat kamu sendiri — HardwareX tidak pernah mengakses data pribadi seperti kontak, pesan, atau riwayat panggilan.",
-        "dataDeletionIntro": "HardwareX tidak memiliki server backend untuk menyimpan hasil diagnostik atau pengaturan kamu — semuanya tersimpan lokal di perangkat. Cara menghapus semua data lokal aplikasi adalah dengan meng-uninstall aplikasi dari perangkatmu. Untuk data yang dikirim ke Firebase/AdMob, ikuti tautan kebijakan privasi masing-masing di atas.",
+        "dataDeletionIntro": "HardwareX tidak memiliki server backend untuk menyimpan hasil diagnostik atau pengaturan kamu — semuanya tersimpan lokal di perangkat. Cara menghapus semua data lokal aplikasi adalah dengan meng-uninstall aplikasi dari perangkatmu. Untuk data yang dikirim ke Firebase/AdMob, ikuti tautan kebijakan privasi masing-masing di atas, atau hubungi kami lewat email di bawah untuk permintaan penghapusan data.",
         "contactName": "Tri Nofri Andi (A2TH-Dev)",
         "contactEmail": "a2thdev@gmail.com"
     },
     "icon": "asset/icon.png",
     "screenshots": [
-        "asset/1.jpg",
-        "asset/2.jpg",
-        "asset/3.jpg",
-        "asset/4.jpg",
-        "asset/5.jpg",
-        "asset/6.jpg"
+        "asset/1.png",
+        "asset/2.png",
+        "asset/3.png",
+        "asset/4.png",
+        "asset/5.png",
+        "asset/6.png"
     ],
+    "banner": "asset/banner.png",
     "order": 3
 }
