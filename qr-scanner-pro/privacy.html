@@ -167,7 +167,7 @@
           <div class="flex items-center gap-unit-md text-on-surface-variant/60">
             <span class="font-label-sm text-label-sm uppercase tracking-tighter">QR Scanner Pro</span>
             <span class="w-1 h-1 rounded-full bg-outline"></span>
-            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-10-06</span>
+            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-10-08</span>
           </div>
         </header>
 
@@ -175,7 +175,7 @@
           <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-unit-lg">
             <div class="max-w-md">
               <h2 class="font-headline-md text-headline-md text-primary mb-unit-xs">Scan QR & barcode secepat kedip, plus proteksi anti-phishing.</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant">QR Scanner Pro bukan cuma pemindai QR biasa — kenali juga barcode produk (EAN/UPC, Code128/39), scan kartu nama pakai OCR langsung jadi QR kontak, dan generate massal dari file CSV buat badge atau tiket acara. Sebelum kamu buka link hasil scan, aplikasi otomatis memeriksa pola mencurigakan dulu (proteksi "quishing"). Semua diproses langsung di HP, riwayat tersimpan lokal — tidak ada akun, tidak ada data yang dikirim ke server.</p>
+              <p class="font-body-md text-body-md text-on-surface-variant">QR Scanner Pro bukan cuma pemindai QR biasa — kenali juga barcode produk (EAN/UPC, Code128/39), scan kartu nama pakai OCR langsung jadi QR kontak, dan generate massal dari file CSV buat badge atau tiket acara. Sebelum kamu buka link hasil scan, aplikasi otomatis memeriksa pola mencurigakan dulu (proteksi "quishing"). Pemindaian dan riwayat diproses langsung di HP dan tersimpan lokal (isi riwayat dienkripsi) — tanpa akun, dan isi QR yang kamu scan tidak pernah dikirim ke server pengembang.</p>
             </div>
             <div class="flex-shrink-0">
               <div class="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
@@ -188,25 +188,29 @@
         <div class="space-y-unit-xl leading-[1.625]">
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">01</span> Data yang Dikumpulkan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">QR Scanner Pro tidak memiliki sistem akun/login dan tidak mengirim data pribadi kamu ke server milik pengembang. Data yang diproses aplikasi:</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">QR Scanner Pro tidak memiliki sistem akun/login dan tidak mengirim isi QR, riwayat, atau foto kamu ke server milik pengembang. Data yang diproses aplikasi:</p>
             <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
-              <li>Akses Kamera — dipakai hanya untuk memindai QR code secara langsung. Gambar dari kamera diproses di perangkat (on-device) dan tidak disimpan atau diunggah ke mana pun</li>
-              <li>Riwayat Pindai/Buat QR — konten yang kamu pindai atau buat (teks/URL) disimpan secara lokal di perangkat memakai database internal aplikasi, tidak pernah dikirim ke server pengembang. Bisa dihapus kapan saja lewat menu "Hapus Semua" di halaman Riwayat</li>
+              <li>Akses Kamera — dipakai hanya untuk memindai QR code secara langsung dan memotret kartu nama (scan kartu nama/OCR). Gambar diproses di perangkat (on-device) dan tidak disimpan atau diunggah ke mana pun</li>
+              <li>Riwayat Pindai/Buat QR — konten yang kamu pindai atau buat (teks/URL/WiFi, dsb.) disimpan secara lokal di perangkat memakai database internal aplikasi. Isi riwayat dienkripsi di perangkat (AES-256, kunci dilindungi Android Keystore) dan tidak pernah dikirim ke server pengembang. Bisa dihapus kapan saja lewat menu "Hapus Semua" di halaman Riwayat</li>
               <li>Akses Galeri (opsional) — hanya saat kamu memilih gambar dari galeri untuk dipindai, atau saat menambahkan logo kustom ke QR code yang kamu buat</li>
-              <li>Penyimpanan (Android 9 ke bawah) — untuk menyimpan hasil QR code yang kamu buat ke galeri foto perangkat</li>
-              <li>Pembelian Premium (opsional) — kalau kamu membeli fitur Premium (QR Berpassword, ekspor PDF, widget), transaksi pembayaran diproses sepenuhnya oleh Google Play Billing. Kami tidak pernah menerima atau menyimpan data kartu/metode pembayaran kamu — hanya status "sudah/belum membeli" yang disimpan lokal di perangkat</li>
-              <li>Identifier Iklan (Advertising ID) & data teknis perangkat — dikumpulkan oleh Google Mobile Ads SDK (AdMob) untuk menampilkan & mengukur iklan, lihat bagian 03</li>
+              <li>Penyimpanan (Android 9 ke bawah) — untuk menyimpan hasil QR code yang kamu buat ke galeri foto perangkat dan file ekspor riwayat ke folder Unduhan/QRScannerPro</li>
+              <li>Kunci riwayat (opsional) — kalau kamu mengaktifkannya, verifikasi memakai sidik jari/wajah atau PIN/pola perangkat. Verifikasi dilakukan sepenuhnya oleh Android; aplikasi tidak menerima, melihat, atau menyimpan data biometrik kamu</li>
+              <li>Aksi cepat hasil scan — saat kamu menekan tombol seperti Telepon, SMS, Email, Peta, Kalender, Simpan Kontak, atau Sambungkan WiFi, isi QR diserahkan ke aplikasi sistem terkait atas perintahmu. Tidak ada aksi yang berjalan otomatis</li>
+              <li>Pembelian Premium (opsional) — kalau kamu membeli fitur Premium (QR Berpassword, ekspor PDF, widget, bebas iklan), transaksi pembayaran diproses sepenuhnya oleh Google Play Billing. Kami tidak pernah menerima atau menyimpan data kartu/metode pembayaran kamu — hanya status "sudah/belum membeli" yang disimpan lokal di perangkat</li>
+              <li>Identifier Iklan (Advertising ID) & data teknis perangkat — dikumpulkan oleh Google Mobile Ads SDK (AdMob) untuk menampilkan & mengukur iklan (tidak untuk pengguna Premium), lihat bagian 03</li>
+              <li>Data diagnostik, analitik, dan laporan error — dikumpulkan layanan Google: Firebase Analytics dan Performance Monitoring (aktif hanya setelah persetujuan/consent mengizinkan; berisi peristiwa penggunaan, ID instalasi, metrik performa, metadata perangkat, dan alamat IP untuk memetakan negara), Firebase Crashlytics (laporan crash: jejak crash, status aplikasi, metadata perangkat, ID instalasi; selalu aktif), dan Google ML Kit (diagnostik dan performa; isi QR dan foto tidak dikirim)</li>
             </ul>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Riwayat sengaja dikecualikan dari cloud backup otomatis Android demi privasi — tersedia ekspor/impor manual (JSON/CSV) lewat menu Riwayat kalau kamu ingin memindahkan data waktu ganti perangkat.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Riwayat sengaja dikecualikan dari cloud backup otomatis Android demi privasi — tersedia ekspor/impor manual (JSON/CSV) lewat menu Riwayat kalau kamu ingin memindahkan data waktu ganti perangkat. File ekspor berisi teks biasa (tidak terenkripsi) dan bisa memuat data sensitif seperti password WiFi — simpan dan bagikan dengan hati-hati.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">02</span> Bagaimana Data Digunakan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data riwayat scan/generate pada bagian 01 diproses hanya di perangkat kamu, semata-mata untuk menjalankan fitur scan/generate yang kamu buka langsung. QR Scanner Pro tidak membangun profil pengguna dari riwayat tersebut dan tidak menjualnya. Data iklan (lihat bagian 03) dipakai oleh Google sesuai kebijakan privasi Google sendiri.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data riwayat scan/generate pada bagian 01 diproses hanya di perangkat kamu, semata-mata untuk menjalankan fitur scan/generate yang kamu buka langsung. QR Scanner Pro tidak membangun profil pengguna dari riwayat tersebut dan tidak menjualnya. Data iklan (lihat bagian 03) dipakai oleh Google sesuai kebijakan privasi Google sendiri. Data analitik dan laporan error dipakai hanya untuk memahami penggunaan, mengukur performa, dan memperbaiki bug.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">03</span> Berbagi Data ke Pihak Ketiga</h3>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">QR Scanner Pro tidak memiliki server sendiri — riwayat pindai/generate kamu tidak pernah diunggah ke infrastruktur kami.</p>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menampilkan iklan lewat Google Mobile Ads (Google AdMob). Google, sebagai penyedia iklan pihak ketiga, bisa mengumpulkan Advertising ID, informasi teknis perangkat, perkiraan lokasi, dan data interaksi iklan untuk keperluan personalisasi & pengukuran iklan, sesuai kebijakan privasi Google. Kamu bisa mengatur ulang pilihan consent (GDPR/UK) kapan saja lewat menu Pengaturan > Kelola Consent Iklan di dalam aplikasi. Detail lengkap: <a class="text-primary hover:underline" href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a>.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menampilkan iklan lewat Google Mobile Ads (Google AdMob). Google, sebagai penyedia iklan pihak ketiga, bisa mengumpulkan Advertising ID, informasi teknis perangkat, perkiraan lokasi, dan data interaksi iklan untuk keperluan personalisasi & pengukuran iklan, sesuai kebijakan privasi Google. Pengguna Premium tidak melihat iklan. Kamu bisa mengatur ulang pilihan consent (GDPR/UK) kapan saja lewat menu Pengaturan > Kelola Consent Iklan di dalam aplikasi. Detail lengkap: <a class="text-primary hover:underline" href="https://policies.google.com/technologies/ads">policies.google.com/technologies/ads</a>.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Analitik, performa, dan laporan error lewat Google Firebase (Analytics, Performance Monitoring, Crashlytics) serta diagnostik Google ML Kit. Data ini dikirim ke Google sebagai penyedia layanan dan tidak berisi isi QR, riwayat, atau foto kamu. Firebase Analytics dan Performance Monitoring baru aktif setelah persetujuan (consent) mengizinkan; Crashlytics selalu aktif. Lihat <a class="text-primary hover:underline" href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>.</p>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Pembelian Premium diproses oleh Google Play Billing — data pembayaran (metode bayar, kartu, dsb.) ditangani sepenuhnya oleh Google Play, tidak pernah melewati atau disimpan oleh QR Scanner Pro maupun pengembang.</p>
           </section>
           <section>
@@ -220,20 +224,22 @@
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-outline-variant/10 font-body-sm text-body-sm text-on-surface-variant">
-                  <tr><td class="py-unit-sm pr-unit-md">Kamera</td><td class="py-unit-sm">Memindai QR code secara langsung</td></tr>
-                  <tr><td class="py-unit-sm pr-unit-md">Penyimpanan (maks. Android 9)</td><td class="py-unit-sm">Menyimpan QR code hasil generate ke galeri</td></tr>
-                  <tr><td class="py-unit-sm pr-unit-md">Internet, Akses Status Jaringan, Akses Status WiFi</td><td class="py-unit-sm">Diperlukan Google Mobile Ads SDK (AdMob) untuk memuat & menampilkan iklan</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Kamera</td><td class="py-unit-sm">Memindai QR code secara langsung dan memotret kartu nama</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Penyimpanan (maks. Android 9)</td><td class="py-unit-sm">Menyimpan QR code hasil generate ke galeri dan file ekspor riwayat ke folder Unduhan</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Biometrik / kunci layar (opsional)</td><td class="py-unit-sm">Hanya untuk fitur kunci riwayat. Verifikasi dilakukan oleh Android; aplikasi tidak menerima data biometrik</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Internet, Akses Status Jaringan, Akses Status WiFi</td><td class="py-unit-sm">Diperlukan untuk memuat iklan (Google AdMob), pembelian Premium (Google Play), serta analitik dan laporan error (Firebase)</td></tr>
                 </tbody>
               </table>
             </div>
-            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Aplikasi ini memakai Google Mobile Ads (AdMob) sebagai penyedia iklan, dengan Google User Messaging Platform (UMP) untuk mengelola persetujuan (consent) GDPR/UK sebelum iklan personalisasi ditampilkan — kebijakan privasi & data yang dikumpulkan mengikuti Google, bukan pihak ketiga lain.</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Aplikasi ini memakai Google Mobile Ads (AdMob) sebagai penyedia iklan, dengan Google User Messaging Platform (UMP) untuk mengelola persetujuan (consent) GDPR/UK. Iklan dan Firebase Analytics/Performance Monitoring baru diaktifkan setelah persetujuan mengizinkan — kebijakan privasi & data yang dikumpulkan mengikuti Google, bukan pihak ketiga lain.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">05</span> Cara Menghapus Data Anda</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">QR Scanner Pro tidak memiliki server backend, sehingga tidak ada data riwayat yang tersimpan di luar perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk riwayat scan/generate & status consent iklan) adalah dengan meng-uninstall aplikasi dari perangkatmu.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">QR Scanner Pro tidak memiliki server backend, sehingga tidak ada data riwayat yang tersimpan di luar perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk riwayat scan/generate, kunci enkripsi riwayat & status consent iklan) adalah dengan meng-uninstall aplikasi dari perangkatmu, atau menghapus riwayat lewat menu "Hapus Semua" di halaman Riwayat.</p>
             <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
               <li>Iklan di aplikasi ini disediakan Google Mobile Ads (AdMob) — untuk melihat/menghapus data iklan yang dikumpulkan Google atau menonaktifkan personalisasi iklan, kunjungi <a class="text-primary hover:underline" href="https://adssettings.google.com">adssettings.google.com</a>, atau ubah pilihan consent GDPR/UK kapan saja lewat menu Pengaturan > Kelola Consent Iklan di dalam aplikasi.</li>
               <li>Riwayat pembelian Premium dikelola lewat akun Google Play kamu sendiri (Play Store > Menu > Pembayaran & langganan).</li>
+              <li>Data analitik dan laporan error dikelola Google Firebase. Untuk meminta penghapusan data yang terkait perangkatmu, hubungi kami di a2thdev@gmail.com dengan menyebutkan model perangkat dan versi aplikasi.</li>
             </ul>
             <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Kontak: <strong>Tri Nofri Andi (A2TH-Dev)</strong> — <a class="text-primary hover:underline" href="mailto:a2thdev@gmail.com">a2thdev@gmail.com</a></p>
           </section>

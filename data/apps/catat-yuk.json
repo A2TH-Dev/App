@@ -8,13 +8,34 @@
   "description_en": "Catat Yuk automatically detects transactions the moment a notification arrives from your bank or e-wallet app, with auto-categorization that gets smarter from your manual corrections. You can also log entries by voice or by scanning a receipt (OCR). Includes per-category budgets, savings goals, debt/receivable tracking, a loan calculator, and a Wrapped-style yearly summary — everything stored locally on your phone, no server involved.",
   "category": "Keuangan",
   "category_en": "Finance",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 20,
   "repo": "A2TH-Dev/catatyuk",
-  "releaseTag": "v1.0.4",
-  "apkFile": "Catat-Yuk_v1.0.4.apk",
+  "releaseTag": "v1.0.5",
+  "apkFile": "Catat-Yuk_v1.0.5.apk",
   "changelog": [
+    {
+      "version": "1.0.5",
+      "date": "2026-10-08",
+      "category": "Keamanan, Perbaikan & Penyempurnaan",
+      "notes": [
+        "🗑️ Transaksi kini bisa dihapus dan diedit (nominal & catatan) dari Riwayat, lengkap dengan tombol Urungkan",
+        "🏦 Tiap akun bisa dihubungkan ke aplikasi bank/e-wallet sumber notifikasinya, supaya saldo akun ikut berubah dari transaksi otomatis (akun lama: ketuk barisnya)",
+        "🧠 Kategori otomatis lebih akurat — tidak lagi salah menebak dari kata pendek seperti \"di\"",
+        "🅿️ Dua pembayaran bernominal sama berurutan (mis. parkir 2x) kini keduanya tercatat",
+        "🔐 PIN lebih aman: penyimpanan PIN diperkuat dan kunci setelah salah PIN tidak bisa dilewati dengan mengubah jam HP",
+        "🔓 PIN tidak lagi diminta ulang saat voice input, kamera, atau berbagi file; tombol Back di layar PIN tidak lagi menembus kunci",
+        "🕵️ Widget saldo menyembunyikan saldo secara default jika Kunci Aplikasi aktif; notifikasi aplikasi menyembunyikan nominal di layar kunci",
+        "💾 Salinan pengaman otomatis sebelum Restore/Reset dengan tombol Urungkan; Restore kini menerima semua jenis file backup",
+        "🧾 Scan struk lebih akurat: membaca TOTAL (bukan uang tunai yang dibayar), foto kamera resolusi penuh, dan lebih hemat memori",
+        "🔁 Tanggal transaksi rutin bulanan tidak lagi bergeser (mis. tanggal 31 kembali ke 31 setelah Februari)",
+        "📊 Insight \"vs bulan lalu\" kini membandingkan periode yang sama; donut chart memakai warna kategori",
+        "🕌 Zakat/Sedekah menampilkan info nisab BAZNAS 2026",
+        "🎙️ Izin mikrofon dihapus — voice input memakai layanan pengenalan suara sistem",
+        "🐛 Perbaiki nama merchant yang terpotong (mis. \"Rumah Makan Padang\"), nominal \"Rp1,5 juta\" yang terbaca 15, dan tutorial pengguna baru yang kadang terlewat"
+      ]
+    },
     {
       "version": "1.0.4",
       "date": "2026-09-21",
@@ -75,6 +96,27 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.0.5",
+      "date": "2026-10-08",
+      "category": "Security, Fixes & Refinements",
+      "notes": [
+        "🗑️ Transactions can now be deleted and edited (amount & note) from History, with an Undo button",
+        "🏦 Each account can be linked to its bank/e-wallet notification source, so account balances now update from auto-detected transactions (existing accounts: tap the row)",
+        "🧠 More accurate auto-categorization — no more wrong guesses from short words like \"di\"",
+        "🅿️ Two consecutive payments of the same amount (e.g. 2 parking fees) are now both recorded",
+        "🔐 Stronger PIN: PIN storage hardened, and the wrong-PIN lockout can no longer be skipped by changing the phone clock",
+        "🔓 The PIN is no longer asked again during voice input, camera, or file sharing; the Back button on the PIN screen no longer bypasses the lock",
+        "🕵️ The balance widget hides the balance by default when App Lock is on; app notifications hide amounts on the lock screen",
+        "💾 Automatic safety copy before Restore/Reset with an Undo button; Restore now accepts any backup file type",
+        "🧾 More accurate receipt scanning: reads the TOTAL (not the cash tendered), full-resolution camera photos, and lower memory use",
+        "🔁 Monthly recurring transaction dates no longer drift (e.g. the 31st returns to the 31st after February)",
+        "📊 The \"vs last month\" insight now compares the same period; the donut chart uses category colors",
+        "🕌 Zakat/Charity shows the 2026 BAZNAS nisab",
+        "🎙️ Microphone permission removed — voice input uses the system speech recognition service",
+        "🐛 Fixed truncated merchant names (e.g. \"Rumah Makan Padang\"), \"Rp1,5 juta\" being read as 15, and the first-run tutorial sometimes being skipped"
+      ]
+    },
     {
       "version": "1.0.4",
       "date": "2026-09-21",
@@ -152,20 +194,23 @@
     "dataCollectedIntro": "Catat Yuk dibangun dengan prinsip <strong>lokal-dulu (local-first)</strong>. Seluruh data transaksi kamu disimpan di database lokal perangkat — kami bahkan tidak memiliki server sendiri. Data berikut diakses secara lokal untuk menjalankan fitur yang kamu aktifkan sendiri:",
     "dataCollectedList": [
       "Notifikasi sistem — khusus untuk mendeteksi transaksi otomatis, dan hanya diproses kalau berasal dari daftar tetap aplikasi bank/e-wallet populer Indonesia yang dikenali aplikasi; notifikasi dari aplikasi lain diabaikan sepenuhnya, tidak disimpan dalam bentuk apapun",
-      "Rekaman suara sementara — khusus fitur Voice Input, diproses langsung oleh speech-to-text bawaan Android, tidak direkam atau disimpan oleh Catat Yuk",
-      "Kamera — khusus fitur Scan Struk Belanja, diproses on-device lewat ML Kit OCR (Google, on-device, bukan cloud) — foto struk tidak diunggah ke internet",
+      "Cuplikan notifikasi yang gagal dibaca — notifikasi dari aplikasi bank/e-wallet yang dikenali tetapi tidak berhasil dibaca disimpan sementara di perangkat (maksimal 10 terakhir) supaya bisa kamu kirim sebagai laporan perbaikan. Nomor rekening/HP, saldo, nama, dan email disamarkan sebelum disimpan. Laporan hanya terkirim jika kamu sendiri menekan tombol kirim lewat email di Pengaturan, dan datanya bisa kamu hapus kapan saja",
+      "Voice Input — memakai layanan pengenalan suara bawaan sistem Android (umumnya Google). Catat Yuk tidak mengakses mikrofon secara langsung, tidak meminta izin mikrofon, dan tidak merekam atau menyimpan suara. Audio diproses oleh layanan tersebut sesuai pengaturan perangkatmu dan kebijakan privasi penyedianya",
+      "Kamera — khusus fitur Scan Struk Belanja, diproses on-device lewat ML Kit OCR (Google, on-device, bukan cloud) — foto struk tidak diunggah ke internet; foto hanya disimpan sementara di cache aplikasi dan dihapus setelah dibaca",
       "Data biometrik untuk Kunci Aplikasi ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Catat Yuk sendiri tidak pernah menyimpan data biometrik apapun",
       "Advertising ID — dipakai Google Mobile Ads SDK untuk menampilkan iklan pada versi gratis (lihat bagian 03)",
-      "Data diagnostik teknis (crash log, performa aplikasi) — dipakai Firebase Crashlytics & Performance Monitoring untuk membantu kami menemukan & memperbaiki bug lebih cepat; tidak berisi data transaksi/keuangan kamu"
+      "Data diagnostik teknis (crash log, performa aplikasi) — dipakai Firebase Crashlytics & Performance Monitoring untuk membantu kami menemukan & memperbaiki bug lebih cepat; tidak berisi data transaksi/keuangan kamu",
+      "Statistik penggunaan umum (Firebase Analytics) — dipakai untuk memahami penggunaan aplikasi secara garis besar (mis. jumlah sesi dan jenis perangkat). Hanya aktif setelah kamu memberi persetujuan lewat dialog privasi, dan tidak berisi isi transaksi atau data keuangan kamu"
     ],
     "dataCollectedNote": "Setelah upgrade ke Pro (pembelian sekali bayar, bukan langganan), aplikasi berhenti total memuat/menampilkan iklan di semua layar. Karena Catat Yuk cuma 1 APK (bukan edisi Free/Pro terpisah), izin internet tetap terdaftar untuk keperluan verifikasi pembelian lewat Google Play Billing — bukan berarti data lain ikut dikirim ke mana pun.",
-    "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk mendeteksi transaksi otomatis, menjalankan fitur yang kamu buka langsung, atau menampilkan iklan (versi gratis). Catat Yuk tidak membangun profil pengguna dari isi transaksi kamu dan tidak menjual data apapun. Notifikasi yang tidak cocok dengan pola transaksi bank/e-wallet langsung diabaikan saat itu juga.",
+    "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk mendeteksi transaksi otomatis, menjalankan fitur yang kamu buka langsung, atau menampilkan iklan (versi gratis). Catat Yuk tidak membangun profil pengguna dari isi transaksi kamu dan tidak menjual data apapun. Notifikasi dari aplikasi di luar daftar yang dikenali langsung diabaikan saat itu juga; notifikasi dari aplikasi bank/e-wallet yang dikenali tetapi gagal dibaca hanya disimpan sebagai cuplikan tersamar (lihat bagian 01).",
     "dataSharing": [
       "Catat Yuk tidak memiliki server sendiri — tidak ada transaksi, saldo, atau data lain yang pernah diunggah ke infrastruktur kami, karena infrastruktur itu tidak ada.",
       "Menggunakan Google Mobile Ads SDK (AdMob) dan Google User Messaging Platform (UMP) untuk menampilkan iklan pada versi gratis dan mengelola persetujuan privasi pengguna di Uni Eropa/Inggris (GDPR/UK). Lewat SDK ini, Advertising ID dikirim ke Google untuk keperluan penayangan iklan. Kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
       "Menggunakan Google Play Billing untuk memproses pembelian Pro — detail pembayaran (kartu, dll) ditangani sepenuhnya oleh Google Play, tidak pernah melewati atau tersimpan di Catat Yuk.",
-      "Menggunakan Firebase Crashlytics & Performance Monitoring (Google) untuk memantau stabilitas aplikasi — data yang dikirim murni diagnostik teknis (log crash, performa), bukan data transaksi/keuangan kamu.",
-      "Backup/restore data (opsional, lewat menu Pengaturan) menghasilkan 1 file JSON yang kamu simpan langsung ke penyimpanan perangkat atau bagikan sendiri lewat share sheet Android (mis. ke Google Drive) — sepenuhnya atas kendali dan pilihan kamu, bukan otomatis dari Catat Yuk."
+      "Menggunakan Firebase Crashlytics, Performance Monitoring, & Analytics (Google) untuk memantau stabilitas dan penggunaan aplikasi secara umum — data yang dikirim murni diagnostik teknis dan statistik penggunaan (log crash, performa, jumlah sesi), bukan data transaksi/keuangan kamu. Analytics baru aktif setelah kamu memberi persetujuan.",
+      "Backup/restore data (opsional, lewat menu Pengaturan) menghasilkan 1 file JSON yang kamu simpan langsung ke penyimpanan perangkat atau bagikan sendiri lewat share sheet Android (mis. ke Google Drive) — sepenuhnya atas kendali dan pilihan kamu, bukan otomatis dari Catat Yuk. Pengecualian: sebelum Restore atau Reset, Catat Yuk menyimpan salinan pengaman otomatis (maksimal 2) di penyimpanan privat aplikasi supaya kamu bisa menekan Urungkan; salinan ini tidak dikirim ke mana pun dan terhapus saat aplikasi di-uninstall.",
+      "Laporan notifikasi yang gagal dibaca (opsional) dikirim lewat aplikasi email pilihanmu hanya setelah kamu sendiri menekan tombol kirim di Pengaturan, ke alamat kontak developer. Isinya sudah disamarkan (lihat bagian 01) dan kamu bisa memeriksanya sebelum menekan kirim di aplikasi email."
     ],
     "permissions": [
       {
@@ -174,11 +219,7 @@
       },
       {
         "name": "Kamera",
-        "use": "Scan struk belanja (OCR on-device via ML Kit)"
-      },
-      {
-        "name": "Rekam Audio",
-        "use": "Voice input pencatatan transaksi"
+        "use": "Scan struk belanja (OCR on-device via ML Kit); foto hanya disimpan sementara di cache dan dihapus setelah dibaca"
       },
       {
         "name": "Biometrik",
@@ -194,17 +235,17 @@
       },
       {
         "name": "Internet & Advertising ID",
-        "use": "Menampilkan iklan AdMob (versi gratis), verifikasi pembelian Pro lewat Google Play Billing, & pemantauan stabilitas lewat Firebase Crashlytics"
+        "use": "Menampilkan iklan AdMob (versi gratis), verifikasi pembelian Pro lewat Google Play Billing, & pemantauan stabilitas serta penggunaan umum lewat Firebase (Crashlytics, Performance, Analytics)"
       }
     ],
-    "permissionsNote": "<code>android:allowBackup</code> sengaja dimatikan di level sistem — supaya database transaksi dan hash PIN kunci aplikasi tidak bisa diekstrak lewat <code>adb backup</code> tanpa melewati PIN. Catat Yuk punya mekanisme backup/restore sendiri yang eksplisit dan sepenuhnya atas kendali kamu (lihat bagian 02).",
+    "permissionsNote": "<code>android:allowBackup</code> sengaja dimatikan di level sistem — supaya database transaksi dan hash PIN kunci aplikasi tidak bisa diekstrak lewat <code>adb backup</code> tanpa melewati PIN. Catat Yuk punya mekanisme backup/restore sendiri yang eksplisit dan sepenuhnya atas kendali kamu (lihat bagian 02). Mikrofon tidak termasuk izin aplikasi: voice input memakai layanan pengenalan suara sistem, bukan akses mikrofon langsung.",
     "dataDeletionIntro": "Karena seluruh data Catat Yuk tersimpan lokal di perangkat Anda tanpa server, Anda dapat menghapus data sendiri kapan saja tanpa perlu menghubungi kami:",
     "dataDeletionList": [
       "Hapus sebagian data — buka Catat Yuk &rarr; Pengaturan &rarr; kelola atau hapus transaksi, kategori, budget, maupun goal tabungan secara manual satu per satu.",
-      "Hapus semua data sekaligus — buka Catat Yuk &rarr; Pengaturan &rarr; tekan tombol <strong>\"Hapus Semua Data\"</strong>. Seluruh transaksi, kategori kustom, budget, dan goal akan terhapus permanen dari perangkat secara instan.",
+      "Hapus semua data sekaligus — buka Catat Yuk &rarr; Pengaturan &rarr; tekan tombol <strong>\"Hapus Semua Data\"</strong>. Seluruh transaksi, kategori kustom, budget, dan goal akan terhapus dari perangkat secara instan. Sesaat setelahnya muncul tombol <strong>Urungkan</strong>, dan satu salinan pengaman tetap tersimpan di penyimpanan privat aplikasi (lihat catatan di bawah).",
       "Hapus total — uninstall aplikasi dari perangkat Anda. Karena tidak ada server, tidak ada salinan data yang tersisa di mana pun setelah aplikasi dihapus."
     ],
-    "dataDeletionNote": "Data yang dihapus melalui langkah di atas tidak dapat dipulihkan, kecuali Anda sebelumnya melakukan backup manual sendiri lewat menu Backup/Restore di Pengaturan.",
+    "dataDeletionNote": "Data yang dihapus melalui langkah di atas tidak dapat dipulihkan, kecuali kamu menekan Urungkan sesaat setelah menghapus atau sebelumnya melakukan backup manual sendiri lewat menu Backup/Restore di Pengaturan. Salinan pengaman otomatis (maksimal 2 terbaru, hanya di penyimpanan privat aplikasi dan tidak dikirim ke mana pun) akan terhapus saat aplikasi di-uninstall, atau tergantikan oleh salinan yang lebih baru.",
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
   },

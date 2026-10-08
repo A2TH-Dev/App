@@ -167,7 +167,7 @@
           <div class="flex items-center gap-unit-md text-on-surface-variant/60">
             <span class="font-label-sm text-label-sm uppercase tracking-tighter">Catat Yuk</span>
             <span class="w-1 h-1 rounded-full bg-outline"></span>
-            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-10-06</span>
+            <span class="font-label-sm text-label-sm">Terakhir diperbarui: 2026-10-08</span>
           </div>
         </header>
 
@@ -191,25 +191,28 @@
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Catat Yuk dibangun dengan prinsip <strong>lokal-dulu (local-first)</strong>. Seluruh data transaksi kamu disimpan di database lokal perangkat — kami bahkan tidak memiliki server sendiri. Data berikut diakses secara lokal untuk menjalankan fitur yang kamu aktifkan sendiri:</p>
             <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
               <li>Notifikasi sistem — khusus untuk mendeteksi transaksi otomatis, dan hanya diproses kalau berasal dari daftar tetap aplikasi bank/e-wallet populer Indonesia yang dikenali aplikasi; notifikasi dari aplikasi lain diabaikan sepenuhnya, tidak disimpan dalam bentuk apapun</li>
-              <li>Rekaman suara sementara — khusus fitur Voice Input, diproses langsung oleh speech-to-text bawaan Android, tidak direkam atau disimpan oleh Catat Yuk</li>
-              <li>Kamera — khusus fitur Scan Struk Belanja, diproses on-device lewat ML Kit OCR (Google, on-device, bukan cloud) — foto struk tidak diunggah ke internet</li>
+              <li>Cuplikan notifikasi yang gagal dibaca — notifikasi dari aplikasi bank/e-wallet yang dikenali tetapi tidak berhasil dibaca disimpan sementara di perangkat (maksimal 10 terakhir) supaya bisa kamu kirim sebagai laporan perbaikan. Nomor rekening/HP, saldo, nama, dan email disamarkan sebelum disimpan. Laporan hanya terkirim jika kamu sendiri menekan tombol kirim lewat email di Pengaturan, dan datanya bisa kamu hapus kapan saja</li>
+              <li>Voice Input — memakai layanan pengenalan suara bawaan sistem Android (umumnya Google). Catat Yuk tidak mengakses mikrofon secara langsung, tidak meminta izin mikrofon, dan tidak merekam atau menyimpan suara. Audio diproses oleh layanan tersebut sesuai pengaturan perangkatmu dan kebijakan privasi penyedianya</li>
+              <li>Kamera — khusus fitur Scan Struk Belanja, diproses on-device lewat ML Kit OCR (Google, on-device, bukan cloud) — foto struk tidak diunggah ke internet; foto hanya disimpan sementara di cache aplikasi dan dihapus setelah dibaca</li>
               <li>Data biometrik untuk Kunci Aplikasi ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Catat Yuk sendiri tidak pernah menyimpan data biometrik apapun</li>
               <li>Advertising ID — dipakai Google Mobile Ads SDK untuk menampilkan iklan pada versi gratis (lihat bagian 03)</li>
               <li>Data diagnostik teknis (crash log, performa aplikasi) — dipakai Firebase Crashlytics & Performance Monitoring untuk membantu kami menemukan & memperbaiki bug lebih cepat; tidak berisi data transaksi/keuangan kamu</li>
+              <li>Statistik penggunaan umum (Firebase Analytics) — dipakai untuk memahami penggunaan aplikasi secara garis besar (mis. jumlah sesi dan jenis perangkat). Hanya aktif setelah kamu memberi persetujuan lewat dialog privasi, dan tidak berisi isi transaksi atau data keuangan kamu</li>
             </ul>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Setelah upgrade ke Pro (pembelian sekali bayar, bukan langganan), aplikasi berhenti total memuat/menampilkan iklan di semua layar. Karena Catat Yuk cuma 1 APK (bukan edisi Free/Pro terpisah), izin internet tetap terdaftar untuk keperluan verifikasi pembelian lewat Google Play Billing — bukan berarti data lain ikut dikirim ke mana pun.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">02</span> Bagaimana Data Digunakan</h3>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk mendeteksi transaksi otomatis, menjalankan fitur yang kamu buka langsung, atau menampilkan iklan (versi gratis). Catat Yuk tidak membangun profil pengguna dari isi transaksi kamu dan tidak menjual data apapun. Notifikasi yang tidak cocok dengan pola transaksi bank/e-wallet langsung diabaikan saat itu juga.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk mendeteksi transaksi otomatis, menjalankan fitur yang kamu buka langsung, atau menampilkan iklan (versi gratis). Catat Yuk tidak membangun profil pengguna dari isi transaksi kamu dan tidak menjual data apapun. Notifikasi dari aplikasi di luar daftar yang dikenali langsung diabaikan saat itu juga; notifikasi dari aplikasi bank/e-wallet yang dikenali tetapi gagal dibaca hanya disimpan sebagai cuplikan tersamar (lihat bagian 01).</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">03</span> Berbagi Data ke Pihak Ketiga</h3>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Catat Yuk tidak memiliki server sendiri — tidak ada transaksi, saldo, atau data lain yang pernah diunggah ke infrastruktur kami, karena infrastruktur itu tidak ada.</p>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menggunakan Google Mobile Ads SDK (AdMob) dan Google User Messaging Platform (UMP) untuk menampilkan iklan pada versi gratis dan mengelola persetujuan privasi pengguna di Uni Eropa/Inggris (GDPR/UK). Lewat SDK ini, Advertising ID dikirim ke Google untuk keperluan penayangan iklan. Kebijakan privasi Google dapat dibaca di <a class="text-primary hover:underline" href="https://policies.google.com/privacy">policies.google.com/privacy</a>.</p>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menggunakan Google Play Billing untuk memproses pembelian Pro — detail pembayaran (kartu, dll) ditangani sepenuhnya oleh Google Play, tidak pernah melewati atau tersimpan di Catat Yuk.</p>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menggunakan Firebase Crashlytics & Performance Monitoring (Google) untuk memantau stabilitas aplikasi — data yang dikirim murni diagnostik teknis (log crash, performa), bukan data transaksi/keuangan kamu.</p>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Backup/restore data (opsional, lewat menu Pengaturan) menghasilkan 1 file JSON yang kamu simpan langsung ke penyimpanan perangkat atau bagikan sendiri lewat share sheet Android (mis. ke Google Drive) — sepenuhnya atas kendali dan pilihan kamu, bukan otomatis dari Catat Yuk.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Menggunakan Firebase Crashlytics, Performance Monitoring, & Analytics (Google) untuk memantau stabilitas dan penggunaan aplikasi secara umum — data yang dikirim murni diagnostik teknis dan statistik penggunaan (log crash, performa, jumlah sesi), bukan data transaksi/keuangan kamu. Analytics baru aktif setelah kamu memberi persetujuan.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Backup/restore data (opsional, lewat menu Pengaturan) menghasilkan 1 file JSON yang kamu simpan langsung ke penyimpanan perangkat atau bagikan sendiri lewat share sheet Android (mis. ke Google Drive) — sepenuhnya atas kendali dan pilihan kamu, bukan otomatis dari Catat Yuk. Pengecualian: sebelum Restore atau Reset, Catat Yuk menyimpan salinan pengaman otomatis (maksimal 2) di penyimpanan privat aplikasi supaya kamu bisa menekan Urungkan; salinan ini tidak dikirim ke mana pun dan terhapus saat aplikasi di-uninstall.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Laporan notifikasi yang gagal dibaca (opsional) dikirim lewat aplikasi email pilihanmu hanya setelah kamu sendiri menekan tombol kirim di Pengaturan, ke alamat kontak developer. Isinya sudah disamarkan (lihat bagian 01) dan kamu bisa memeriksanya sebelum menekan kirim di aplikasi email.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">04</span> Izin Aplikasi</h3>
@@ -223,26 +226,25 @@
                 </thead>
                 <tbody class="divide-y divide-outline-variant/10 font-body-sm text-body-sm text-on-surface-variant">
                   <tr><td class="py-unit-sm pr-unit-md">Notifikasi (Notification Listener)</td><td class="py-unit-sm">Deteksi transaksi otomatis dari notifikasi bank/e-wallet — hanya memproses notifikasi dari daftar aplikasi yang dikenali, sisanya diabaikan</td></tr>
-                  <tr><td class="py-unit-sm pr-unit-md">Kamera</td><td class="py-unit-sm">Scan struk belanja (OCR on-device via ML Kit)</td></tr>
-                  <tr><td class="py-unit-sm pr-unit-md">Rekam Audio</td><td class="py-unit-sm">Voice input pencatatan transaksi</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Kamera</td><td class="py-unit-sm">Scan struk belanja (OCR on-device via ML Kit); foto hanya disimpan sementara di cache dan dihapus setelah dibaca</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Biometrik</td><td class="py-unit-sm">Kunci Aplikasi via sidik jari/wajah lewat <code>BiometricPrompt</code> sistem — data biometrik tidak disimpan aplikasi</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Kirim Notifikasi (Post Notifications)</td><td class="py-unit-sm">Notifikasi peringatan budget & reminder tagihan</td></tr>
                   <tr><td class="py-unit-sm pr-unit-md">Mulai Otomatis Saat Boot</td><td class="py-unit-sm">Supaya jadwal transaksi rutin & ringkasan harian via WorkManager tetap jalan setelah HP di-restart</td></tr>
-                  <tr><td class="py-unit-sm pr-unit-md">Internet & Advertising ID</td><td class="py-unit-sm">Menampilkan iklan AdMob (versi gratis), verifikasi pembelian Pro lewat Google Play Billing, & pemantauan stabilitas lewat Firebase Crashlytics</td></tr>
+                  <tr><td class="py-unit-sm pr-unit-md">Internet & Advertising ID</td><td class="py-unit-sm">Menampilkan iklan AdMob (versi gratis), verifikasi pembelian Pro lewat Google Play Billing, & pemantauan stabilitas serta penggunaan umum lewat Firebase (Crashlytics, Performance, Analytics)</td></tr>
                 </tbody>
               </table>
             </div>
-            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg"><code>android:allowBackup</code> sengaja dimatikan di level sistem — supaya database transaksi dan hash PIN kunci aplikasi tidak bisa diekstrak lewat <code>adb backup</code> tanpa melewati PIN. Catat Yuk punya mekanisme backup/restore sendiri yang eksplisit dan sepenuhnya atas kendali kamu (lihat bagian 02).</p>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg"><code>android:allowBackup</code> sengaja dimatikan di level sistem — supaya database transaksi dan hash PIN kunci aplikasi tidak bisa diekstrak lewat <code>adb backup</code> tanpa melewati PIN. Catat Yuk punya mekanisme backup/restore sendiri yang eksplisit dan sepenuhnya atas kendali kamu (lihat bagian 02). Mikrofon tidak termasuk izin aplikasi: voice input memakai layanan pengenalan suara sistem, bukan akses mikrofon langsung.</p>
           </section>
           <section>
             <h3 class="font-headline-md text-headline-md text-on-surface mb-unit-md flex items-center gap-unit-sm"><span class="text-primary opacity-50">05</span> Cara Menghapus Data Anda</h3>
             <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Karena seluruh data Catat Yuk tersimpan lokal di perangkat Anda tanpa server, Anda dapat menghapus data sendiri kapan saja tanpa perlu menghubungi kami:</p>
             <ul class="list-disc pl-6 font-body-md text-body-md text-on-surface-variant space-y-1 mb-unit-md">
               <li>Hapus sebagian data — buka Catat Yuk &rarr; Pengaturan &rarr; kelola atau hapus transaksi, kategori, budget, maupun goal tabungan secara manual satu per satu.</li>
-              <li>Hapus semua data sekaligus — buka Catat Yuk &rarr; Pengaturan &rarr; tekan tombol <strong>"Hapus Semua Data"</strong>. Seluruh transaksi, kategori kustom, budget, dan goal akan terhapus permanen dari perangkat secara instan.</li>
+              <li>Hapus semua data sekaligus — buka Catat Yuk &rarr; Pengaturan &rarr; tekan tombol <strong>"Hapus Semua Data"</strong>. Seluruh transaksi, kategori kustom, budget, dan goal akan terhapus dari perangkat secara instan. Sesaat setelahnya muncul tombol <strong>Urungkan</strong>, dan satu salinan pengaman tetap tersimpan di penyimpanan privat aplikasi (lihat catatan di bawah).</li>
               <li>Hapus total — uninstall aplikasi dari perangkat Anda. Karena tidak ada server, tidak ada salinan data yang tersisa di mana pun setelah aplikasi dihapus.</li>
             </ul>
-            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data yang dihapus melalui langkah di atas tidak dapat dipulihkan, kecuali Anda sebelumnya melakukan backup manual sendiri lewat menu Backup/Restore di Pengaturan.</p>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-unit-md">Data yang dihapus melalui langkah di atas tidak dapat dipulihkan, kecuali kamu menekan Urungkan sesaat setelah menghapus atau sebelumnya melakukan backup manual sendiri lewat menu Backup/Restore di Pengaturan. Salinan pengaman otomatis (maksimal 2 terbaru, hanya di penyimpanan privat aplikasi dan tidak dikirim ke mana pun) akan terhapus saat aplikasi di-uninstall, atau tergantikan oleh salinan yang lebih baru.</p>
             <p class="font-body-sm text-body-sm text-on-surface-variant mb-unit-lg">Kontak: <strong>Tri Nofri Andi (A2TH-Dev)</strong> — <a class="text-primary hover:underline" href="mailto:a2thdev@gmail.com">a2thdev@gmail.com</a></p>
           </section>
           <section class="border-t border-outline-variant/10 pt-unit-xl pb-unit-xl text-center">

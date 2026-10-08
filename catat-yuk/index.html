@@ -22,7 +22,7 @@
 <meta name="twitter:title" content="Catat Yuk — APK Bench"/>
 <meta name="twitter:description" content="Pencatat keuangan otomatis — baca sendiri dari notifikasi bank & e-wallet."/>
 <meta name="twitter:image" content="https://a2th-dev.github.io/App/catat-yuk/asset/banner.webp"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Catat Yuk","description":"Pencatat keuangan otomatis — baca sendiri dari notifikasi bank & e-wallet.","applicationCategory":"Keuangan","operatingSystem":"Android 8.0 (Oreo)+","softwareVersion":"1.0.4","fileSize":"20MB","url":"https://a2th-dev.github.io/App/catat-yuk/","image":"https://a2th-dev.github.io/App/catat-yuk/asset/banner.webp","inLanguage":"id","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Catat Yuk","description":"Pencatat keuangan otomatis — baca sendiri dari notifikasi bank & e-wallet.","applicationCategory":"Keuangan","operatingSystem":"Android 8.0 (Oreo)+","softwareVersion":"1.0.5","fileSize":"20MB","url":"https://a2th-dev.github.io/App/catat-yuk/","image":"https://a2th-dev.github.io/App/catat-yuk/asset/banner.webp","inLanguage":"id","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
 <style>
   @layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}}
   ::-webkit-scrollbar{display:none;}
@@ -181,7 +181,7 @@
             </div>
           </div>
           <div class="flex flex-wrap gap-unit-sm">
-            <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">info</span> v1.0.4</span>
+            <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">info</span> v1.0.5</span>
             <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">android</span> Android 8.0 (Oreo)+</span>
             <span class="px-unit-sm py-1 rounded bg-surface-container-high text-label-sm font-label-sm text-on-surface-variant flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">database</span> 20 MB</span>
             
@@ -292,8 +292,33 @@
             <div class="absolute left-0 top-1 w-3 h-3 rounded-full bg-primary"></div>
             <div class="absolute left-[5px] top-4 bottom-0 w-[2px] bg-surface-container-highest last:hidden"></div>
             <div class="flex items-center gap-unit-sm mb-unit-xs flex-wrap">
-              <span class="text-body-md font-body-md text-on-surface font-semibold">v1.0.4</span>
+              <span class="text-body-md font-body-md text-on-surface font-semibold">v1.0.5</span>
               <span class="text-label-sm font-label-sm text-primary bg-primary/10 px-unit-sm py-[2px] rounded-full">Terbaru</span>
+              <span class="text-label-sm font-label-sm text-on-surface-variant">2026-10-08</span>
+            </div>
+            <ul class="list-disc pl-5 space-y-1">
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🗑️ Transaksi kini bisa dihapus dan diedit (nominal & catatan) dari Riwayat, lengkap dengan tombol Urungkan</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🏦 Tiap akun bisa dihubungkan ke aplikasi bank/e-wallet sumber notifikasinya, supaya saldo akun ikut berubah dari transaksi otomatis (akun lama: ketuk barisnya)</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🧠 Kategori otomatis lebih akurat — tidak lagi salah menebak dari kata pendek seperti "di"</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🅿️ Dua pembayaran bernominal sama berurutan (mis. parkir 2x) kini keduanya tercatat</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🔐 PIN lebih aman: penyimpanan PIN diperkuat dan kunci setelah salah PIN tidak bisa dilewati dengan mengubah jam HP</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🔓 PIN tidak lagi diminta ulang saat voice input, kamera, atau berbagi file; tombol Back di layar PIN tidak lagi menembus kunci</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🕵️ Widget saldo menyembunyikan saldo secara default jika Kunci Aplikasi aktif; notifikasi aplikasi menyembunyikan nominal di layar kunci</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">💾 Salinan pengaman otomatis sebelum Restore/Reset dengan tombol Urungkan; Restore kini menerima semua jenis file backup</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🧾 Scan struk lebih akurat: membaca TOTAL (bukan uang tunai yang dibayar), foto kamera resolusi penuh, dan lebih hemat memori</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🔁 Tanggal transaksi rutin bulanan tidak lagi bergeser (mis. tanggal 31 kembali ke 31 setelah Februari)</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">📊 Insight "vs bulan lalu" kini membandingkan periode yang sama; donut chart memakai warna kategori</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🕌 Zakat/Sedekah menampilkan info nisab BAZNAS 2026</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🎙️ Izin mikrofon dihapus — voice input memakai layanan pengenalan suara sistem</li>
+              <li class="text-body-sm font-body-sm text-on-surface-variant">🐛 Perbaiki nama merchant yang terpotong (mis. "Rumah Makan Padang"), nominal "Rp1,5 juta" yang terbaca 15, dan tutorial pengguna baru yang kadang terlewat</li>
+            </ul>
+          </div>
+          <div class="relative pl-unit-xl pb-unit-lg last:pb-0">
+            <div class="absolute left-0 top-1 w-3 h-3 rounded-full bg-surface-container-highest"></div>
+            <div class="absolute left-[5px] top-4 bottom-0 w-[2px] bg-surface-container-highest last:hidden"></div>
+            <div class="flex items-center gap-unit-sm mb-unit-xs flex-wrap">
+              <span class="text-body-md font-body-md text-on-surface font-semibold">v1.0.4</span>
+              
               <span class="text-label-sm font-label-sm text-on-surface-variant">2026-09-21</span>
             </div>
             <ul class="list-disc pl-5 space-y-1">
@@ -368,7 +393,7 @@
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-unit-md">
             <div class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-unit-md">
               <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">info</span></div>
-              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Versi</div><div class="text-body-md font-body-md text-on-surface">1.0.4</div></div>
+              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Versi</div><div class="text-body-md font-body-md text-on-surface">1.0.5</div></div>
             </div>
             <div class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-unit-md">
               <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">android</span></div>
@@ -380,7 +405,7 @@
             </div>
             <div class="p-unit-lg rounded-xl bg-surface-container-low hover:bg-surface-container transition-colors flex items-center gap-unit-md">
               <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-primary text-[20px]">update</span></div>
-              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Terakhir Diperbarui</div><div class="text-body-md font-body-md text-on-surface">2026-10-06</div></div>
+              <div><div class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider">Terakhir Diperbarui</div><div class="text-body-md font-body-md text-on-surface">2026-10-08</div></div>
             </div>
           </div>
         </div>

@@ -4,66 +4,79 @@
   "name": "QR Scanner Pro",
   "tagline": "Scan QR & barcode secepat kedip, plus proteksi anti-phishing.",
   "tagline_en": "Blazing-fast QR & barcode scanning, with built-in anti-phishing protection.",
-  "description": "QR Scanner Pro bukan cuma pemindai QR biasa — kenali juga barcode produk (EAN/UPC, Code128/39), scan kartu nama pakai OCR langsung jadi QR kontak, dan generate massal dari file CSV buat badge atau tiket acara. Sebelum kamu buka link hasil scan, aplikasi otomatis memeriksa pola mencurigakan dulu (proteksi \"quishing\"). Semua diproses langsung di HP, riwayat tersimpan lokal — tidak ada akun, tidak ada data yang dikirim ke server.",
-  "description_en": "QR Scanner Pro is more than a plain QR reader — it also recognizes product barcodes (EAN/UPC, Code128/39), scans business cards via OCR straight into a contact QR, and bulk-generates QR codes from a CSV file for event badges or tickets. Before you open a link from a scan, it automatically checks for suspicious patterns first (anti-\"quishing\" protection). Everything runs on-device, history stays local — no account, no data sent to any server.",
+  "description": "QR Scanner Pro bukan cuma pemindai QR biasa — kenali juga barcode produk (EAN/UPC, Code128/39), scan kartu nama pakai OCR langsung jadi QR kontak, dan generate massal dari file CSV buat badge atau tiket acara. Sebelum kamu buka link hasil scan, aplikasi otomatis memeriksa pola mencurigakan dulu (proteksi \"quishing\"). Pemindaian dan riwayat diproses langsung di HP dan tersimpan lokal (isi riwayat dienkripsi) — tanpa akun, dan isi QR yang kamu scan tidak pernah dikirim ke server pengembang.",
+  "description_en": "QR Scanner Pro is more than a plain QR reader — it also recognizes product barcodes (EAN/UPC, Code128/39), scans business cards via OCR straight into a contact QR, and bulk-generates QR codes from a CSV file for event badges or tickets. Before you open a link from a scan, it automatically checks for suspicious patterns first (anti-\"quishing\" protection). Scanning and history are processed on your device and stay local (history contents are encrypted) — no account, and the QR contents you scan are never sent to the developer's servers.",
   "category": "Utilitas & Produktivitas",
   "category_en": "Utilities & Productivity",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 15,
   "repo": "A2TH-Dev/qrscannerpro",
-  "releaseTag": "v1.0.0",
-  "apkFile": "QR-Scanner-Pro_v1.0.0.apk",
+  "releaseTag": "v1.0.2",
+  "apkFile": "QR-Scanner-Pro_v1.0.2.apk",
   "accent": "#0D9488",
   "features": [
     "Scan multi-format: QR, barcode produk (EAN/UPC), Code128/39",
     "Peringatan keamanan URL sebelum buka link hasil scan",
     "Scan kartu nama (OCR) langsung jadi QR kontak",
-    "Generate massal dari CSV buat badge & tiket acara"
+    "Generate massal dari CSV buat badge & tiket acara",
+    "Aksi cepat dari hasil scan: sambungkan WiFi, simpan kontak, telepon, SMS, email, peta, kalender",
+    "Kunci riwayat dengan sidik jari/PIN, isi riwayat terenkripsi di perangkat"
   ],
   "features_en": [
     "Multi-format scanning: QR, product barcodes (EAN/UPC), Code128/39",
     "URL safety check before opening scanned links",
     "Business card scan (OCR) straight to a contact QR",
-    "Bulk CSV generator for event badges & tickets"
+    "Bulk CSV generator for event badges & tickets",
+    "Quick actions from a scan: connect to WiFi, save contacts, call, SMS, email, maps, calendar",
+    "History lock with fingerprint/PIN, history contents encrypted on your device"
   ],
   "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2thdev.qrscannerpro",
   "privacy": {
-    "dataCollectedIntro": "QR Scanner Pro tidak memiliki sistem akun/login dan tidak mengirim data pribadi kamu ke server milik pengembang. Data yang diproses aplikasi:",
+    "dataCollectedIntro": "QR Scanner Pro tidak memiliki sistem akun/login dan tidak mengirim isi QR, riwayat, atau foto kamu ke server milik pengembang. Data yang diproses aplikasi:",
     "dataCollectedList": [
-      "Akses Kamera — dipakai hanya untuk memindai QR code secara langsung. Gambar dari kamera diproses di perangkat (on-device) dan tidak disimpan atau diunggah ke mana pun",
-      "Riwayat Pindai/Buat QR — konten yang kamu pindai atau buat (teks/URL) disimpan secara lokal di perangkat memakai database internal aplikasi, tidak pernah dikirim ke server pengembang. Bisa dihapus kapan saja lewat menu \"Hapus Semua\" di halaman Riwayat",
+      "Akses Kamera — dipakai hanya untuk memindai QR code secara langsung dan memotret kartu nama (scan kartu nama/OCR). Gambar diproses di perangkat (on-device) dan tidak disimpan atau diunggah ke mana pun",
+      "Riwayat Pindai/Buat QR — konten yang kamu pindai atau buat (teks/URL/WiFi, dsb.) disimpan secara lokal di perangkat memakai database internal aplikasi. Isi riwayat dienkripsi di perangkat (AES-256, kunci dilindungi Android Keystore) dan tidak pernah dikirim ke server pengembang. Bisa dihapus kapan saja lewat menu \"Hapus Semua\" di halaman Riwayat",
       "Akses Galeri (opsional) — hanya saat kamu memilih gambar dari galeri untuk dipindai, atau saat menambahkan logo kustom ke QR code yang kamu buat",
-      "Penyimpanan (Android 9 ke bawah) — untuk menyimpan hasil QR code yang kamu buat ke galeri foto perangkat",
-      "Pembelian Premium (opsional) — kalau kamu membeli fitur Premium (QR Berpassword, ekspor PDF, widget), transaksi pembayaran diproses sepenuhnya oleh Google Play Billing. Kami tidak pernah menerima atau menyimpan data kartu/metode pembayaran kamu — hanya status \"sudah/belum membeli\" yang disimpan lokal di perangkat",
-      "Identifier Iklan (Advertising ID) & data teknis perangkat — dikumpulkan oleh Google Mobile Ads SDK (AdMob) untuk menampilkan & mengukur iklan, lihat bagian 03"
+      "Penyimpanan (Android 9 ke bawah) — untuk menyimpan hasil QR code yang kamu buat ke galeri foto perangkat dan file ekspor riwayat ke folder Unduhan/QRScannerPro",
+      "Kunci riwayat (opsional) — kalau kamu mengaktifkannya, verifikasi memakai sidik jari/wajah atau PIN/pola perangkat. Verifikasi dilakukan sepenuhnya oleh Android; aplikasi tidak menerima, melihat, atau menyimpan data biometrik kamu",
+      "Aksi cepat hasil scan — saat kamu menekan tombol seperti Telepon, SMS, Email, Peta, Kalender, Simpan Kontak, atau Sambungkan WiFi, isi QR diserahkan ke aplikasi sistem terkait atas perintahmu. Tidak ada aksi yang berjalan otomatis",
+      "Pembelian Premium (opsional) — kalau kamu membeli fitur Premium (QR Berpassword, ekspor PDF, widget, bebas iklan), transaksi pembayaran diproses sepenuhnya oleh Google Play Billing. Kami tidak pernah menerima atau menyimpan data kartu/metode pembayaran kamu — hanya status \"sudah/belum membeli\" yang disimpan lokal di perangkat",
+      "Identifier Iklan (Advertising ID) & data teknis perangkat — dikumpulkan oleh Google Mobile Ads SDK (AdMob) untuk menampilkan & mengukur iklan (tidak untuk pengguna Premium), lihat bagian 03",
+      "Data diagnostik, analitik, dan laporan error — dikumpulkan layanan Google: Firebase Analytics dan Performance Monitoring (aktif hanya setelah persetujuan/consent mengizinkan; berisi peristiwa penggunaan, ID instalasi, metrik performa, metadata perangkat, dan alamat IP untuk memetakan negara), Firebase Crashlytics (laporan crash: jejak crash, status aplikasi, metadata perangkat, ID instalasi; selalu aktif), dan Google ML Kit (diagnostik dan performa; isi QR dan foto tidak dikirim)"
     ],
-    "dataCollectedNote": "Riwayat sengaja dikecualikan dari cloud backup otomatis Android demi privasi — tersedia ekspor/impor manual (JSON/CSV) lewat menu Riwayat kalau kamu ingin memindahkan data waktu ganti perangkat.",
-    "dataUsage": "Data riwayat scan/generate pada bagian 01 diproses hanya di perangkat kamu, semata-mata untuk menjalankan fitur scan/generate yang kamu buka langsung. QR Scanner Pro tidak membangun profil pengguna dari riwayat tersebut dan tidak menjualnya. Data iklan (lihat bagian 03) dipakai oleh Google sesuai kebijakan privasi Google sendiri.",
+    "dataCollectedNote": "Riwayat sengaja dikecualikan dari cloud backup otomatis Android demi privasi — tersedia ekspor/impor manual (JSON/CSV) lewat menu Riwayat kalau kamu ingin memindahkan data waktu ganti perangkat. File ekspor berisi teks biasa (tidak terenkripsi) dan bisa memuat data sensitif seperti password WiFi — simpan dan bagikan dengan hati-hati.",
+    "dataUsage": "Data riwayat scan/generate pada bagian 01 diproses hanya di perangkat kamu, semata-mata untuk menjalankan fitur scan/generate yang kamu buka langsung. QR Scanner Pro tidak membangun profil pengguna dari riwayat tersebut dan tidak menjualnya. Data iklan (lihat bagian 03) dipakai oleh Google sesuai kebijakan privasi Google sendiri. Data analitik dan laporan error dipakai hanya untuk memahami penggunaan, mengukur performa, dan memperbaiki bug.",
     "dataSharing": [
       "QR Scanner Pro tidak memiliki server sendiri — riwayat pindai/generate kamu tidak pernah diunggah ke infrastruktur kami.",
-      "Menampilkan iklan lewat Google Mobile Ads (Google AdMob). Google, sebagai penyedia iklan pihak ketiga, bisa mengumpulkan Advertising ID, informasi teknis perangkat, perkiraan lokasi, dan data interaksi iklan untuk keperluan personalisasi & pengukuran iklan, sesuai kebijakan privasi Google. Kamu bisa mengatur ulang pilihan consent (GDPR/UK) kapan saja lewat menu Pengaturan > Kelola Consent Iklan di dalam aplikasi. Detail lengkap: <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/technologies/ads\">policies.google.com/technologies/ads</a>.",
+      "Menampilkan iklan lewat Google Mobile Ads (Google AdMob). Google, sebagai penyedia iklan pihak ketiga, bisa mengumpulkan Advertising ID, informasi teknis perangkat, perkiraan lokasi, dan data interaksi iklan untuk keperluan personalisasi & pengukuran iklan, sesuai kebijakan privasi Google. Pengguna Premium tidak melihat iklan. Kamu bisa mengatur ulang pilihan consent (GDPR/UK) kapan saja lewat menu Pengaturan > Kelola Consent Iklan di dalam aplikasi. Detail lengkap: <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/technologies/ads\">policies.google.com/technologies/ads</a>.",
+      "Analitik, performa, dan laporan error lewat Google Firebase (Analytics, Performance Monitoring, Crashlytics) serta diagnostik Google ML Kit. Data ini dikirim ke Google sebagai penyedia layanan dan tidak berisi isi QR, riwayat, atau foto kamu. Firebase Analytics dan Performance Monitoring baru aktif setelah persetujuan (consent) mengizinkan; Crashlytics selalu aktif. Lihat <a class=\"text-primary hover:underline\" href=\"https://firebase.google.com/support/privacy\">firebase.google.com/support/privacy</a>.",
       "Pembelian Premium diproses oleh Google Play Billing — data pembayaran (metode bayar, kartu, dsb.) ditangani sepenuhnya oleh Google Play, tidak pernah melewati atau disimpan oleh QR Scanner Pro maupun pengembang."
     ],
     "permissions": [
       {
         "name": "Kamera",
-        "use": "Memindai QR code secara langsung"
+        "use": "Memindai QR code secara langsung dan memotret kartu nama"
       },
       {
         "name": "Penyimpanan (maks. Android 9)",
-        "use": "Menyimpan QR code hasil generate ke galeri"
+        "use": "Menyimpan QR code hasil generate ke galeri dan file ekspor riwayat ke folder Unduhan"
+      },
+      {
+        "name": "Biometrik / kunci layar (opsional)",
+        "use": "Hanya untuk fitur kunci riwayat. Verifikasi dilakukan oleh Android; aplikasi tidak menerima data biometrik"
       },
       {
         "name": "Internet, Akses Status Jaringan, Akses Status WiFi",
-        "use": "Diperlukan Google Mobile Ads SDK (AdMob) untuk memuat & menampilkan iklan"
+        "use": "Diperlukan untuk memuat iklan (Google AdMob), pembelian Premium (Google Play), serta analitik dan laporan error (Firebase)"
       }
     ],
-    "permissionsNote": "Aplikasi ini memakai Google Mobile Ads (AdMob) sebagai penyedia iklan, dengan Google User Messaging Platform (UMP) untuk mengelola persetujuan (consent) GDPR/UK sebelum iklan personalisasi ditampilkan — kebijakan privasi & data yang dikumpulkan mengikuti Google, bukan pihak ketiga lain.",
-    "dataDeletionIntro": "QR Scanner Pro tidak memiliki server backend, sehingga tidak ada data riwayat yang tersimpan di luar perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk riwayat scan/generate & status consent iklan) adalah dengan meng-uninstall aplikasi dari perangkatmu.",
+    "permissionsNote": "Aplikasi ini memakai Google Mobile Ads (AdMob) sebagai penyedia iklan, dengan Google User Messaging Platform (UMP) untuk mengelola persetujuan (consent) GDPR/UK. Iklan dan Firebase Analytics/Performance Monitoring baru diaktifkan setelah persetujuan mengizinkan — kebijakan privasi & data yang dikumpulkan mengikuti Google, bukan pihak ketiga lain.",
+    "dataDeletionIntro": "QR Scanner Pro tidak memiliki server backend, sehingga tidak ada data riwayat yang tersimpan di luar perangkatmu untuk kami hapus. Cara menghapus SEMUA data lokal aplikasi (termasuk riwayat scan/generate, kunci enkripsi riwayat & status consent iklan) adalah dengan meng-uninstall aplikasi dari perangkatmu, atau menghapus riwayat lewat menu \"Hapus Semua\" di halaman Riwayat.",
     "dataDeletionList": [
       "Iklan di aplikasi ini disediakan Google Mobile Ads (AdMob) — untuk melihat/menghapus data iklan yang dikumpulkan Google atau menonaktifkan personalisasi iklan, kunjungi <a class=\"text-primary hover:underline\" href=\"https://adssettings.google.com\">adssettings.google.com</a>, atau ubah pilihan consent GDPR/UK kapan saja lewat menu Pengaturan > Kelola Consent Iklan di dalam aplikasi.",
-      "Riwayat pembelian Premium dikelola lewat akun Google Play kamu sendiri (Play Store > Menu > Pembayaran & langganan)."
+      "Riwayat pembelian Premium dikelola lewat akun Google Play kamu sendiri (Play Store > Menu > Pembayaran & langganan).",
+      "Data analitik dan laporan error dikelola Google Firebase. Untuk meminta penghapusan data yang terkait perangkatmu, hubungi kami di a2thdev@gmail.com dengan menyebutkan model perangkat dan versi aplikasi."
     ],
     "contactName": "Tri Nofri Andi (A2TH-Dev)",
     "contactEmail": "a2thdev@gmail.com"
