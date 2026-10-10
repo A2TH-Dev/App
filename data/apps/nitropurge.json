@@ -8,13 +8,29 @@
   "description_en": "NitroPurge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with no intrusive ads.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 15.6,
   "repo": "A2TH-Dev/nitropurge",
-  "releaseTag": "v1.1.4",
-  "apkFile": "Nitro-Purge_v1.1.4.apk",
+  "releaseTag": "v1.1.5",
+  "apkFile": "Nitro-Purge_v1.1.5.apk",
   "changelog": [
+    {
+      "version": "1.1.5",
+      "date": "2026-10-10",
+      "category": "Keamanan Data, Hasil Jujur & Stabilitas",
+      "notes": [
+        "🔒 Pengaturan App Lock kini meminta PIN dulu sebelum bisa diubah (berlaku 5 menit, otomatis dicabut saat keluar dari layar)",
+        "👥 Gabung Duplicate Contacts lebih aman: kontak asli tidak lagi dihapus kalau data gagal dipindahkan, dan izin ubah kontak hanya diminta saat dipakai",
+        "♻️ Memulihkan dari Baru Dihapus kini gratis tanpa iklan, dan tidak pernah menimpa file yang sudah ada (file bentrok disimpan sebagai \"nama (dipulihkan)\")",
+        "🧹 Hasil One-Tap Clean kini jujur: ruang yang benar-benar dibebaskan ditampilkan terpisah dari file yang dipindah ke Baru Dihapus. Duplikat di folder WhatsApp, Telegram, dan app chat lain tidak lagi disentuh otomatis",
+        "🔍 Tidak ada lagi file yang terpilih otomatis di Sampah Media Aplikasi dan Foto Mirip - kamu yang memilih. Kategori selain Status/Media Bersama tidak lagi dianggap sampah otomatis",
+        "📦 Backup APK untuk app berformat bundle (split) kini dicadangkan lengkap sebagai file .apks. Kompres Foto menjelaskan bahwa salinan asli disimpan di Baru Dihapus",
+        "📢 Iklan dan pelaporan error hanya aktif setelah persetujuan (consent) selesai, banner iklan diberi jarak dari menu bawah, dan iklan tidak muncul setelah kamu kembali dari halaman izin Pengaturan",
+        "📱 Dukungan Android 8–10: izin penyimpanan kini bisa diberikan, tombol Lupa PIN berfungsi, dan tombol Optimasi Baterai membuka daftar yang benar",
+        "⚡ Widget lebih ringan dan stabil (pemindaian berat dipindah ke latar belakang), dialog tidak hilang saat layar diputar, serta perbaikan label aksesibilitas dan teks"
+      ]
+    },
     {
       "version": "1.1.4",
       "date": "2026-10-02",
@@ -42,6 +58,22 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.1.5",
+      "date": "2026-10-10",
+      "category": "Data Safety, Honest Results & Stability",
+      "notes": [
+        "🔒 App Lock settings now ask for your PIN before they can be changed (valid for 5 minutes, revoked when you leave the screen)",
+        "👥 Safer Duplicate Contacts merge: original contacts are no longer deleted if the data fails to transfer, and the contact-edit permission is only requested when used",
+        "♻️ Restoring from Recently Deleted is now free with no ads, and never overwrites an existing file (conflicts are saved as \"name (restored)\")",
+        "🧹 One-Tap Clean results are now honest: space actually freed is shown separately from files moved to Recently Deleted. Duplicates inside WhatsApp, Telegram and other chat-app folders are no longer touched automatically",
+        "🔍 Nothing is preselected anymore in App Media Junk and Similar Photos - you choose. Categories other than Status/Shared Media are no longer treated as junk by default",
+        "📦 APK Backup for bundle (split) apps now saves the full set as an .apks file. Photo Compressor explains that the original copy is kept in Recently Deleted",
+        "📢 Ads and error reporting only start after consent is resolved, the ad banner is spaced away from the bottom menu, and ads no longer appear when you return from a Settings permission page",
+        "📱 Android 8–10 support: storage permission can now be granted, Forgot PIN works, and the Battery Optimization button opens the right list",
+        "⚡ Lighter, more stable widgets (heavy scanning moved to the background), dialogs survive screen rotation, plus accessibility label and text fixes"
+      ]
+    },
     {
       "version": "1.1.4",
       "date": "2026-10-02",
@@ -92,18 +124,24 @@
       "Kontak (khusus fitur Duplicate Contacts)",
       "Notifikasi aktif (khusus fitur Notification Cleaner — isi notifikasi tidak dibaca untuk tujuan lain)",
       "Data biometrik untuk App Lock ditangani sepenuhnya oleh sistem Android (<code>BiometricPrompt</code>); Nitro Purge sendiri tidak pernah menyimpan data biometrik apapun",
-      "Advertising ID / Device ID, perkiraan &amp; lokasi presisi (jika izin lokasi diberikan), dan alamat IP — dipakai oleh Google AdMob (beserta mitra mediasinya, termasuk Start.io) untuk menampilkan iklan selama kamu belum membeli Upgrade Pro (lihat bagian 03)"
+      "Advertising ID / Device ID, perkiraan lokasi (diturunkan dari alamat IP - Nitro Purge tidak meminta izin lokasi), dan alamat IP — dipakai oleh Google AdMob (beserta mitra mediasinya, termasuk Start.io) untuk menampilkan iklan selama kamu belum membeli Upgrade Pro (lihat bagian 03)",
+      "Laporan error (crash), diagnostik performa, dan interaksi aplikasi tanpa nama lewat Firebase (Crashlytics, Performance Monitoring, Analytics) untuk menjaga stabilitas aplikasi — baru aktif setelah persetujuan (consent) diselesaikan, dan tidak berisi isi file, foto, atau kontak kamu"
     ],
-    "dataCollectedNote": "Setelah membeli <strong>Upgrade Pro</strong> (in-app purchase sekali beli), semua iklan dihentikan dan pengumpulan data untuk keperluan iklan di atas tidak lagi berjalan. Halaman utama juga menjalankan pemindaian ringan otomatis (Storage Insights) untuk menampilkan estimasi ukuran file besar & duplikat begitu aplikasi dibuka — proses ini sepenuhnya lokal, tidak ada data yang dikirim kemanapun.",
+    "dataCollectedNote": "Setelah membeli <strong>Upgrade Pro</strong> (in-app purchase sekali beli), semua iklan dihentikan dan pengumpulan data untuk keperluan iklan di atas tidak lagi berjalan (laporan error Firebase tetap mengikuti pilihan persetujuanmu). Halaman utama juga menjalankan pemindaian ringan otomatis (Storage Insights) untuk menampilkan estimasi ukuran file besar & duplikat begitu aplikasi dibuka — proses ini sepenuhnya lokal, tidak ada data yang dikirim kemanapun.",
     "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah data yang dipakai Google AdMob (beserta mitra mediasinya) untuk menampilkan iklan banner, interstitial, rewarded, dan app-open selama kamu belum membeli Upgrade Pro — dijelaskan lebih lanjut di bagian 03.",
     "dataSharing": [
-      "Nitro Purge menggunakan <strong>Google AdMob</strong> sebagai penyedia iklan utama. AdMob menjalankan sistem mediasi yang bisa melibatkan beberapa mitra jaringan iklan untuk menampilkan banner, interstitial, rewarded, dan app-open ads — saat ini termasuk <strong>Start.io</strong>. Lewat SDK ini, Advertising ID/Device ID, perkiraan &amp; lokasi presisi (jika izin lokasi diberikan), dan alamat IP dikirim ke Google AdMob serta mitra jaringan iklan yang aktif (termasuk Start.io) untuk keperluan penayangan dan personalisasi iklan. Untuk pengguna di kawasan Uni Eropa (EEA), Inggris (UK), dan beberapa wilayah lain, Nitro Purge menampilkan formulir persetujuan (consent) sesuai kerangka kerja Google User Messaging Platform (UMP) sebelum iklan dipersonalisasi ditampilkan, dan kamu bisa mengubah pilihan tersebut kapan saja lewat menu <strong>Preferensi Iklan</strong> di halaman Pengaturan aplikasi. Kamu juga bisa menghentikan pengumpulan &amp; pembagian data ini sepenuhnya kapan saja dengan membeli <strong>Upgrade Pro</strong> di dalam aplikasi (menghapus semua iklan secara permanen). Kebijakan privasi masing-masing dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a> dan <a class=\"text-primary hover:underline\" href=\"https://www.start.io/policy/privacy-policy-ws/\">start.io/policy/privacy-policy-ws</a>.",
+      "Nitro Purge menggunakan <strong>Google AdMob</strong> sebagai penyedia iklan utama. AdMob menjalankan sistem mediasi yang bisa melibatkan beberapa mitra jaringan iklan untuk menampilkan banner, interstitial, rewarded, dan app-open ads — saat ini termasuk <strong>Start.io</strong>. Lewat SDK ini, Advertising ID/Device ID, perkiraan lokasi (dari alamat IP; tanpa izin lokasi), dan alamat IP dikirim ke Google AdMob serta mitra jaringan iklan yang aktif (termasuk Start.io) untuk keperluan penayangan dan personalisasi iklan. Untuk pengguna di kawasan Uni Eropa (EEA), Inggris (UK), dan beberapa wilayah lain, Nitro Purge menampilkan formulir persetujuan (consent) sesuai kerangka kerja Google User Messaging Platform (UMP) sebelum iklan dipersonalisasi ditampilkan, dan kamu bisa mengubah pilihan tersebut kapan saja lewat menu <strong>Preferensi Iklan</strong> di halaman Pengaturan aplikasi. Kamu juga bisa menghentikan pengumpulan &amp; pembagian data ini sepenuhnya kapan saja dengan membeli <strong>Upgrade Pro</strong> di dalam aplikasi (menghapus semua iklan secara permanen). Kebijakan privasi masing-masing dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a> dan <a class=\"text-primary hover:underline\" href=\"https://www.start.io/policy/privacy-policy-ws/\">start.io/policy/privacy-policy-ws</a>.",
+      "Untuk stabilitas aplikasi, Nitro Purge memakai <strong>Firebase</strong> (Google): laporan error, diagnostik performa, dan interaksi aplikasi tanpa nama dikirim ke Google dan hanya diaktifkan setelah persetujuan (consent) di wilayah yang mewajibkannya. Kebijakan privasi: <a class=\"text-primary hover:underline\" href=\"https://firebase.google.com/support/privacy\">firebase.google.com/support/privacy</a>.",
       "Di luar hal tersebut, tidak ada data lain (file, kontak, statistik pemakaian, dsb.) yang dibagikan ke pihak ketiga manapun oleh Nitro Purge."
     ],
     "permissions": [
       {
         "name": "Semua File / Akses Penyimpanan",
         "use": "Junk Cleaner, Large File Finder, Duplicate Finder, Similar Photo Finder, Photo Compressor, Video Cleaner, App Leftover Finder, Screenshot & Screen Recording Cleaner, Stale Downloads Cleaner, TikTok Video Cleaner, Bluetooth File Cleaner, Burst Photo Cleaner"
+      },
+      {
+        "name": "Penyimpanan (Android 8–10)",
+        "use": "Pada Android 8–10 akses file memakai izin baca/tulis penyimpanan (Android 11+ memakai Semua File) untuk fitur pembersihan yang sama"
       },
       {
         "name": "Akses Penggunaan (Usage Access)",
@@ -119,7 +157,7 @@
       },
       {
         "name": "Kontak",
-        "use": "Fitur Duplicate Contacts (data kontak tidak pernah keluar perangkat)"
+        "use": "Fitur Duplicate Contacts: membaca seluruh kontak untuk mencari duplikat, dan mengubah/menghapus hanya setelah kamu menyetujui penggabungan (data kontak tidak pernah keluar perangkat)"
       },
       {
         "name": "Notifikasi",
@@ -147,10 +185,10 @@
       },
       {
         "name": "Internet & Advertising ID",
-        "use": "Menampilkan iklan Google AdMob (banner, interstitial, rewarded, app-open), termasuk mitra mediasi seperti Start.io — berhenti dipakai setelah Upgrade Pro dibeli"
+        "use": "Menampilkan iklan Google AdMob (banner, interstitial, rewarded, app-open), termasuk mitra mediasi seperti Start.io, serta mengirim laporan error Firebase — iklan berhenti setelah Upgrade Pro dibeli"
       }
     ],
-    "permissionsNote": "Setelah Upgrade Pro dibeli, aplikasi berhenti melakukan permintaan iklan sehingga Advertising ID/lokasi tidak lagi dikirim ke Google AdMob maupun mitra mediasinya, meski izin internet & lokasi tetap tercantum di manifest aplikasi. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app, termasuk membersihkan cache semua app sekaligus), bukan perintah shell bebas.",
+    "permissionsNote": "Setelah Upgrade Pro dibeli, aplikasi berhenti melakukan permintaan iklan sehingga Advertising ID/lokasi tidak lagi dikirim ke Google AdMob maupun mitra mediasinya, meski izin internet tetap tercantum di manifest aplikasi. Root Mode tidak membutuhkan izin Android apapun — fitur ini murni opsional, hanya muncul jika perangkat sudah di-root, dan aksi yang bisa dijalankan dibatasi ke daftar tetap (force-stop & bersihkan cache app, termasuk membersihkan cache semua app sekaligus), bukan perintah shell bebas.",
     "dataDeletionIntro": "Nitro Purge tidak memiliki server backend, sehingga tidak ada data yang tersimpan di luar perangkatmu untuk kami hapus. Cara paling sederhana untuk menghapus SEMUA data lokal aplikasi (termasuk pengaturan, PIN App Lock, dan cache pemindaian) adalah meng-uninstall aplikasi dari perangkatmu.",
     "dataDeletionList": [
       "Untuk mereset Advertising ID yang dipakai Google AdMob & mitra mediasinya (lihat bagian 03), buka Setelan Android → Google → Iklan → Setel Ulang ID Iklan.",
