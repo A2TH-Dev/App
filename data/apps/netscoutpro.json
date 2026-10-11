@@ -8,13 +8,29 @@
     "description_en": "NetScout Pro scans nearby WiFi networks, scores the security of the one you're connected to, detects possible fake (evil twin) networks and suspicious new access points, and includes a speed test, DNS check, router port scanner, and signal heatmap — all based on information WiFi networks already broadcast publicly, never by cracking or intercepting anyone's traffic.",
     "category": "Utilitas & Jaringan",
     "category_en": "Utilities & Networking",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "minAndroid": "8.0 (Oreo)",
     "sizeMb": 18,
     "repo": "A2TH-Dev/netscoutpro",
-    "releaseTag": "v1.0.0",
-    "apkFile": "NetScout-Pro_v1.0.0.apk",
+    "releaseTag": "v1.0.2",
+    "apkFile": "NetScout-Pro_v1.0.2.apk",
     "changelog": [
+        {
+            "version": "1.0.2",
+            "date": "2026-10-11",
+            "category": "Akurasi, Stabilitas & Privasi",
+            "notes": [
+                "🛡️ Deteksi keamanan lebih akurat: jaringan WPA3 tidak lagi salah terbaca \"Terbuka\", jaringan OWE (Enhanced Open) dikenali, skor audit kini konsisten dengan temuannya, dan pengecekan SSID default pabrik lebih tepat",
+                "🔍 Cek DNS tidak lagi salah menandai pengaturan DNS yang normal, dan Benchmark DNS kini mengirim query DNS sungguhan untuk hasil yang lebih akurat",
+                "🔒 Pemindai port router kini kompatibel dengan Android 17 (izin jaringan lokal) dan tidak lagi menampilkan port \"tertutup\" saat akses sebenarnya diblokir; ada konfirmasi sebelum memindai",
+                "🚨 Peringatan Rogue Access Point kini dikonfirmasi lewat beberapa kali pindai, bertahan di layar, bisa diabaikan, dan notifikasinya tidak lagi mengganggu sebagai pop-up",
+                "⚡ Uji Kecepatan dan Benchmark DNS kini berjalan lewat WiFi (tidak lari ke data seluler) dan hasil kecepatan diberi label perkiraan",
+                "📶 Auto-refresh menyesuaikan batas Android (±30 detik) dengan penanda jam pembaruan, dan pemindaian berhenti saat aplikasi tidak terlihat sehingga hemat baterai",
+                "🧭 Hasil ping, uji kecepatan, cek DNS, dan port tidak hilang saat pindah tab; layar detail jaringan tidak lagi tertimpa status bar; tombol Kembali lebih sesuai; tampilan Pengaturan dirapikan",
+                "🛡️ Pengaturan baru: saklar data diagnostik anonim (Firebase) dan tautan Kebijakan Privasi",
+                "📱 Widget menampilkan jam pembaruan dan menandai data lama; ekspor CSV lebih aman dan file ekspor lama dibersihkan otomatis"
+            ]
+        },
         {
             "version": "1.0.0",
             "date": "2026-09-23",
@@ -33,6 +49,22 @@
         }
     ],
     "changelog_en": [
+        {
+            "version": "1.0.2",
+            "date": "2026-10-11",
+            "category": "Accuracy, Stability & Privacy",
+            "notes": [
+                "🛡️ More accurate security detection: WPA3 networks are no longer misread as \"Open\", OWE (Enhanced Open) networks are recognized, the audit score now matches its findings, and factory-default SSID detection is more precise",
+                "🔍 DNS Check no longer flags normal DNS settings, and the DNS Benchmark now sends real DNS queries for more accurate results",
+                "🔒 The router port scanner is now compatible with Android 17 (local network permission) and no longer shows ports as \"closed\" when access was actually blocked; it asks for confirmation before scanning",
+                "🚨 Rogue Access Point alerts are now confirmed across several scans, stay on screen, can be dismissed, and their notification no longer interrupts as a pop-up",
+                "⚡ The Speed Test and DNS Benchmark now run over WiFi (they no longer fall back to mobile data) and speed results are labelled as estimates",
+                "📶 Auto-refresh follows Android's scan limit (about every 30 seconds) with a last-updated time, and scanning stops while the app is not visible to save battery",
+                "🧭 Ping, speed test, DNS check, and port results are kept when you switch tabs; the network detail screen no longer sits under the status bar; Back behaves better; the Settings layout was tidied up",
+                "🛡️ New settings: an anonymous diagnostics switch (Firebase) and a Privacy Policy link",
+                "📱 The widget shows its last-updated time and marks old data; CSV export is safer and old export files are cleaned up automatically"
+            ]
+        },
         {
             "version": "1.0.0",
             "date": "2026-09-23",
@@ -65,21 +97,23 @@
         "2.4GHz/5GHz channel analysis & signal heatmap",
         "PDF audit report export + home screen widget"
     ],
-    "playStoreUrl": "",
+    "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2thdev.netscoutpro",
     "privacy": {
-        "dataCollectedIntro": "NetScout Pro hanya membaca informasi jaringan WiFi yang memang sudah disiarkan secara publik oleh access point di sekitar (nama jaringan, kekuatan sinyal, channel, jenis keamanan) — informasi yang sama yang bisa dilihat perangkat lain mana pun di sekitar. Aplikasi ini tidak memiliki fitur cracking, injection, atau bypass keamanan apa pun, dan tidak pernah bisa melihat password WiFi siapa pun.",
+        "dataCollectedIntro": "NetScout Pro membaca informasi jaringan WiFi yang memang sudah disiarkan secara publik oleh access point di sekitar (nama jaringan, kekuatan sinyal, channel, jenis keamanan) — informasi yang sama yang bisa dilihat perangkat lain mana pun di sekitar. Aplikasi ini tidak memiliki fitur cracking, injection, atau bypass keamanan apa pun, dan tidak pernah bisa melihat password WiFi siapa pun. Aplikasi tidak memiliki server backend, jadi hasil pemindaian jaringanmu tidak pernah diunggah ke server kami.",
         "dataCollectedList": [
             "Lokasi perkiraan/tepat — diwajibkan oleh sistem Android agar hasil pemindaian WiFi bisa dibaca aplikasi mana pun (bukan untuk melacak lokasi Anda; NetScout Pro tidak mengirim data lokasi ke mana pun)",
-            "Informasi jaringan WiFi (SSID, BSSID, kekuatan sinyal, channel, jenis keamanan) — diproses sepenuhnya di perangkat untuk fitur Scanner, Audit Keamanan, dan Heatmap",
-            "Statistik penggunaan aplikasi & laporan crash (Firebase Analytics, Crashlytics, Performance Monitoring) — membantu kami menemukan bug dan memahami fitur mana yang paling berguna",
-            "Advertising ID — dipakai oleh Start.io SDK untuk menampilkan iklan banner"
+            "Informasi jaringan WiFi (SSID, BSSID, kekuatan sinyal, channel, jenis keamanan) dan info koneksi (alamat IP, gateway, DNS) — diproses sepenuhnya di perangkat untuk fitur Scanner, Audit Keamanan, dan Heatmap. Daftar jaringan favorit, riwayat sinyal, dan sesi Heatmap disimpan hanya secara lokal di perangkat",
+            "Uji jaringan yang kamu jalankan sendiri — Uji Kecepatan memakai server Cloudflare, sedangkan Ping dan Benchmark DNS menghubungi server DNS publik (Google, Cloudflare, Quad9, OpenDNS, AdGuard). Seperti koneksi internet biasa, server tujuan melihat alamat IP kamu; tidak ada data lain yang dikirim. Pemindai port hanya terhubung ke router (gateway) di jaringanmu sendiri",
+            "Data diagnostik & statistik penggunaan (Firebase Analytics, Crashlytics, Performance Monitoring) — log error, model perangkat, versi Android dan aplikasi, serta interaksi dasar dengan aplikasi; tidak berisi nama WiFi, BSSID, atau password. Bisa dimatikan kapan saja lewat Setelan → \"Kirim data diagnostik anonim\"",
+            "Advertising ID dan data iklan (Google AdMob) — ID iklan, perkiraan lokasi dari alamat IP, interaksi dengan iklan, dan informasi diagnostik SDK iklan, dipakai untuk menampilkan iklan banner serta mencegah penipuan iklan"
         ],
-        "dataCollectedNote": "Semua fitur analisis jaringan (Scanner, Audit Keamanan, Uji Kecepatan, Cek DNS, Pemindai Port, Heatmap) berjalan sepenuhnya lokal di perangkat kamu — tidak ada data hasil pemindaian jaringan yang dikirim ke server kami, karena kami memang tidak punya server backend sama sekali.",
-        "dataUsage": "Data lokasi dan informasi jaringan WiFi pada bagian 01 dipakai <strong>hanya di perangkat kamu</strong> untuk menjalankan fitur pemindaian dan analisis yang kamu buka secara langsung. Statistik penggunaan & laporan crash dikirim ke Firebase (Google) untuk membantu perbaikan aplikasi. Advertising ID dipakai Start.io untuk menampilkan iklan yang relevan, sesuai pilihan persetujuan yang kamu buat lewat dialog consent di dalam aplikasi.",
+        "dataCollectedNote": "Semua fitur analisis jaringan (Scanner, Audit Keamanan, Uji Kecepatan, Cek DNS, Pemindai Port, Heatmap) berjalan di perangkat kamu — tidak ada data hasil pemindaian jaringan yang dikirim ke server kami, karena kami memang tidak punya server backend sama sekali. Laporan ekspor (CSV/PDF) hanya dibuat atas permintaanmu dan hanya dibagikan ke tempat yang kamu pilih sendiri.",
+        "dataUsage": "Data lokasi dan informasi jaringan WiFi pada bagian 01 dipakai <strong>hanya di perangkat kamu</strong> untuk menjalankan fitur pemindaian dan analisis yang kamu buka secara langsung. Data diagnostik dan statistik penggunaan dikirim ke Firebase (Google) untuk menemukan bug dan memperbaiki aplikasi. Advertising ID dan data iklan dipakai Google AdMob untuk menampilkan iklan, sesuai pilihan persetujuan yang kamu buat lewat dialog consent (Google UMP) di wilayah yang mewajibkannya.",
         "dataSharing": [
-            "<strong>Firebase (Google):</strong> Analytics, Crashlytics, dan Performance Monitoring — kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
-            "<strong>Start.io:</strong> menampilkan iklan banner memakai Advertising ID, sesuai pilihan consent yang kamu buat (bisa diubah kapan saja lewat Setelan → Opsi Privasi Iklan). Kebijakan privasi Start.io dapat dibaca di situs resmi mereka.",
-            "Di luar dua hal tersebut, tidak ada data lain (hasil scan WiFi, lokasi, riwayat sinyal) yang dibagikan ke pihak ketiga manapun oleh NetScout Pro."
+            "<strong>Firebase (Google):</strong> Analytics, Crashlytics, dan Performance Monitoring — aktif secara default dan bisa dimatikan lewat Setelan → \"Kirim data diagnostik anonim\". Kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
+            "<strong>Google AdMob &amp; User Messaging Platform (UMP):</strong> menampilkan iklan banner memakai Advertising ID dan mengelola persetujuan iklan, termasuk untuk pengguna di wilayah EEA/UK. Pilihan consent bisa diubah kapan saja lewat Setelan → Opsi Privasi Iklan (tampil bila diwajibkan di wilayahmu). Tunduk pada <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
+            "<strong>Server uji jaringan:</strong> saat kamu menjalankan Uji Kecepatan, Ping, atau Benchmark DNS, aplikasi terhubung ke Cloudflare dan server DNS publik yang disebut di bagian 01 sehingga mereka dapat melihat alamat IP kamu, seperti pada koneksi internet biasa.",
+            "Di luar hal-hal tersebut, tidak ada data lain (hasil scan WiFi, lokasi, riwayat sinyal, daftar favorit) yang dibagikan ke pihak ketiga manapun oleh NetScout Pro."
         ],
         "permissions": [
             {
@@ -91,8 +125,12 @@
                 "use": "Alternatif modern untuk izin lokasi khusus pemindaian WiFi, sesuai kebijakan Android terbaru"
             },
             {
-                "name": "Internet & Info Jaringan",
-                "use": "Uji Kecepatan, Cek DNS, Pemindai Port, Firebase, dan menampilkan iklan Start.io"
+                "name": "Jaringan Lokal (Android 17+)",
+                "use": "Hanya dipakai saat kamu menjalankan Pemindai Port, agar aplikasi boleh terhubung ke router di jaringanmu sendiri. Pemindaian hanya ke router, tidak ke perangkat lain"
+            },
+            {
+                "name": "Status WiFi & Internet",
+                "use": "Membaca dan memulai pemindaian WiFi, membaca info koneksi, serta Uji Kecepatan, Cek DNS, Firebase, dan menampilkan iklan AdMob"
             },
             {
                 "name": "Notifikasi",
@@ -100,7 +138,13 @@
             }
         ],
         "permissionsNote": "Semua fitur pemindaian jaringan bisa dipakai tanpa NetScout Pro pernah terhubung ke jaringan yang dipindai — aplikasi hanya membaca sinyal yang disiarkan publik, sama seperti cara kerja aplikasi WiFi analyzer manapun.",
-        "dataDeletionIntro": "NetScout Pro tidak memiliki server backend untuk menyimpan hasil pemindaian jaringan, riwayat sinyal, atau pengaturan kamu — semuanya tersimpan lokal di perangkat. Cara menghapus semua data lokal aplikasi adalah dengan meng-uninstall aplikasi dari perangkatmu. Untuk data yang dikirim ke Firebase/Start.io, ikuti tautan kebijakan privasi masing-masing di atas.",
+        "dataDeletionIntro": "NetScout Pro tidak memiliki server backend untuk menyimpan hasil pemindaian jaringan, riwayat sinyal, atau pengaturan kamu — semuanya tersimpan lokal di perangkat. Cara menghapus semua data lokal aplikasi adalah dengan meng-uninstall aplikasi dari perangkatmu, atau memilih Hapus Data di Setelan Android → Aplikasi → NetScout Pro.",
+        "dataDeletionList": [
+            "Untuk mereset Advertising ID yang dipakai AdMob, buka Setelan Android → Google → Iklan → Setel Ulang ID Iklan.",
+            "Untuk menghentikan pengiriman data diagnostik, matikan \"Kirim data diagnostik anonim\" di Setelan dalam aplikasi. Untuk mengubah atau mencabut persetujuan iklan, buka Setelan → Opsi Privasi Iklan (tersedia bila persetujuan diwajibkan di wilayahmu).",
+            "Data yang sudah dikirim ke Firebase atau Google AdMob dikelola oleh Google; ikuti tautan kebijakan privasi di bagian 03.",
+            "File laporan (CSV/PDF) yang kamu bagikan atau simpan sendiri berada di luar kendali aplikasi; hapus manual dari penyimpananmu atau layanan tempat kamu menyimpannya."
+        ],
         "contactName": "Tri Nofri Andi (A2TH-Dev)",
         "contactEmail": "a2thdev@gmail.com"
     },
