@@ -8,13 +8,22 @@
     "description_en": "HardwareX provides advanced, high-precision hardware diagnostics for professionals and enthusiasts alike. Check your device's full specs (CPU, RAM, storage, display, battery, camera, sensors, network, Bluetooth), monitor real-time CPU load, run performance benchmarks, and view device security status — all from one dashboard you can refresh anytime with \"Run Audit\".",
     "category": "Utilitas & Sistem",
     "category_en": "Utilities & System",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "minAndroid": "7.0 (Nougat)",
     "sizeMb": 5.98,
     "repo": "A2TH-Dev/hardwarex",
-    "releaseTag": "v1.0.1",
-    "apkFile": "HardwareX_v1.0.1.apk",
+    "releaseTag": "v1.0.2",
+    "apkFile": "HardwareX_v1.0.2.apk",
     "changelog": [
+        {
+            "version": "1.0.2",
+            "date": "2026-10-12",
+            "notes": [
+                "🐛 Memperbaiki crash saat menampilkan kartu informasi kategori (Dashboard & detail perangkat)",
+                "📢 Penyempurnaan konfigurasi iklan",
+                "🔧 Perbaikan stabilitas dan penyempurnaan kecil"
+            ]
+        },
         {
             "version": "1.0.1",
             "date": "2026-10-05",
@@ -40,6 +49,15 @@
         }
     ],
     "changelog_en": [
+        {
+            "version": "1.0.2",
+            "date": "2026-10-12",
+            "notes": [
+                "🐛 Fixed a crash when showing the category info cards (Dashboard & device details)",
+                "📢 Ad configuration improvements",
+                "🔧 Stability fixes and minor improvements"
+            ]
+        },
         {
             "version": "1.0.1",
             "date": "2026-10-05",
