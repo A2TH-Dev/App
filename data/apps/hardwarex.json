@@ -9,7 +9,7 @@
     "category": "Utilitas & Sistem",
     "category_en": "Utilities & System",
     "version": "1.0.2",
-    "minAndroid": "7.0 (Nougat)",
+    "minAndroid": "8.0 (Oreo)",
     "sizeMb": 5.98,
     "repo": "A2TH-Dev/hardwarex",
     "releaseTag": "v1.0.2",
