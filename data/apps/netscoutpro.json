@@ -8,13 +8,24 @@
     "description_en": "NetScout Pro scans nearby WiFi networks, scores the security of the one you're connected to, detects possible fake (evil twin) networks and suspicious new access points, and includes a speed test, DNS check, router port scanner, and signal heatmap — all based on information WiFi networks already broadcast publicly, never by cracking or intercepting anyone's traffic.",
     "category": "Utilitas & Jaringan",
     "category_en": "Utilities & Networking",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "minAndroid": "8.0 (Oreo)",
-    "sizeMb": 5.87,
+    "sizeMb": 5.88,
     "repo": "A2TH-Dev/netscoutpro",
-    "releaseTag": "v1.0.2",
-    "apkFile": "NetScout-Pro_v1.0.2.apk",
+    "releaseTag": "v1.0.3",
+    "apkFile": "NetScout-Pro_v1.0.3.apk",
     "changelog": [
+        {
+            "version": "1.0.3",
+            "date": "2026-10-12",
+            "category": "Stabilitas & Privasi",
+            "notes": [
+                "🛠️ Perbaikan crash saat aplikasi dibuka pada versi rilis",
+                "📢 Banner iklan lebih andal tampil berkat percobaan ulang bertahap",
+                "🔒 Tombol Kebijakan Privasi di Pengaturan kini tampil dan membuka halaman kebijakan privasi",
+                "📱 Tampilan Pengaturan dirapikan: saklar Auto-refresh tidak lagi keluar dari kartunya"
+            ]
+        },
         {
             "version": "1.0.2",
             "date": "2026-10-11",
@@ -49,6 +60,17 @@
         }
     ],
     "changelog_en": [
+        {
+            "version": "1.0.3",
+            "date": "2026-10-12",
+            "category": "Stability & Privacy",
+            "notes": [
+                "🛠️ Fixed a crash on launch in the release version",
+                "📢 Banner ads now load more reliably thanks to staged retries",
+                "🔒 The Privacy Policy button in Settings now appears and opens the privacy policy page",
+                "📱 Settings layout tidied up: the Auto-refresh switch no longer overflows its card"
+            ]
+        },
         {
             "version": "1.0.2",
             "date": "2026-10-11",
