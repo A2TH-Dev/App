@@ -8,13 +8,24 @@
   "description_en": "NitroPurge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with ads you can remove through Upgrade Pro.",
   "category": "Utilitas & Optimasi",
   "category_en": "Utilities & Optimization",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 15.6,
   "repo": "A2TH-Dev/nitropurge",
-  "releaseTag": "v1.1.6",
-  "apkFile": "Nitro-Purge_v1.1.6.apk",
+  "releaseTag": "v1.1.7",
+  "apkFile": "Nitro-Purge_v1.1.7.apk",
   "changelog": [
+    {
+      "version": "1.1.7",
+      "date": "2026-10-29",
+      "category": "Junk Cleaner Lebih Cepat & Izin Lebih Sedikit",
+      "notes": [
+        "⚡ Junk Cleaner jauh lebih cepat saat membersihkan ribuan file: laporan progres tidak lagi memperlambat proses, penghapusan dikelompokkan per folder, dan pratinjau gambar hanya dimuat untuk item yang tampil sehingga memori lebih hemat",
+        "🧹 Pembersihan file .tmp dan .log dalam jumlah besar (lebih dari 100 file) kini langsung dihapus permanen, tidak lagi dipindah satu per satu ke Baru Dihapus yang sangat lambat. Dalam jumlah kecil tetap bisa dipulihkan",
+        "🔒 Izin \"Lihat Semua Aplikasi\" dihapus. App Manager, App Leftover, dan Auto-Start kini menampilkan aplikasi yang punya ikon di launcher",
+        "📝 Keterangan privasi dirapikan: rincian izin disesuaikan dan referensi mitra iklan lama dihapus"
+      ]
+    },
     {
       "version": "1.1.6",
       "date": "2026-10-11",
@@ -70,6 +81,17 @@
     }
   ],
   "changelog_en": [
+    {
+      "version": "1.1.7",
+      "date": "2026-10-29",
+      "category": "Faster Junk Cleaner & Fewer Permissions",
+      "notes": [
+        "⚡ Junk Cleaner is much faster when cleaning thousands of files: progress updates no longer slow things down, deletion is grouped per folder, and image previews load only for visible items to save memory",
+        "🧹 Cleaning large numbers of .tmp and .log files (more than 100) is now deleted permanently right away instead of being moved one by one to Recently Deleted, which was very slow. Small batches can still be restored",
+        "🔒 The \"See All Apps\" permission was removed. App Manager, App Leftover, and Auto-Start now show apps that have a launcher icon",
+        "📝 Privacy details were tidied up: permission descriptions were updated and the old ad-partner reference was removed"
+      ]
+    },
     {
       "version": "1.1.6",
       "date": "2026-10-11",
@@ -154,7 +176,7 @@
     "dataCollectedNote": "Setelah membeli <strong>Upgrade Pro</strong> (in-app purchase sekali beli), aplikasi berhenti meminta dan menampilkan iklan (laporan error Firebase tetap mengikuti pilihan persetujuanmu). Halaman utama juga menjalankan pemindaian ringan otomatis (Storage Insights) untuk menampilkan estimasi ukuran file besar & duplikat begitu aplikasi dibuka — proses ini sepenuhnya lokal, tidak ada data yang dikirim kemanapun.",
     "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah data yang dipakai Google AdMob untuk menampilkan iklan banner, interstitial, rewarded, dan app-open selama kamu belum membeli Upgrade Pro — dijelaskan lebih lanjut di bagian 03. Nitro Purge tidak ditujukan untuk anak-anak. Pembelian Upgrade Pro diproses oleh Google Play; Nitro Purge tidak menerima data kartu atau pembayaranmu.",
     "dataSharing": [
-      "Nitro Purge menggunakan <strong>Google AdMob</strong> sebagai penyedia iklan. AdMob dipakai untuk menampilkan banner, interstitial, rewarded, dan app-open ads. Lewat SDK ini, Advertising ID/Device ID, perkiraan lokasi (dari alamat IP; tanpa izin lokasi), dan alamat IP dikirim ke Google AdMob untuk keperluan penayangan dan personalisasi iklan. Untuk pengguna di kawasan Uni Eropa (EEA), Inggris (UK), dan beberapa wilayah lain, Nitro Purge menampilkan formulir persetujuan (consent) sesuai kerangka kerja Google User Messaging Platform (UMP) sebelum iklan dipersonalisasi ditampilkan, dan kamu bisa mengubah pilihan tersebut kapan saja lewat menu <strong>Preferensi Iklan</strong> di halaman Pengaturan aplikasi. Kamu juga bisa menghentikan semua iklan secara permanen kapan saja dengan membeli <strong>Upgrade Pro</strong> di dalam aplikasi. Kebijakan privasi masing-masing dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a> dan <a class=\"text-primary hover:underline\" href=\"https://www.start.io/policy/privacy-policy-ws/\">start.io/policy/privacy-policy-ws</a>.",
+      "Nitro Purge menggunakan <strong>Google AdMob</strong> sebagai penyedia iklan. AdMob dipakai untuk menampilkan banner, interstitial, rewarded, dan app-open ads. Lewat SDK ini, Advertising ID/Device ID, perkiraan lokasi (dari alamat IP; tanpa izin lokasi), dan alamat IP dikirim ke Google AdMob untuk keperluan penayangan dan personalisasi iklan. Untuk pengguna di kawasan Uni Eropa (EEA), Inggris (UK), dan beberapa wilayah lain, Nitro Purge menampilkan formulir persetujuan (consent) sesuai kerangka kerja Google User Messaging Platform (UMP) sebelum iklan dipersonalisasi ditampilkan, dan kamu bisa mengubah pilihan tersebut kapan saja lewat menu <strong>Preferensi Iklan</strong> di halaman Pengaturan aplikasi. Kamu juga bisa menghentikan semua iklan secara permanen kapan saja dengan membeli <strong>Upgrade Pro</strong> di dalam aplikasi. Kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
       "Untuk stabilitas aplikasi, Nitro Purge memakai <strong>Firebase</strong> (Google): laporan error, diagnostik performa, dan interaksi aplikasi tanpa nama dikirim ke Google dan hanya diaktifkan setelah persetujuan (consent) di wilayah yang mewajibkannya. Kebijakan privasi: <a class=\"text-primary hover:underline\" href=\"https://firebase.google.com/support/privacy\">firebase.google.com/support/privacy</a>.",
       "Di luar hal tersebut, tidak ada data lain (file, kontak, statistik pemakaian, dsb.) yang dibagikan ke pihak ketiga manapun oleh Nitro Purge."
     ],
@@ -172,8 +194,8 @@
         "use": "Usage Insights / Screen Time, App Manager (ukuran cache per app)"
       },
       {
-        "name": "Lihat Semua Aplikasi",
-        "use": "App Manager, App Leftover, App Auto-Start"
+        "name": "Daftar Aplikasi (Launcher)",
+        "use": "App Manager, App Leftover, App Auto-Start: hanya melihat aplikasi yang tampil di launcher lewat deklarasi <queries>, tanpa izin khusus untuk melihat semua aplikasi"
       },
       {
         "name": "Hapus Aplikasi",
