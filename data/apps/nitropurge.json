@@ -2,12 +2,12 @@
   "id": "app1",
   "slug": "nitropurge",
   "name": "Nitro Purge",
-  "tagline": "Pembersih & optimizer Android tanpa drama.",
-  "tagline_en": "Android cleaner & optimizer without the fuss.",
+  "tagline": "Pembersih Android yang ringan, tanpa drama.",
+  "tagline_en": "A lightweight Android cleaner, without the fuss.",
   "description": "NitroPurge membersihkan file sampah, mengubah ukuran foto, menghapus duplikat kontak, dan mengunci aplikasi sensitif dengan PIN — semua dari satu dashboard ringan dengan iklan yang bisa dihilangkan lewat Upgrade Pro.",
   "description_en": "NitroPurge clears junk files, resizes photos, removes duplicate contacts, and locks sensitive apps with a PIN — all from one lightweight dashboard with ads you can remove through Upgrade Pro.",
-  "category": "Utilitas & Optimasi",
-  "category_en": "Utilities & Optimization",
+  "category": "Utilitas",
+  "category_en": "Utilities",
   "version": "1.1.7",
   "minAndroid": "8.0 (Oreo)",
   "sizeMb": 15.0,
@@ -41,12 +41,12 @@
     {
       "version": "1.1.5",
       "date": "2026-10-10",
-      "category": "Keamanan Data, Hasil Jujur & Stabilitas",
+      "category": "Keamanan Data, Hasil Lebih Akurat & Stabilitas",
       "notes": [
         "🔒 Pengaturan App Lock kini meminta PIN dulu sebelum bisa diubah (berlaku 5 menit, otomatis dicabut saat keluar dari layar)",
         "👥 Gabung Duplicate Contacts lebih aman: kontak asli tidak lagi dihapus kalau data gagal dipindahkan, dan izin ubah kontak hanya diminta saat dipakai",
         "♻️ Memulihkan dari Baru Dihapus kini gratis tanpa iklan, dan tidak pernah menimpa file yang sudah ada (file bentrok disimpan sebagai \"nama (dipulihkan)\")",
-        "🧹 Hasil One-Tap Clean kini jujur: ruang yang benar-benar dibebaskan ditampilkan terpisah dari file yang dipindah ke Baru Dihapus. Duplikat di folder WhatsApp, Telegram, dan app chat lain tidak lagi disentuh otomatis",
+        "🧹 Hasil One-Tap Clean kini lebih akurat: ruang yang benar-benar dibebaskan ditampilkan terpisah dari file yang dipindah ke Baru Dihapus. Duplikat di folder WhatsApp, Telegram, dan app chat lain tidak lagi disentuh otomatis",
         "🔍 Tidak ada lagi file yang terpilih otomatis di Sampah Media Aplikasi dan Foto Mirip - kamu yang memilih. Kategori selain Status/Media Bersama tidak lagi dianggap sampah otomatis",
         "📦 Backup APK untuk app berformat bundle (split) kini dicadangkan lengkap sebagai file .apks. Kompres Foto menjelaskan bahwa salinan asli disimpan di Baru Dihapus",
         "📢 Iklan dan pelaporan error hanya aktif setelah persetujuan (consent) selesai, banner iklan diberi jarak dari menu bawah, dan iklan tidak muncul setelah kamu kembali dari halaman izin Pengaturan",
@@ -107,12 +107,12 @@
     {
       "version": "1.1.5",
       "date": "2026-10-10",
-      "category": "Data Safety, Honest Results & Stability",
+      "category": "Data Safety, More Accurate Results & Stability",
       "notes": [
         "🔒 App Lock settings now ask for your PIN before they can be changed (valid for 5 minutes, revoked when you leave the screen)",
         "👥 Safer Duplicate Contacts merge: original contacts are no longer deleted if the data fails to transfer, and the contact-edit permission is only requested when used",
         "♻️ Restoring from Recently Deleted is now free with no ads, and never overwrites an existing file (conflicts are saved as \"name (restored)\")",
-        "🧹 One-Tap Clean results are now honest: space actually freed is shown separately from files moved to Recently Deleted. Duplicates inside WhatsApp, Telegram and other chat-app folders are no longer touched automatically",
+        "🧹 One-Tap Clean results are now more accurate: space actually freed is shown separately from files moved to Recently Deleted. Duplicates inside WhatsApp, Telegram and other chat-app folders are no longer touched automatically",
         "🔍 Nothing is preselected anymore in App Media Junk and Similar Photos - you choose. Categories other than Status/Shared Media are no longer treated as junk by default",
         "📦 APK Backup for bundle (split) apps now saves the full set as an .apks file. Photo Compressor explains that the original copy is kept in Recently Deleted",
         "📢 Ads and error reporting only start after consent is resolved, the ad banner is spaced away from the bottom menu, and ads no longer appear when you return from a Settings permission page",
@@ -163,7 +163,7 @@
   ],
   "playStoreUrl": "https://play.google.com/store/apps/details?id=id.a2thdev.nitropurge.free",
   "privacy": {
-    "dataCollectedIntro": "Nitro Purge dibangun dengan prinsip <strong>local-first</strong>. Aplikasi ini tidak memiliki server backend, sehingga tidak ada file, foto, kontak, atau data pemakaian yang pernah diunggah ke internet. Data berikut diakses secara lokal di perangkat kamu untuk menjalankan fitur yang kamu pilih:",
+    "dataCollectedIntro": "Nitro Purge dibangun dengan prinsip <strong>local-first</strong>. Aplikasi ini tidak memiliki server backend, sehingga file, foto, dan kontak kamu tidak pernah diunggah ke internet. Satu-satunya data yang keluar dari perangkat adalah data iklan (Google AdMob) serta laporan error dan analitik tanpa nama (Firebase), seperti dijelaskan di bagian 03. Data berikut diakses di perangkat kamu untuk menjalankan fitur yang kamu pilih:",
     "dataCollectedList": [
       "File & media (untuk Junk Cleaner, Large File Finder, Duplicate Finder, Photo Compressor, Video Cleaner, App Leftover Finder, Screenshot & Screen Recording Cleaner, Stale Downloads Cleaner, TikTok Video Cleaner, Bluetooth File Cleaner, Burst Photo Cleaner)",
       "Statistik penggunaan aplikasi (untuk Usage Insights / Screen Time dan App Manager)",
@@ -174,7 +174,7 @@
       "Laporan error (crash), diagnostik performa, dan interaksi aplikasi tanpa nama lewat Firebase (Crashlytics, Performance Monitoring, Analytics) untuk menjaga stabilitas aplikasi — baru aktif setelah persetujuan (consent) diselesaikan, dan tidak berisi isi file, foto, atau kontak kamu"
     ],
     "dataCollectedNote": "Setelah membeli <strong>Upgrade Pro</strong> (in-app purchase sekali beli), aplikasi berhenti meminta dan menampilkan iklan (laporan error Firebase tetap mengikuti pilihan persetujuanmu). Halaman utama juga menjalankan pemindaian ringan otomatis (Storage Insights) untuk menampilkan estimasi ukuran file besar & duplikat begitu aplikasi dibuka — proses ini sepenuhnya lokal, tidak ada data yang dikirim kemanapun.",
-    "dataUsage": "Seluruh data pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah data yang dipakai Google AdMob untuk menampilkan iklan banner, interstitial, rewarded, dan app-open selama kamu belum membeli Upgrade Pro — dijelaskan lebih lanjut di bagian 03. Nitro Purge tidak ditujukan untuk anak-anak. Pembelian Upgrade Pro diproses oleh Google Play; Nitro Purge tidak menerima data kartu atau pembayaranmu.",
+    "dataUsage": "Data file, media, kontak, notifikasi, dan statistik penggunaan pada bagian 01 diproses <strong>hanya di perangkat kamu</strong>, semata-mata untuk menjalankan fitur pembersihan, analisis penyimpanan, atau keamanan yang kamu buka secara langsung. Nitro Purge tidak membangun profil pengguna, tidak menjual data, dan tidak menggunakan data tersebut untuk tujuan lain di luar fitur yang bersangkutan. Satu-satunya pengecualian adalah data yang dipakai Google AdMob untuk menampilkan iklan banner, interstitial, rewarded, dan app-open selama kamu belum membeli Upgrade Pro — dijelaskan lebih lanjut di bagian 03. Nitro Purge tidak ditujukan untuk anak-anak. Pembelian Upgrade Pro diproses oleh Google Play; Nitro Purge tidak menerima data kartu atau pembayaranmu.",
     "dataSharing": [
       "Nitro Purge menggunakan <strong>Google AdMob</strong> sebagai penyedia iklan. AdMob dipakai untuk menampilkan banner, interstitial, rewarded, dan app-open ads. Lewat SDK ini, Advertising ID/Device ID, perkiraan lokasi (dari alamat IP; tanpa izin lokasi), dan alamat IP dikirim ke Google AdMob untuk keperluan penayangan dan personalisasi iklan. Untuk pengguna di kawasan Uni Eropa (EEA), Inggris (UK), dan beberapa wilayah lain, Nitro Purge menampilkan formulir persetujuan (consent) sesuai kerangka kerja Google User Messaging Platform (UMP) sebelum iklan dipersonalisasi ditampilkan, dan kamu bisa mengubah pilihan tersebut kapan saja lewat menu <strong>Preferensi Iklan</strong> di halaman Pengaturan aplikasi. Kamu juga bisa menghentikan semua iklan secara permanen kapan saja dengan membeli <strong>Upgrade Pro</strong> di dalam aplikasi. Kebijakan privasi Google dapat dibaca di <a class=\"text-primary hover:underline\" href=\"https://policies.google.com/privacy\">policies.google.com/privacy</a>.",
       "Untuk stabilitas aplikasi, Nitro Purge memakai <strong>Firebase</strong> (Google): laporan error, diagnostik performa, dan interaksi aplikasi tanpa nama dikirim ke Google dan hanya diaktifkan setelah persetujuan (consent) di wilayah yang mewajibkannya. Kebijakan privasi: <a class=\"text-primary hover:underline\" href=\"https://firebase.google.com/support/privacy\">firebase.google.com/support/privacy</a>.",
